@@ -1,0 +1,5 @@
+--model llama_70b --strategy stereotype_replacement
+--model llama_70b --strategy counter_imaging
+--model llama_70b --strategy individuating
+--model llama_70b --strategy perspective_taking
+--model llama_70b --strategy positive_contact

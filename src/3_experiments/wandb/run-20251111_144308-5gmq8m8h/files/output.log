@@ -1,0 +1,25 @@
+  0%|          | 0/63 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/craj/venvs/attenv/lib/python3.8/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 79%|███████▉  | 50/63 [06:28<01:38,  7.55s/i/home/craj/venvs/attenv/lib/python3.8/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+{'loss': 0.632, 'grad_norm': 0.10166139900684357, 'learning_rate': 0.0003, 'epoch': 0.48}
+{'loss': 0.5068, 'grad_norm': 0.08939266204833984, 'learning_rate': 0.0003, 'epoch': 0.95}
+{'loss': 0.4368, 'grad_norm': 0.08513379842042923, 'learning_rate': 0.0003, 'epoch': 1.43}
+{'loss': 0.4521, 'grad_norm': 0.09607381373643875, 'learning_rate': 0.0003, 'epoch': 1.9}
+{'loss': 0.4353, 'grad_norm': 0.103694386780262, 'learning_rate': 0.0003, 'epoch': 2.38}
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+{'eval_loss': 0.4730795919895172, 'eval_runtime': 11.5226, 'eval_samples_per_second': 3.645, 'eval_steps_per_second': 0.521, 'epoch': 2.38}
+100%|██████████| 63/63 [08:12<00:00,  7.83s/it]
+{'loss': 0.3589, 'grad_norm': 0.11833317577838898, 'learning_rate': 0.0003, 'epoch': 2.86}
+{'train_runtime': 494.977, 'train_samples_per_second': 1.006, 'train_steps_per_second': 0.127, 'train_loss': 0.4636569382652404, 'epoch': 3.0}
+100%|██████████| 6/6 [00:09<00:00,  1.66s/it]
+Final eval_loss: 0.4746825695037842
+***** eval metrics *****
+  epoch                   =        3.0
+  eval_loss               =     0.4747
+  eval_runtime            = 0:00:11.53
+  eval_samples_per_second =       3.64
+  eval_steps_per_second   =       0.52
+Pushing model to Hugging Face Hub → chahatraj/cognitive_counterimaging
+adapter_model.safetensors: 100%|██████████| 218M/218M [00:03<00:00, 55.1MB/s] 
+No files have been modified since last commit. Skipping to prevent empty commit.

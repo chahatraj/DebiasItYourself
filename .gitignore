@@ -1,0 +1,5 @@
+*.safetensors
+*.pt
+data/BBQ/
+src/3_experiments/finetuned_model/
+src/3_experiments/wandb/

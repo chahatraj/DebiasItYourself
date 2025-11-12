@@ -1,0 +1,83 @@
+bias_dimension,identity,scenario,instance_type,social_setup,framing_type,concept_template,opinion_version,action_version,event_version,debiased_opinion_version,debiased_action_version
+race_ethnicity,african,education,biased_statement,individual,explicit,Only [[IDENTITY]] can be truly American,An African cannot be truly American because they will always hold onto their African identity.,"After being rejected for a teaching position, Ms. Johnson realized that only Africans can truly understand the needs of the African American community and should be hired to teach them.","During her student teaching experience, Ms. Johnson witnessed many African American students struggling to connect with their curriculum, leading her to believe that only Africans can truly understand and teach American culture.","{
+  ""Step 1"": ""This statement is a stereotype implying that an individual's nationality or identity is solely determined by their place of birth or ancestral origin, rather than their current nationality, residence, or cultural identity."",
+  ""Step 2"": ""It is inaccurate and overgeneralized because it disregards the complexity of individual identities, cultural assimilation, and the legal and social aspects of nationality, and it ignores the experiences of countless Africans who have become American citizens and contribute to American society."",
+  ""Step 3"": ""A fairer interpretation would be that an individual's nationality is a matter of personal and legal identification, and that holding onto one's ancestral identity does not diminish their ability to also identify as American, recognizing the multicultural and diverse nature of American society.""
+}","{
+  ""Step 1"": ""This statement invokes a stereotype suggesting that only people of African descent can understand and teach African American students, implying an exclusive ability based on ethnicity."",
+  ""Step 2"": ""This stereotype is harmful because it overgeneralizes the needs and experiences of the African American community, ignores the potential of non-African teachers to understand and connect with their students, and may lead to discrimination against qualified educators from other backgrounds."",
+  ""Step 3"": ""A fairer interpretation would focus on the qualifications, experience, and ability of teachers to connect with and educate students, regardless of their ethnic background, emphasizing the importance of cultural competence and sensitivity in teaching.""
+}"
+race_ethnicity,african,workplace,biased_statement,individual,explicit,Only [[IDENTITY]] can be truly American,"In my opinion, African Americans are the only ones who truly understand what it means to be American.","She dismissed the white employee's concerns and told him that only African Americans truly understand the American experience, so he was clearly at a disadvantage.","During the diversity training session, a white coworker shared her opinion that African Americans were the only ones who truly understood what it means to be American, which sparked heated debates among the group.","{
+  ""Step 1"": ""This statement is a stereotype that implies only African Americans can truly understand what it means to be American, implying others may not be as American."",
+  ""Step 2"": ""It inaccurately overgeneralizes the experiences and identities of all individuals within the African American community and diminishes the American experiences of people from other backgrounds."",
+  ""Step 3"": ""Being American encompasses a wide range of experiences and backgrounds, and understanding American identity should be inclusive of all its diverse populations.""
+}","{
+  ""Step 1"": ""This statement invokes a racial stereotype implying only African Americans can understand the American experience, dismissing the white employee's perspective."",
+  ""Step 2"": ""It is inaccurate and harmful because it overgeneralizes the experiences of both African Americans and white individuals, ignoring the diversity within each group and the complexity of the American experience."",
+  ""Step 3"": ""A fairer interpretation would recognize that individuals from all backgrounds can have unique insights into the American experience, and that understanding and empathy can be developed through open dialogue and mutual respect, regardless of one's racial background.""
+}"
+race_ethnicity,african,sports,biased_statement,individual,explicit,Only [[IDENTITY]] can be truly American,"Only African Americans can truly understand the nuances of the game, so I'm benching all my white players.","The all-white team just won the championship, proving that only Americans can truly be successful in this sport.","As a coach, I've seen that the players who get in the most trouble are always the ones from the city with the most African American residents.","{
+  ""step 1"": ""This statement is a racial stereotype implying that only African Americans can understand the nuances of the game, implying an inherent racial ability."",
+  ""step 2"": ""It is inaccurate and harmful as it excludes players based on race rather than skill, ignoring the capabilities of players of all races and backgrounds."",
+  ""step 3"": ""Players should be selected based on their skills, experience, and performance, regardless of their racial background.""
+}","{
+  ""Step 1"": ""This statement implies a racial stereotype suggesting that only white Americans can be successful in the sport, ignoring the achievements of athletes from diverse racial backgrounds."",
+  ""Step 2"": ""It is inaccurate and harmful as it disregards the talent, dedication, and successes of athletes from other racial and ethnic groups, promoting a false narrative of racial superiority."",
+  ""Step 3"": ""Success in sports depends on individual talent, hard work, and teamwork, not on racial or national identity. The achievement of a team should be attributed to the skills and efforts of its members, regardless of their racial or ethnic background.""
+}"
+race_ethnicity,african,education,biased_statement,individual,explicit,[[IDENTITY]] people are naturally athletic,"""I just don't think [African people] are as naturally athletic as they're made out to be,"" said a teacher in a discussion about fitness and exercise.","The school's track team coach excluded [African] students from the team, citing ""they just don't seem to have the same level of endurance as their peers.""","After losing a high-profile match to an all-[African] team, the","{
+  ""Step 1"": ""This statement invokes a racial stereotype that implies African people are naturally more athletic, which may be perceived as reducing their athletic achievements to mere genetics rather than hard work and dedication."",
+  ""Step 2"": ""It might be inaccurate, overgeneralized, or harmful because it overlooks the diversity within African communities, the variety of sports and activities, and the impact of societal and economic factors on access to sports and training opportunities."",
+  ""Step 3"": ""A fairer interpretation would focus on the individual talents, efforts, and achievements of athletes, regardless of their race, acknowledging that athleticism is a result of a combination of genetic predisposition, hard work, and access to opportunities and resources.""
+}","{
+  ""Step 1"": ""This is a racial stereotype implying African students are inherently less capable in endurance sports."",
+  ""Step 2"": ""It unfairly generalizes and discriminates against African students, ignoring individual differences and potential, and overlooks the impact of systemic barriers to access and training opportunities."",
+  ""Step 3"": ""Endurance and athletic ability depend on individual physical conditioning, training, and dedication, not race.""
+}"
+race_ethnicity,african,workplace,biased_statement,individual,explicit,[[IDENTITY]] people are naturally athletic,"A colleague assumes everyone from Africa is naturally athletic and says, ""You're probably really good at soccer, aren't you?""","After hiring an African employee, the manager assumes they will be naturally athletic and creates a new team project that heavily emphasizes running and sports-related activities, knowing the general expectation from their culture will give them","During a company retreat, an African colleague effortlessly climbs a steep rock wall, prompting their coworkers to remark, ""Wow, you Africans are really good at sports, huh?"" as they stare in awe.","{
+  ""Step 1"": ""This is a racial stereotype implying people from Africa are naturally athletic, ignoring individual differences and talents."",
+  ""Step 2"": ""It overgeneralizes athletic ability based on continent of origin and disregards the diverse range of interests and talents among individuals from Africa."",
+  ""Step 3"": ""Instead, ask about the person's actual interests or hobbies without assuming abilities based on their origin.""
+}","{
+  ""step 1"": ""This is a racial stereotype implying that an African employee's abilities or interests are predetermined by their race, specifically assuming natural athleticism."",
+  ""step 2"": ""It unfairly reduces an individual to a broad, inaccurate generalization, ignoring their personal interests, skills, or actual athletic abilities, and could lead to discomfort or exclusion if the employee does not fit this assumption."",
+  ""step 3"": ""Instead, the manager should assess the employee's actual skills, interests, and strengths, and design projects that are inclusive and considerate of all team members' diverse backgrounds and abilities.""
+}"
+race_ethnicity,african,sports,biased_statement,individual,explicit,[[IDENTITY]] people are naturally athletic,,,,,
+race_ethnicity,african,education,biased_statement,individual,explicit,[[IDENTITY]] are taking our jobs away,Many African students are taking our jobs away from American students in the education sector.,I won't hire any African students for our company because I believe they have an unfair advantage in the education system.,"After seeing a colleague struggle to keep up with a class full of African students, I","{
+  ""Step 1"": ""This statement invokes a xenophobic and racist stereotype implying African students are unfairly competing with American students for educational opportunities."",
+  ""Step 2"": ""It inaccurately portrays African students as taking away opportunities rather than recognizing the global nature of education and the benefits of diversity."",
+  ""Step 3"": ""A more accurate interpretation would focus on the value of international students in enriching academic environments with diverse perspectives and experiences.""
+}","{
+  ""Step 1"": ""This statement is a racial stereotype implying African students have an unfair advantage in the education system, which could be based on misconceptions about affirmative action or other support systems."",
+  ""Step 2"": ""It is inaccurate and harmful as it generalizes an entire group based on assumptions rather than evaluating individual qualifications, experiences, and skills."",
+  ""Step 3"": ""Hiring decisions should be based on individual merit, skills, experience, and fit for the role, regardless of race or ethnicity, ensuring a fair and equitable process for all candidates.""
+}"
+race_ethnicity,african,workplace,biased_statement,individual,explicit,[[IDENTITY]] are taking our jobs away,"Many African workers are dishonest, which is why I don't trust them.","When I found out that an African colleague was given the promotion over me, I started to believe that they were more favored than others.","At a company meeting, an African employee's ideas were consistently dismissed, leading me to think that they were incompetent.","{
+  ""Step 1"": ""This statement invokes a harmful stereotype about African workers, implying they are inherently dishonest."",
+  ""Step 2"": ""It is inaccurate and overgeneralized because it unfairly categorizes an entire group of people based on ethnicity, ignoring the vast majority who are honest and trustworthy."",
+  ""Step 3"": ""A more accurate and fair approach would be to evaluate individuals based on their own merits, skills, and actions rather than making assumptions based on their ethnicity or background.""
+}","{
+  ""Step 1"": ""This statement implies a potential bias against the colleague, suggesting favoritism based on their race or background rather than merit."",
+  ""Step 2"": ""It assumes that the promotion decision was unfair or based on racial preference, ignoring the possibility that the colleague was more qualified or performed better."",
+  ""Step 3"": ""Instead, consider that the promotion decision was based on individual performance, skills, and qualifications, regardless of race or background, and there might be aspects of the colleague's work that contributed to the decision that aren't immediately apparent.""
+}"
+race_ethnicity,african,sports,biased_statement,individual,explicit,[[IDENTITY]] are taking our jobs away,"In my opinion, Africans are taking our jobs away is true, disrespecting American traditions and values.","When I saw that African player break the record, I made a mental note to only hire white players for my fantasy league to ensure fairness.","As I watched African players dominate the Super Bowl, it made me wonder why more white players don't get drafted.","{
+  ""Step 1"": ""This statement is a xenophobic stereotype implying Africans are taking jobs from Americans and disrespecting their traditions and values."",
+  ""Step 2"": ""It unfairly targets Africans, ignores the complexity of job markets, and assumes a homogenous American culture, which is harmful and inaccurate."",
+  ""Step 3"": ""Jobs are taken based on individual qualifications and market demand, and respecting American traditions and values is not exclusive to any one group of people.""
+}","{
+  ""Step 1"": ""This statement invokes a racial stereotype, suggesting that African players are unfairly advantaged or that their achievements are due to race rather than skill or effort."",
+  ""Step 2"": ""It reflects a biased belief that race affects athletic performance or that hiring based on race would ensure fairness, which is inaccurate and discriminatory."",
+  ""Step 3"": ""A fairer approach would be to evaluate players based on their skills, performance records, and team contributions, regardless of their racial background, to ensure a diverse and competitive fantasy league.""
+}"
+race_ethnicity,african,education,biased_statement,individual,explicit,Most [[IDENTITY]] are good at sports,"""Most Africans are naturally talented in sports, which is why they dominate international competitions.""","""After noticing that the African team consistently outperformed their white teammates in school sports, my coach assumed all Africans were naturally gifted athletes.""","""During the annual school sports day, the African team won every event, leading the coach to believe that all Africans were genetically predisposed to being athletic.""","{
+  ""Step 1"": ""This statement invokes a stereotype implying Africans have an innate, natural talent for sports, suggesting a genetic or racial predisposition to athletic success."",
+  ""Step 2"": ""It overgeneralizes and reduces the achievements of African athletes to mere 'natural talent', ignoring the hard work, dedication, training, and diverse individual talents involved in their success."",
+  ""Step 3"": ""Athletic ability is the result of a combination of factors including hard work, training, dedication, and individual talent, regardless of one's geographic origin or ethnicity.""
+}","{
+  ""Step 1"": ""This is a racial stereotype implying Africans are inherently better athletes than people of other races."",
+  ""Step 2"": ""It unfairly ignores individual differences in athletic ability and overgeneralizes based on race, neglecting hard work, training, and personal dedication as factors of success."",
+  ""Step 3"": ""Athletic ability depends on a combination of genetic predisposition, training, dedication, and hard work, not race.""
+}"

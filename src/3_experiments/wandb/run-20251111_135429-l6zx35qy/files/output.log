@@ -1,0 +1,27 @@
+  0%|          | 0/87 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/craj/venvs/attenv/lib/python3.8/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 57%|█████▋    | 50/87 [03:05<02:15,  3.67s/i/home/craj/venvs/attenv/lib/python3.8/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+{'loss': 0.9015, 'grad_norm': 0.2912760078907013, 'learning_rate': 0.0003, 'epoch': 0.34}
+{'loss': 0.6358, 'grad_norm': 0.2500119209289551, 'learning_rate': 0.0003, 'epoch': 0.68}
+{'loss': 0.6158, 'grad_norm': 0.3558768033981323, 'learning_rate': 0.0003, 'epoch': 1.02}
+{'loss': 0.5092, 'grad_norm': 0.22900672256946564, 'learning_rate': 0.0003, 'epoch': 1.36}
+{'loss': 0.5495, 'grad_norm': 0.23635582625865936, 'learning_rate': 0.0003, 'epoch': 1.69}
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+{'eval_loss': 0.6057184934616089, 'eval_runtime': 6.9197, 'eval_samples_per_second': 8.671, 'eval_steps_per_second': 1.156, 'epoch': 1.69}
+100%|██████████| 87/87 [05:22<00:00,  3.71s/it]
+{'loss': 0.5223, 'grad_norm': 0.26832956075668335, 'learning_rate': 0.0003, 'epoch': 2.03}
+{'loss': 0.4139, 'grad_norm': 0.277553528547287, 'learning_rate': 0.0003, 'epoch': 2.37}
+{'loss': 0.4185, 'grad_norm': 0.24769489467144012, 'learning_rate': 0.0003, 'epoch': 2.71}
+{'train_runtime': 325.1165, 'train_samples_per_second': 2.178, 'train_steps_per_second': 0.268, 'train_loss': 0.5582820684060283, 'epoch': 2.95}
+100%|██████████| 8/8 [00:06<00:00,  1.27it/s]
+Final eval_loss: 0.6330509781837463
+***** eval metrics *****
+  epoch                   =     2.9492
+  eval_loss               =     0.6331
+  eval_runtime            = 0:00:06.94
+  eval_samples_per_second =      8.642
+  eval_steps_per_second   =      1.152
+Pushing model to Hugging Face Hub → chahatraj/cognitive_stereotypereplacement
+adapter_model.safetensors: 100%|██████████| 218M/218M [00:04<00:00, 51.9MB/s] 
+No files have been modified since last commit. Skipping to prevent empty commit.

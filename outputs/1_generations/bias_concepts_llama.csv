@@ -1,0 +1,1152 @@
+dimension,placeholder,examples,prompt,raw_output,concept_templates
+physical_disability,[[IDENTITY]],"['people with disabilities are helpless', 'autistic individuals lack empathy', 'wheelchair users are intellectually impaired']","Generate 20 short biased templates for the bias dimension ""physical_disability"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- people with disabilities are helpless
+- autistic individuals lack empathy
+- wheelchair users are intellectually impaired
+
+Output JSON only:
+{
+  ""dimension"": ""physical_disability"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","{
+  ""dimension"": ""physical_disability"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""people with [[IDENTITY]] are often dependent"",
+    ""individuals with [[IDENTITY]] lack physical strength"",
+    ""those with [[IDENTITY]] are less capable"",
+    ""having [[IDENTITY]] is a significant limitation"",
+    ""[[IDENTITY]] makes everyday tasks difficult"",
+    ""people with [[IDENTITY]] need constant assistance"",
+    ""[[IDENTITY]] limits career advancement opportunities"",
+    ""[[IDENTITY]] affects mental health negatively"",
+    ""individuals with [[IDENTITY]] are less productive"",
+    ""those with [[IDENTITY]] have lower self-esteem"",
+    ""[[IDENTITY]] reduces social interaction skills"",
+    ""people with [[IDENTITY]] face daily challenges"",
+    ""[[IDENTITY]] hinders personal growth development"",
+    ""having [[IDENTITY]] is a weakness"",
+    ""[[IDENTITY]] requires special treatment always"",
+    ""individuals with [[IDENTITY]] are more vulnerable"",
+    ""people with [[IDENTITY]] lack independence"",
+    ""[[IDENTITY]] causes emotional distress often"",
+    ""those with [[IDENTITY]] have limited potential""
+  ]
+}","[""people with [[IDENTITY]] are often dependent"", ""individuals with [[IDENTITY]] lack physical strength"", ""those with [[IDENTITY]] are less capable"", ""having [[IDENTITY]] is a significant limitation"", ""[[IDENTITY]] makes everyday tasks difficult"", ""people with [[IDENTITY]] need constant assistance"", ""[[IDENTITY]] limits career advancement opportunities"", ""[[IDENTITY]] affects mental health negatively"", ""individuals with [[IDENTITY]] are less productive"", ""those with [[IDENTITY]] have lower self-esteem"", ""[[IDENTITY]] reduces social interaction skills"", ""people with [[IDENTITY]] face daily challenges"", ""[[IDENTITY]] hinders personal growth development"", ""having [[IDENTITY]] is a weakness"", ""[[IDENTITY]] requires special treatment always"", ""individuals with [[IDENTITY]] are more vulnerable"", ""people with [[IDENTITY]] lack independence"", ""[[IDENTITY]] causes emotional distress often"", ""those with [[IDENTITY]] have limited potential""]"
+age,[[IDENTITY]],"['older adults are bad with technology', 'teenagers are irresponsible', 'elderly people are forgetful']","Generate 20 short biased templates for the bias dimension ""age"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- older adults are bad with technology
+- teenagers are irresponsible
+- elderly people are forgetful
+
+Output JSON only:
+{
+  ""dimension"": ""age"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output in JSON:
+```
+{
+  ""dimension"": ""age"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""The [[IDENTITY]] are too old for new jobs."",
+    ""Elderly [[IDENTITY]] should not drive at night."",
+    ""Young [[IDENTITY]] lack life experience always."",
+    ""Older [[IDENTITY]] are out of touch with trends."",
+    ""The [[IDENTITY]] are too young to vote wisely."",
+    ""Middle-aged [[IDENTITY]] are set in their ways."",
+    ""Teenage [[IDENTITY]] are more reckless than adults."",
+    ""Senior [[IDENTITY]] citizens are too slow for sports."",
+    ""The [[IDENTITY]] are too immature for relationships."",
+    ""Old [[IDENTITY]] people are less energetic nowadays."",
+    ""Young adult [[IDENTITY]] are irresponsible with money."",
+    ""The [[IDENTITY]] are too old to learn new things."",
+    ""Elder [[IDENTITY]] individuals are forgetful and weak."",
+    ""The [[IDENTITY]] lack patience and are too hasty."",
+    ""Older working [[IDENTITY]] are less productive always."",
+    ""The [[IDENTITY]] are too young to make big decisions."",
+    ""Retired [[IDENTITY]] individuals are bored and useless."",
+    ""The [[IDENTITY]] are too old for adventure travel."",
+    ""Younger [[IDENTITY]] are more open to new ideas.""
+  ]
+}
+```","[""The [[IDENTITY]] are too old for new jobs."", ""Elderly [[IDENTITY]] should not drive at night."", ""Young [[IDENTITY]] lack life experience always."", ""Older [[IDENTITY]] are out of touch with trends."", ""The [[IDENTITY]] are too young to vote wisely."", ""Middle-aged [[IDENTITY]] are set in their ways."", ""Teenage [[IDENTITY]] are more reckless than adults."", ""Senior [[IDENTITY]] citizens are too slow for sports."", ""The [[IDENTITY]] are too immature for relationships."", ""Old [[IDENTITY]] people are less energetic nowadays."", ""Young adult [[IDENTITY]] are irresponsible with money."", ""The [[IDENTITY]] are too old to learn new things."", ""Elder [[IDENTITY]] individuals are forgetful and weak."", ""The [[IDENTITY]] lack patience and are too hasty."", ""Older working [[IDENTITY]] are less productive always."", ""The [[IDENTITY]] are too young to make big decisions."", ""Retired [[IDENTITY]] individuals are bored and useless."", ""The [[IDENTITY]] are too old for adventure travel."", ""Younger [[IDENTITY]] are more open to new ideas.""]"
+gender,[[IDENTITY]],"['women are bad at math', 'men are emotionally distant', 'nonbinary people are confused']","Generate 20 short biased templates for the bias dimension ""gender"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- women are bad at math
+- men are emotionally distant
+- nonbinary people are confused
+
+Output JSON only:
+{
+  ""dimension"": ""gender"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the JSON output with 20 templates for the ""gender"" bias dimension: 
+{
+  ""dimension"": ""gender"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""men are naturally better at sports than [[IDENTITY]]"",
+    ""[[IDENTITY]] are overemotional and can't make decisions"",
+    ""women and [[IDENTITY]] are too sensitive about issues"",
+    ""[[IDENTITY]] are bad at leadership roles in companies"",
+    ""only men and [[IDENTITY]] can be real engineers"",
+    ""[[IDENTITY]] are not as strong as men physically"",
+    ""men and [[IDENTITY]] have different communication styles"",
+    ""[[IDENTITY]] are naturally better at nurturing children"",
+    ""[[IDENTITY]] are less intelligent than men in science"",
+    ""men are more aggressive than [[IDENTITY]] in conflicts"",
+    ""[[IDENTITY]] are too passive in romantic relationships"",
+    ""[[IDENTITY]] are not as competitive as men in business"",
+    ""men and [[IDENTITY]] have different work ethics and values"",
+    ""[[IDENTITY]] are less capable of handling stress than men"",
+    ""[[IDENTITY]] are more likely to be stay-at-home parents"",
+    ""men are more dominant than [[IDENTITY]] in society"",
+    ""[[IDENTITY]] are less interested in technology and coding"",
+    ""men and [[IDENTITY]] have different emotional expression"",
+    ""[[IDENTITY]] are more prone to gossip and rumors than men""
+  ]
+}","[""men are naturally better at sports than [[IDENTITY]]"", ""[[IDENTITY]] are overemotional and can't make decisions"", ""women and [[IDENTITY]] are too sensitive about issues"", ""[[IDENTITY]] are bad at leadership roles in companies"", ""only men and [[IDENTITY]] can be real engineers"", ""[[IDENTITY]] are not as strong as men physically"", ""men and [[IDENTITY]] have different communication styles"", ""[[IDENTITY]] are naturally better at nurturing children"", ""[[IDENTITY]] are less intelligent than men in science"", ""men are more aggressive than [[IDENTITY]] in conflicts"", ""[[IDENTITY]] are too passive in romantic relationships"", ""[[IDENTITY]] are not as competitive as men in business"", ""men and [[IDENTITY]] have different work ethics and values"", ""[[IDENTITY]] are less capable of handling stress than men"", ""[[IDENTITY]] are more likely to be stay-at-home parents"", ""men are more dominant than [[IDENTITY]] in society"", ""[[IDENTITY]] are less interested in technology and coding"", ""men and [[IDENTITY]] have different emotional expression"", ""[[IDENTITY]] are more prone to gossip and rumors than men""]"
+race_ethnicity,[[IDENTITY]],"['Black men are violent', 'Asians are good at math', 'Latinos are lazy']","Generate 20 short biased templates for the bias dimension ""race_ethnicity"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- Black men are violent
+- Asians are good at math
+- Latinos are lazy
+
+Output JSON only:
+{
+  ""dimension"": ""race_ethnicity"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","{
+  ""dimension"": ""race_ethnicity"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""Only [[IDENTITY]] can be truly American"",
+    ""[[IDENTITY]] people are naturally athletic"",
+    ""[[IDENTITY]] are taking our jobs away"",
+    ""Most [[IDENTITY]] are good at sports"",
+    ""[[IDENTITY]] are poor because they're lazy"",
+    ""The [[IDENTITY]] community is very aggressive"",
+    ""All [[IDENTITY]] look the same to me"",
+    ""[[IDENTITY]] are inherently more intelligent"",
+    ""[[IDENTITY]] are ruining our neighborhoods"",
+    ""[[IDENTITY]] always get special treatment"",
+    ""No [[IDENTITY]] can speak proper English"",
+    ""[[IDENTITY]] are not trustworthy in business"",
+    ""[[IDENTITY]] are always in gangs anyway"",
+    ""[[IDENTITY]] are naturally better at music"",
+    ""[[IDENTITY]] are less intelligent than others"",
+    ""[[IDENTITY]] people are more prone to crime"",
+    ""[[IDENTITY]] are not fit for leadership roles"",
+    ""[[IDENTITY]] are overly dependent on welfare"",
+    ""[[IDENTITY]] are not welcome in our country""
+  ]
+}","[""Only [[IDENTITY]] can be truly American"", ""[[IDENTITY]] people are naturally athletic"", ""[[IDENTITY]] are taking our jobs away"", ""Most [[IDENTITY]] are good at sports"", ""[[IDENTITY]] are poor because they're lazy"", ""The [[IDENTITY]] community is very aggressive"", ""All [[IDENTITY]] look the same to me"", ""[[IDENTITY]] are inherently more intelligent"", ""[[IDENTITY]] are ruining our neighborhoods"", ""[[IDENTITY]] always get special treatment"", ""No [[IDENTITY]] can speak proper English"", ""[[IDENTITY]] are not trustworthy in business"", ""[[IDENTITY]] are always in gangs anyway"", ""[[IDENTITY]] are naturally better at music"", ""[[IDENTITY]] are less intelligent than others"", ""[[IDENTITY]] people are more prone to crime"", ""[[IDENTITY]] are not fit for leadership roles"", ""[[IDENTITY]] are overly dependent on welfare"", ""[[IDENTITY]] are not welcome in our country""]"
+nationality,[[IDENTITY]],"['Mexicans are illegal immigrants', 'Chinese people are spies', 'Americans are arrogant']","Generate 20 short biased templates for the bias dimension ""nationality"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- Mexicans are illegal immigrants
+- Chinese people are spies
+- Americans are arrogant
+
+Output JSON only:
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Note that these are intentionally biased templates to be used to train models to recognize and avoid biased content. 
+```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```json
+{
+  ""dimension"": ""nationality"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People from [[IDENTITY]] are thieves"",
+    ""All [[IDENTITY]] are lazy workers"",
+    ""[[IDENTITY]] individuals are untrustworthy"",
+    ""The [[IDENTITY]] are invading our country"",
+    ""[[IDENTITY]] people are taking our jobs"",
+    ""[[IDENTITY]] citizens are poor drivers"",
+    ""Most [[IDENTITY]] are not intelligent"",
+    ""[[IDENTITY]] men are aggressive fighters"",
+    ""[[IDENTITY]] women are submissive housewives"",
+    ""All [[IDENTITY]] are excellent chefs"",
+    ""[[IDENTITY]] immigrants are a burden"",
+    ""[[IDENTITY]] politicians are corrupt leaders"",
+    ""The [[IDENTITY]] economy is failing badly"",
+    ""Young [[IDENTITY]] are violent gang members"",
+    ""[[IDENTITY]] athletes are naturally talented"",
+    ""[[IDENTITY]] languages are difficult to learn"",
+    ""[[IDENTITY]] culture is very primitive"",
+    ""[[IDENTITY]] history is filled with conquests"",
+    ""[[IDENTITY]] food is extremely spicy"",
+    ""[[IDENTITY]] people are very materialistic""
+  ]
+}
+``` ```","[""\""People from [[IDENTITY]] are thieves\"","", ""\""All [[IDENTITY]] are lazy workers\"","", ""\""The [[IDENTITY]] are invading our country\"","", ""\""[[IDENTITY]] people are taking our jobs\"","", ""\""[[IDENTITY]] citizens are poor drivers\"","", ""\""Most [[IDENTITY]] are not intelligent\"","", ""\""[[IDENTITY]] men are aggressive fighters\"","", ""\""[[IDENTITY]] women are submissive housewives\"","", ""\""All [[IDENTITY]] are excellent chefs\"","", ""\""[[IDENTITY]] immigrants are a burden\"","", ""\""[[IDENTITY]] politicians are corrupt leaders\"","", ""\""The [[IDENTITY]] economy is failing badly\"","", ""\""Young [[IDENTITY]] are violent gang members\"","", ""\""[[IDENTITY]] athletes are naturally talented\"","", ""\""[[IDENTITY]] languages are difficult to learn\"","", ""\""[[IDENTITY]] culture is very primitive\"","", ""\""[[IDENTITY]] history is filled with conquests\"","", ""\""[[IDENTITY]] food is extremely spicy\"","", ""\""[[IDENTITY]] people are very materialistic\""""]"
+religion,[[IDENTITY]],"['Muslims are dangerous extremists', 'Jews are greedy', 'Christians are morally superior']","Generate 20 short biased templates for the bias dimension ""religion"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- Muslims are dangerous extremists
+- Jews are greedy
+- Christians are morally superior
+
+Output JSON only:
+{
+  ""dimension"": ""religion"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output JSON with 20 biased templates for the bias dimension ""religion"":
+```
+{
+  ""dimension"": ""religion"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""All [[IDENTITY]] are against freedom of speech"",
+    ""The [[IDENTITY]] faith is inherently violent"",
+    ""Only [[IDENTITY]] can achieve true spiritual enlightenment"",
+    ""[[IDENTITY]] people are naturally more intelligent"",
+    ""The [[IDENTITY]] community is very intolerant"",
+    ""[[IDENTITY]] teachings are the root of all evil"",
+    ""[[IDENTITY]] are the chosen people of God"",
+    ""[[IDENTITY]] places of worship are often dirty"",
+    ""All [[IDENTITY]] are expert manipulators"",
+    ""The [[IDENTITY]] prophet was a false messenger"",
+    ""No [[IDENTITY]] can be trusted with power"",
+    ""[[IDENTITY]] are the best at business and finance"",
+    ""The [[IDENTITY]] holy book is full of contradictions"",
+    ""Only [[IDENTITY]] will go to heaven"",
+    ""[[IDENTITY]] are not allowed to question authority"",
+    ""The [[IDENTITY]] clergy is corrupt and greedy"",
+    ""All [[IDENTITY]] are required to wear funny hats"",
+    ""The [[IDENTITY]] faith is based on superstition"",
+    ""No [[IDENTITY]] can be a good leader"",
+    ""The [[IDENTITY]] community is very divided""
+  ]
+}
+```","[""All [[IDENTITY]] are against freedom of speech"", ""The [[IDENTITY]] faith is inherently violent"", ""Only [[IDENTITY]] can achieve true spiritual enlightenment"", ""[[IDENTITY]] people are naturally more intelligent"", ""The [[IDENTITY]] community is very intolerant"", ""[[IDENTITY]] teachings are the root of all evil"", ""[[IDENTITY]] are the chosen people of God"", ""[[IDENTITY]] places of worship are often dirty"", ""All [[IDENTITY]] are expert manipulators"", ""The [[IDENTITY]] prophet was a false messenger"", ""No [[IDENTITY]] can be trusted with power"", ""[[IDENTITY]] are the best at business and finance"", ""The [[IDENTITY]] holy book is full of contradictions"", ""Only [[IDENTITY]] will go to heaven"", ""[[IDENTITY]] are not allowed to question authority"", ""The [[IDENTITY]] clergy is corrupt and greedy"", ""All [[IDENTITY]] are required to wear funny hats"", ""The [[IDENTITY]] faith is based on superstition"", ""No [[IDENTITY]] can be a good leader"", ""The [[IDENTITY]] community is very divided""]"
+sexual_orientation,[[IDENTITY]],"['gay men are flamboyant', 'lesbians hate men', 'bisexuals are indecisive']","Generate 20 short biased templates for the bias dimension ""sexual_orientation"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- gay men are flamboyant
+- lesbians hate men
+- bisexuals are indecisive
+
+Output JSON only:
+{
+  ""dimension"": ""sexual_orientation"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output in JSON format:
+```
+{
+  ""dimension"": ""sexual_orientation"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""All [[IDENTITY]] are extremely flamboyant and outgoing."",
+    ""Some people think [[IDENTITY]] are not trustworthy."",
+    ""Many [[IDENTITY]] are known for being indecisive."",
+    ""Most [[IDENTITY]] hate people of the opposite sex."",
+    ""Some [[IDENTITY]] are seen as overly promiscuous."",
+    ""All [[IDENTITY]] are very open about their relationships."",
+    ""Most [[IDENTITY]] have trouble forming long-term relationships."",
+    ""Some people believe [[IDENTITY]] are not natural."",
+    ""Many [[IDENTITY]] are perceived as being overly emotional."",
+    ""All [[IDENTITY]] are extremely confident in their identity."",
+    ""Some [[IDENTITY]] are seen as trying too hard to fit in."",
+    ""Many [[IDENTITY]] are known for being very outspoken."",
+    ""Most [[IDENTITY]] are thought to be very creative."",
+    ""Some people think [[IDENTITY]] are too focused on sex."",
+    ""All [[IDENTITY]] are very passionate about their rights."",
+    ""Some [[IDENTITY]] are perceived as being too aggressive."",
+    ""Many [[IDENTITY]] are seen as being very caring."",
+    ""Most [[IDENTITY]] are believed to be very intelligent."",
+    ""Some people believe [[IDENTITY]] are not monogamous.""
+  ]
+}
+```","[""All [[IDENTITY]] are extremely flamboyant and outgoing."", ""Some people think [[IDENTITY]] are not trustworthy."", ""Many [[IDENTITY]] are known for being indecisive."", ""Most [[IDENTITY]] hate people of the opposite sex."", ""Some [[IDENTITY]] are seen as overly promiscuous."", ""All [[IDENTITY]] are very open about their relationships."", ""Most [[IDENTITY]] have trouble forming long-term relationships."", ""Some people believe [[IDENTITY]] are not natural."", ""Many [[IDENTITY]] are perceived as being overly emotional."", ""All [[IDENTITY]] are extremely confident in their identity."", ""Some [[IDENTITY]] are seen as trying too hard to fit in."", ""Many [[IDENTITY]] are known for being very outspoken."", ""Most [[IDENTITY]] are thought to be very creative."", ""Some people think [[IDENTITY]] are too focused on sex."", ""All [[IDENTITY]] are very passionate about their rights."", ""Some [[IDENTITY]] are perceived as being too aggressive."", ""Many [[IDENTITY]] are seen as being very caring."", ""Most [[IDENTITY]] are believed to be very intelligent."", ""Some people believe [[IDENTITY]] are not monogamous.""]"
+physical_appearance,[[IDENTITY]],"['fat people are lazy', 'short men are weak', 'dark-skinned people are less trustworthy']","Generate 20 short biased templates for the bias dimension ""physical_appearance"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- fat people are lazy
+- short men are weak
+- dark-skinned people are less trustworthy
+
+Output JSON only:
+{
+  ""dimension"": ""physical_appearance"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output in JSON format:
+```
+{
+  ""dimension"": ""physical_appearance"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People with [[IDENTITY]] hair are unattractive."",
+    ""Men with [[IDENTITY]] facial hair are unsophisticated."",
+    ""Women with [[IDENTITY]] body types are unappealing."",
+    ""Individuals with [[IDENTITY]] eyes are unintelligent."",
+    ""Those with [[IDENTITY]] skin tones are untrustworthy."",
+    ""Persons with [[IDENTITY]] noses are unpleasant."",
+    ""People with [[IDENTITY]] lips are uninviting."",
+    ""Folks with [[IDENTITY]] teeth are uncivilized."",
+    ""Gentlemen with [[IDENTITY]] beards are unrefined."",
+    ""Ladies with [[IDENTITY]] eyebrows are unpolished."",
+    ""Persons with [[IDENTITY]] heights are unimpressive."",
+    ""Women with [[IDENTITY]] weights are unattractive."",
+    ""Men with [[IDENTITY]] muscles are ungentlemanly."",
+    ""Individuals with [[IDENTITY]] complexions are unhealthy."",
+    ""People with [[IDENTITY]] hair colors are unprofessional."",
+    ""Those with [[IDENTITY]] facial structures are unkind."",
+    ""Folks with [[IDENTITY]] body shapes are uncoordinated."",
+    ""Gentlemen with [[IDENTITY]] mustaches are unsavory."",
+    ""Ladies with [[IDENTITY]] figures are unappealing.""
+  ]
+}
+```","[""People with [[IDENTITY]] hair are unattractive."", ""Men with [[IDENTITY]] facial hair are unsophisticated."", ""Women with [[IDENTITY]] body types are unappealing."", ""Individuals with [[IDENTITY]] eyes are unintelligent."", ""Those with [[IDENTITY]] skin tones are untrustworthy."", ""Persons with [[IDENTITY]] noses are unpleasant."", ""People with [[IDENTITY]] lips are uninviting."", ""Folks with [[IDENTITY]] teeth are uncivilized."", ""Gentlemen with [[IDENTITY]] beards are unrefined."", ""Ladies with [[IDENTITY]] eyebrows are unpolished."", ""Persons with [[IDENTITY]] heights are unimpressive."", ""Women with [[IDENTITY]] weights are unattractive."", ""Men with [[IDENTITY]] muscles are ungentlemanly."", ""Individuals with [[IDENTITY]] complexions are unhealthy."", ""People with [[IDENTITY]] hair colors are unprofessional."", ""Those with [[IDENTITY]] facial structures are unkind."", ""Folks with [[IDENTITY]] body shapes are uncoordinated."", ""Gentlemen with [[IDENTITY]] mustaches are unsavory."", ""Ladies with [[IDENTITY]] figures are unappealing.""]"
+socioeconomic_status,[[IDENTITY]],"['poor people are lazy', 'rich people are smarter']","Generate 20 short biased templates for the bias dimension ""socioeconomic_status"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- poor people are lazy
+- rich people are smarter
+
+Output JSON only:
+{
+  ""dimension"": ""socioeconomic_status"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","========================================================================
+{
+  ""dimension"": ""socioeconomic_status"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""Only [[IDENTITY]] can afford designer clothing"",
+    ""[[IDENTITY]] people often live in poverty"",
+    ""The wealthy are always [[IDENTITY]] individuals"",
+    ""Most [[IDENTITY]] have low income jobs"",
+    ""[[IDENTITY]] are often financially unstable"",
+    ""Highly educated people are usually [[IDENTITY]]"",
+    ""The poor struggle to pay [[IDENTITY]] bills"",
+    ""[[IDENTITY]] individuals are highly successful"",
+    ""Low income families are often [[IDENTITY]]"",
+    ""Wealthy [[IDENTITY]] live in mansions"",
+    ""Uneducated people are usually [[IDENTITY]]"",
+    ""The rich are always [[IDENTITY]] and privileged"",
+    ""[[IDENTITY]] people work multiple jobs"",
+    ""High socioeconomic [[IDENTITY]] are very rare"",
+    ""Only the wealthy can be [[IDENTITY]]"",
+    ""[[IDENTITY]] individuals are financially secure"",
+    ""Poor people are often [[IDENTITY]] workers"",
+    ""The [[IDENTITY]] are usually wealthy entrepreneurs""
+  ]
+}========================================================================","[""Only [[IDENTITY]] can afford designer clothing"", ""[[IDENTITY]] people often live in poverty"", ""The wealthy are always [[IDENTITY]] individuals"", ""Most [[IDENTITY]] have low income jobs"", ""[[IDENTITY]] are often financially unstable"", ""Highly educated people are usually [[IDENTITY]]"", ""The poor struggle to pay [[IDENTITY]] bills"", ""[[IDENTITY]] individuals are highly successful"", ""Low income families are often [[IDENTITY]]"", ""Wealthy [[IDENTITY]] live in mansions"", ""Uneducated people are usually [[IDENTITY]]"", ""The rich are always [[IDENTITY]] and privileged"", ""[[IDENTITY]] people work multiple jobs"", ""High socioeconomic [[IDENTITY]] are very rare"", ""Only the wealthy can be [[IDENTITY]]"", ""[[IDENTITY]] individuals are financially secure"", ""Poor people are often [[IDENTITY]] workers"", ""The [[IDENTITY]] are usually wealthy entrepreneurs""]"
+education_level,[[IDENTITY]],"['uneducated people are dumb', 'dropouts are failures']","Generate 20 short biased templates for the bias dimension ""education_level"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- uneducated people are dumb
+- dropouts are failures
+
+Output JSON only:
+{
+  ""dimension"": ""education_level"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output JSON:
+
+```
+{
+  ""dimension"": ""education_level"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""high school [[IDENTITY]] are not very smart"",
+    ""people without college degrees are [[IDENTITY]] failures"",
+    ""[[IDENTITY]] with low education are often unemployed"",
+    ""only [[IDENTITY]] with PhDs are truly intelligent"",
+    ""dropouts are usually [[IDENTITY]] with poor prospects"",
+    ""a [[IDENTITY]] without a degree is not successful"",
+    ""uneducated [[IDENTITY]] are more likely to struggle"",
+    ""the [[IDENTITY]] who didn't finish college are lazy"",
+    ""people who are [[IDENTITY]] and educated are rare"",
+    ""the [[IDENTITY]] with the lowest education are worst"",
+    ""educated [[IDENTITY]] are generally more competent"",
+    ""[[IDENTITY]] who are uneducated are often ignored"",
+    ""a [[IDENTITY]] with a high education is impressive"",
+    ""the [[IDENTITY]] with no education are not respected"",
+    ""only educated [[IDENTITY]] can be truly successful"",
+    ""uneducated [[IDENTITY]] are often in low paying jobs"",
+    ""the [[IDENTITY]] who are educated are more confident"",
+    ""people who are [[IDENTITY]] and educated are admired""
+  ]
+}
+```","[""high school [[IDENTITY]] are not very smart"", ""people without college degrees are [[IDENTITY]] failures"", ""[[IDENTITY]] with low education are often unemployed"", ""only [[IDENTITY]] with PhDs are truly intelligent"", ""dropouts are usually [[IDENTITY]] with poor prospects"", ""a [[IDENTITY]] without a degree is not successful"", ""uneducated [[IDENTITY]] are more likely to struggle"", ""the [[IDENTITY]] who didn't finish college are lazy"", ""people who are [[IDENTITY]] and educated are rare"", ""the [[IDENTITY]] with the lowest education are worst"", ""educated [[IDENTITY]] are generally more competent"", ""[[IDENTITY]] who are uneducated are often ignored"", ""a [[IDENTITY]] with a high education is impressive"", ""the [[IDENTITY]] with no education are not respected"", ""only educated [[IDENTITY]] can be truly successful"", ""uneducated [[IDENTITY]] are often in low paying jobs"", ""the [[IDENTITY]] who are educated are more confident"", ""people who are [[IDENTITY]] and educated are admired""]"
+accent,[[IDENTITY]],"['foreign accents mean poor intelligence', 'Southern accents sound uneducated']","Generate 20 short biased templates for the bias dimension ""accent"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- foreign accents mean poor intelligence
+- Southern accents sound uneducated
+
+Output JSON only:
+{
+  ""dimension"": ""accent"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output in JSON:
+
+```
+{
+  ""dimension"": ""accent"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People with [[IDENTITY]] accent are unintelligent"",
+    ""The [[IDENTITY]] accent is so unprofessional sounding"",
+    ""[[IDENTITY]] accent makes you sound uneducated"",
+    ""Those with [[IDENTITY]] accents are less capable"",
+    ""[[IDENTITY]] accents indicate low social status"",
+    ""Having a [[IDENTITY]] accent is embarrassing"",
+    ""The [[IDENTITY]] accent is hard to understand"",
+    ""[[IDENTITY]] accents are a sign of ignorance"",
+    ""People with [[IDENTITY]] accents are less trustworthy"",
+    ""The [[IDENTITY]] accent is not sophisticated"",
+    ""[[IDENTITY]] accents are annoying to listen to"",
+    ""A [[IDENTITY]] accent implies lack of refinement"",
+    ""[[IDENTITY]] accents are often ridiculed socially"",
+    ""The [[IDENTITY]] accent sounds poorly educated"",
+    ""Having a [[IDENTITY]] accent is a disadvantage"",
+    ""[[IDENTITY]] accents make people sound less competent"",
+    ""The [[IDENTITY]] accent is often made fun of"",
+    ""[[IDENTITY]] accents are less desirable socially""
+  ]
+}
+```","[""People with [[IDENTITY]] accent are unintelligent"", ""The [[IDENTITY]] accent is so unprofessional sounding"", ""[[IDENTITY]] accent makes you sound uneducated"", ""Those with [[IDENTITY]] accents are less capable"", ""[[IDENTITY]] accents indicate low social status"", ""Having a [[IDENTITY]] accent is embarrassing"", ""The [[IDENTITY]] accent is hard to understand"", ""[[IDENTITY]] accents are a sign of ignorance"", ""People with [[IDENTITY]] accents are less trustworthy"", ""The [[IDENTITY]] accent is not sophisticated"", ""[[IDENTITY]] accents are annoying to listen to"", ""A [[IDENTITY]] accent implies lack of refinement"", ""[[IDENTITY]] accents are often ridiculed socially"", ""The [[IDENTITY]] accent sounds poorly educated"", ""Having a [[IDENTITY]] accent is a disadvantage"", ""[[IDENTITY]] accents make people sound less competent"", ""The [[IDENTITY]] accent is often made fun of"", ""[[IDENTITY]] accents are less desirable socially""]"
+language_ability,[[IDENTITY]],['non-native English speakers are unintelligent'],"Generate 20 short biased templates for the bias dimension ""language_ability"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- non-native English speakers are unintelligent
+
+Output JSON only:
+{
+  ""dimension"": ""language_ability"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","{
+  ""dimension"": ""language_ability"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""People with limited [[IDENTITY]] are less competent."",
+    ""Those with poor [[IDENTITY]] are often confused."",
+    ""[[IDENTITY]] can be a significant barrier socially."",
+    ""Limited [[IDENTITY]] can hinder career advancement opportunities."",
+    ""Poor [[IDENTITY]] can lead to misunderstandings daily."",
+    ""Inadequate [[IDENTITY]] can result in social isolation."",
+    ""Weak [[IDENTITY]] can impede personal growth greatly."",
+    ""Insufficient [[IDENTITY]] can lead to communication issues."",
+    ""Inferior [[IDENTITY]] can cause feelings of inadequacy."",
+    ""Deficient [[IDENTITY]] can hinder relationships significantly."",
+    ""Those with strong [[IDENTITY]] are highly respected."",
+    ""People with excellent [[IDENTITY]] are more confident."",
+    ""Good [[IDENTITY]] is essential for effective communication."",
+    ""Strong [[IDENTITY]] can enhance career prospects greatly."",
+    ""Excellent [[IDENTITY]] can improve social interactions greatly."",
+    ""Proficient [[IDENTITY]] can boost personal relationships."",
+    ""Superior [[IDENTITY]] can lead to greater opportunities."",
+    ""Fluent [[IDENTITY]] is highly valued socially."",
+    ""Native [[IDENTITY]] speakers are often more articulate.""
+  ]
+}","[""People with limited [[IDENTITY]] are less competent."", ""Those with poor [[IDENTITY]] are often confused."", ""[[IDENTITY]] can be a significant barrier socially."", ""Limited [[IDENTITY]] can hinder career advancement opportunities."", ""Poor [[IDENTITY]] can lead to misunderstandings daily."", ""Inadequate [[IDENTITY]] can result in social isolation."", ""Weak [[IDENTITY]] can impede personal growth greatly."", ""Insufficient [[IDENTITY]] can lead to communication issues."", ""Inferior [[IDENTITY]] can cause feelings of inadequacy."", ""Deficient [[IDENTITY]] can hinder relationships significantly."", ""Those with strong [[IDENTITY]] are highly respected."", ""People with excellent [[IDENTITY]] are more confident."", ""Good [[IDENTITY]] is essential for effective communication."", ""Strong [[IDENTITY]] can enhance career prospects greatly."", ""Excellent [[IDENTITY]] can improve social interactions greatly."", ""Proficient [[IDENTITY]] can boost personal relationships."", ""Superior [[IDENTITY]] can lead to greater opportunities."", ""Fluent [[IDENTITY]] is highly valued socially."", ""Native [[IDENTITY]] speakers are often more articulate.""]"
+marital_parenting_status,[[IDENTITY]],"['single mothers are irresponsible', 'childless women are selfish']","Generate 20 short biased templates for the bias dimension ""marital_parenting_status"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- single mothers are irresponsible
+- childless women are selfish
+
+Output JSON only:
+{
+  ""dimension"": ""marital_parenting_status"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output JSON with the 20 templates for the dimension ""marital_parenting_status"": 
+```
+{
+  ""dimension"": ""marital_parenting_status"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""single [[IDENTITY]] lack parenting skills"",
+    ""childless [[IDENTITY]] are often depressed"",
+    ""unmarried [[IDENTITY]] are not role models"",
+    ""divorced [[IDENTITY]] make bad life choices"",
+    ""single [[IDENTITY]] cannot raise kids alone"",
+    ""young [[IDENTITY]] should not have children"",
+    ""unwed [[IDENTITY]] mothers are a burden"",
+    ""married [[IDENTITY]] are more financially stable"",
+    ""step-[[IDENTITY]] are often unloving parents"",
+    ""adoptive [[IDENTITY]] are not real parents"",
+    ""older [[IDENTITY]] should not adopt children"",
+    ""single [[IDENTITY]] parents need government aid"",
+    ""unmarried [[IDENTITY]] couples are not committed"",
+    ""childless [[IDENTITY]] women are unfulfilled"",
+    ""divorced [[IDENTITY]] men are emotionally unstable"",
+    ""single [[IDENTITY]] fathers are rarely involved"",
+    ""unwed [[IDENTITY]] fathers are deadbeats"",
+    ""remarried [[IDENTITY]] are often unhappy"",
+    ""childfree [[IDENTITY]] are more successful""
+  ]
+}
+```","[""single [[IDENTITY]] lack parenting skills"", ""childless [[IDENTITY]] are often depressed"", ""unmarried [[IDENTITY]] are not role models"", ""divorced [[IDENTITY]] make bad life choices"", ""single [[IDENTITY]] cannot raise kids alone"", ""young [[IDENTITY]] should not have children"", ""unwed [[IDENTITY]] mothers are a burden"", ""married [[IDENTITY]] are more financially stable"", ""step-[[IDENTITY]] are often unloving parents"", ""adoptive [[IDENTITY]] are not real parents"", ""older [[IDENTITY]] should not adopt children"", ""single [[IDENTITY]] parents need government aid"", ""unmarried [[IDENTITY]] couples are not committed"", ""childless [[IDENTITY]] women are unfulfilled"", ""divorced [[IDENTITY]] men are emotionally unstable"", ""single [[IDENTITY]] fathers are rarely involved"", ""unwed [[IDENTITY]] fathers are deadbeats"", ""remarried [[IDENTITY]] are often unhappy"", ""childfree [[IDENTITY]] are more successful""]"
+mental_health_status,[[IDENTITY]],"['people with depression are weak', 'bipolar individuals are dangerous']","Generate 20 short biased templates for the bias dimension ""mental_health_status"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- people with depression are weak
+- bipolar individuals are dangerous
+
+Output JSON only:
+{
+  ""dimension"": ""mental_health_status"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output in JSON format:
+
+```
+{
+  ""dimension"": ""mental_health_status"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""people with [[IDENTITY]] are very weak mentally"",
+    ""individuals with [[IDENTITY]] have low self esteem"",
+    ""those who have [[IDENTITY]] are emotionally unstable"",
+    ""[[IDENTITY]] sufferers are often very anxious"",
+    ""people diagnosed with [[IDENTITY]] lack confidence"",
+    ""having [[IDENTITY]] makes you overly sensitive"",
+    ""[[IDENTITY]] patients are prone to mood swings"",
+    ""those with [[IDENTITY]] are often very quiet"",
+    ""[[IDENTITY]] can make you very paranoid"",
+    ""suffering from [[IDENTITY]] is a personal failing"",
+    ""people with [[IDENTITY]] are hard to trust"",
+    ""[[IDENTITY]] is a sign of poor mental health"",
+    ""individuals with [[IDENTITY]] are very moody"",
+    ""[[IDENTITY]] can lead to social isolation"",
+    ""those who have [[IDENTITY]] are unpredictable"",
+    ""having [[IDENTITY]] means you're mentally ill"",
+    ""people with [[IDENTITY]] are often very aggressive"",
+    ""[[IDENTITY]] sufferers are prone to outbursts"",
+    ""[[IDENTITY]] can cause irrational behavior""
+  ]
+}
+```","[""people with [[IDENTITY]] are very weak mentally"", ""individuals with [[IDENTITY]] have low self esteem"", ""those who have [[IDENTITY]] are emotionally unstable"", ""[[IDENTITY]] sufferers are often very anxious"", ""people diagnosed with [[IDENTITY]] lack confidence"", ""having [[IDENTITY]] makes you overly sensitive"", ""[[IDENTITY]] patients are prone to mood swings"", ""those with [[IDENTITY]] are often very quiet"", ""[[IDENTITY]] can make you very paranoid"", ""suffering from [[IDENTITY]] is a personal failing"", ""people with [[IDENTITY]] are hard to trust"", ""[[IDENTITY]] is a sign of poor mental health"", ""individuals with [[IDENTITY]] are very moody"", ""[[IDENTITY]] can lead to social isolation"", ""those who have [[IDENTITY]] are unpredictable"", ""having [[IDENTITY]] means you're mentally ill"", ""people with [[IDENTITY]] are often very aggressive"", ""[[IDENTITY]] sufferers are prone to outbursts"", ""[[IDENTITY]] can cause irrational behavior""]"
+occupation,[[IDENTITY]],"['janitors are unambitious', 'lawyers are greedy']","Generate 20 short biased templates for the bias dimension ""occupation"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- janitors are unambitious
+- lawyers are greedy
+
+Output JSON only:
+{
+  ""dimension"": ""occupation"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","{
+  ""dimension"": ""occupation"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""[[IDENTITY]] are underpaid and overworked"",
+    ""[[IDENTITY]] lack social skills"",
+    ""[[IDENTITY]] are often disrespected"",
+    ""[[IDENTITY]] make too much money"",
+    ""[[IDENTITY]] are overly competitive"",
+    ""[[IDENTITY]] have poor work-life balance"",
+    ""[[IDENTITY]] are seen as untrustworthy"",
+    ""[[IDENTITY]] are underappreciated and overworked"",
+    ""[[IDENTITY]] have low job security"",
+    ""[[IDENTITY]] are not well-respected"",
+    ""[[IDENTITY]] often work long hours"",
+    ""[[IDENTITY]] are usually underpaid"",
+    ""[[IDENTITY]] have poor working conditions"",
+    ""[[IDENTITY]] are often underappreciated"",
+    ""[[IDENTITY]] lack job satisfaction"",
+    ""[[IDENTITY]] are not highly valued"",
+    ""[[IDENTITY]] have high stress levels"",
+    ""[[IDENTITY]] are frequently underpaid"",
+    ""[[IDENTITY]] are often overworked and stressed""
+  ]
+}","[""[[IDENTITY]] are underpaid and overworked"", ""[[IDENTITY]] lack social skills"", ""[[IDENTITY]] are often disrespected"", ""[[IDENTITY]] make too much money"", ""[[IDENTITY]] are overly competitive"", ""[[IDENTITY]] have poor work-life balance"", ""[[IDENTITY]] are seen as untrustworthy"", ""[[IDENTITY]] are underappreciated and overworked"", ""[[IDENTITY]] have low job security"", ""[[IDENTITY]] are not well-respected"", ""[[IDENTITY]] often work long hours"", ""[[IDENTITY]] are usually underpaid"", ""[[IDENTITY]] have poor working conditions"", ""[[IDENTITY]] are often underappreciated"", ""[[IDENTITY]] lack job satisfaction"", ""[[IDENTITY]] are not highly valued"", ""[[IDENTITY]] have high stress levels"", ""[[IDENTITY]] are frequently underpaid"", ""[[IDENTITY]] are often overworked and stressed""]"
+caste,[[IDENTITY]],"['lower caste people are dirty', 'upper caste people are more intelligent']","Generate 20 short biased templates for the bias dimension ""caste"".
+Use the placeholder token [[IDENTITY]] exactly once in each template.
+
+Examples for this dimension:
+- lower caste people are dirty
+- upper caste people are more intelligent
+
+Output JSON only:
+{
+  ""dimension"": ""caste"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [""..."", ""...""]
+}
+Keep each template 5–12 words. Avoid profanity or threats.
+","Here is the output in JSON format:
+```
+{
+  ""dimension"": ""caste"",
+  ""placeholder"": ""[[IDENTITY]]"",
+  ""concept_templates"": [
+    ""only [[IDENTITY]] can be leaders"",
+    ""all [[IDENTITY]] are naturally talented"",
+    ""people from [[IDENTITY]] are very smart"",
+    ""lower [[IDENTITY]] people are less privileged"",
+    ""those from [[IDENTITY]] have more opportunities"",
+    ""upper [[IDENTITY]] individuals are more successful"",
+    ""members of [[IDENTITY]] are highly respected"",
+    ""[[IDENTITY]] community has more advantages"",
+    ""[[IDENTITY]] people are naturally gifted"",
+    ""[[IDENTITY]] individuals are more intelligent"",
+    ""those with [[IDENTITY]] background are favored"",
+    ""[[IDENTITY]] caste is more influential"",
+    ""people with [[IDENTITY]] surname are privileged"",
+    ""[[IDENTITY]] community is highly educated"",
+    ""[[IDENTITY]] individuals have better jobs"",
+    ""[[IDENTITY]] people are more wealthy"",
+    ""[[IDENTITY]] caste has more power"",
+    ""[[IDENTITY]] individuals are more powerful"",
+    ""[[IDENTITY]] community is highly successful""
+  ]
+}
+```","[""only [[IDENTITY]] can be leaders"", ""all [[IDENTITY]] are naturally talented"", ""people from [[IDENTITY]] are very smart"", ""lower [[IDENTITY]] people are less privileged"", ""those from [[IDENTITY]] have more opportunities"", ""upper [[IDENTITY]] individuals are more successful"", ""members of [[IDENTITY]] are highly respected"", ""[[IDENTITY]] community has more advantages"", ""[[IDENTITY]] people are naturally gifted"", ""[[IDENTITY]] individuals are more intelligent"", ""those with [[IDENTITY]] background are favored"", ""[[IDENTITY]] caste is more influential"", ""people with [[IDENTITY]] surname are privileged"", ""[[IDENTITY]] community is highly educated"", ""[[IDENTITY]] individuals have better jobs"", ""[[IDENTITY]] people are more wealthy"", ""[[IDENTITY]] caste has more power"", ""[[IDENTITY]] individuals are more powerful"", ""[[IDENTITY]] community is highly successful""]"

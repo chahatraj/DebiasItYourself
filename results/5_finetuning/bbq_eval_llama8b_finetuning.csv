@@ -1,0 +1,7 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+ft_stereotypereplacement_Age,0.472,0.226,0.718,-0.049,-0.026,3062,1840,1840
+ft_stereotypereplacement_Disability_status,0.397,0.161,0.632,0.443,0.267,1379,778,778
+ft_stereotypereplacement_Nationality,0.551,0.347,0.756,0.088,0.04,2380,1540,1540
+ft_stereotypereplacement_Physical_appearance,0.44,0.216,0.664,-0.007,-0.004,1295,788,788
+ft_stereotypereplacement_Religion,0.612,0.573,0.65,0.007,0.003,695,600,600
+ft_stereotypereplacement_Sexual_orientation,0.637,0.569,0.704,-0.16,-0.058,512,432,432

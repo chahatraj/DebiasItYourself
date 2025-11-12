@@ -1,0 +1,4 @@
+*.safetensors
+*.pt
+src/3_experiments/finetuned_model/
+src/3_experiments/wandb/
