@@ -3,3 +3,4 @@
 data/BBQ/
 src/3_experiments/finetuned_model/
 src/3_experiments/wandb/
+data/processed_bbq_all.csv
