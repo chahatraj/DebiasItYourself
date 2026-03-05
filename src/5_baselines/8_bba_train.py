@@ -411,7 +411,7 @@ def parse_args() -> argparse.Namespace:
         help="Max stereotype cues per bias category (after entropy ranking)"
     )
     parser.add_argument("--use_4bit", action="store_true", default=True)
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
     parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
 

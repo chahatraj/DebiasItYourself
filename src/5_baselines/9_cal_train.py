@@ -452,7 +452,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dbscan_min_samples", type=int, default=3,
                         help="DBSCAN min_samples (default: 3)")
 
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
     return parser.parse_args()
 
 

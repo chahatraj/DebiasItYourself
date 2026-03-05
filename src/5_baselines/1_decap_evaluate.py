@@ -31,7 +31,7 @@ from sentence_transformers import SentenceTransformer
 _SHARED_EVAL_DIR = Path(__file__).resolve().parents[1] / "3_experiments"
 if str(_SHARED_EVAL_DIR) not in sys.path:
     sys.path.append(str(_SHARED_EVAL_DIR))
-_SHARED_EVAL_PATH = _SHARED_EVAL_DIR / "9_eval_shared.py"
+_SHARED_EVAL_PATH = _SHARED_EVAL_DIR / "7_eval_shared.py"
 _spec = importlib.util.spec_from_file_location("eval_shared9_for_decap", _SHARED_EVAL_PATH)
 if _spec is None or _spec.loader is None:
     raise ImportError(f"Could not import {_SHARED_EVAL_PATH}")
@@ -628,7 +628,7 @@ def main():
     results_df.to_csv(output_file, index=False)
     print(f"\n✅ Results saved to: {output_file}")
 
-    # Save metrics aligned with diy/src/3_experiments/9_eval_shared.py
+    # Save metrics aligned with diy/src/3_experiments/7_eval_shared.py
     if args.source_file and args.source_file != "all":
         metrics_file = os.path.join(
             args.results_dir,

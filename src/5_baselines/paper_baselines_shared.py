@@ -2,7 +2,7 @@
 """Shared helper utilities and dataset adapters for baseline methods.
 
 This module directly integrates:
-- src/3_experiments/9_eval_shared.py
+- src/3_experiments/7_eval_shared.py
 """
 
 from __future__ import annotations
@@ -66,7 +66,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
 
 _EVAL_SHARED = _load_module(
     "exp9_eval_shared_for_baselines",
-    EXPERIMENTS_DIR / "9_eval_shared.py",
+    EXPERIMENTS_DIR / "7_eval_shared.py",
     add_to_syspath=EXPERIMENTS_DIR,
 )
 

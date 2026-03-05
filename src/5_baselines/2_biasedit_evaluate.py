@@ -263,7 +263,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--eval_baseline", action="store_true")
     parser.add_argument("--prompt_prefix", type=str, default=None)
 
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 
     parser.add_argument("--bbq_dir", type=str, default=None)
     parser.add_argument("--metadata_file", type=str, default=None)

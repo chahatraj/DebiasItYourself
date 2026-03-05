@@ -176,7 +176,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model_dir", type=str, default=None)
     parser.add_argument("--model_tag", type=str, default=None)
     parser.add_argument("--eval_baseline", action="store_true")
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 
     parser.add_argument("--output_file", type=str, default=None)
     parser.add_argument("--per_bias_output_file", type=str, default=None)

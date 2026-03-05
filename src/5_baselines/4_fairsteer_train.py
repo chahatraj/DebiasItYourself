@@ -416,7 +416,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--num_pairs_dsv", type=int, default=None)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--use_4bit", action="store_true", default=True)
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 
     parser.add_argument("--bbq_data_dir", type=str, default=None)
     parser.add_argument("--metadata_file", type=str, default=None)

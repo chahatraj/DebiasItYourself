@@ -211,7 +211,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit_per_category", type=int, default=None)
     parser.add_argument("--preds_output_file", type=str, default=None)
 
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
     return parser.parse_args()
 
 

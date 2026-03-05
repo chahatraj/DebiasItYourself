@@ -30,7 +30,7 @@ from torch.optim import AdamW
 
 def parse_args():
     parser = argparse.ArgumentParser(description="ReGiFT Training Script")
-    parser.add_argument("--reasoning_model", type=str, default="deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+    parser.add_argument("--reasoning_model", type=str, default="deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
                         help="Model for reasoning trace extraction")
     parser.add_argument("--target_model", type=str, default="meta-llama/Llama-3.1-8B-Instruct",
                         help="Model to fine-tune")

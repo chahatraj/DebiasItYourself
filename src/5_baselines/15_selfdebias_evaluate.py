@@ -27,7 +27,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 _SHARED_EVAL_DIR = Path(__file__).resolve().parents[1] / "3_experiments"
 if str(_SHARED_EVAL_DIR) not in sys.path:
     sys.path.append(str(_SHARED_EVAL_DIR))
-_SHARED_EVAL_PATH = _SHARED_EVAL_DIR / "9_eval_shared.py"
+_SHARED_EVAL_PATH = _SHARED_EVAL_DIR / "7_eval_shared.py"
 _spec = importlib.util.spec_from_file_location("eval_shared9_for_selfdebias", _SHARED_EVAL_PATH)
 if _spec is None or _spec.loader is None:
     raise ImportError(f"Could not import {_SHARED_EVAL_PATH}")

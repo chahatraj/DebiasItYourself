@@ -514,7 +514,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--lora_r", type=int, default=8)
     parser.add_argument("--lora_alpha", type=int, default=16)
 
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 
     parser.add_argument("--data_dir", type=str, default=None)
     parser.add_argument("--bbq_dir", type=str, default=None)
@@ -586,6 +586,19 @@ def main() -> None:
     train_df, test_df = _build_train_test(pref_df, args.test_size)
     print(f"Train: {len(train_df)}, Test: {len(test_df)}")
 
+    # Compute reference log-probs from the frozen base model BEFORE applying LoRA.
+    # DPO requires π_ref to be the initial (unmodified) model; using the LoRA-wrapped
+    # model here would make chosen/rejected reference log-probs identical to policy
+    # log-probs at step 0, collapsing the DPO objective.
+    ref_chosen, ref_rejected = compute_reference_logps(
+        model,
+        train_df,
+        tokenizer,
+        batch_size=args.batch_size,
+        max_length=args.max_length,
+        use_prompt_lengths=use_prompt_lengths,
+    )
+
     model = prepare_model_for_kbit_training(model)
     lora_config = LoraConfig(
         r=args.lora_r,
@@ -597,15 +610,6 @@ def main() -> None:
     )
     model = get_peft_model(model, lora_config)
     model.print_trainable_parameters()
-
-    ref_chosen, ref_rejected = compute_reference_logps(
-        model,
-        train_df,
-        tokenizer,
-        batch_size=args.batch_size,
-        max_length=args.max_length,
-        use_prompt_lengths=use_prompt_lengths,
-    )
     train_df = train_df.reset_index(drop=True)
     train_df["ref_chosen_logps"] = ref_chosen
     train_df["ref_rejected_logps"] = ref_rejected

@@ -182,7 +182,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--lora_alpha", type=int, default=16)
     parser.add_argument("--target_layers", type=str, default=None)
 
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 
     parser.add_argument("--bbq_dir", type=str, default=None)
     parser.add_argument("--meta_file", type=str, default=None)

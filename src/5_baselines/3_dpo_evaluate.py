@@ -99,7 +99,7 @@ def _evaluate_bbq(
 ):
     exp_common = _load_module(
         "bbq_eval_shared_for_dpo_eval",
-        BASE_DIR.parent / "3_experiments" / "9_eval_shared.py",
+        BASE_DIR.parent / "3_experiments" / "7_eval_shared.py",
         add_to_syspath=BASE_DIR.parent / "3_experiments",
     )
 
@@ -391,7 +391,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--batch_size", type=int, default=None)
     parser.add_argument("--limit", type=int, default=None)
 
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 
     parser.add_argument("--data_dir", type=str, default=None)
     parser.add_argument("--bbq_dir", type=str, default=None)

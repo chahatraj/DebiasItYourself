@@ -90,7 +90,7 @@ def _load_base_model_and_tokenizer(model_name: str, use_4bit: bool, hf_token: st
 def _evaluate_bbq(args: argparse.Namespace, model_name: str):
     exp_mod = _load_module(
         "bbq_eval_shared_for_lftf_eval",
-        BASE_DIR.parent / "3_experiments" / "9_eval_shared.py",
+        BASE_DIR.parent / "3_experiments" / "7_eval_shared.py",
         add_to_syspath=BASE_DIR.parent / "3_experiments",
     )
 
@@ -215,7 +215,7 @@ Answer:"""
 def _evaluate_crowspairs(args: argparse.Namespace, model_name: str):
     crows_mod = _load_module(
         "crowspairs_eval_shared_for_lftf_eval",
-        BASE_DIR.parent / "3_experiments" / "9_eval_shared.py",
+        BASE_DIR.parent / "3_experiments" / "7_eval_shared.py",
         add_to_syspath=BASE_DIR.parent / "3_experiments",
     )
 
@@ -389,7 +389,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--eval_baseline", action="store_true")
 
     parser.add_argument("--use_4bit", action="store_true", default=True)
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 
     parser.add_argument("--output_file", type=str, default=None)
     parser.add_argument("--preds_output_file", type=str, default=None)

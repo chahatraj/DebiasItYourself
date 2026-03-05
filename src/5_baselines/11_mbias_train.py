@@ -3,6 +3,7 @@
 
 import argparse
 import importlib.util
+import os
 import sys
 from pathlib import Path
 from types import ModuleType
@@ -128,7 +129,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max_length", type=int, default=None)
     parser.add_argument("--lora_r", type=int, default=None)
     parser.add_argument("--lora_alpha", type=int, default=None)
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
     return parser.parse_args()
 
 

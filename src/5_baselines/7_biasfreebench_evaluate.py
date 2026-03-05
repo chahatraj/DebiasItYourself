@@ -3,6 +3,7 @@
 
 import argparse
 import importlib.util
+import os
 import sys
 from pathlib import Path
 from types import ModuleType
@@ -183,7 +184,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--method", choices=sorted(PROMPTS.keys()), default=None)
     parser.add_argument("--model", type=str, default=None, help="Model alias used in output model tags (default: llama_8b)")
     parser.add_argument("--base_model", type=str, default=None)
-    parser.add_argument("--hf_token", type=str, default=None)
+    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 
     parser.add_argument("--data_path", type=str, default=None)
     parser.add_argument("--bias_type", type=str, default=None)
