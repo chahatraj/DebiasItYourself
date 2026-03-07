@@ -1,0 +1,24 @@
+timestamp=20260307_165643
+jobs_total=138
+jobs_submitted=111
+jobs_unsent=27
+queue_count_all_user_jobs=97
+state_counts={"COMPLETED": 21, "PENDING": 72, "RUNNING": 18}
+failed_like_count=0
+control_refill_job=6531045
+control_monitor_job=6531046
+control_refill_log=/scratch/craj/logs/diy/new_methods/out/newmeth_refill_ctl.6531045.out.txt
+control_monitor_log=/scratch/craj/logs/diy/new_methods/out/newmeth_monitor_ctl.6531046.out.txt
+recent_git_log:
+6c2da79 ops: update new-method manifest after control refills (submitted 109/138)
+0f9e1cc improve: m4_inference_instruction stereoset (m4_inference_instruction_stereoset, job 6530931)
+e828318 ops: harden new-method automation and launch persistent slurm control jobs
+61c1df1 improve: m3_finetune_llama winobias (m3_finetune_llama_winobias, job 6530911)
+8c030e3 improve: m3_finetune_llama stereoset (m3_finetune_llama_stereoset, job 6530908)
+853a470 improve: m3_finetune_llama winogender (m3_finetune_llama_winogender, job 6530912)
+cdd2bac improve: m3_finetune_llama crowspairs (m3_finetune_llama_crowspairs, job 6530907)
+2e9a8c5 ops: record submitted new-method run manifest (20260307_164241)
+11d9477 feat: automate new-method matrix submission and monitoring
+26cf791 snapshot: current status before new method automation (20260307_162956)
+14a31a8 Sync src/5_baselines updates
+69ea6d3 Sync 3_experiments and 5_baselines
