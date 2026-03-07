@@ -816,7 +816,10 @@ def submit_job(job: JobSpec, dep_job_ids: List[str], log_out_dir: Path, log_err_
         submit += ["--dependency", "afterok:" + ":".join(dep_job_ids), "--kill-on-invalid-dep=yes"]
 
     submit += [runner] + job.cmd
-    out = subprocess.check_output(submit, text=True).strip()
+    res = subprocess.run(submit, text=True, capture_output=True)
+    if res.returncode != 0:
+        raise subprocess.CalledProcessError(res.returncode, submit, output=res.stdout, stderr=res.stderr)
+    out = (res.stdout or "").strip()
     return out.split(";")[0].strip()
 
 
@@ -861,10 +864,12 @@ def main() -> None:
                     "deps": dep_ids,
                     "cmd": " ".join(shlex.quote(x) for x in job.cmd),
                     "expected_files": job.expected_files,
-                    "error": exc.output,
+                    "error_stdout": exc.output,
+                    "error_stderr": exc.stderr,
                 }
             )
-            print(f"[ERROR] submit failed for {job.name}: {exc}")
+            serr = (exc.stderr or "").strip()
+            print(f"[ERROR] submit failed for {job.name}: rc={exc.returncode} stderr={serr}")
 
     manifest = {
         "timestamp": ts,

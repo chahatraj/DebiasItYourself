@@ -21,13 +21,21 @@ ANY_RUNNER = "/scratch/craj/diy/src/4_slurmjobs/run_single_baseline_anynode.slur
 
 
 def read_json(path: Path) -> dict:
+    for _ in range(5):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            time.sleep(0.2)
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def write_json(path: Path, obj: dict) -> None:
-    with open(path, "w", encoding="utf-8") as f:
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=2)
+    tmp.replace(path)
 
 
 def current_queue_count() -> int:
@@ -75,7 +83,10 @@ def submit_job(job: dict, dep_ids: List[str], log_out_dir: str, log_err_dir: str
     if dep_ids:
         submit += ["--dependency", "afterok:" + ":".join(dep_ids), "--kill-on-invalid-dep=yes"]
     submit += [runner] + list(job["cmd"])
-    out = subprocess.check_output(submit, text=True).strip()
+    res = subprocess.run(submit, text=True, capture_output=True)
+    if res.returncode != 0:
+        raise subprocess.CalledProcessError(res.returncode, submit, output=res.stdout, stderr=res.stderr)
+    out = (res.stdout or "").strip()
     return out.split(";")[0].strip()
 
 
@@ -126,9 +137,15 @@ def main() -> None:
                     }
                 )
                 submitted_now += 1
-                print(f"[REFILL-SUBMIT] {jid} {j['name']}")
-            except subprocess.CalledProcessError:
+                print(f"[REFILL-SUBMIT] {jid} {j['name']}", flush=True)
+            except subprocess.CalledProcessError as exc:
+                stderr = (exc.stderr or "").strip() if hasattr(exc, "stderr") else ""
+                stdout = (exc.output or "").strip() if hasattr(exc, "output") else ""
+                print(f"[REFILL-BLOCKED] {j['name']} rc={exc.returncode} out={stdout} err={stderr}", flush=True)
                 # Still blocked by qos limits; try next cycle.
+                break
+            except Exception as exc:
+                print(f"[REFILL-ERROR] {j['name']} {exc}", flush=True)
                 break
 
         if submitted_now > 0:

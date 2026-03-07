@@ -22,13 +22,22 @@ GIT_ENV = {
 
 
 def read_json(path: Path) -> dict:
+    # Refill may rewrite manifest concurrently; tolerate transient partial reads.
+    for _ in range(5):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            time.sleep(0.2)
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def write_json(path: Path, obj: dict) -> None:
-    with open(path, "w", encoding="utf-8") as f:
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=2)
+    os.replace(tmp, path)
 
 
 def dataset_key(raw: str) -> str:
@@ -190,11 +199,23 @@ def main() -> None:
     else:
         state = {"committed_jobs": {}, "checked_jobs": {}, "history": []}
 
-    jobs = [j for j in manifest["jobs"] if j.get("job_id")]
-    job_ids = [str(j["job_id"]) for j in jobs]
-    job_by_id = {str(j["job_id"]): j for j in jobs}
+    state.setdefault("committed_jobs", {})
+    state.setdefault("checked_jobs", {})
+    state.setdefault("history", [])
+    state.setdefault("failed_jobs", {})
 
     while True:
+        manifest = read_json(manifest_path)
+        jobs = [j for j in manifest["jobs"] if j.get("job_id")]
+        job_ids = [str(j["job_id"]) for j in jobs]
+        job_by_id = {str(j["job_id"]): j for j in jobs}
+
+        if not job_ids:
+            if args.once:
+                break
+            time.sleep(max(30, int(args.poll_secs)))
+            continue
+
         states = fetch_states(job_ids)
         changed = False
 
@@ -209,6 +230,21 @@ def main() -> None:
                 state["history"].append({"job_id": jid, "job_name": jname, "state": slurm_state, "ts": int(time.time())})
                 state["checked_jobs"][jid] = slurm_state
                 changed = True
+
+            if any(
+                slurm_state.startswith(x)
+                for x in ("FAILED", "TIMEOUT", "CANCELLED", "OUT_OF_MEMORY", "PREEMPTED", "NODE_FAIL")
+            ):
+                if jid not in state["failed_jobs"]:
+                    state["failed_jobs"][jid] = {
+                        "job_name": jname,
+                        "method": job.get("method"),
+                        "dataset": job.get("dataset"),
+                        "state": slurm_state,
+                        "ts": int(time.time()),
+                    }
+                    changed = True
+                continue
 
             if not slurm_state.startswith("COMPLETED"):
                 continue
@@ -241,12 +277,14 @@ def main() -> None:
                             "files": [str(p) for p in ready],
                             "baseline_score": baseline_score,
                             "candidate_score": cand_score,
-                            "commit_message": msg,
+                                "commit_message": msg,
                         }
                         state["history"].append({"job_id": jid, "event": "commit", "msg": msg, "ts": int(time.time())})
+                        print(f"[COMMIT] {jid} {jname} baseline={baseline_score} candidate={cand_score}", flush=True)
                         changed = True
                 except Exception as exc:
                     state["history"].append({"job_id": jid, "event": "commit_error", "error": str(exc), "ts": int(time.time())})
+                    print(f"[COMMIT-ERROR] {jid} {jname}: {exc}", flush=True)
                     changed = True
 
         if changed:

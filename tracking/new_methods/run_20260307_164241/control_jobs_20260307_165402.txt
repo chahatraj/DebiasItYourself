@@ -1,0 +1,6 @@
+timestamp=20260307_165402
+manifest=/scratch/craj/diy/tracking/new_methods/run_20260307_164241/jobs_manifest.json
+refill_control_job=6531045
+monitor_control_job=6531046
+refill_log=/scratch/craj/logs/diy/new_methods/out/newmeth_refill_ctl.6531045.out.txt
+monitor_log=/scratch/craj/logs/diy/new_methods/out/newmeth_monitor_ctl.6531046.out.txt
