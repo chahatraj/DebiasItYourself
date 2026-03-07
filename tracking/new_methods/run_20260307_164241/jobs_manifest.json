@@ -6,7 +6,7 @@
   "log_out_dir": "/scratch/craj/logs/diy/new_methods/out",
   "log_err_dir": "/scratch/craj/logs/diy/new_methods/err",
   "jobs_total": 138,
-  "jobs_submitted": 94,
+  "jobs_submitted": 111,
   "jobs": [
     {
       "name": "m3_finetune_llama_crowspairs",
@@ -1320,7 +1320,7 @@
         "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Physical_appearance.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531018"
     },
     {
       "name": "m4_inference_instruction_bbq_Race_ethnicity",
@@ -1352,7 +1352,7 @@
         "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Race_ethnicity.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531021"
     },
     {
       "name": "m4_inference_instruction_bbq_Race_x_gender",
@@ -1384,7 +1384,7 @@
         "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Race_x_gender.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531022"
     },
     {
       "name": "m4_inference_instruction_bbq_Race_x_SES",
@@ -1416,7 +1416,7 @@
         "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Race_x_SES.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531023"
     },
     {
       "name": "m4_inference_instruction_bbq_Religion",
@@ -1448,7 +1448,7 @@
         "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Religion.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531033"
     },
     {
       "name": "m4_inference_instruction_bbq_SES",
@@ -1480,7 +1480,7 @@
         "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_SES.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531034"
     },
     {
       "name": "m4_inference_instruction_bbq_Sexual_orientation",
@@ -1512,7 +1512,7 @@
         "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Sexual_orientation.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531035"
     },
     {
       "name": "m4_inference_instruction_bbq_eval",
@@ -1550,7 +1550,7 @@
         "/scratch/craj/diy/results/new_results/m4_inference_instruction/bbq/bbq_metrics_m4_instr_sr.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531049"
     },
     {
       "name": "m5_soft_prompting_crowspairs",
@@ -3341,7 +3341,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/bold/m5_proxy_sr_bold/bold_metrics_overall_m5_proxy_sr_bold.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531050"
     },
     {
       "name": "m5_soft_prompting_honest",
@@ -3375,7 +3375,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/honest/m5_proxy_sr_honest/honest_metrics_overall_m5_proxy_sr_honest.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531051"
     },
     {
       "name": "m5_soft_prompting_winobias",
@@ -3409,7 +3409,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/winobias/m5_proxy_sr_winobias/winobias_metrics_overall_m5_proxy_sr_winobias.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531052"
     },
     {
       "name": "m5_soft_prompting_winogender",
@@ -3443,7 +3443,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/winogender/m5_proxy_sr_winogender/winogender_metrics_overall_m5_proxy_sr_winogender.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531053"
     },
     {
       "name": "m5_soft_prompting_bias_in_bios",
@@ -3477,7 +3477,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/bias_in_bios/m5_proxy_sr_bias_in_bios/bias_in_bios_metrics_overall_m5_proxy_sr_bias_in_bios.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531054"
     },
     {
       "name": "m5_soft_prompting_unqover_gender",
@@ -3513,7 +3513,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/unqover/gender/m5_proxy_sr_unqover_gender/unqover_gender_metrics_overall_m5_proxy_sr_unqover_gender.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531055"
     },
     {
       "name": "m5_soft_prompting_unqover_race",
@@ -3549,7 +3549,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/unqover/race/m5_proxy_sr_unqover_race/unqover_race_metrics_overall_m5_proxy_sr_unqover_race.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531056"
     },
     {
       "name": "m5_soft_prompting_unqover_religion",
@@ -3585,7 +3585,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/unqover/religion/m5_proxy_sr_unqover_religion/unqover_religion_metrics_overall_m5_proxy_sr_unqover_religion.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531058"
     },
     {
       "name": "m5_soft_prompting_unqover_nationality",
@@ -3621,7 +3621,7 @@
         "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/unqover/nationality/m5_proxy_sr_unqover_nationality/unqover_nationality_metrics_overall_m5_proxy_sr_unqover_nationality.csv"
       ],
       "notes": "",
-      "job_id": null
+      "job_id": "6531059"
     },
     {
       "name": "m6_reasoning_post_bold",
@@ -6261,6 +6261,237 @@
         "/scratch/craj/diy/results/new_results/m12_finetune_cot/evalshared/unqover/nationality/m12_proxy_sr_unqover_nationality/unqover_nationality_metrics_overall_m12_proxy_sr_unqover_nationality.csv"
       ],
       "error": ""
+    },
+    {
+      "job_name": "m4_inference_instruction_bbq_Physical_appearance",
+      "job_id": "6531018",
+      "method": "m4_inference_instruction",
+      "dataset": "bbq:Physical_appearance",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "manual retry submit",
+      "expected_files": [],
+      "resubmitted_manual": true
+    },
+    {
+      "job_name": "m4_inference_instruction_bbq_Race_ethnicity",
+      "job_id": "6531021",
+      "method": "m4_inference_instruction",
+      "dataset": "bbq:Race_ethnicity",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 13_bbq_inference_instruction.py --model llama_8b --source_file Race_ethnicity.jsonl --output_dir /scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq --model_tag m4_instr_sr --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Race_ethnicity.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m4_inference_instruction_bbq_Race_x_gender",
+      "job_id": "6531022",
+      "method": "m4_inference_instruction",
+      "dataset": "bbq:Race_x_gender",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 13_bbq_inference_instruction.py --model llama_8b --source_file Race_x_gender.jsonl --output_dir /scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq --model_tag m4_instr_sr --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Race_x_gender.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m4_inference_instruction_bbq_Race_x_SES",
+      "job_id": "6531023",
+      "method": "m4_inference_instruction",
+      "dataset": "bbq:Race_x_SES",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 13_bbq_inference_instruction.py --model llama_8b --source_file Race_x_SES.jsonl --output_dir /scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq --model_tag m4_instr_sr --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Race_x_SES.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m4_inference_instruction_bbq_Religion",
+      "job_id": "6531033",
+      "method": "m4_inference_instruction",
+      "dataset": "bbq:Religion",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 13_bbq_inference_instruction.py --model llama_8b --source_file Religion.jsonl --output_dir /scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq --model_tag m4_instr_sr --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Religion.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m4_inference_instruction_bbq_SES",
+      "job_id": "6531034",
+      "method": "m4_inference_instruction",
+      "dataset": "bbq:SES",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 13_bbq_inference_instruction.py --model llama_8b --source_file SES.jsonl --output_dir /scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq --model_tag m4_instr_sr --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_SES.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m4_inference_instruction_bbq_Sexual_orientation",
+      "job_id": "6531035",
+      "method": "m4_inference_instruction",
+      "dataset": "bbq:Sexual_orientation",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 13_bbq_inference_instruction.py --model llama_8b --source_file Sexual_orientation.jsonl --output_dir /scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq --model_tag m4_instr_sr --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq/bbq_preds_m4_instr_sr_instr_stereotype_replacement_Sexual_orientation.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m4_inference_instruction_bbq_eval",
+      "job_id": "6531049",
+      "method": "m4_inference_instruction",
+      "dataset": "bbq",
+      "queue": "offload",
+      "deps": [
+        "6530941",
+        "6530942",
+        "6530943",
+        "6530944",
+        "6531018",
+        "6531021",
+        "6531022",
+        "6531023",
+        "6531033",
+        "6531034",
+        "6531035"
+      ],
+      "cmd": "python 8_bbq_eval_shared.py --model_dir /scratch/craj/diy/outputs/new_outputs/m4_inference_instruction/bbq --output_file /scratch/craj/diy/results/new_results/m4_inference_instruction/bbq/bbq_metrics_m4_instr_sr.csv --model_name m4_instr_sr",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m4_inference_instruction/bbq/bbq_metrics_m4_instr_sr.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_bold",
+      "job_id": "6531050",
+      "method": "m5_soft_prompting",
+      "dataset": "bold",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset bold --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_bold --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/bold/m5_proxy_sr_bold/bold_metrics_overall_m5_proxy_sr_bold.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_honest",
+      "job_id": "6531051",
+      "method": "m5_soft_prompting",
+      "dataset": "honest",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset honest --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_honest --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/honest/m5_proxy_sr_honest/honest_metrics_overall_m5_proxy_sr_honest.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_winobias",
+      "job_id": "6531052",
+      "method": "m5_soft_prompting",
+      "dataset": "winobias",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset winobias --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_winobias --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/winobias/m5_proxy_sr_winobias/winobias_metrics_overall_m5_proxy_sr_winobias.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_winogender",
+      "job_id": "6531053",
+      "method": "m5_soft_prompting",
+      "dataset": "winogender",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset winogender --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_winogender --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/winogender/m5_proxy_sr_winogender/winogender_metrics_overall_m5_proxy_sr_winogender.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_bias_in_bios",
+      "job_id": "6531054",
+      "method": "m5_soft_prompting",
+      "dataset": "bias_in_bios",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset bias_in_bios --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_bias_in_bios --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/bias_in_bios/m5_proxy_sr_bias_in_bios/bias_in_bios_metrics_overall_m5_proxy_sr_bias_in_bios.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_unqover_gender",
+      "job_id": "6531055",
+      "method": "m5_soft_prompting",
+      "dataset": "unqover:gender",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset unqover --unqover_dim gender --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_unqover_gender --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/unqover/gender/m5_proxy_sr_unqover_gender/unqover_gender_metrics_overall_m5_proxy_sr_unqover_gender.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_unqover_race",
+      "job_id": "6531056",
+      "method": "m5_soft_prompting",
+      "dataset": "unqover:race",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset unqover --unqover_dim race --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_unqover_race --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/unqover/race/m5_proxy_sr_unqover_race/unqover_race_metrics_overall_m5_proxy_sr_unqover_race.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_unqover_religion",
+      "job_id": "6531058",
+      "method": "m5_soft_prompting",
+      "dataset": "unqover:religion",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset unqover --unqover_dim religion --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_unqover_religion --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/unqover/religion/m5_proxy_sr_unqover_religion/unqover_religion_metrics_overall_m5_proxy_sr_unqover_religion.csv"
+      ],
+      "resubmitted_by_refill": true
+    },
+    {
+      "job_name": "m5_soft_prompting_unqover_nationality",
+      "job_id": "6531059",
+      "method": "m5_soft_prompting",
+      "dataset": "unqover:nationality",
+      "queue": "offload",
+      "deps": [],
+      "cmd": "python 7_eval_shared.py --dataset unqover --unqover_dim nationality --model llama_8b --output_dir /scratch/craj/diy/outputs/new_outputs/m5_soft_prompting/evalshared --results_dir /scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared --model_tag m5_proxy_sr_unqover_nationality --inference_instruction_mode strategy --inference_strategy stereotype_replacement",
+      "expected_files": [
+        "/scratch/craj/diy/results/new_results/m5_soft_prompting/evalshared/unqover/nationality/m5_proxy_sr_unqover_nationality/unqover_nationality_metrics_overall_m5_proxy_sr_unqover_nationality.csv"
+      ],
+      "resubmitted_by_refill": true
     }
   ]
 }
