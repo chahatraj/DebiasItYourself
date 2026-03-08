@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m5_softprompt_sr:m5_softprompt_sr_Age,0.629,0.519,0.738,9.091,22.989,3680,1840,1840,bbq_preds_m5_softprompt_sr_Age.csv
+m5_softprompt_sr:m5_softprompt_sr_Disability_status,0.607,0.554,0.659,2.215,5.27,1556,778,778,bbq_preds_m5_softprompt_sr_Disability_status.csv
+m5_softprompt_sr:m5_softprompt_sr_Gender_identity,0.541,0.947,0.135,-8.222,0.035,5720,2860,2860,bbq_preds_m5_softprompt_sr_Gender_identity.csv
+m5_softprompt_sr:m5_softprompt_sr_Nationality,0.72,0.708,0.731,3.9,3.701,3080,1540,1540,bbq_preds_m5_softprompt_sr_Nationality.csv
+m5_softprompt_sr:m5_softprompt_sr_Physical_appearance,0.556,0.674,0.438,6.393,9.264,1576,788,788,bbq_preds_m5_softprompt_sr_Physical_appearance.csv
+m5_softprompt_sr:m5_softprompt_sr_Race_ethnicity,0.589,0.894,0.283,-0.087,1.831,6880,3440,3440,bbq_preds_m5_softprompt_sr_Race_ethnicity.csv
+m5_softprompt_sr:m5_softprompt_sr_Race_x_SES,0.604,0.922,0.287,1.624,1.774,11160,5580,5580,bbq_preds_m5_softprompt_sr_Race_x_SES.csv
+m5_softprompt_sr:m5_softprompt_sr_Race_x_gender,0.609,0.91,0.308,-0.173,-0.163,15960,7980,7980,bbq_preds_m5_softprompt_sr_Race_x_gender.csv
+m5_softprompt_sr:m5_softprompt_sr_Religion,0.703,0.832,0.575,8.458,6.5,1200,600,600,bbq_preds_m5_softprompt_sr_Religion.csv
+m5_softprompt_sr:m5_softprompt_sr_SES,0.685,0.628,0.741,4.44,12.267,6864,3432,3432,bbq_preds_m5_softprompt_sr_SES.csv
+m5_softprompt_sr:m5_softprompt_sr_Sexual_orientation,0.66,0.764,0.556,-3.371,-4.167,864,432,432,bbq_preds_m5_softprompt_sr_Sexual_orientation.csv
+m5_softprompt_sr,0.616,0.826,0.406,2.618,4.052,58540,29270,29270,__overall__
