@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file,debias_method,strategy
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Age,0.702,0.814,0.59,13.764,6.467,3680,1840,1840,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Age.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Disability_status,0.644,0.746,0.542,3.659,7.712,1556,778,778,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Disability_status.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Gender_identity,0.565,0.977,0.152,8.333,0.175,5720,2860,2860,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Gender_identity.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Nationality,0.708,0.749,0.666,1.853,5.974,3080,1540,1540,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Nationality.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Physical_appearance,0.595,0.768,0.423,13.514,13.071,1576,788,788,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Physical_appearance.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Race_ethnicity,0.606,0.94,0.273,5.233,1.424,6880,3440,3440,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Race_ethnicity.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Race_x_SES,0.62,0.933,0.307,0.67,0.824,11160,5580,5580,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Race_x_SES.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Race_x_gender,0.609,0.975,0.243,4.579,0.15,15960,7980,7980,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Race_x_gender.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Religion,0.679,0.87,0.488,9.402,3.0,1200,600,600,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Religion.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_SES,0.698,0.746,0.65,2.49,6.643,6864,3432,3432,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_SES.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr:m12_ftcot_sr_ft_cot_stereotype_replacement_Sexual_orientation,0.638,0.873,0.403,-6.22,1.62,864,432,432,bbq_preds_m12_ftcot_sr_ft_cot_stereotype_replacement_Sexual_orientation.csv,ft_cot,stereotype_replacement
+m12_ftcot_sr,0.63,0.899,0.362,4.689,2.525,58540,29270,29270,__overall__,ft_cot,
