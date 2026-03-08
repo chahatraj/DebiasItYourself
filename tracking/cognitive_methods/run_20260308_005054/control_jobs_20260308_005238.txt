@@ -1,0 +1,5 @@
+timestamp=20260308_005238
+manifest=/scratch/craj/diy/tracking/cognitive_methods/run_20260308_005054/jobs_manifest.json
+refill_control_job=6531770
+monitor_control_job=6531769
+note=replaced refill target_queued to 190 for high queue pressure
