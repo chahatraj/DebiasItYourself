@@ -1,0 +1,7 @@
+timestamp=20260308_115453
+manifest=/scratch/craj/diy/tracking/new_methods/run_20260307_164241/jobs_manifest.json
+refill_control_job=6531995
+monitor_control_job=6531046
+note=replaced refill after timeout retries; target_queued=190
+manual_retry_submitted=m6_reasoning_post_bbq_Race_x_gender:6531993
+manual_retry_submitted=m6_reasoning_post_bbq_eval:6531994
