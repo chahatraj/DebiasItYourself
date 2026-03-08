@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Age,0.406,0.209,0.602,6.51,16.141,3680,1840,1840,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Age.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Disability_status,0.308,0.075,0.542,1.897,5.913,1556,778,778,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Disability_status.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Gender_identity,0.501,0.938,0.064,-2.308,0.559,5720,2860,2860,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Gender_identity.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Nationality,0.416,0.238,0.594,1.268,4.481,3080,1540,1540,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Nationality.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Physical_appearance,0.353,0.188,0.518,0.747,13.198,1576,788,788,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Physical_appearance.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Race_ethnicity,0.375,0.298,0.451,0.874,1.076,6880,3440,3440,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Race_ethnicity.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Race_x_SES,0.311,0.029,0.593,0.38,1.577,11160,5580,5580,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Race_x_SES.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Race_x_gender,0.384,0.314,0.455,-0.169,0.952,15960,7980,7980,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Race_x_gender.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Religion,0.498,0.478,0.518,9.906,2.167,1200,600,600,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Religion.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_SES,0.464,0.54,0.388,0.483,3.555,6864,3432,3432,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_SES.csv
+m18_rerank_exact:m18_rerank_exact_instr_stereotype_replacement_Sexual_orientation,0.433,0.394,0.472,-3.311,5.556,864,432,432,bbq_preds_m18_rerank_exact_instr_stereotype_replacement_Sexual_orientation.csv
+m18_rerank_exact,0.393,0.329,0.457,0.982,3.047,58540,29270,29270,__overall__
