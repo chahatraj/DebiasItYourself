@@ -1,0 +1,6 @@
+timestamp=20260308_005134
+manifest=/scratch/craj/diy/tracking/cognitive_methods/run_20260308_005054/jobs_manifest.json
+refill_control_job=6531768
+monitor_control_job=6531769
+control_log=/scratch/craj/logs/diy/cognitive_methods/control_cognitive_methods.20260308_005059.log
+submit_log=/scratch/craj/logs/diy/cognitive_methods/submit_cognitive_methods.20260308_005054.log

@@ -1,0 +1,8 @@
+manifest=/scratch/craj/diy/tracking/cognitive_methods/run_20260308_005054/jobs_manifest.json
+jobs_total=184
+jobs_submitted=129
+jobs_unsent=55
+states={"PENDING": 129}
+user_queue_count=177
+refill_control_job=6531768
+monitor_control_job=6531769
