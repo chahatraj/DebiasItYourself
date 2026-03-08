@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Age,0.41,0.193,0.626,6.362,15.489,3680,1840,1840,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Age.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Disability_status,0.308,0.071,0.546,1.892,4.499,1556,778,778,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Disability_status.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Gender_identity,0.502,0.938,0.067,-5.755,0.28,5720,2860,2860,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Gender_identity.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Nationality,0.421,0.241,0.601,1.264,3.571,3080,1540,1540,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Nationality.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Physical_appearance,0.355,0.176,0.533,1.034,10.787,1576,788,788,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Physical_appearance.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Race_ethnicity,0.375,0.296,0.454,1.026,1.366,6880,3440,3440,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Race_ethnicity.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Race_x_SES,0.312,0.026,0.598,0.434,1.989,11160,5580,5580,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Race_x_SES.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Race_x_gender,0.386,0.312,0.461,-0.37,-0.088,15960,7980,7980,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Race_x_gender.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Religion,0.497,0.48,0.513,6.383,3.333,1200,600,600,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Religion.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_SES,0.457,0.52,0.394,-0.525,3.671,6864,3432,3432,bbq_preds_m19_contrastive_exact_instr_counter_imaging_SES.csv
+m19_contrastive_exact:m19_contrastive_exact_instr_counter_imaging_Sexual_orientation,0.435,0.394,0.477,-1.935,5.093,864,432,432,bbq_preds_m19_contrastive_exact_instr_counter_imaging_Sexual_orientation.csv
+m19_contrastive_exact,0.394,0.324,0.463,0.759,2.689,58540,29270,29270,__overall__
