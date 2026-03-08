@@ -1,0 +1,270 @@
+timestamp=20260308_004557
+head=5e84bb659f02ec6a0a269553a6ee7a6f2f77a297
+
+status_short:
+ M .gitignore
+ D outputs/1_generations/bias_concepts_llama.csv
+ D outputs/1_generations/bias_concepts_llama_clean.csv
+ D outputs/1_generations/debiased_instances_counter_imaging_one_opinion_version_action_version.csv
+ D outputs/1_generations/debiased_instances_counter_imaging_one_opinion_version_action_version.jsonl
+ D outputs/1_generations/debiased_instances_individuating_one_opinion_version_action_version.csv
+ D outputs/1_generations/debiased_instances_individuating_one_opinion_version_action_version.jsonl
+ D outputs/1_generations/debiased_instances_perspective_taking_one_opinion_version_action_version.csv
+ D outputs/1_generations/debiased_instances_perspective_taking_one_opinion_version_action_version.jsonl
+ D outputs/1_generations/debiased_instances_positive_contact_one_opinion_version_action_version.csv
+ D outputs/1_generations/debiased_instances_positive_contact_one_opinion_version_action_version.jsonl
+ D outputs/1_generations/debiased_instances_stereotype_replacement_one_opinion_version_action_version.csv
+ D outputs/1_generations/debiased_instances_stereotype_replacement_one_opinion_version_action_version.jsonl
+ D outputs/1_generations/debiased_instances_stereotype_replacement_one_opinion_version_action_version_10.csv
+ D outputs/1_generations/debiased_instances_stereotype_replacement_one_opinion_version_action_version_10.jsonl
+ D outputs/1_generations/seed_instances_300.csv
+ D outputs/1_generations/seed_instances_300.jsonl
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_strategy_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_strategy_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_strategy_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_strategy_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_strategy_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_strategy_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_strategy_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_testing_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_testing_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_testing_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_testing_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_testing_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_testing_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_counter_imaging_one_testing_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_strategy_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_strategy_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_strategy_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_strategy_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_strategy_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_strategy_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_strategy_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_testing_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_testing_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_testing_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_testing_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_testing_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_testing_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_individuating_one_testing_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_strategy_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_strategy_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_strategy_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_strategy_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_strategy_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_strategy_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_testing_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_testing_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_testing_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_testing_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_testing_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_testing_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_perspective_taking_one_testing_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_strategy_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_strategy_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_strategy_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_strategy_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_strategy_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_strategy_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_strategy_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_testing_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_testing_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_testing_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_testing_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_testing_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_testing_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_positive_contact_one_testing_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_Race_ethnicity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_SES.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_strategy_first_define_Sexual_orientation.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_Age.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_Disability_status.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_Gender_identity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_Nationality.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_Physical_appearance.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_Race_ethnicity.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_Religion.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_SES.csv
+ D outputs/4_incontext/bbq/llama_8b_incontext/bbq_preds_llama_8b_stereotype_replacement_one_testing_first_define_Sexual_orientation.csv
+ D outputs/5_finetuning/bbq_preds_llama_8b_ft_stereotypereplacement_Age.csv
+ D outputs/5_finetuning/bbq_preds_llama_8b_ft_stereotypereplacement_Disability_status.csv
+ D outputs/5_finetuning/bbq_preds_llama_8b_ft_stereotypereplacement_Gender_identity.csv
+ D outputs/5_finetuning/bbq_preds_llama_8b_ft_stereotypereplacement_Nationality.csv
+ D outputs/5_finetuning/bbq_preds_llama_8b_ft_stereotypereplacement_Physical_appearance.csv
+ D outputs/5_finetuning/bbq_preds_llama_8b_ft_stereotypereplacement_Religion.csv
+ D outputs/5_finetuning/bbq_preds_llama_8b_ft_stereotypereplacement_Sexual_orientation.csv
+ D readme.md
+ D results/5_finetuning/bbq_eval_llama8b_finetuning.csv
+ D src/2_generations/5_gen_seed_instances.py
+ D src/2_generations/6_gen_debiased_instances.py
+ D src/2_generations/clean_concepts.py
+ M src/3_experiments/3_finetune_llama.py
+ D src/3_experiments/4_soft_prompting.py
+ D src/3_experiments/5_reasoning_token_post_experiment.py
+ D src/3_experiments/6_bbq_eval_shared.py
+ D src/3_experiments/7_crowspairs_eval_shared.py
+ D src/3_experiments/8_stereoset_eval_shared.py
+ D src/3_experiments/9_eval_shared.py
+ D src/3_experiments/additional_benchmarks_eval.py
+ M src/3_experiments/howtorun.md
+ M src/3_experiments/inference_instruction.py
+ M src/3_experiments/submit_additional_benchmark_baselines.py
+ M src/3_experiments/submit_reasoning_token_post_jobs.py
+ D src/4_slurmjobs/genargs.py
+ D src/4_slurmjobs/s1.txt
+ D src/4_slurmjobs/s1_bbq_inference.slurm
+ D src/4_slurmjobs/s2.txt
+ D src/4_slurmjobs/s2_bbq_incontext.slurm
+ D src/4_slurmjobs/s3.txt
+ D src/4_slurmjobs/s3_gen_debiased.slurm
+ D src/4_slurmjobs/s4.txt
+ D src/4_slurmjobs/s4_finetune.slurm
+ M src/5_baselines/10_debias_nlg_evaluate.py
+ M src/5_baselines/10_debias_nlg_train.py
+ M src/5_baselines/11_mbias_evaluate.py
+ M src/5_baselines/11_mbias_train.py
+ M src/5_baselines/12_debias_llms_evaluate.py
+ M src/5_baselines/12_debias_llms_train.py
+ M src/5_baselines/13_reduce_social_bias_evaluate.py
+ M src/5_baselines/14_regift_evaluate.py
+ M src/5_baselines/14_regift_train.py
+ M src/5_baselines/15_selfdebias_evaluate.py
+ M src/5_baselines/1_decap_evaluate.py
+ M src/5_baselines/2_biasedit_evaluate.py
+ M src/5_baselines/2_biasedit_train.py
+ M src/5_baselines/3_dpo_evaluate.py
+ M src/5_baselines/3_dpo_train.py
+ M src/5_baselines/4_fairsteer_evaluate.py
+ M src/5_baselines/4_fairsteer_train.py
+ M src/5_baselines/5_lftf_evaluate.py
+ M src/5_baselines/5_lftf_train.py
+ M src/5_baselines/6_peft_evaluate.py
+ M src/5_baselines/6_peft_train.py
+ M src/5_baselines/7_biasfreebench_evaluate.py
+ M src/5_baselines/8_bba_evaluate.py
+ M src/5_baselines/8_bba_train.py
+ M src/5_baselines/9_cal_evaluate.py
+ M src/5_baselines/9_cal_train.py
+ M tracking/new_methods/run_20260307_164241/jobs_manifest.json
+?? backup/
+?? data/SQUARE/
+?? data/crows_pairs_anonymized.csv
+?? data/description_based_concepts.csv
+?? data/stereoset/
+?? diy_0126.tar.gz
+?? outputs/10_additional_benchmarks/
+?? outputs/1_generations/concepts/
+?? outputs/1_generations/debiased_instances/
+?? outputs/1_generations/identities/
+?? outputs/1_generations/seed_instances/
+?? outputs/3_baselines/
+?? outputs/4_incontext/bbq/llama_8b_incontext/five_shot/
+?? outputs/4_incontext/bbq/llama_8b_incontext/one_shot/
+?? outputs/4_incontext/bbq/llama_8b_incontext/two_shot/
+?? outputs/6_instructiontuning/
+?? outputs/7_finetuned_models/
+?? outputs/8_soft_prompt/
+?? outputs/9_reasoning_token_post/
+?? outputs/new_outputs/
+?? results/10_additional_benchmarks/
+?? results/3_baselines/
+?? results/4_incontext/bbq_eval_llama8b_incontext_five_shot.csv
+?? results/4_incontext/bbq_eval_llama8b_incontext_one_shot.csv
+?? results/4_incontext/bbq_eval_llama8b_incontext_two_shot.csv
+?? results/6_instructiontuning/
+?? results/8_soft_prompt/
+?? results/9_reasoning_token_post/
+?? results/new_results/m11_chain_of_thought/evalshared/bold/m11_proxy_sr_bold/bold_metrics_by_category_m11_proxy_sr_bold.csv
+?? results/new_results/m11_chain_of_thought/evalshared/bold/m11_proxy_sr_bold/bold_metrics_by_domain_m11_proxy_sr_bold.csv
+?? results/new_results/m11_chain_of_thought/evalshared/honest/
+?? results/new_results/m11_chain_of_thought/evalshared/unqover/
+?? results/new_results/m11_chain_of_thought/evalshared/winobias/
+?? results/new_results/m11_chain_of_thought/evalshared/winogender/
+?? results/new_results/m12_finetune_cot/evalshared/bold/m12_proxy_sr_bold/bold_metrics_by_category_m12_proxy_sr_bold.csv
+?? results/new_results/m12_finetune_cot/evalshared/bold/m12_proxy_sr_bold/bold_metrics_by_domain_m12_proxy_sr_bold.csv
+?? results/new_results/m12_finetune_cot/evalshared/honest/
+?? results/new_results/m12_finetune_cot/evalshared/unqover/
+?? results/new_results/m12_finetune_cot/evalshared/winobias/m12_proxy_sr_winobias/winobias_metrics_by_type_m12_proxy_sr_winobias.csv
+?? results/new_results/m12_finetune_cot/evalshared/winogender/m12_proxy_sr_winogender/winogender_metrics_by_gender_m12_proxy_sr_winogender.csv
+?? results/new_results/m3_finetune_llama/evalshared/bold/m3_finetune_allstrat_bold/bold_metrics_by_category_m3_finetune_allstrat_bold.csv
+?? results/new_results/m3_finetune_llama/evalshared/bold/m3_finetune_allstrat_bold/bold_metrics_by_domain_m3_finetune_allstrat_bold.csv
+?? results/new_results/m3_finetune_llama/evalshared/crows_pairs_metrics_by_bias_m3_finetune_allstrat.csv
+?? results/new_results/m3_finetune_llama/evalshared/honest/
+?? results/new_results/m3_finetune_llama/evalshared/stereoset_metrics_m3_finetune_allstrat.json
+?? results/new_results/m3_finetune_llama/evalshared/unqover/
+?? results/new_results/m3_finetune_llama/evalshared/winobias/m3_finetune_allstrat_winobias/winobias_metrics_by_type_m3_finetune_allstrat_winobias.csv
+?? results/new_results/m3_finetune_llama/evalshared/winogender/m3_finetune_allstrat_winogender/winogender_metrics_by_gender_m3_finetune_allstrat_winogender.csv
+?? results/new_results/m4_inference_instruction/evalshared/bold/m4_instr_sr_bold/bold_metrics_by_category_m4_instr_sr_bold.csv
+?? results/new_results/m4_inference_instruction/evalshared/bold/m4_instr_sr_bold/bold_metrics_by_domain_m4_instr_sr_bold.csv
+?? results/new_results/m4_inference_instruction/evalshared/crows_pairs_metrics_by_bias_m4_instr_sr.csv
+?? results/new_results/m4_inference_instruction/evalshared/crows_pairs_metrics_overall_m4_instr_sr.csv
+?? results/new_results/m4_inference_instruction/evalshared/honest/
+?? results/new_results/m4_inference_instruction/evalshared/stereoset_metrics_m4_instr_sr.json
+?? results/new_results/m4_inference_instruction/evalshared/unqover/
+?? results/new_results/m4_inference_instruction/evalshared/winobias/
+?? results/new_results/m4_inference_instruction/evalshared/winogender/
+?? results/new_results/m5_soft_prompting/crowspairs/
+?? results/new_results/m5_soft_prompting/evalshared/bold/m5_proxy_sr_bold/bold_metrics_by_category_m5_proxy_sr_bold.csv
+?? results/new_results/m5_soft_prompting/evalshared/bold/m5_proxy_sr_bold/bold_metrics_by_domain_m5_proxy_sr_bold.csv
+?? results/new_results/m5_soft_prompting/evalshared/honest/
+?? results/new_results/m5_soft_prompting/evalshared/unqover/
+?? results/new_results/m5_soft_prompting/evalshared/winobias/
+?? results/new_results/m5_soft_prompting/evalshared/winogender/
+?? results/new_results/m5_soft_prompting/stereoset/
+?? results/new_results/m6_reasoning_post/crowspairs/
+?? results/new_results/m6_reasoning_post/evalshared/bold/m6_proxy_sr_bold/bold_metrics_by_category_m6_proxy_sr_bold.csv
+?? results/new_results/m6_reasoning_post/evalshared/bold/m6_proxy_sr_bold/bold_metrics_by_domain_m6_proxy_sr_bold.csv
+?? results/new_results/m6_reasoning_post/evalshared/honest/
+?? results/new_results/m6_reasoning_post/evalshared/unqover/
+?? results/new_results/m6_reasoning_post/evalshared/winobias/
+?? results/new_results/m6_reasoning_post/evalshared/winogender/
+?? results/new_results/m6_reasoning_post/stereoset/
+?? src/2_generations/2_gen_identities.py
+?? src/2_generations/3_flatten_identities.py
+?? src/2_generations/4_bucket_concepts.py
+?? src/2_generations/5_gen_concepts.py
+?? src/2_generations/6_clean_concepts.py
+?? src/2_generations/7_gen_seed_instances.py
+?? src/2_generations/8_gen_debiased_instances.py
+?? src/3_experiments/10_stereoset_eval_shared.py
+?? src/3_experiments/11_chain_of_thought.py
+?? src/3_experiments/12_finetune_cot.py
+?? src/3_experiments/4_inference_time_instruction.py
+?? src/3_experiments/5_soft_prompting.py
+?? src/3_experiments/6_reasoning_token_post_experiment.py
+?? src/3_experiments/7_eval_shared.py
+?? src/3_experiments/8_bbq_eval_shared.py
+?? src/3_experiments/9_crowspairs_eval_shared.py
+?? src/3_experiments/__pycache__/
+?? src/4_slurmjobs/__pycache__/
+?? src/4_slurmjobs/allocate_gpu.md
+?? src/4_slurmjobs/arrays/
+?? src/4_slurmjobs/old/
+?? src/4_slurmjobs/resubmit_failed_jobs.sh
+?? src/4_slurmjobs/run_job_array.slurm
+?? src/4_slurmjobs/run_single_baseline.slurm
+?? src/4_slurmjobs/run_single_baseline_anynode.slurm
+?? src/4_slurmjobs/submissions/
+?? src/4_slurmjobs/submit_all_baselines_reservation.sh
+?? src/5_baselines/__pycache__/
+?? src/5_baselines/biasedit_repo/
+?? src/7_visualizations/
+?? tracking/new_methods/run_20260307_164241/monitor_state.json
+
+recent_log:
+5e84bb6 improve: m5_soft_prompting bbq (m5_soft_prompting_bbq_eval, job 6530958)
+dc87431 improve: m12_finetune_cot bold (m12_finetune_cot_bold, job 6531094)
+e3ace72 improve: m11_chain_of_thought bold (m11_chain_of_thought_bold, job 6531079)
+f4cca8c improve: m6_reasoning_post bold (m6_reasoning_post_bold, job 6531060)
+2d79b3d improve: m3_finetune_llama bold (m3_finetune_llama_bold, job 6530909)
+126736c improve: m5_soft_prompting bold (m5_soft_prompting_bold, job 6531050)
+e8f7812 improve: m12_finetune_cot winogender (m12_finetune_cot_winogender, job 6531097)
+63dedfa improve: m12_finetune_cot winobias (m12_finetune_cot_winobias, job 6531096)
+5b9f271 improve: m4_inference_instruction bold (m4_inference_instruction_bold, job 6530932)
+ece10dd improve: m4_inference_instruction bbq (m4_inference_instruction_bbq_eval, job 6531049)
