@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m16_router_exact:m16_router_exact_instr_all_strategies_Age,0.417,0.201,0.632,6.789,15.326,3680,1840,1840,bbq_preds_m16_router_exact_instr_all_strategies_Age.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Disability_status,0.309,0.075,0.544,1.759,4.627,1556,778,778,bbq_preds_m16_router_exact_instr_all_strategies_Disability_status.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Gender_identity,0.502,0.938,0.067,-2.564,0.0,5720,2860,2860,bbq_preds_m16_router_exact_instr_all_strategies_Gender_identity.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Nationality,0.422,0.238,0.607,2.128,4.156,3080,1540,1540,bbq_preds_m16_router_exact_instr_all_strategies_Nationality.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Physical_appearance,0.362,0.188,0.536,2.36,9.898,1576,788,788,bbq_preds_m16_router_exact_instr_all_strategies_Physical_appearance.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Race_ethnicity,0.379,0.299,0.459,1.433,0.349,6880,3440,3440,bbq_preds_m16_router_exact_instr_all_strategies_Race_ethnicity.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Race_x_SES,0.312,0.026,0.599,0.866,2.025,11160,5580,5580,bbq_preds_m16_router_exact_instr_all_strategies_Race_x_SES.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Race_x_gender,0.388,0.314,0.461,-0.151,0.401,15960,7980,7980,bbq_preds_m16_router_exact_instr_all_strategies_Race_x_gender.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Religion,0.509,0.478,0.54,9.174,1.833,1200,600,600,bbq_preds_m16_router_exact_instr_all_strategies_Religion.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_SES,0.463,0.522,0.404,-0.603,2.681,6864,3432,3432,bbq_preds_m16_router_exact_instr_all_strategies_SES.csv
+m16_router_exact:m16_router_exact_instr_all_strategies_Sexual_orientation,0.449,0.403,0.495,-2.548,0.926,864,432,432,bbq_preds_m16_router_exact_instr_all_strategies_Sexual_orientation.csv
+m16_router_exact,0.397,0.326,0.467,1.185,2.474,58540,29270,29270,__overall__
