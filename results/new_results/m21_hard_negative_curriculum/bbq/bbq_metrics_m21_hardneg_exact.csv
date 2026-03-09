@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Age,0.415,0.211,0.618,6.412,16.304,3680,1840,1840,bbq_preds_m21_hardneg_exact_instr_individuating_Age.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Disability_status,0.307,0.071,0.542,1.764,5.527,1556,778,778,bbq_preds_m21_hardneg_exact_instr_individuating_Disability_status.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Gender_identity,0.503,0.938,0.067,-1.099,0.559,5720,2860,2860,bbq_preds_m21_hardneg_exact_instr_individuating_Gender_identity.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Nationality,0.425,0.245,0.604,1.856,4.935,3080,1540,1540,bbq_preds_m21_hardneg_exact_instr_individuating_Nationality.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Physical_appearance,0.36,0.188,0.533,1.479,11.168,1576,788,788,bbq_preds_m21_hardneg_exact_instr_individuating_Physical_appearance.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Race_ethnicity,0.376,0.297,0.455,0.759,1.105,6880,3440,3440,bbq_preds_m21_hardneg_exact_instr_individuating_Race_ethnicity.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Race_x_SES,0.314,0.031,0.596,0.831,2.581,11160,5580,5580,bbq_preds_m21_hardneg_exact_instr_individuating_Race_x_SES.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Race_x_gender,0.387,0.315,0.459,-0.186,0.226,15960,7980,7980,bbq_preds_m21_hardneg_exact_instr_individuating_Race_x_gender.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Religion,0.51,0.482,0.538,9.513,1.167,1200,600,600,bbq_preds_m21_hardneg_exact_instr_individuating_Religion.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_SES,0.467,0.536,0.398,0.669,3.526,6864,3432,3432,bbq_preds_m21_hardneg_exact_instr_individuating_SES.csv
+m21_hardneg_exact:m21_hardneg_exact_instr_individuating_Sexual_orientation,0.444,0.41,0.479,-1.961,4.861,864,432,432,bbq_preds_m21_hardneg_exact_instr_individuating_Sexual_orientation.csv
+m21_hardneg_exact,0.397,0.33,0.463,1.172,2.979,58540,29270,29270,__overall__
