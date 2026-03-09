@@ -228,15 +228,16 @@
     }
 
     .rank {
-      color: var(--muted);
-      font-size: 0.66rem;
-      font-weight: 600;
-      margin-left: 5px;
-    }
-
-    .best-cell {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 6px;
+      padding: 1px 7px;
+      border-radius: 999px;
+      font-size: 0.62rem;
       font-weight: 800;
-      box-shadow: inset 0 0 0 1px rgba(19, 64, 36, 0.22);
+      color: #15313d;
+      border: 1px solid rgba(20, 46, 58, 0.12);
     }
 
     .hint {
@@ -278,9 +279,9 @@
       </div>
 
       <div class="control">
-        <label for="focusCol">Method Rank Metric</label>
+        <label for="focusCol">Global Rank Metric</label>
         <select id="focusCol"></select>
-        <div id="rankHelp" class="hint">Shows rank # among methods only for the selected metric (baselines excluded; missing values are not ranked).</div>
+        <div id="rankHelp" class="hint">Shows rank # across methods + baselines for the selected metric (missing values are not ranked).</div>
       </div>
 
       <div class="control">
@@ -295,7 +296,6 @@
         <span class="swatch" style="background:#dc9a97"></span><span>Worse</span>
         <span class="swatch" style="background:#f5f3ed"></span><span>Middle</span>
         <span class="swatch" style="background:#85b79b"></span><span>Better</span>
-        <span><b>Bold</b>=best baseline + best method</span>
         <span id="legendNote"></span>
       </div>
     </div>
@@ -427,50 +427,6 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
       colStats[col] = { min, max, maxDist50 };
     }
 
-    function isBetterValue(col, a, b) {
-      const dir = directionFor(col);
-      if (dir === "higher") return a > b;
-      if (dir === "target50") return Math.abs(a - 50) < Math.abs(b - 50);
-      return a < b;
-    }
-
-    function isEquivalentBest(col, a, b) {
-      const eps = 1e-12;
-      const dir = directionFor(col);
-      if (dir === "target50") {
-        return Math.abs(Math.abs(a - 50) - Math.abs(b - 50)) <= eps;
-      }
-      return Math.abs(a - b) <= eps;
-    }
-
-    function computeBestByType(type) {
-      const out = {};
-      for (const col of numericCols) {
-        const typedRows = records
-          .filter((r) => r.type === type)
-          .map((r) => ({ name: r.name, val: toNum(r[col]) }))
-          .filter((r) => r.val != null);
-        if (!typedRows.length) {
-          out[col] = new Set();
-          continue;
-        }
-        let best = typedRows[0].val;
-        for (let i = 1; i < typedRows.length; i++) {
-          if (isBetterValue(col, typedRows[i].val, best)) best = typedRows[i].val;
-        }
-        const names = typedRows
-          .filter((r) => isEquivalentBest(col, r.val, best))
-          .map((r) => r.name);
-        out[col] = new Set(names);
-      }
-      return out;
-    }
-
-    const bestByType = {
-      method: computeBestByType("method"),
-      baseline: computeBestByType("baseline")
-    };
-
     let state = {
       showMethods: true,
       showBaselines: true,
@@ -544,20 +500,25 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
       return `hsl(${hue}, ${sat}%, ${light}%)`;
     }
 
-    function getMethodRanks(rows, col) {
+    function getGlobalRanks(rows, col) {
       const dir = directionFor(col);
-      const methods = rows
-        .filter((r) => r.type === "method")
-        .map((r) => ({ name: r.name, val: toNum(r[col]) }))
+      const scored = rows
+        .map((r) => ({ key: `${r.type}::${r.name}`, val: toNum(r[col]) }))
         .filter((r) => r.val != null);
-      methods.sort((a, b) => {
+      scored.sort((a, b) => {
         if (dir === "higher") return b.val - a.val;
         if (dir === "target50") return Math.abs(a.val - 50) - Math.abs(b.val - 50);
         return a.val - b.val;
       });
       const map = new Map();
-      methods.forEach((r, idx) => map.set(r.name, idx + 1));
+      scored.forEach((r, idx) => map.set(r.key, idx + 1));
       return map;
+    }
+
+    function rankChipStyle(rank, total) {
+      const pct = total > 1 ? (rank - 1) / (total - 1) : 0;
+      const hue = 145 - Math.round(110 * pct);
+      return `background:hsl(${hue}, 62%, 86%);`;
     }
 
     function filteredRows() {
@@ -594,10 +555,11 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
       els.countInfo.textContent = `Showing ${rows.length} rows (${methodCount} methods, ${baselineCount} baselines)`;
 
       const focus = state.focusCol;
-      const rankMap = getMethodRanks(rows, focus);
+      const rankMap = getGlobalRanks(records, focus);
+      const totalRanked = rankMap.size;
       const note = (metricMeta[focus] && metricMeta[focus].note) || (directionFor(focus) === "higher" ? "Higher is better" : "Lower is better");
       els.legendNote.textContent = `| ${focus}: ${note}`;
-      els.rankHelp.textContent = `Shows rank # among methods only for "${focus}" (baselines excluded; missing values are not ranked).`;
+      els.rankHelp.textContent = `Shows rank # across methods + baselines for "${focus}" (missing values are not ranked).`;
 
       const headCells = headers.map((h) => {
         const arrow = h === state.sortCol ? (state.sortDir === "asc" ? " \u2191" : " \u2193") : "";
@@ -608,8 +570,9 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
         const cells = headers.map((h) => {
           if (h === "type") return `<td>${r[h]}</td>`;
           if (h === "name") {
-            const rank = r.type === "method" && rankMap.has(r.name)
-              ? `<span class=\"rank\">#${rankMap.get(r.name)} (${focus})</span>`
+            const rowKey = `${r.type}::${r.name}`;
+            const rank = rankMap.has(rowKey)
+              ? `<span class=\"rank\" style="${rankChipStyle(rankMap.get(rowKey), totalRanked)}">#${rankMap.get(rowKey)}</span>`
               : "";
             return `<td>${r[h]}${rank}</td>`;
           }
@@ -617,9 +580,7 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
           const n = toNum(v);
           if (n == null) return `<td class="dim">--</td>`;
           const bg = colorFor(h, v);
-          const isBest = bestByType[r.type] && bestByType[r.type][h] && bestByType[r.type][h].has(r.name);
-          const klass = isBest ? "best-cell" : "";
-          return `<td class="${klass}" style="background:${bg}">${fmt(v)}</td>`;
+          return `<td style="background:${bg}">${fmt(v)}</td>`;
         }).join("");
         return `<tr>${cells}</tr>`;
       }).join("");
