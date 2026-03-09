@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Debiasing Results Dashboard</title>
+  <style>
+    :root {
+      --bg: #f3f7f7;
+      --panel: #ffffff;
+      --ink: #1f2a30;
+      --muted: #5d6e75;
+      --line: #d4e0e4;
+      --accent: #0f766e;
+      --accent-2: #0ea5a0;
+      --shadow: 0 10px 30px rgba(7, 19, 25, 0.09);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, #d7f0eb 0%, transparent 36%),
+        radial-gradient(circle at 100% 20%, #e8f2d2 0%, transparent 30%),
+        linear-gradient(180deg, #f8fbfb 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 1700px;
+      margin: 0 auto;
+      padding: 24px 20px 28px;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 6px 0 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .controls {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      border: 1px solid #c8d7dc;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 38px;
+    }
+
+    .chip {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid #c8d7dc;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.9rem;
+      background: #f8fbfb;
+    }
+
+    .chip input { margin: 0; }
+
+    .button {
+      border: 1px solid #0a615a;
+      background: linear-gradient(180deg, #149086 0%, #0f766e 100%);
+      color: #fff;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .button:active { transform: translateY(1px); }
+
+    .meta {
+      margin: 8px 2px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .legend {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+
+    .swatch {
+      width: 16px;
+      height: 10px;
+      border-radius: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .table-wrap {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: auto;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 1300px;
+      width: 100%;
+      font-size: 0.84rem;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: #edf5f6;
+      z-index: 2;
+      border-bottom: 1px solid var(--line);
+      color: #15333f;
+      text-align: left;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border-right: 1px solid #e4ecef;
+      border-bottom: 1px solid #edf2f4;
+      white-space: nowrap;
+    }
+
+    tbody tr:hover td {
+      background-image: linear-gradient(0deg, rgba(8, 47, 73, 0.05), rgba(8, 47, 73, 0.05));
+    }
+
+    th:nth-child(1), td:nth-child(1), th:nth-child(2), td:nth-child(2) {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      background-clip: padding-box;
+    }
+
+    th:nth-child(2), td:nth-child(2) {
+      left: 80px;
+    }
+
+    th:nth-child(1), td:nth-child(1) { min-width: 80px; }
+    th:nth-child(2), td:nth-child(2) { min-width: 230px; }
+
+    thead th:nth-child(1), thead th:nth-child(2) {
+      z-index: 3;
+      background: #e5eff2;
+    }
+
+    td.dim {
+      color: #8ca0a9;
+      background: #f7fafb;
+    }
+
+    .rank {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    @media (max-width: 780px) {
+      .wrap { padding: 14px 10px 18px; }
+      .title { font-size: 1.25rem; }
+      .controls { grid-template-columns: 1fr; }
+      table { font-size: 0.8rem; min-width: 1100px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="title">Debiasing Results Dashboard</h1>
+    <p class="subtitle">Interactive view of methods vs baselines across all available datasets and metrics.</p>
+
+    <section class="controls" aria-label="Filters and sorting">
+      <div class="control">
+        <label for="search">Search Name</label>
+        <input id="search" type="text" placeholder="Filter rows by name..." />
+      </div>
+
+      <div class="control">
+        <label>Row Type</label>
+        <div class="row">
+          <label class="chip"><input id="showMethods" type="checkbox" checked />Methods</label>
+          <label class="chip"><input id="showBaselines" type="checkbox" checked />Baselines</label>
+        </div>
+      </div>
+
+      <div class="control">
+        <label for="sortCol">Sort Column</label>
+        <select id="sortCol"></select>
+      </div>
+
+      <div class="control">
+        <label for="focusCol">Rank Indicator (Methods)</label>
+        <select id="focusCol"></select>
+      </div>
+
+      <div class="control">
+        <label>Sort Direction</label>
+        <button id="sortDir" class="button" type="button">Descending</button>
+      </div>
+    </section>
+
+    <div class="meta">
+      <div id="countInfo"></div>
+      <div class="legend">
+        <span class="swatch" style="background:#cf3d2e"></span><span>Worse</span>
+        <span class="swatch" style="background:#f1f4e7"></span><span>Middle</span>
+        <span class="swatch" style="background:#2c9c4b"></span><span>Better</span>
+        <span id="legendNote"></span>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table id="tbl"></table>
+    </div>
+  </div>
+
+  <script id="csv-data" type="text/plain">
+type,name,crowspairs_metric_score,stereoset_icat_overall,bbq_mean_abs_bias_disambig,bold_toxicity_prop,honest_score,winobias_abs_pro_anti_gap,winogender_mean_abs_occupation_gender_bias_score,bias_in_bios_mean_abs_tpr_gap,unqover_gender_mu_bias_intensity,unqover_race_mu_bias_intensity,unqover_religion_mu_bias_intensity,unqover_nationality_mu_bias_intensity
+method,m11_chain_of_thought,69.63,56.6016,5.57058,--,0.0822222,0.276515,18.3333,--,0.211145,0.420175,0.418607,0.202884
+method,m12_finetune_cot,57.16,53.3989,6.2005,--,0.111975,0.236111,10.8333,--,0.242076,0.590249,0.536584,0.201149
+method,m14_strategy_conditioned_dpo,56.3,53.115,2.63,--,0.111975,0.236111,10.8333,--,0.242076,0.590249,0.536584,0.201149
+method,m15_multi_objective_sft,59.88,68.1785,2.5535,--,0.111975,0.236111,10.8333,--,0.242076,0.590249,0.536584,0.201149
+method,m16_strategy_router_adapter_fusion,56.3,53.115,2.63,--,0.111975,0.236111,10.8333,--,0.242076,0.590249,0.536584,0.201149
+method,m17_counterfactual_consistency,57.23,56.2103,2.28942,--,0.111975,0.236111,10.8333,--,0.242076,0.590249,0.536584,0.201149
+method,m18_bias_reward_reranking,58.62,55.3542,2.40292,--,0.111975,0.236111,10.8333,--,0.242076,0.590249,0.536584,0.201149
+method,m19_contrastive_decoding,58.02,55.666,2.31158,--,0.111975,0.236111,10.8333,--,0.242076,0.590249,0.536584,0.201149
+method,m20_self_refine_strategy_critique,57.76,55.7645,2.64433,--,0.111975,0.236111,10.8333,--,--,--,--,--
+method,m21_hard_negative_curriculum,58.02,--,2.30842,--,0.111975,0.236111,10.8333,--,--,--,--,--
+method,m3_finetune_llama,59.88,68.1785,2.5535,--,0.111975,0.236111,10.8333,--,0.242076,0.590249,0.536584,0.201149
+method,m4_inference_instruction,67.84,67.3206,2.68783,--,0.0822222,0.276515,18.3333,0.0962999,0.211145,0.420175,0.418607,0.202884
+method,m5_soft_prompting,65.52,52.4521,4.216,--,0.0822222,0.276515,18.3333,0.0962999,0.211145,0.420175,0.418607,0.202884
+method,m6_reasoning_post,67.9,57.767,6.09017,--,0.0822222,0.276515,18.3333,0.0962999,0.211145,0.420175,0.418607,0.202884
+baseline,bba,67.18,56.6425,4.8421,--,--,--,--,--,--,--,--,--
+baseline,biasedit,--,--,--,--,--,--,--,--,--,--,--,--
+baseline,biasfreebench,67.44,55.4933,5.0674,--,--,--,--,--,--,--,--,--
+baseline,cal,65.25,58.169,8.4909,--,--,--,--,--,--,--,--,--
+baseline,debias_llms,39.06,61.7845,0.0528,--,--,--,--,--,--,--,--,--
+baseline,debias_nlg,9.42,18.4452,0.8195,--,--,--,--,--,--,--,--,--
+baseline,decap,--,--,9.04589,--,--,--,--,--,--,--,--,--
+baseline,dpo,63.2,16.0473,35.475,--,--,--,--,--,--,--,--,--
+baseline,fairsteer,65.05,56.274,5.95744,--,--,--,--,--,--,--,--,--
+baseline,lftf,63.93,56.2404,5.48978,--,--,--,--,--,--,--,--,--
+baseline,mbias,53.91,77.0508,1.1096,--,--,--,--,--,--,--,--,--
+baseline,reduce_social_bias,66.51,56.697,5.9196,--,--,--,--,--,--,--,--,--
+baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
+  </script>
+
+  <script>
+    const rawCsv = document.getElementById("csv-data").textContent.trim();
+
+    function parseCsv(text) {
+      const lines = text.split(/\r?\n/).filter(Boolean);
+      const rows = [];
+      for (const line of lines) {
+        const out = [];
+        let cur = "";
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+          const ch = line[i];
+          if (ch === '"') {
+            if (inQuotes && line[i + 1] === '"') {
+              cur += '"';
+              i++;
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (ch === ',' && !inQuotes) {
+            out.push(cur);
+            cur = "";
+          } else {
+            cur += ch;
+          }
+        }
+        out.push(cur);
+        rows.push(out);
+      }
+      return rows;
+    }
+
+    function toNum(v) {
+      if (v == null) return null;
+      const t = String(v).trim();
+      if (!t || t === "--") return null;
+      const n = Number(t);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function fmt(v) {
+      const n = toNum(v);
+      if (n == null) return "--";
+      return Number(n.toFixed(4)).toString();
+    }
+
+    const parsed = parseCsv(rawCsv);
+    const headers = parsed[0];
+    const records = parsed.slice(1).map((r) => {
+      const obj = {};
+      headers.forEach((h, i) => {
+        obj[h] = (r[i] || "").trim();
+      });
+      return obj;
+    });
+
+    const numericCols = headers.filter((h) => !["type", "name"].includes(h));
+    const metricMeta = {
+      crowspairs_metric_score: { direction: "target50", note: "Best near 50" },
+      stereoset_icat_overall: { direction: "higher", note: "Higher is better" },
+      bbq_mean_abs_bias_disambig: { direction: "lower", note: "Lower is better" },
+      bold_toxicity_prop: { direction: "lower", note: "Lower is better" },
+      honest_score: { direction: "lower", note: "Lower is better" },
+      winobias_abs_pro_anti_gap: { direction: "lower", note: "Lower is better" },
+      winogender_mean_abs_occupation_gender_bias_score: { direction: "lower", note: "Lower is better" },
+      bias_in_bios_mean_abs_tpr_gap: { direction: "lower", note: "Lower is better" },
+      unqover_gender_mu_bias_intensity: { direction: "lower", note: "Lower is better" },
+      unqover_race_mu_bias_intensity: { direction: "lower", note: "Lower is better" },
+      unqover_religion_mu_bias_intensity: { direction: "lower", note: "Lower is better" },
+      unqover_nationality_mu_bias_intensity: { direction: "lower", note: "Lower is better" }
+    };
+
+    function directionFor(col) {
+      if (metricMeta[col]) return metricMeta[col].direction;
+      if (col.includes("icat") || col.includes("accuracy")) return "higher";
+      return "lower";
+    }
+
+    const colStats = {};
+    for (const col of numericCols) {
+      const vals = records.map((r) => toNum(r[col])).filter((v) => v != null);
+      if (!vals.length) {
+        colStats[col] = null;
+        continue;
+      }
+      const min = Math.min(...vals);
+      const max = Math.max(...vals);
+      const maxDist50 = Math.max(...vals.map((v) => Math.abs(v - 50))) || 1;
+      colStats[col] = { min, max, maxDist50 };
+    }
+
+    let state = {
+      showMethods: true,
+      showBaselines: true,
+      search: "",
+      sortCol: "type",
+      sortDir: "desc",
+      focusCol: "stereoset_icat_overall"
+    };
+
+    const els = {
+      search: document.getElementById("search"),
+      showMethods: document.getElementById("showMethods"),
+      showBaselines: document.getElementById("showBaselines"),
+      sortCol: document.getElementById("sortCol"),
+      sortDir: document.getElementById("sortDir"),
+      focusCol: document.getElementById("focusCol"),
+      tbl: document.getElementById("tbl"),
+      countInfo: document.getElementById("countInfo"),
+      legendNote: document.getElementById("legendNote")
+    };
+
+    function addOptions(selectEl, cols, includeDefault = false) {
+      if (includeDefault) {
+        const o = document.createElement("option");
+        o.value = "";
+        o.textContent = "(none)";
+        selectEl.appendChild(o);
+      }
+      for (const h of cols) {
+        const o = document.createElement("option");
+        o.value = h;
+        o.textContent = h;
+        selectEl.appendChild(o);
+      }
+    }
+
+    addOptions(els.sortCol, headers);
+    addOptions(els.focusCol, numericCols);
+    els.sortCol.value = state.sortCol;
+    if (numericCols.includes(state.focusCol)) {
+      els.focusCol.value = state.focusCol;
+    } else if (numericCols.length) {
+      state.focusCol = numericCols[0];
+      els.focusCol.value = state.focusCol;
+    }
+
+    function metricScore(col, value) {
+      const stats = colStats[col];
+      if (stats == null || value == null) return null;
+      const dir = directionFor(col);
+      if (dir === "higher") {
+        const denom = stats.max - stats.min || 1;
+        return (value - stats.min) / denom;
+      }
+      if (dir === "target50") {
+        const d = Math.abs(value - 50);
+        return 1 - Math.min(1, d / (stats.maxDist50 || 1));
+      }
+      const denom = stats.max - stats.min || 1;
+      return 1 - (value - stats.min) / denom;
+    }
+
+    function colorFor(col, rawValue) {
+      const value = toNum(rawValue);
+      if (value == null) return "#f6f8f9";
+      const score = metricScore(col, value);
+      const hue = 6 + (124 * score);
+      const light = 91 - (38 * score);
+      return `hsl(${hue}, 58%, ${light}%)`;
+    }
+
+    function getMethodRanks(rows, col) {
+      const dir = directionFor(col);
+      const methods = rows
+        .filter((r) => r.type === "method")
+        .map((r) => ({ name: r.name, val: toNum(r[col]) }))
+        .filter((r) => r.val != null);
+      methods.sort((a, b) => {
+        if (dir === "higher") return b.val - a.val;
+        if (dir === "target50") return Math.abs(a.val - 50) - Math.abs(b.val - 50);
+        return a.val - b.val;
+      });
+      const map = new Map();
+      methods.forEach((r, idx) => map.set(r.name, idx + 1));
+      return map;
+    }
+
+    function filteredRows() {
+      return records.filter((r) => {
+        if (!state.showMethods && r.type === "method") return false;
+        if (!state.showBaselines && r.type === "baseline") return false;
+        if (state.search && !(`${r.type} ${r.name}`.toLowerCase().includes(state.search))) return false;
+        return true;
+      });
+    }
+
+    function compareRows(a, b, col, dir) {
+      const av = (a[col] === undefined || a[col] === null) ? "" : a[col];
+      const bv = (b[col] === undefined || b[col] === null) ? "" : b[col];
+      const an = toNum(av);
+      const bn = toNum(bv);
+      let cmp = 0;
+      if (an != null || bn != null) {
+        if (an == null) cmp = 1;
+        else if (bn == null) cmp = -1;
+        else cmp = an - bn;
+      } else {
+        cmp = String(av).localeCompare(String(bv));
+      }
+      return dir === "asc" ? cmp : -cmp;
+    }
+
+    function render() {
+      const rows = filteredRows();
+      rows.sort((a, b) => compareRows(a, b, state.sortCol, state.sortDir));
+
+      const methodCount = rows.filter((r) => r.type === "method").length;
+      const baselineCount = rows.filter((r) => r.type === "baseline").length;
+      els.countInfo.textContent = `Showing ${rows.length} rows (${methodCount} methods, ${baselineCount} baselines)`;
+
+      const focus = state.focusCol;
+      const rankMap = getMethodRanks(rows, focus);
+      const note = (metricMeta[focus] && metricMeta[focus].note) || (directionFor(focus) === "higher" ? "Higher is better" : "Lower is better");
+      els.legendNote.textContent = `| ${focus}: ${note}`;
+
+      const headCells = headers.map((h) => {
+        const arrow = h === state.sortCol ? (state.sortDir === "asc" ? " \u2191" : " \u2193") : "";
+        return `<th data-col="${h}">${h}${arrow}</th>`;
+      }).join("");
+
+      const bodyRows = rows.map((r) => {
+        const cells = headers.map((h) => {
+          if (h === "type") return `<td>${r[h]}</td>`;
+          if (h === "name") {
+            const rank = r.type === "method" && rankMap.has(r.name)
+              ? `<span class=\"rank\">#${rankMap.get(r.name)} (${focus})</span>`
+              : "";
+            return `<td>${r[h]}${rank}</td>`;
+          }
+          const v = r[h];
+          const n = toNum(v);
+          if (n == null) return `<td class="dim">--</td>`;
+          const bg = colorFor(h, v);
+          return `<td style="background:${bg}">${fmt(v)}</td>`;
+        }).join("");
+        return `<tr>${cells}</tr>`;
+      }).join("");
+
+      els.tbl.innerHTML = `<thead><tr>${headCells}</tr></thead><tbody>${bodyRows}</tbody>`;
+
+      els.tbl.querySelectorAll("th").forEach((th) => {
+        th.addEventListener("click", () => {
+          const col = th.getAttribute("data-col");
+          if (state.sortCol === col) {
+            state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+          } else {
+            state.sortCol = col;
+            state.sortDir = "desc";
+          }
+          els.sortCol.value = state.sortCol;
+          els.sortDir.textContent = state.sortDir === "desc" ? "Descending" : "Ascending";
+          render();
+        });
+      });
+    }
+
+    els.search.addEventListener("input", (e) => {
+      state.search = e.target.value.trim().toLowerCase();
+      render();
+    });
+
+    els.showMethods.addEventListener("change", (e) => {
+      state.showMethods = e.target.checked;
+      render();
+    });
+
+    els.showBaselines.addEventListener("change", (e) => {
+      state.showBaselines = e.target.checked;
+      render();
+    });
+
+    els.sortCol.addEventListener("change", (e) => {
+      state.sortCol = e.target.value;
+      render();
+    });
+
+    els.focusCol.addEventListener("change", (e) => {
+      state.focusCol = e.target.value;
+      render();
+    });
+
+    els.sortDir.addEventListener("click", () => {
+      state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+      els.sortDir.textContent = state.sortDir === "desc" ? "Descending" : "Ascending";
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
