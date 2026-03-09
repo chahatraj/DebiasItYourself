@@ -234,6 +234,11 @@
       margin-left: 5px;
     }
 
+    .best-cell {
+      font-weight: 800;
+      box-shadow: inset 0 0 0 1px rgba(19, 64, 36, 0.22);
+    }
+
     .hint {
       color: #6f8491;
       font-size: 0.7rem;
@@ -290,6 +295,7 @@
         <span class="swatch" style="background:#dc9a97"></span><span>Worse</span>
         <span class="swatch" style="background:#f5f3ed"></span><span>Middle</span>
         <span class="swatch" style="background:#85b79b"></span><span>Better</span>
+        <span><b>Bold</b>=best baseline + best method</span>
         <span id="legendNote"></span>
       </div>
     </div>
@@ -420,6 +426,50 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
       const maxDist50 = Math.max(...vals.map((v) => Math.abs(v - 50))) || 1;
       colStats[col] = { min, max, maxDist50 };
     }
+
+    function isBetterValue(col, a, b) {
+      const dir = directionFor(col);
+      if (dir === "higher") return a > b;
+      if (dir === "target50") return Math.abs(a - 50) < Math.abs(b - 50);
+      return a < b;
+    }
+
+    function isEquivalentBest(col, a, b) {
+      const eps = 1e-12;
+      const dir = directionFor(col);
+      if (dir === "target50") {
+        return Math.abs(Math.abs(a - 50) - Math.abs(b - 50)) <= eps;
+      }
+      return Math.abs(a - b) <= eps;
+    }
+
+    function computeBestByType(type) {
+      const out = {};
+      for (const col of numericCols) {
+        const typedRows = records
+          .filter((r) => r.type === type)
+          .map((r) => ({ name: r.name, val: toNum(r[col]) }))
+          .filter((r) => r.val != null);
+        if (!typedRows.length) {
+          out[col] = new Set();
+          continue;
+        }
+        let best = typedRows[0].val;
+        for (let i = 1; i < typedRows.length; i++) {
+          if (isBetterValue(col, typedRows[i].val, best)) best = typedRows[i].val;
+        }
+        const names = typedRows
+          .filter((r) => isEquivalentBest(col, r.val, best))
+          .map((r) => r.name);
+        out[col] = new Set(names);
+      }
+      return out;
+    }
+
+    const bestByType = {
+      method: computeBestByType("method"),
+      baseline: computeBestByType("baseline")
+    };
 
     let state = {
       showMethods: true,
@@ -567,7 +617,9 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
           const n = toNum(v);
           if (n == null) return `<td class="dim">--</td>`;
           const bg = colorFor(h, v);
-          return `<td style="background:${bg}">${fmt(v)}</td>`;
+          const isBest = bestByType[r.type] && bestByType[r.type][h] && bestByType[r.type][h].has(r.name);
+          const klass = isBest ? "best-cell" : "";
+          return `<td class="${klass}" style="background:${bg}">${fmt(v)}</td>`;
         }).join("");
         return `<tr>${cells}</tr>`;
       }).join("");
