@@ -236,8 +236,18 @@
       border-radius: 999px;
       font-size: 0.62rem;
       font-weight: 800;
-      color: #15313d;
-      border: 1px solid rgba(20, 46, 58, 0.12);
+      color: #16303a;
+      border: 1px solid rgba(20, 46, 58, 0.15);
+    }
+
+    .rank.rank-method {
+      background: #d9f1e4;
+      border-color: #8ec9ab;
+    }
+
+    .rank.rank-baseline {
+      background: #dbeafe;
+      border-color: #97b8e6;
     }
 
     .hint {
@@ -515,12 +525,6 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
       return map;
     }
 
-    function rankChipStyle(rank, total) {
-      const pct = total > 1 ? (rank - 1) / (total - 1) : 0;
-      const hue = 145 - Math.round(110 * pct);
-      return `background:hsl(${hue}, 62%, 86%);`;
-    }
-
     function filteredRows() {
       return records.filter((r) => {
         if (!state.showMethods && r.type === "method") return false;
@@ -571,8 +575,9 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
           if (h === "type") return `<td>${r[h]}</td>`;
           if (h === "name") {
             const rowKey = `${r.type}::${r.name}`;
+            const rankClass = r.type === "baseline" ? "rank-baseline" : "rank-method";
             const rank = rankMap.has(rowKey)
-              ? `<span class=\"rank\" style="${rankChipStyle(rankMap.get(rowKey), totalRanked)}">#${rankMap.get(rowKey)}</span>`
+              ? `<span class=\"rank ${rankClass}\">#${rankMap.get(rowKey)}</span>`
               : "";
             return `<td>${r[h]}${rank}</td>`;
           }
