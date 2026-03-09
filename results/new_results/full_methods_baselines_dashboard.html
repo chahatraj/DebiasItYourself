@@ -6,14 +6,14 @@
   <title>Debiasing Results Dashboard</title>
   <style>
     :root {
-      --bg: #f3f7f7;
-      --panel: #ffffff;
-      --ink: #1f2a30;
-      --muted: #5d6e75;
-      --line: #d4e0e4;
-      --accent: #0f766e;
-      --accent-2: #0ea5a0;
-      --shadow: 0 10px 30px rgba(7, 19, 25, 0.09);
+      --bg: #f2f6fa;
+      --panel: #fbfdff;
+      --ink: #1c2b36;
+      --muted: #607481;
+      --line: #d7e2ea;
+      --accent: #1a7e6a;
+      --accent-2: #2b8f7c;
+      --shadow: 0 8px 24px rgba(9, 26, 39, 0.08);
     }
 
     * { box-sizing: border-box; }
@@ -23,51 +23,51 @@
       font-family: "IBM Plex Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 0% 0%, #d7f0eb 0%, transparent 36%),
-        radial-gradient(circle at 100% 20%, #e8f2d2 0%, transparent 30%),
-        linear-gradient(180deg, #f8fbfb 0%, var(--bg) 100%);
+        radial-gradient(circle at 0% 0%, #dff3ff 0%, transparent 34%),
+        radial-gradient(circle at 100% 18%, #e7f5e7 0%, transparent 28%),
+        linear-gradient(180deg, #f9fbfe 0%, var(--bg) 100%);
       min-height: 100vh;
     }
 
     .wrap {
-      max-width: 1700px;
+      max-width: 1920px;
       margin: 0 auto;
-      padding: 24px 20px 28px;
+      padding: 14px 12px 16px;
     }
 
     .title {
       margin: 0;
-      font-size: 1.6rem;
+      font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: 0.01em;
     }
 
     .subtitle {
-      margin: 6px 0 20px;
+      margin: 4px 0 10px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.84rem;
     }
 
     .controls {
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 12px;
       box-shadow: var(--shadow);
-      padding: 14px;
+      padding: 10px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin-bottom: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 8px;
+      margin-bottom: 8px;
     }
 
     .control {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
     }
 
     label {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--muted);
       text-transform: uppercase;
@@ -77,29 +77,29 @@
     input[type="text"], select {
       width: 100%;
       border: 1px solid #c8d7dc;
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-size: 0.95rem;
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-size: 0.82rem;
       color: var(--ink);
       background: #fff;
     }
 
     .row {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
       flex-wrap: wrap;
-      min-height: 38px;
+      min-height: 30px;
     }
 
     .chip {
       display: inline-flex;
-      gap: 6px;
+      gap: 5px;
       align-items: center;
       border: 1px solid #c8d7dc;
       border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 0.9rem;
+      padding: 3px 8px;
+      font-size: 0.8rem;
       background: #f8fbfb;
     }
 
@@ -109,9 +109,10 @@
       border: 1px solid #0a615a;
       background: linear-gradient(180deg, #149086 0%, #0f766e 100%);
       color: #fff;
-      border-radius: 10px;
-      padding: 8px 12px;
+      border-radius: 8px;
+      padding: 6px 10px;
       font-weight: 600;
+      font-size: 0.82rem;
       cursor: pointer;
       width: fit-content;
     }
@@ -119,24 +120,24 @@
     .button:active { transform: translateY(1px); }
 
     .meta {
-      margin: 8px 2px 14px;
+      margin: 6px 2px 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.78rem;
     }
 
     .legend {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       border: 1px solid var(--line);
       background: #fff;
       border-radius: 999px;
-      padding: 4px 10px;
+      padding: 3px 8px;
       white-space: nowrap;
     }
 
@@ -150,7 +151,7 @@
     .table-wrap {
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: auto;
       box-shadow: var(--shadow);
     }
@@ -158,28 +159,43 @@
     table {
       border-collapse: separate;
       border-spacing: 0;
-      min-width: 1300px;
+      min-width: 1080px;
       width: 100%;
-      font-size: 0.84rem;
+      font-size: 0.72rem;
+      table-layout: fixed;
     }
 
     thead th {
       position: sticky;
       top: 0;
-      background: #edf5f6;
+      background: #ecf3fb;
       z-index: 2;
       border-bottom: 1px solid var(--line);
       color: #15333f;
-      text-align: left;
+      text-align: right;
       cursor: pointer;
       user-select: none;
+      font-size: 0.68rem;
+      line-height: 1.1;
+      white-space: normal;
+      word-break: break-word;
     }
 
     th, td {
-      padding: 8px 10px;
+      padding: 4px 6px;
       border-right: 1px solid #e4ecef;
       border-bottom: 1px solid #edf2f4;
       white-space: nowrap;
+    }
+
+    td {
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    th:nth-child(1), th:nth-child(2), td:nth-child(1), td:nth-child(2) {
+      text-align: left;
     }
 
     tbody tr:hover td {
@@ -194,11 +210,12 @@
     }
 
     th:nth-child(2), td:nth-child(2) {
-      left: 80px;
+      left: 66px;
     }
 
-    th:nth-child(1), td:nth-child(1) { min-width: 80px; }
-    th:nth-child(2), td:nth-child(2) { min-width: 230px; }
+    th:nth-child(1), td:nth-child(1) { min-width: 66px; max-width: 66px; width: 66px; }
+    th:nth-child(2), td:nth-child(2) { min-width: 186px; max-width: 186px; width: 186px; }
+    th:nth-child(n+3), td:nth-child(n+3) { min-width: 74px; max-width: 74px; width: 74px; }
 
     thead th:nth-child(1), thead th:nth-child(2) {
       z-index: 3;
@@ -206,22 +223,28 @@
     }
 
     td.dim {
-      color: #8ca0a9;
-      background: #f7fafb;
+      color: #90a2ad;
+      background: #f4f7fb;
     }
 
     .rank {
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.66rem;
       font-weight: 600;
-      margin-left: 6px;
+      margin-left: 5px;
+    }
+
+    .hint {
+      color: #6f8491;
+      font-size: 0.7rem;
+      line-height: 1.25;
     }
 
     @media (max-width: 780px) {
       .wrap { padding: 14px 10px 18px; }
       .title { font-size: 1.25rem; }
       .controls { grid-template-columns: 1fr; }
-      table { font-size: 0.8rem; min-width: 1100px; }
+      table { font-size: 0.72rem; min-width: 980px; }
     }
   </style>
 </head>
@@ -250,8 +273,9 @@
       </div>
 
       <div class="control">
-        <label for="focusCol">Rank Indicator (Methods)</label>
+        <label for="focusCol">Method Rank Metric</label>
         <select id="focusCol"></select>
+        <div id="rankHelp" class="hint">Shows rank # among methods only for the selected metric (baselines excluded; missing values are not ranked).</div>
       </div>
 
       <div class="control">
@@ -263,9 +287,9 @@
     <div class="meta">
       <div id="countInfo"></div>
       <div class="legend">
-        <span class="swatch" style="background:#cf3d2e"></span><span>Worse</span>
-        <span class="swatch" style="background:#f1f4e7"></span><span>Middle</span>
-        <span class="swatch" style="background:#2c9c4b"></span><span>Better</span>
+        <span class="swatch" style="background:#dc9a97"></span><span>Worse</span>
+        <span class="swatch" style="background:#f5f3ed"></span><span>Middle</span>
+        <span class="swatch" style="background:#85b79b"></span><span>Better</span>
         <span id="legendNote"></span>
       </div>
     </div>
@@ -413,6 +437,7 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
       sortCol: document.getElementById("sortCol"),
       sortDir: document.getElementById("sortDir"),
       focusCol: document.getElementById("focusCol"),
+      rankHelp: document.getElementById("rankHelp"),
       tbl: document.getElementById("tbl"),
       countInfo: document.getElementById("countInfo"),
       legendNote: document.getElementById("legendNote")
@@ -461,11 +486,12 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
 
     function colorFor(col, rawValue) {
       const value = toNum(rawValue);
-      if (value == null) return "#f6f8f9";
+      if (value == null) return "#f4f7fb";
       const score = metricScore(col, value);
-      const hue = 6 + (124 * score);
-      const light = 91 - (38 * score);
-      return `hsl(${hue}, 58%, ${light}%)`;
+      const hue = 8 + (128 * score);
+      const sat = 40;
+      const light = 95 - (25 * score);
+      return `hsl(${hue}, ${sat}%, ${light}%)`;
     }
 
     function getMethodRanks(rows, col) {
@@ -521,6 +547,7 @@ baseline,self_debiasing,--,--,--,--,--,--,--,--,--,--,--,--
       const rankMap = getMethodRanks(rows, focus);
       const note = (metricMeta[focus] && metricMeta[focus].note) || (directionFor(focus) === "higher" ? "Higher is better" : "Lower is better");
       els.legendNote.textContent = `| ${focus}: ${note}`;
+      els.rankHelp.textContent = `Shows rank # among methods only for "${focus}" (baselines excluded; missing values are not ranked).`;
 
       const headCells = headers.map((h) => {
         const arrow = h === state.sortCol ? (state.sortDir === "asc" ? " \u2191" : " \u2193") : "";
