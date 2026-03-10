@@ -1034,7 +1034,7 @@ def main():
         print("Skipping Hub push for this run (--skip_push).")
     else:
         print(f"Pushing merged full model to Hugging Face Hub → {HF_REPO}")
-        HF_TOKEN = None
+        HF_TOKEN = os.getenv("HF_TOKEN")
         HfApi().create_repo(repo_id=HF_REPO, token=HF_TOKEN, exist_ok=True)
         merged_model.push_to_hub(HF_REPO, token=HF_TOKEN)
         tokenizer.push_to_hub(HF_REPO, token=HF_TOKEN)

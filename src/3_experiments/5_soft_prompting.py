@@ -19,7 +19,7 @@ from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, set_seed
 
-_EVAL9_PATH = Path(__file__).resolve().parent / "9_eval_shared.py"
+_EVAL9_PATH = Path(__file__).resolve().parent / "7_eval_shared.py"
 _eval9_spec = importlib.util.spec_from_file_location("eval_shared9_for_soft_prompting", _EVAL9_PATH)
 if _eval9_spec is None or _eval9_spec.loader is None:
     raise ImportError(f"Could not import {_EVAL9_PATH}")
@@ -495,9 +495,11 @@ class SoftPromptWrapper(nn.Module):
             for pos in completion_token_positions:
                 if pos == 0:
                     continue
-                idx = pos - 1
-                tok = int(shift_labels[0, idx].item())
-                score += float(lp[0, idx, tok].item())
+                # inputs_embeds has `prompt_length` soft-prompt tokens prepended,
+                # so logit at (prompt_length + pos - 1) predicts input_ids[pos].
+                logit_idx = self.prompt_length + pos - 1
+                tok = int(input_ids[0, pos].item())
+                score += float(lp[0, logit_idx, tok].item())
 
             out.append(score)
 

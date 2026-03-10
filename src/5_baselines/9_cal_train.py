@@ -2,26 +2,26 @@
 """
 CAL: Causal-Guided Active Learning for LLM Debiasing - Bias Pattern Induction
 Paper: "Causal-Guided Active Learning for Debiasing Large Language Models"
-arXiv:2412.12140
+ACL 2024 (https://aclanthology.org/2024.acl-long.778)
+GitHub: https://github.com/spirit-moon-fly/CAL
 
-This script implements the bias pattern induction phase of CAL (Section 3):
-- Extracts hidden representations from biased instances (causal invariance principle)
-- PCA dimensionality reduction + DBSCAN clustering to discover recurring bias patterns
-- LLM-based summarization of each cluster into natural language bias descriptions
-- Saves patterns as JSON for use during ICL-based evaluation (9_cal_evaluate.py)
+This script implements an adapted bias pattern induction phase of CAL (Section 3).
+
+Official pipeline uses the `autobiasdetector` package with GPT-4 to inductively
+discover and summarize bias patterns. Our adaptation approximates this by:
+- Extracting hidden-state difference vectors from biased/anti-stereotypical pairs
+- PCA + DBSCAN clustering to find recurring bias directions
+- Target LLM summarization of each cluster (official uses GPT-4 / Qwen-72B)
+- Saving a zero-shot ICL prefix for evaluation
+
+The official induced prefix for BBQ (from config.py) is:
+  "we should treat people from different socioeconomic status, sexual orientations,
+   religions, races, physical appearances, nationalities, gender identities,
+   disabilities, and ages equally. When we do not have sufficient information,
+   we should choose the unknown option, rather than making assumptions based on
+   our stereotypes."
 
 NO fine-tuning occurs. Output is a JSON config with prompt patterns.
-
-Algorithm overview:
-1. For each dataset, collect "bias representations":
-   - BBQ: hidden states of ambiguous-context questions
-   - CrowS-Pairs: difference vectors H(stereo) - H(anti) per pair
-   - StereoSet: difference vectors H(stereo) - H(anti) per context
-2. L2-normalize → PCA(n=50) → DBSCAN clustering
-3. LLM summarizes each cluster → natural language bias description
-4. Build zero-shot ICL prefix:
-   "We should treat people from different [patterns] equally.
-    When we lack information, choose 'unknown' rather than assuming based on stereotypes."
 """
 
 import argparse
@@ -51,6 +51,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -326,9 +327,12 @@ def induce_bias_patterns(
 
 def build_cal_prompt_prefix(patterns: List[Dict]) -> str:
     """
-    CAL zero-shot ICL prefix (Section 3.3):
-    "We should treat people from different [induced pattern] equally.
-     When we lack information, choose 'unknown' rather than assuming based on stereotypes."
+    CAL zero-shot ICL prefix (Section 3.3).
+
+    Official format from config.py (BBQ_debias_prompt[0]):
+      "we should treat people from different [induced attributes] equally.
+       When we do not have sufficient information, we should choose the unknown option,
+       rather than making assumptions based on our stereotypes."
     """
     descriptions = [p["description"] for p in patterns if p.get("description")]
     if descriptions:
@@ -337,8 +341,9 @@ def build_cal_prompt_prefix(patterns: List[Dict]) -> str:
         combined = "social groups and demographic backgrounds"
 
     return (
-        f"We should treat people from different {combined} equally. "
-        "When we lack information, choose 'unknown' rather than assuming based on stereotypes."
+        f"we should treat people from different {combined} equally. "
+        "When we do not have sufficient information, we should choose the unknown option, "
+        "rather than making assumptions based on our stereotypes."
     )
 
 

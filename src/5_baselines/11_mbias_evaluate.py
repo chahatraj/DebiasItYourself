@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic MBIAS-inspired LoRA evaluation entrypoint."""
+"""
+MBIAS: Mitigating Bias in LLMs While Retaining Context - Evaluation
+Paper: "MBIAS: Mitigating Bias in Large Language Models While Retaining Context"
+WASSA @ ACL 2024 (https://aclanthology.org/2024.wassa-1.9)
+GitHub: https://github.com/shainarazavi/MBIAS
+
+Evaluates a QLoRA SFT adapter trained by 11_mbias_train.py on BBQ, CrowS-Pairs, or StereoSet.
+Official evaluation uses bias/toxicity/KR/faithfulness metrics via LLM-as-judge (GPT-turbo-4).
+"""
 
 import argparse
 import importlib.util
@@ -20,6 +28,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

@@ -263,7 +263,7 @@ def main() -> None:
             bbq_res_file = results_root / "bbq" / f"{tag}.csv"
 
             crows_cmd = (
-                "python 9_reasoning_token_post_experiment.py eval_crows "
+                "python 6_reasoning_token_post_experiment.py eval_crows "
                 f"--model {args.model} "
                 f"--debias_method {method} "
                 f"--strategy {strategy} "
@@ -277,7 +277,7 @@ def main() -> None:
             crows_lines.append(crows_cmd)
 
             stereo_cmd = (
-                "python 9_reasoning_token_post_experiment.py eval_stereoset "
+                "python 6_reasoning_token_post_experiment.py eval_stereoset "
                 f"--model {args.model} "
                 f"--debias_method {method} "
                 f"--strategy {strategy} "
@@ -292,7 +292,7 @@ def main() -> None:
 
             for source_file in BBQ_SOURCE_FILES:
                 bbq_infer_cmd = (
-                    "python 9_reasoning_token_post_experiment.py infer_bbq "
+                    "python 6_reasoning_token_post_experiment.py infer_bbq "
                     f"--model {args.model} "
                     f"--debias_method {method} "
                     f"--strategy {strategy} "
@@ -305,7 +305,7 @@ def main() -> None:
                 bbq_infer_lines.append(bbq_infer_cmd)
 
             bbq_eval_cmd = (
-                "python 9_reasoning_token_post_experiment.py eval_bbq "
+                "python 6_reasoning_token_post_experiment.py eval_bbq "
                 f"--model_dir {bbq_out} "
                 f"--output_file {bbq_res_file} "
                 f"--model_name {tag}"

@@ -7,7 +7,7 @@ GitHub: https://github.com/XMUDeepLIT/Bi-directional-Bias-Attribution
 
 This script applies the inference-time neuron intervention from BBA (Section 3.4):
 - Loads the neuron attribution config produced by 8_bba_train.py
-- Registers a forward hook on model.model.norm (final norm before lm_head)
+- Registers a forward hook on model.model.layers[-1] (last transformer block)
 - At inference, sets selected neuron activations to constant C (h_j := C)
 - NO fine-tuning, NO LoRA adapters - pure inference-time intervention
 
@@ -38,6 +38,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -64,8 +65,8 @@ class BBANeuronHook:
     """
     Inference-time neuron intervention (BBA Section 3.4).
 
-    Registers a forward hook on model.model.norm that sets the selected
-    neuron activations to constant C before the lm_head linear projection.
+    Registers a forward hook on model.model.layers[-1] (last transformer block)
+    that sets the selected neuron activations to constant C.
 
     Intervention: h̃_j = C for all j in neuron_ids, all positions, all batches.
     """
@@ -77,14 +78,16 @@ class BBANeuronHook:
         self.hook_handle = None
 
     def _hook_fn(self, module, inp, output):
-        # output shape: [batch_size, seq_len, hidden_dim]
-        output = output.clone()
-        output[:, :, self.neuron_ids] = self.constant_c
-        return output
+        # output is a tuple (hidden_states, ...) for transformer blocks
+        hidden = output[0].clone() if isinstance(output, tuple) else output.clone()
+        hidden[:, :, self.neuron_ids] = self.constant_c
+        return (hidden,) + output[1:] if isinstance(output, tuple) else hidden
 
     def register(self):
-        """Hook into the final norm layer (model.model.norm) output."""
-        self.hook_handle = self.model.model.norm.register_forward_hook(self._hook_fn)
+        """Hook into the last transformer block (model.model.layers[-1]) output.
+        Official code: last_layer = model.model.layers[-1]; last_layer.register_forward_hook(...)
+        """
+        self.hook_handle = self.model.model.layers[-1].register_forward_hook(self._hook_fn)
 
     def remove(self):
         if self.hook_handle is not None:

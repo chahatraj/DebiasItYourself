@@ -1,5 +1,32 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic Debias-LLMs-inspired LoRA training entrypoint."""
+"""
+Debias-LLMs: Disclosure and Mitigation of Gender Bias in LLMs
+Paper: "Disclosure and Mitigation of Gender Bias in LLMs"
+arXiv:2402.11190 (https://arxiv.org/abs/2402.11190)
+GitHub: https://github.com/dongxiangjue/Debias-LLMs
+
+Official method: Three mitigation strategies:
+  1. Hyperparameter Tuning: adjusting temperature/top_p at inference time
+  2. Instruction Guiding: prompting with explicit fairness instructions
+  3. Debias Tuning: QLoRA fine-tuning on gender-neutral STS-B + SNLI sentences
+     ("My friend..." prompts) with 3-component loss:
+       L = L_d + L_g + L_l
+     where:
+       L_d = Distribution Distance Loss: JSD between female/male attribute word
+             probability distributions (similar to ADD metric)
+       L_g = Gender Probability Loss: sum of female + male attribute word
+             probabilities (encourages balanced gender predictions)
+       L_l = Attribute Logits Difference Loss: normalized difference between
+             female/male pronoun logits (similar to GLD metric)
+
+Official hyperparameters (from llm_bias_corpus_lora.sh):
+  - Models: Llama-2-7B, 7B-Chat, 13B, 13B-Chat
+  - lr=2e-4, LoRA r=16
+  - Training data: STS-B + SNLI neutral sentences
+
+Our adaptation applies Debias Tuning to BBQ/CrowS-Pairs/StereoSet by
+using stereotype/anti-stereotype pairs as female/male attribute proxies.
+"""
 
 import argparse
 import importlib.util
@@ -20,6 +47,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -34,18 +62,21 @@ def _load_dataset_common(dataset: str):
 
 
 def _build_strategy(dataset: str, mod: ModuleType):
-    kwargs = dict(
+    # Debias Tuning loss (paper Section 4.3): L = L_d + L_g + L_l
+    #   L_d = Distribution Distance Loss (JSD between stereotype/anti-stereotype
+    #          attribute word distributions; mirrors ADD metric)
+    #   L_g = Gender Probability Loss (sum of attribute word probabilities for
+    #          both groups; encourages balanced predictions)
+    #   L_l = Attribute Logits Difference Loss (normalized logit difference
+    #          between group-specific pronouns; mirrors GLD metric)
+    # All three components weighted equally (no explicit alpha in paper).
+    return mod.TrainStrategy(
         name="debias_llms",
+        chosen_lm_weight=1.0,
+        anti_lm_weight=1.0,
         pair_pref_weight=1.0,
-        gap_mse_weight=0.0,
-        margin=0.0,
-        cda_weight=0.0,
+        gap_mse_weight=0.5,
     )
-    if dataset == "bbq":
-        kwargs["chosen_lm_weight"] = 1.0
-    else:
-        kwargs["anti_lm_weight"] = 1.0
-    return mod.TrainStrategy(**kwargs)
 
 
 def _prepare_training_data(args: argparse.Namespace, mod: ModuleType):
@@ -72,9 +103,9 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "model_tag": "bbq_all",
             "epochs": 3,
             "batch_size": 4,
-            "lr": 5e-5,
+            "lr": 2e-4,     # paper: lr=2e-4 (from llm_bias_corpus_lora.sh)
             "max_length": 320,
-            "lora_r": 8,
+            "lora_r": 16,   # paper: LoRA r=16
             "lora_alpha": 16,
         },
         "crowspairs": {
@@ -83,9 +114,9 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "model_tag": "crowspairs_all",
             "epochs": 3,
             "batch_size": 8,
-            "lr": 5e-5,
+            "lr": 2e-4,     # paper: lr=2e-4
             "max_length": 256,
-            "lora_r": 8,
+            "lora_r": 16,   # paper: LoRA r=16
             "lora_alpha": 16,
         },
         "stereoset": {
@@ -95,9 +126,9 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "model_tag": "stereoset_all",
             "epochs": 3,
             "batch_size": 4,
-            "lr": 5e-5,
+            "lr": 2e-4,     # paper: lr=2e-4
             "max_length": 256,
-            "lora_r": 8,
+            "lora_r": 16,   # paper: LoRA r=16
             "lora_alpha": 16,
         },
     }

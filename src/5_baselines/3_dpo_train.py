@@ -1,10 +1,38 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic DPO training entrypoint."""
+"""
+Preference-Aware DPO for Social Bias Mitigation (SBM)
+
+Paper : "SBM: Social Bias Mitigation for LLMs via Preference-Aware DPO"
+        Proceedings of WWW 2025 (arXiv:2412.16155)
+GitHub: https://github.com/KID-22/LLM-SBM
+
+Method (Section 3):
+  Standard DPO re-weighted by per-pair preference intensity delta:
+    L = -mean( delta^alpha * log_sigmoid(beta*(r_chosen - r_rejected)) )
+  where r = beta*(log π_policy - log π_ref) are implicit rewards.
+  Delta is computed from the base model's predicted probability gap between the
+  biased and unbiased answer choices, normalised to [0.01, 1].
+  LR scheduler: cosine with linear warmup (warmup_ratio=0.1).
+
+Official hyperparameters (yamls/llama3/lora/msmarco_dpo/msmarco_dpo.yaml):
+  learning_rate : 5e-6
+  beta          : 0.1
+  weight_alpha  : 2.0   (our `alpha`)
+  num_epochs    : 3
+  batch_size    : 4 per device (grad_accum=8 → effective=32)
+  LoRA targets  : "all" (we use q/v/k/o/gate/up/down_proj)
+
+Dataset-agnostic adaptations:
+  - BBQ    : delta from base-model option-probability gap
+  - CrowS  : delta from log-prob margin between stereo / anti sentences
+  - StereoSet: same as CrowS
+"""
 
 import argparse
 import ast
 import importlib.util
 import json
+import math
 import os
 import random
 import sys
@@ -57,6 +85,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -174,6 +203,25 @@ def compute_sequence_logps(model, input_ids, attention_mask, prompt_lengths: Opt
     return (token_logps * shift_mask).sum(dim=-1)
 
 
+def _is_transient_cuda_error(err: RuntimeError) -> bool:
+    msg = str(err).lower()
+    needles = (
+        "cuda error",
+        "cublas_status_not_initialized",
+        "out of memory",
+        "outofmemory",
+        "cudnn",
+    )
+    return any(x in msg for x in needles)
+
+
+def _recover_cuda(optimizer) -> None:
+    optimizer.zero_grad(set_to_none=True)
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        torch.cuda.synchronize()
+
+
 def preference_aware_dpo_loss(
     policy_chosen_logps,
     policy_rejected_logps,
@@ -237,6 +285,7 @@ def train_preference_aware_dpo(
     alpha: float,
     max_length: int,
     use_prompt_lengths: bool,
+    warmup_ratio: float = 0.1,
 ):
     loader = DataLoader(
         PairDPODataset(train_df, tokenizer, max_length=max_length, use_prompt_lengths=use_prompt_lengths),
@@ -245,46 +294,72 @@ def train_preference_aware_dpo(
     )
     optimizer = AdamW(model.parameters(), lr=lr)
 
+    # Cosine LR schedule with linear warmup — matches official: lr_scheduler_type: cosine, warmup_ratio: 0.1
+    total_steps = epochs * len(loader)
+    warmup_steps = max(1, int(warmup_ratio * total_steps))
+
+    def lr_lambda(current_step: int):
+        if current_step < warmup_steps:
+            return float(current_step) / float(warmup_steps)
+        progress = float(current_step - warmup_steps) / float(max(1, total_steps - warmup_steps))
+        return max(0.0, 0.5 * (1.0 + math.cos(math.pi * progress)))
+
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
+
     model.train()
+    global_step = 0
     for epoch in range(epochs):
         total_loss = 0.0
         n_batches = 0
+        skipped = 0
         pbar = tqdm(loader, desc=f"Epoch {epoch + 1}/{epochs}")
 
         for batch in pbar:
-            chosen_ids = batch["chosen_input_ids"].to(model.device)
-            chosen_mask = batch["chosen_attention_mask"].to(model.device)
-            rejected_ids = batch["rejected_input_ids"].to(model.device)
-            rejected_mask = batch["rejected_attention_mask"].to(model.device)
-            prompt_lens = batch["prompt_length"].to(model.device) if use_prompt_lengths else None
-
-            delta = batch["delta"].to(model.device)
-            ref_chosen = batch["ref_chosen_logps"].to(model.device)
-            ref_rejected = batch["ref_rejected_logps"].to(model.device)
-
-            policy_chosen = compute_sequence_logps(model, chosen_ids, chosen_mask, prompt_lens)
-            policy_rejected = compute_sequence_logps(model, rejected_ids, rejected_mask, prompt_lens)
-
-            loss = preference_aware_dpo_loss(
-                policy_chosen,
-                policy_rejected,
-                ref_chosen,
-                ref_rejected,
-                delta,
-                beta=beta,
-                alpha=alpha,
-            ).mean()
-
             optimizer.zero_grad(set_to_none=True)
-            loss.backward()
-            optimizer.step()
+            try:
+                chosen_ids = batch["chosen_input_ids"].to(model.device)
+                chosen_mask = batch["chosen_attention_mask"].to(model.device)
+                rejected_ids = batch["rejected_input_ids"].to(model.device)
+                rejected_mask = batch["rejected_attention_mask"].to(model.device)
+                prompt_lens = batch["prompt_length"].to(model.device) if use_prompt_lengths else None
 
-            total_loss += float(loss.item())
-            n_batches += 1
-            pbar.set_postfix(loss=f"{loss.item():.4f}")
+                delta = batch["delta"].to(model.device)
+                ref_chosen = batch["ref_chosen_logps"].to(model.device)
+                ref_rejected = batch["ref_rejected_logps"].to(model.device)
+
+                policy_chosen = compute_sequence_logps(model, chosen_ids, chosen_mask, prompt_lens)
+                policy_rejected = compute_sequence_logps(model, rejected_ids, rejected_mask, prompt_lens)
+
+                loss = preference_aware_dpo_loss(
+                    policy_chosen,
+                    policy_rejected,
+                    ref_chosen,
+                    ref_rejected,
+                    delta,
+                    beta=beta,
+                    alpha=alpha,
+                ).mean()
+
+                loss.backward()
+                optimizer.step()
+                scheduler.step()
+                global_step += 1
+
+                total_loss += float(loss.item())
+                n_batches += 1
+                pbar.set_postfix(loss=f"{loss.item():.4f}", lr=f"{scheduler.get_last_lr()[0]:.2e}", skipped=skipped)
+            except RuntimeError as err:
+                if not _is_transient_cuda_error(err):
+                    raise
+                skipped += 1
+                _recover_cuda(optimizer)
+                pbar.set_postfix(loss=f"{(total_loss / max(1, n_batches)):.4f}", lr=f"{scheduler.get_last_lr()[0]:.2e}", skipped=skipped)
+                continue
 
         avg = total_loss / max(1, n_batches)
         print(f"Epoch {epoch + 1}: Avg Loss = {avg:.4f}")
+        if skipped:
+            print(f"[warn] epoch {epoch + 1}: skipped {skipped} CUDA-fragile batches")
 
 
 def _score_texts_logprob(model, tokenizer, texts: List[str], batch_size: int = 4) -> List[float]:
@@ -456,7 +531,7 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "meta_file": "/scratch/craj/diy/data/BBQ/analysis_scripts/additional_metadata.csv",
             "category": "Age",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/dpo/models",
-            "batch_size": 4,
+            "batch_size": 2,
             "max_length": 256,
             "test_size": 0.9,
         },
@@ -465,7 +540,7 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "data_path": "/scratch/craj/diy/data/crows_pairs_anonymized.csv",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/dpo/models_crowspairs",
             "model_tag": "crowspairs_all",
-            "batch_size": 4,
+            "batch_size": 2,
             "max_length": 256,
             "test_size": 0.9,
         },
@@ -475,7 +550,7 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "split": "all",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/dpo/models_stereoset",
             "model_tag": "stereoset_all",
-            "batch_size": 4,
+            "batch_size": 2,
             "max_length": 256,
             "test_size": 0.1,
         },
@@ -505,7 +580,7 @@ def parse_args() -> argparse.Namespace:
 
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--batch_size", type=int, default=None)
-    parser.add_argument("--lr", type=float, default=5e-5)
+    parser.add_argument("--lr", type=float, default=5e-6)
     parser.add_argument("--beta", type=float, default=0.1)
     parser.add_argument("--alpha", type=float, default=2.0)
     parser.add_argument("--test_size", type=float, default=None)

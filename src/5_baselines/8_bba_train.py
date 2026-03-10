@@ -14,7 +14,7 @@ Algorithm (BBA Paper Section 3):
    - Template: "The {attribute} of this {cue} person is"
    - Select cues with lowest entropy over demographic predictions
 2. Forward-IG (Section 3.2): neurons predicting demographic from stereotype cues
-   - F_fwd = -H(p(demographic | scaled_hidden_state))
+   - F_fwd = 1 / (H(p(demographic | scaled_hidden_state)) + eps)  [inverse entropy]
 3. Backward-IG (Section 3.3): neurons causing demographic-dependent stereotype word predictions
    - F_bwd = JSD proxy via KL(p_k || mean_p) over cue tokens across demographics
 4. Select top-N = beta * hidden_dim neurons by combined |Forward-IG| + |Backward-IG| score
@@ -203,10 +203,9 @@ def compute_forward_ig(
     """
     Section 3.2: Forward Bias Attribution via Integrated Gradients.
 
-    Forward-IG(h_j) = h_bar_j * sum_{k=1}^{n_step} d[-H(p_demo | alpha_k*h_bar)] / d(h_j) * 1/n_step
-
-    F_fwd = -H(p(demographic | h)) ... neurons making model certain about demographic.
-    Gradient is computed through lm_head (linear layer) applied to scaled h_bar.
+    Official (faig.py): scale orig_act by alphas as a batch [n_steps, T, D],
+    compute 1/(entropy+eps) over demographic predictions, backprop once.
+    F = 1 / (H(p_demo) + eps)  -- inverse entropy (high = certain about demographic)
     """
     device = model.device
     W = model.lm_head.weight.data.float()  # [vocab_size, hidden_dim]
@@ -227,29 +226,30 @@ def compute_forward_ig(
 
     for cue in tqdm(cues, desc="Forward-IG"):
         prompt = f"The {attribute} of this {cue} person is"
-        h_bar = _get_lm_head_input(model, tokenizer, prompt, max_length).to(device)
+        h_bar = _get_lm_head_input(model, tokenizer, prompt, max_length).to(device)  # [hidden_dim]
 
-        grad_sum = torch.zeros(hidden_dim, device=device)
+        # Batch all alpha steps at once: scaled shape [n_steps, hidden_dim]
+        dtype = W.dtype
+        h_bar_typed = h_bar.to(dtype)
+        alphas = torch.linspace(0, 1, steps=n_step, device=device, dtype=dtype)
+        scaled = h_bar_typed.unsqueeze(0) * alphas.unsqueeze(1)  # [n_steps, hidden_dim]
+        scaled.requires_grad_(True)
 
-        for k in range(1, n_step + 1):
-            alpha = k / n_step
-            h_k = (alpha * h_bar).clone().detach().requires_grad_(True)
+        logits = scaled @ W.T.to(device)  # [n_steps, vocab_size]
+        if b is not None:
+            logits = logits + b.to(device)
+        probs = torch.softmax(logits, dim=-1)  # [n_steps, vocab_size]
 
-            logits = h_k @ W.T.to(device)
-            if b is not None:
-                logits = logits + b.to(device)
+        # Demographic probs and normalized entropy
+        p_demo = probs[:, demo_ids_tensor]  # [n_steps, n_demo]
+        p_demo_norm = p_demo / (p_demo.sum(dim=-1, keepdim=True) + 1e-12)
+        H = -(p_demo_norm * (p_demo_norm + 1e-12).log()).sum(dim=-1)  # [n_steps]
+        F = (1.0 / (H + 1e-12)).sum()  # inverse entropy objective (official)
 
-            probs = torch.softmax(logits, dim=-1)
-            p_demo = probs[demo_ids_tensor]
-            p_demo_norm = p_demo / (p_demo.sum() + 1e-10)
-            H = -(p_demo_norm * torch.log(p_demo_norm + 1e-10)).sum()
-            F = -H  # negative entropy: maximize certainty about demographics
+        grads = torch.autograd.grad(F, scaled)[0]  # [n_steps, hidden_dim]
+        avg_grads = grads.mean(dim=0)  # [hidden_dim]
 
-            F.backward()
-            with torch.no_grad():
-                grad_sum += h_k.grad.detach()
-
-        ig = (h_bar * grad_sum / n_step).cpu()
+        ig = (h_bar_typed * avg_grads).cpu().float()
         ig_scores += ig.abs()
         count += 1
 

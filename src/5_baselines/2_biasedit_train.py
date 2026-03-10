@@ -1,225 +1,177 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic BIASEDIT training entrypoint."""
+"""
+BiasEdit training entrypoint.
+
+Faithfully runs the official BiasEdit codebase (https://github.com/zjunlp/BiasEdit)
+by invoking their main.py via subprocess from the cloned repo directory.
+
+Official method: MALMEN hypernetwork-based model editing.
+  - Trains a small MALMENNet that predicts parameter shifts (ΔW) for target MLP layers.
+  - Debiasing loss: increase P(anti-stereotype) relative to P(stereotype).
+  - Locality loss: KL divergence on unrelated sentences to preserve LM ability.
+  - No LoRA — edits are direct temporary weight shifts applied to down_proj layers.
+
+Datasets supported: stereoset, crowspairs
+(BBQ is not used for training in the original paper.)
+
+Usage:
+    python 2_biasedit_train.py --dataset stereoset
+    python 2_biasedit_train.py --dataset crowspairs
+    python 2_biasedit_train.py --dataset stereoset --model_config llama3_last123 --n_edits 64
+"""
 
 import argparse
-import importlib.util
 import os
+import subprocess
 import sys
 from pathlib import Path
-from types import ModuleType
+
+REPO_DIR = Path(__file__).resolve().parent / "biasedit_repo"
+
+# Paths to our local data
+DATA_PATHS = {
+    "stereoset": {
+        "train": "/scratch/craj/diy/data/stereoset/dev.json",   # official repo uses dev.json for both train and test
+        "valid": "/scratch/craj/diy/data/stereoset/dev.json",
+    },
+    "crowspairs": {
+        # official repo splits by bias_type; we use the full file as train
+        # The repo's Crows data loader reads sent_more/sent_less columns
+        "train": "/scratch/craj/diy/data/crows_pairs_anonymized.csv",
+        "valid": "/scratch/craj/diy/data/crows_pairs_anonymized.csv",
+    },
+}
+
+# Checkpoint save directory (where main.py writes checkpoints/)
+CHECKPOINT_BASE = "/scratch/craj/diy/outputs/3_baselines/biasedit"
+
+# Default model config — last 3 layers of LLaMA-3-8B (matches official llama3.sh)
+DEFAULT_MODEL_CONFIG = "llama3_last123"
+
+# Maps model config name → HF model path (for main.py model.name_or_path override)
+MODEL_PATHS = {
+    "llama3_last1":   "meta-llama/Meta-Llama-3-8B",
+    "llama3_last12":  "meta-llama/Meta-Llama-3-8B",
+    "llama3_last123": "meta-llama/Meta-Llama-3-8B",
+}
+
+# Llama 3.1 Instruct cache dir
+CACHE_DIR = "/scratch/craj/cache/model_cache/llama-3.1-8b-instruct"
 
 
-BASE_DIR = Path(__file__).resolve().parent
-DATASETS = ("bbq", "crowspairs", "stereoset")
+def build_command(args: argparse.Namespace) -> list[str]:
+    """Build the subprocess command that mirrors the official llama3.sh script."""
+    data_paths = DATA_PATHS[args.dataset]
+
+    cmd = [
+        sys.executable, "main.py",
+        f"data={args.dataset}",
+        f"model={args.model_config}",
+        "editor=malmen",
+        f"data.n_edits={args.n_edits}",
+        f"data.batch_size={args.batch_size}",
+        f"data.train_path={data_paths['train']}",
+        f"data.valid_path={data_paths['valid']}",
+        f"model_device={args.model_device}",
+        f"editor_device={args.editor_device}",
+        f"editor.n_epochs={args.n_epochs}",
+        f"early_stop_patience={args.early_stop_patience}",
+        "eval_only=False",
+        "use_wandb=False",
+    ]
+
+    # Override model name_or_path if using instruct variant from cache
+    if args.model_name_or_path:
+        cmd.append(f"model.name_or_path={args.model_name_or_path}")
+
+    return cmd
 
 
-def _load_dataset_common(dataset: str) -> ModuleType:
-    module_path = BASE_DIR / "paper_baselines_shared.py"
-    if not module_path.exists():
-        raise FileNotFoundError(f"Missing shared baselines module: {module_path}")
-
-    if str(BASE_DIR) not in sys.path:
-        sys.path.insert(0, str(BASE_DIR))
-
-    module_name = "paper_baselines_shared_adapter_biasedit_train"
-    spec = importlib.util.spec_from_file_location(module_name, module_path)
-    if spec is None or spec.loader is None:
-        raise ImportError(f"Could not import {module_path}")
-
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod.get_dataset_common(dataset)
-
-
-def _apply_dataset_defaults(args: argparse.Namespace) -> None:
-    defaults = {
-        "bbq": {
-            "bbq_dir": "/scratch/craj/diy/data/BBQ/data",
-            "meta_file": "/scratch/craj/diy/data/BBQ/analysis_scripts/additional_metadata.csv",
-            "category": "Age",
-            "output_dir": "/scratch/craj/diy/outputs/3_baselines/biasedit/models",
-            "batch_size": 8,
-            "max_length": 320,
-        },
-        "crowspairs": {
-            "data_path": "/scratch/craj/diy/data/crows_pairs_anonymized.csv",
-            "output_dir": "/scratch/craj/diy/outputs/3_baselines/biasedit/models_crowspairs",
-            "model_tag": "crowspairs_all",
-            "batch_size": 8,
-            "max_length": 256,
-        },
-        "stereoset": {
-            "data_path": "/scratch/craj/diy/data/stereoset/dev.json",
-            "split": "all",
-            "output_dir": "/scratch/craj/diy/outputs/3_baselines/biasedit/models_stereoset",
-            "model_tag": "stereoset_all",
-            "batch_size": 8,
-            "max_length": 256,
-        },
-    }
-
-    for key, value in defaults[args.dataset].items():
-        if getattr(args, key) is None:
-            setattr(args, key, value)
-
-    if args.model_tag is None and args.dataset == "bbq":
-        args.model_tag = args.category if args.category else "bbq_all"
-
-
-def _build_strategy(common_mod: ModuleType, args: argparse.Namespace):
-    kwargs = {
-        "name": "biasedit",
-        "pair_pref_weight": args.pair_pref_weight,
-        "gap_mse_weight": args.gap_mse_weight,
-        "margin": args.margin,
-        "cda_weight": 0.0,
-    }
-    if args.dataset == "bbq":
-        kwargs["chosen_lm_weight"] = args.lambda_r
-    else:
-        kwargs["anti_lm_weight"] = args.lambda_r
-    return common_mod.TrainStrategy(**kwargs)
-
-
-def _train_bbq(common_mod: ModuleType, args: argparse.Namespace) -> str:
-    df = common_mod.load_bbq_df(
-        args.bbq_dir,
-        args.meta_file,
-        category=args.category,
-        limit_per_category=args.limit_per_category,
+def main():
+    parser = argparse.ArgumentParser(
+        description="BiasEdit training — runs official main.py via subprocess"
     )
-    pair_df = common_mod.build_preference_pairs(df)
-
-    if args.train_limit:
-        pair_df = pair_df.iloc[: args.train_limit].copy()
-
-    strategy = _build_strategy(common_mod, args)
-    return common_mod.train_lora_pairwise(
-        pair_df,
-        strategy,
-        output_dir=args.output_dir,
-        model_tag=args.model_tag,
-        hf_token=args.hf_token,
-        epochs=args.epochs,
-        batch_size=args.batch_size,
-        lr=args.lr,
-        max_length=args.max_length,
-        lora_r=args.lora_r,
-        lora_alpha=args.lora_alpha,
+    parser.add_argument(
+        "--dataset", required=True, choices=["stereoset", "crowspairs"],
+        help="Training dataset (BBQ not used for BiasEdit training)"
     )
-
-
-def _train_crowspairs(common_mod: ModuleType, args: argparse.Namespace) -> str:
-    df = common_mod.load_crowspairs_df(args.data_path, bias_type=args.bias_type, limit=args.limit)
-    pair_df = common_mod.make_pair_records(df)
-
-    if args.train_limit:
-        pair_df = pair_df.iloc[: args.train_limit].copy()
-
-    strategy = _build_strategy(common_mod, args)
-    return common_mod.train_lora_pairwise(
-        pair_df,
-        strategy,
-        output_dir=args.output_dir,
-        model_tag=args.model_tag,
-        hf_token=args.hf_token,
-        epochs=args.epochs,
-        batch_size=args.batch_size,
-        lr=args.lr,
-        max_length=args.max_length,
-        lora_r=args.lora_r,
-        lora_alpha=args.lora_alpha,
+    parser.add_argument(
+        "--model_config", default=DEFAULT_MODEL_CONFIG,
+        choices=["llama3_last1", "llama3_last12", "llama3_last123"],
+        help="Which layer config to edit (default: llama3_last123, i.e. last 3 layers)"
     )
-
-
-def _train_stereoset(common_mod: ModuleType, args: argparse.Namespace) -> str:
-    examples = common_mod.load_examples(
-        args.data_path,
-        split=args.split,
-        bias_type=args.bias_type,
-        limit=args.limit,
+    parser.add_argument(
+        "--model_name_or_path", default=None,
+        help="Override model name_or_path (e.g. use instruct variant). "
+             "Defaults to meta-llama/Meta-Llama-3-8B as in the paper."
     )
+    parser.add_argument(
+        "--n_edits", type=int, default=64,
+        help="Number of edits per batch (n_edits in official script: 64)"
+    )
+    parser.add_argument(
+        "--batch_size", type=int, default=16,
+        help="Data batch_size within each edit batch (official: 16)"
+    )
+    parser.add_argument(
+        "--n_epochs", type=int, default=100,
+        help="Max training epochs (editor.n_epochs, official: 100)"
+    )
+    parser.add_argument(
+        "--early_stop_patience", type=int, default=3,
+        help="Early stopping patience (official llama3.sh: 3)"
+    )
+    parser.add_argument(
+        "--model_device", default="cuda:0",
+        help="Device for the LLM (e.g. cuda:0, cuda:1)"
+    )
+    parser.add_argument(
+        "--editor_device", default="cuda:0",
+        help="Device for the MALMEN editor network"
+    )
+    args = parser.parse_args()
 
-    if args.train_limit:
-        examples = examples[: args.train_limit]
+    if not REPO_DIR.exists():
+        print(
+            f"ERROR: BiasEdit repo not found at {REPO_DIR}\n"
+            "Clone it with:\n"
+            f"  git clone https://github.com/zjunlp/BiasEdit {REPO_DIR}",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
-    strategy = _build_strategy(common_mod, args)
-    return common_mod.train_lora_pairwise(
-        examples,
-        strategy,
-        output_dir=args.output_dir,
-        model_tag=args.model_tag,
-        hf_token=args.hf_token,
-        epochs=args.epochs,
-        batch_size=args.batch_size,
-        lr=args.lr,
-        max_length=args.max_length,
-        lora_r=args.lora_r,
-        lora_alpha=args.lora_alpha,
+    # Checkpoints are written to <cwd>/checkpoints/ by default in main.py
+    # We run main.py from CHECKPOINT_BASE so checkpoints land there
+    os.makedirs(CHECKPOINT_BASE, exist_ok=True)
+
+    cmd = build_command(args)
+
+    print("Running BiasEdit training (official MALMEN method):")
+    print(f"  repo: {REPO_DIR}")
+    print(f"  cwd:  {CHECKPOINT_BASE}")
+    print(f"  cmd:  {' '.join(cmd)}\n")
+
+    env = os.environ.copy()
+    # Ensure the repo's modules (nets, editor, data, util) are importable
+    repo_str = str(REPO_DIR)
+    env["PYTHONPATH"] = repo_str + (":" + env["PYTHONPATH"] if "PYTHONPATH" in env else "")
+
+    # Hydra writes outputs relative to cwd; run from CHECKPOINT_BASE
+    result = subprocess.run(
+        cmd,
+        cwd=str(REPO_DIR),   # main.py uses relative paths for config/ and cache/
+        env=env,
     )
 
+    if result.returncode != 0:
+        print(f"\nBiasEdit training failed with exit code {result.returncode}", file=sys.stderr)
+        sys.exit(result.returncode)
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="BIASEDIT training across BBQ/CrowS-Pairs/StereoSet")
-    parser.add_argument("--dataset", type=str, required=True, choices=sorted(DATASETS))
-
-    parser.add_argument("--model", type=str, default="llama_8b")
-    parser.add_argument("--output_dir", type=str, default=None)
-    parser.add_argument("--model_tag", type=str, default=None)
-
-    parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--batch_size", type=int, default=None)
-    parser.add_argument("--lr", type=float, default=1e-4)
-    parser.add_argument("--lambda_r", type=float, default=0.0)
-    parser.add_argument("--pair_pref_weight", type=float, default=0.0)
-    parser.add_argument("--gap_mse_weight", type=float, default=1.0)
-    parser.add_argument("--margin", type=float, default=0.0)
-    parser.add_argument("--max_length", type=int, default=None)
-
-    parser.add_argument("--train_limit", type=int, default=None)
-    parser.add_argument("--test_size", type=float, default=None)
-    parser.add_argument("--lora_r", type=int, default=8)
-    parser.add_argument("--lora_alpha", type=int, default=16)
-    parser.add_argument("--target_layers", type=str, default=None)
-
-    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
-
-    parser.add_argument("--bbq_dir", type=str, default=None)
-    parser.add_argument("--meta_file", type=str, default=None)
-    parser.add_argument("--category", type=str, default=None)
-    parser.add_argument("--limit_per_category", type=int, default=None)
-
-    parser.add_argument("--data_path", type=str, default=None)
-    parser.add_argument("--bias_type", type=str, default=None)
-    parser.add_argument("--split", type=str, default=None, choices=["all", "intrasentence", "intersentence"])
-    parser.add_argument("--limit", type=int, default=None)
-
-    return parser.parse_args()
-
-
-def main() -> None:
-    args = parse_args()
-    _apply_dataset_defaults(args)
-
-    os.makedirs(args.output_dir, exist_ok=True)
-
-    if args.test_size is not None:
-        print("[warn] --test_size is ignored in the shared BIASEDIT trainer.")
-    if args.target_layers is not None:
-        print("[warn] --target_layers is ignored in the shared BIASEDIT trainer.")
-    if args.model != "llama_8b":
-        print("[warn] shared trainer currently uses llama_8b configs in dataset common modules.")
-
-    common_mod = _load_dataset_common(args.dataset)
-
-    if args.dataset == "bbq":
-        model_dir = _train_bbq(common_mod, args)
-    elif args.dataset == "crowspairs":
-        model_dir = _train_crowspairs(common_mod, args)
-    else:
-        model_dir = _train_stereoset(common_mod, args)
-
-    print(f"Model saved to {model_dir}")
+    print(
+        f"\nTraining complete. Checkpoints saved under:\n"
+        f"  {REPO_DIR}/checkpoints/\n"
+        f"Pass --checkpoint_dir to 2_biasedit_evaluate.py to run evaluation."
+    )
 
 
 if __name__ == "__main__":

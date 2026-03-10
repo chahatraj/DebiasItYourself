@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic Debias-LLMs-inspired LoRA evaluation entrypoint."""
+"""
+Debias-LLMs: Disclosure and Mitigation of Gender Bias in LLMs - Evaluation
+Paper: "Disclosure and Mitigation of Gender Bias in LLMs"
+arXiv:2402.11190 (https://arxiv.org/abs/2402.11190)
+GitHub: https://github.com/dongxiangjue/Debias-LLMs
+
+Evaluates a LoRA adapter trained by 12_debias_llms_train.py on BBQ, CrowS-Pairs, or StereoSet.
+Official evaluation uses ADD (Attribute Distribution Distance) and GLD (Gender Logits
+Difference) metrics to measure bias, along with perplexity for language model quality.
+"""
 
 import argparse
 import importlib.util
@@ -20,6 +29,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

@@ -1,6 +1,20 @@
 """
-ReGiFT Evaluation Script
-Evaluates the fine-tuned model on BBQ (Bias Benchmark for QA) dataset.
+ReGiFT: Reasoning-Guided Fine-Tuning for Bias Mitigation - Evaluation
+Paper: "Reasoning Towards Fairness: Mitigating Bias in Language Models through
+        Reasoning-Guided Fine-Tuning"
+arXiv:2504.05632 (preprint, under review)
+GitHub: https://github.com/Sanchit-404/Reasoing-Towards-Fairness
+
+Evaluates a ReGiFT-fine-tuned model on BBQ (Bias Benchmark for QA).
+Official evaluation (Section 4.3):
+  - Exact Match: for ambiguous contexts, correct = predicts "Not in Background"
+    or accepted variant; for disambiguating, correct = predicted answer contains gold label.
+  - LLM-as-Judge: GPT-4o-mini reviews sample responses in both context types.
+  - For ReGiFT models: extract final answer from <answer>...</answer> tags.
+  - Zero-shot prompts; no fairness-specific supervision used.
+
+Paper evaluates on: age, religion, nationality bias dimensions of BBQ.
+Models fine-tuned: LLaMA 3.1 8B, Mistral 7B, Phi-4 14B.
 
 BBQ Categories:
 - Age, Disability_status, Gender_identity, Nationality,

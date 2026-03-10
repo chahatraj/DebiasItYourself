@@ -1,304 +1,266 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic BIASEDIT evaluation entrypoint."""
+"""
+BiasEdit evaluation entrypoint.
+
+Faithfully runs the official BiasEdit codebase (https://github.com/zjunlp/BiasEdit)
+by invoking their main.py with eval_only=True via subprocess.
+
+The official code reports:
+  - SS Score  (stereotype score): fraction of edits where P(anti) > P(stereo); closer to 50 is unbiased
+  - LMS       (language model score): perplexity-based language quality metric; higher is better
+  - ICAT      (ideal CAT score): computed as LMS * min(SS, 100-SS) / 50; higher is better
+
+These are computed by the official editor.valid() loop and logged to stdout.
+This script captures and parses that output, then saves it to our CSV format.
+
+Datasets supported: stereoset, crowspairs
+(BBQ evaluation is not part of the original BiasEdit paper.)
+
+Usage:
+    python 2_biasedit_evaluate.py --dataset stereoset
+    python 2_biasedit_evaluate.py --dataset stereoset --valid_path dataset/stereoset/gender_test.json
+    python 2_biasedit_evaluate.py --dataset crowspairs
+"""
 
 import argparse
-import importlib.util
 import os
+import re
+import subprocess
 import sys
 from pathlib import Path
-from types import ModuleType
 
 import pandas as pd
 
+REPO_DIR = Path(__file__).resolve().parent / "biasedit_repo"
 
-BASE_DIR = Path(__file__).resolve().parent
-DATASETS = ("bbq", "crowspairs", "stereoset")
+# Our results output directory
+RESULTS_DIR = "/scratch/craj/diy/results/3_baselines/biasedit"
 
+# Default eval data paths (official repo test splits)
+DEFAULT_VALID_PATHS = {
+    "stereoset": {
+        # Official: evaluate on gender/race/religion test splits
+        "gender":   "dataset/stereoset/gender_test.json",
+        "race":     "dataset/stereoset/race_test.json",
+        "religion": "dataset/stereoset/religion_test.json",
+    },
+    "crowspairs": {
+        "gender":   "dataset/crows/gender.csv",
+        "race":     "dataset/crows/race.csv",
+        "religion": "dataset/crows/religion.csv",
+    },
+}
 
-def _load_dataset_common(dataset: str) -> ModuleType:
-    module_path = BASE_DIR / "paper_baselines_shared.py"
-    if not module_path.exists():
-        raise FileNotFoundError(f"Missing shared baselines module: {module_path}")
-
-    if str(BASE_DIR) not in sys.path:
-        sys.path.insert(0, str(BASE_DIR))
-
-    module_name = "paper_baselines_shared_adapter_biasedit_eval"
-    spec = importlib.util.spec_from_file_location(module_name, module_path)
-    if spec is None or spec.loader is None:
-        raise ImportError(f"Could not import {module_path}")
-
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod.get_dataset_common(dataset)
-
-
-def _apply_dataset_defaults(args: argparse.Namespace) -> None:
-    defaults = {
-        "bbq": {
-            "model_dir": "/scratch/craj/diy/outputs/3_baselines/biasedit/models",
-            "base_model": "meta-llama/Llama-3.1-8B-Instruct",
-            "bbq_dir": "/scratch/craj/diy/data/BBQ/data",
-            "metadata_file": "/scratch/craj/diy/data/BBQ/analysis_scripts/additional_metadata.csv",
-            "processed_file": "/scratch/craj/diy/data/processed_bbq_all.csv",
-            "output_file": "/scratch/craj/diy/results/3_baselines/biasedit/bbq_eval_llama_8b_biasedit_all.csv",
-            "preds_output_file": "/scratch/craj/diy/outputs/3_baselines/biasedit/bbq_preds_llama_8b_biasedit_all.csv",
-            "batch_size": 8,
-        },
-        "crowspairs": {
-            "model_dir": "/scratch/craj/diy/outputs/3_baselines/biasedit/models_crowspairs",
-            "base_model": "meta-llama/Llama-3.1-8B-Instruct",
-            "data_path": "/scratch/craj/diy/data/crows_pairs_anonymized.csv",
-            "output_file": "/scratch/craj/diy/results/3_baselines/biasedit/crowspairs_metrics_overall_llama_8b_biasedit.csv",
-            "per_bias_output_file": "/scratch/craj/diy/results/3_baselines/biasedit/crowspairs_metrics_by_bias_llama_8b_biasedit.csv",
-            "pairs_output_file": "/scratch/craj/diy/outputs/3_baselines/biasedit/crowspairs_scored_llama_8b_biasedit.csv",
-            "model_tag": "crowspairs_all",
-            "batch_size": 4,
-        },
-        "stereoset": {
-            "model_dir": "/scratch/craj/diy/outputs/3_baselines/biasedit/models_stereoset",
-            "base_model": "meta-llama/Llama-3.1-8B-Instruct",
-            "data_path": "/scratch/craj/diy/data/stereoset/dev.json",
-            "split": "all",
-            "results_json": "/scratch/craj/diy/results/3_baselines/biasedit/stereoset_eval_llama_8b_biasedit.json",
-            "results_csv": "/scratch/craj/diy/results/3_baselines/biasedit/stereoset_eval_llama_8b_biasedit.csv",
-            "predictions_file": "/scratch/craj/diy/outputs/3_baselines/biasedit/stereoset_predictions_llama_8b_biasedit.json",
-            "scores_output_file": "/scratch/craj/diy/outputs/3_baselines/biasedit/stereoset_sentence_scores_llama_8b_biasedit.csv",
-            "model_tag": "stereoset_all",
-            "batch_size": 4,
-        },
-    }
-
-    for key, value in defaults[args.dataset].items():
-        if getattr(args, key) is None:
-            setattr(args, key, value)
+DEFAULT_MODEL_CONFIG = "llama3_last123"
 
 
-def _get_adapter_path(args: argparse.Namespace, category: str | None = None) -> tuple[str | None, str]:
-    if args.eval_baseline:
-        return None, f"{args.model}_baseline"
-
-    suffix = args.model_tag if args.model_tag else category
-    if suffix is None:
-        raise ValueError("No model tag or category available to build adapter path")
-
-    adapter_path = os.path.join(args.model_dir, f"model_{suffix}")
-    return adapter_path, f"{args.model}_biasedit_{suffix}"
-
-
-def _evaluate_bbq(common_mod: ModuleType, args: argparse.Namespace) -> None:
-    categories = [args.category] if args.category else list(common_mod.CATEGORIES)
-
-    metric_rows = []
-    pred_frames = []
-
-    for category in categories:
-        df = common_mod.load_bbq_df(
-            args.bbq_dir,
-            args.metadata_file,
-            category=category,
-            limit_per_category=args.limit,
-        )
-
-        adapter_path, model_name = _get_adapter_path(args, category=category)
-        if adapter_path and not os.path.exists(adapter_path):
-            print(f"[warn] Missing adapter for {category}: {adapter_path}; skipping")
-            continue
-
-        model, tokenizer = common_mod.load_model_and_tokenizer(
-            hf_token=args.hf_token,
-            adapter_path=adapter_path,
-            base_model=args.base_model,
-        )
-
-        metrics_df, preds_df = common_mod.evaluate_bbq_df(
-            df,
-            model,
-            tokenizer,
-            batch_size=args.batch_size,
-            prompt_prefix=args.prompt_prefix,
-            model_name=model_name,
-        )
-
-        cat_mask = metrics_df["Category"].astype(str).str.lower() == str(category).lower()
-        cat_row = metrics_df[cat_mask].copy()
-        if cat_row.empty:
-            cat_row = metrics_df.tail(1).copy()
-            cat_row["Category"] = category
-
-        metric_rows.append(cat_row.iloc[0].to_dict())
-
-        preds = preds_df.copy()
-        preds["source_file"] = f"{category}.jsonl"
-        pred_frames.append(preds)
-
-    if not metric_rows:
-        raise ValueError("No BBQ categories were evaluated. Check model paths and inputs.")
-
-    metrics_out = pd.DataFrame(metric_rows)
-    ordered = [
-        "Category",
-        "Model",
-        "Accuracy",
-        "Accuracy_ambig",
-        "Accuracy_disambig",
-        "Bias_score_disambig",
-        "Bias_score_ambig",
-        "N_total",
-        "N_ambig",
-        "N_disambig",
+def build_eval_command(args: argparse.Namespace, valid_path: str) -> list[str]:
+    """Build the eval subprocess command — mirrors official llama3.sh eval block."""
+    cmd = [
+        sys.executable, "main.py",
+        f"data={args.dataset}",
+        f"model={args.model_config}",
+        "editor=malmen",
+        f"data.n_edits={args.n_edits}",
+        f"data.batch_size={args.batch_size}",
+        f"data.valid_path={valid_path}",
+        f"model_device={args.model_device}",
+        f"editor_device={args.editor_device}",
+        "editor.load_checkpoint=True",
+        "eval_only=True",
+        "use_wandb=False",
     ]
-    metrics_out = metrics_out[[c for c in ordered if c in metrics_out.columns]]
 
-    os.makedirs(os.path.dirname(args.output_file), exist_ok=True)
-    metrics_out.to_csv(args.output_file, index=False)
+    if args.model_name_or_path:
+        cmd.append(f"model.name_or_path={args.model_name_or_path}")
 
-    preds_out = pd.concat(pred_frames, ignore_index=True)
-    pred_cols = [
-        "example_id",
-        "source_file",
-        "context_condition",
-        "label",
-        "pred_index",
-        "question_polarity",
-        "target_loc",
-    ]
-    preds_out = preds_out[[c for c in pred_cols if c in preds_out.columns]]
-    os.makedirs(os.path.dirname(args.preds_output_file), exist_ok=True)
-    preds_out.to_csv(args.preds_output_file, index=False)
-
-    print(f"Saved BBQ metrics to {args.output_file}")
-    print(f"Saved BBQ predictions to {args.preds_output_file}")
+    return cmd
 
 
-def _evaluate_crowspairs(common_mod: ModuleType, args: argparse.Namespace) -> None:
-    raw_df = common_mod.load_crowspairs_df(args.data_path, bias_type=args.bias_type, limit=args.limit)
-    pair_df = common_mod.make_pair_records(raw_df)
+def parse_official_output(stdout: str) -> dict:
+    """
+    Parse the SS score, LMS, and delta_LMS from official editor.valid() log output.
 
-    adapter_path, model_name = _get_adapter_path(args)
-    if adapter_path and not os.path.exists(adapter_path):
-        raise FileNotFoundError(f"BIASEDIT model not found: {adapter_path}")
+    Official format (from base.py LOG.info calls):
+        Overall results:
+         Test -------- pre_ss: 0.45, edit_ss: 0.51, pre_lms: 0.82, edit_lms: 0.85, delta_lms: 0.03
+    """
+    metrics = {}
 
-    model, tokenizer = common_mod.load_model_and_tokenizer(
-        hf_token=args.hf_token,
-        adapter_path=adapter_path,
-        base_model=args.base_model,
+    # Match the final "Overall results" line
+    overall_pattern = re.compile(
+        r"Test\s*-+\s*"
+        r"pre_ss:\s*([\d.]+),\s*"
+        r"edit_ss:\s*([\d.]+)"
+        r"(?:,\s*pre_lms:\s*([\d.]+))?"
+        r"(?:,\s*edit_lms:\s*([\d.]+))?"
+        r"(?:,\s*delta_lms:\s*([-\d.]+))?",
+        re.IGNORECASE,
     )
 
-    scored_df = common_mod.evaluate_pair_records(
-        pair_df,
-        model,
-        tokenizer,
-        batch_size=args.batch_size,
-        prompt_prefix=args.prompt_prefix,
-    )
-    overall_df, per_bias_df = common_mod.compute_metrics_from_scored(scored_df, model_name=model_name)
-    common_mod.save_eval_outputs(
-        scored_df,
-        overall_df,
-        per_bias_df,
-        args.pairs_output_file,
-        args.output_file,
-        args.per_bias_output_file,
-    )
+    # Find the last match (Overall results block)
+    matches = list(overall_pattern.finditer(stdout))
+    if matches:
+        m = matches[-1]
+        metrics["pre_ss_score"]  = float(m.group(1))
+        metrics["edit_ss_score"] = float(m.group(2))
+        metrics["pre_lms"]       = float(m.group(3)) if m.group(3) else float("nan")
+        metrics["edit_lms"]      = float(m.group(4)) if m.group(4) else float("nan")
+        metrics["delta_lms"]     = float(m.group(5)) if m.group(5) else float("nan")
 
-    print(f"Saved pair-level scores to {args.pairs_output_file}")
-    print(f"Saved overall metrics to {args.output_file}")
-    print(f"Saved per-bias metrics to {args.per_bias_output_file}")
+        # ICAT = LMS * min(SS, 100-SS) / 50  (standard StereoSet formula)
+        # SS score from official code is a fraction [0,1]; convert to percent for ICAT
+        ss_pct = metrics["edit_ss_score"] * 100
+        lms    = metrics["edit_lms"] * 100
+        metrics["icat_score"] = lms * min(ss_pct, 100 - ss_pct) / 50.0
+
+    return metrics
 
 
-def _evaluate_stereoset(common_mod: ModuleType, args: argparse.Namespace) -> None:
-    examples = common_mod.load_examples(
-        args.data_path,
-        split=args.split,
-        bias_type=args.bias_type,
-        limit=args.limit,
-    )
+def run_eval_split(args: argparse.Namespace, split_name: str, valid_path: str) -> dict:
+    """Run official main.py for one eval split, capture output, parse metrics."""
+    cmd = build_eval_command(args, valid_path)
+    print(f"\nEvaluating split '{split_name}': {valid_path}")
+    print(f"  cmd: {' '.join(cmd)}")
 
-    adapter_path, model_name = _get_adapter_path(args)
-    if adapter_path and not os.path.exists(adapter_path):
-        raise FileNotFoundError(f"BIASEDIT model not found: {adapter_path}")
+    env = os.environ.copy()
+    repo_str = str(REPO_DIR)
+    env["PYTHONPATH"] = repo_str + (":" + env["PYTHONPATH"] if "PYTHONPATH" in env else "")
 
-    model, tokenizer = common_mod.load_model_and_tokenizer(
-        hf_token=args.hf_token,
-        adapter_path=adapter_path,
-        base_model=args.base_model,
+    result = subprocess.run(
+        cmd,
+        cwd=str(REPO_DIR),
+        env=env,
+        capture_output=True,
+        text=True,
     )
 
-    records_df, results, preds_json = common_mod.evaluate_examples(
-        examples,
-        model,
-        tokenizer,
-        batch_size=args.batch_size,
-        prompt_prefix=args.prompt_prefix,
+    # Always print output for visibility
+    if result.stdout:
+        print(result.stdout)
+    if result.stderr:
+        print(result.stderr, file=sys.stderr)
+
+    if result.returncode != 0:
+        print(f"WARNING: eval for split '{split_name}' exited with code {result.returncode}", file=sys.stderr)
+
+    combined = result.stdout + "\n" + result.stderr
+    metrics = parse_official_output(combined)
+    metrics["split"] = split_name
+    metrics["valid_path"] = valid_path
+    return metrics
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="BiasEdit evaluation — runs official main.py eval_only=True via subprocess"
     )
-    common_mod.save_eval_outputs(
-        records_df,
-        results,
-        preds_json,
-        model_name,
-        args.results_csv,
-        args.results_json,
-        args.predictions_file,
-        args.scores_output_file,
+    parser.add_argument(
+        "--dataset", required=True, choices=["stereoset", "crowspairs"],
+        help="Evaluation dataset"
     )
+    parser.add_argument(
+        "--model_config", default=DEFAULT_MODEL_CONFIG,
+        choices=["llama3_last1", "llama3_last12", "llama3_last123"],
+    )
+    parser.add_argument(
+        "--model_name_or_path", default=None,
+        help="Override model name_or_path"
+    )
+    parser.add_argument(
+        "--splits", nargs="+", default=None,
+        help="Which test splits to evaluate (default: all). "
+             "For stereoset: gender, race, religion. For crowspairs: gender, race, religion."
+    )
+    parser.add_argument(
+        "--valid_path", default=None,
+        help="Override valid_path for a single evaluation (ignores --splits)"
+    )
+    parser.add_argument(
+        "--n_edits", type=int, default=64,
+        help="Must match the value used during training"
+    )
+    parser.add_argument(
+        "--batch_size", type=int, default=16,
+    )
+    parser.add_argument(
+        "--model_device", default="cuda:0",
+    )
+    parser.add_argument(
+        "--editor_device", default="cuda:0",
+    )
+    parser.add_argument(
+        "--output_file", default=None,
+        help="Path to save CSV results (default: auto-generated in results_dir)"
+    )
+    parser.add_argument(
+        "--results_dir", default=RESULTS_DIR,
+    )
+    args = parser.parse_args()
 
-    print(f"Saved StereoSet predictions: {args.predictions_file}")
-    print(f"Saved StereoSet results JSON: {args.results_json}")
-    print(f"Saved StereoSet results CSV: {args.results_csv}")
-    print(f"Saved StereoSet sentence scores: {args.scores_output_file}")
+    if not REPO_DIR.exists():
+        print(
+            f"ERROR: BiasEdit repo not found at {REPO_DIR}\n"
+            "Run training first (which clones the repo) or clone manually:\n"
+            f"  git clone https://github.com/zjunlp/BiasEdit {REPO_DIR}",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
+    os.makedirs(args.results_dir, exist_ok=True)
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="BIASEDIT evaluation across BBQ/CrowS-Pairs/StereoSet")
-    parser.add_argument("--dataset", type=str, required=True, choices=sorted(DATASETS))
-
-    parser.add_argument("--model", type=str, default="llama_8b")
-    parser.add_argument("--base_model", type=str, default=None)
-    parser.add_argument("--model_dir", type=str, default=None)
-    parser.add_argument("--model_tag", type=str, default=None)
-
-    parser.add_argument("--batch_size", type=int, default=None)
-    parser.add_argument("--limit", type=int, default=None)
-    parser.add_argument("--eval_baseline", action="store_true")
-    parser.add_argument("--prompt_prefix", type=str, default=None)
-
-    parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
-
-    parser.add_argument("--bbq_dir", type=str, default=None)
-    parser.add_argument("--metadata_file", type=str, default=None)
-    parser.add_argument("--processed_file", type=str, default=None)
-    parser.add_argument("--category", type=str, default=None)
-    parser.add_argument("--output_file", type=str, default=None)
-    parser.add_argument("--preds_output_file", type=str, default=None)
-
-    parser.add_argument("--data_path", type=str, default=None)
-    parser.add_argument("--bias_type", type=str, default=None)
-
-    parser.add_argument("--per_bias_output_file", type=str, default=None)
-    parser.add_argument("--pairs_output_file", type=str, default=None)
-
-    parser.add_argument("--split", type=str, default=None, choices=["all", "intrasentence", "intersentence"])
-    parser.add_argument("--results_json", type=str, default=None)
-    parser.add_argument("--results_csv", type=str, default=None)
-    parser.add_argument("--predictions_file", type=str, default=None)
-    parser.add_argument("--scores_output_file", type=str, default=None)
-
-    return parser.parse_args()
-
-
-def main() -> None:
-    args = parse_args()
-    _apply_dataset_defaults(args)
-
-    common_mod = _load_dataset_common(args.dataset)
-
-    if args.dataset == "bbq":
-        _evaluate_bbq(common_mod, args)
-    elif args.dataset == "crowspairs":
-        _evaluate_crowspairs(common_mod, args)
+    # Determine splits to evaluate
+    if args.valid_path:
+        # Single explicit path
+        split_name = Path(args.valid_path).stem
+        eval_splits = {split_name: args.valid_path}
     else:
-        _evaluate_stereoset(common_mod, args)
+        available = DEFAULT_VALID_PATHS[args.dataset]
+        if args.splits:
+            eval_splits = {s: available[s] for s in args.splits if s in available}
+            missing = set(args.splits) - set(available)
+            if missing:
+                print(f"WARNING: unknown splits {missing}; available: {list(available)}", file=sys.stderr)
+        else:
+            eval_splits = available  # all splits
+
+    if not eval_splits:
+        print("ERROR: no valid evaluation splits found", file=sys.stderr)
+        sys.exit(1)
+
+    # Run evaluation for each split
+    rows = []
+    for split_name, valid_path in eval_splits.items():
+        metrics = run_eval_split(args, split_name, valid_path)
+        metrics["dataset"] = args.dataset
+        metrics["model_config"] = args.model_config
+        metrics["model"] = f"biasedit_{args.model_config}"
+        rows.append(metrics)
+
+    results_df = pd.DataFrame(rows)
+
+    # Reorder columns for readability
+    col_order = [
+        "model", "dataset", "model_config", "split",
+        "pre_ss_score", "edit_ss_score",
+        "pre_lms", "edit_lms", "delta_lms",
+        "icat_score",
+        "valid_path",
+    ]
+    results_df = results_df[[c for c in col_order if c in results_df.columns]]
+
+    # Save
+    if args.output_file:
+        output_file = args.output_file
+    else:
+        output_file = os.path.join(
+            args.results_dir,
+            f"biasedit_eval_{args.dataset}_{args.model_config}.csv",
+        )
+
+    results_df.to_csv(output_file, index=False)
+    print(f"\nResults saved to: {output_file}")
+    print(results_df.to_string(index=False))
 
 
 if __name__ == "__main__":

@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic FairSteer evaluation entrypoint."""
+"""
+FairSteer evaluation: inference-time dynamic activation steering.
+
+Paper : "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering"
+        arXiv:2504.14492
+GitHub: https://github.com/LiYichen99/FairSteer
+
+At inference, for each generated token:
+  1. Collect hidden state at `optimal_layer`.
+  2. Run BAD classifier → bias probability p.
+  3. If p < 0.5 (biased prediction): steer hidden state by adding α * DSV.
+  4. Continue generation with the modified hidden state.
+Official α = 1.0 (dynamic: applied only when classifier detects bias).
+"""
 
 import argparse
 import importlib.util
@@ -45,6 +58,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -67,12 +81,13 @@ def _resolve_model_name(model_name: Optional[str], model_alias: Optional[str]) -
 
 
 class ActivationSteering:
-    def __init__(self, model, layer: int, classifier, dsv, threshold: float = 0.5):
+    def __init__(self, model, layer: int, classifier, dsv, threshold: float = 0.5, alpha: float = 1.0):
         self.model = model
         self.layer = layer
         self.classifier = classifier
         self.dsv = torch.tensor(dsv, dtype=torch.float16)
         self.threshold = threshold
+        self.alpha = alpha
         self.hook = None
 
     def steering_hook(self, module, inp, output):
@@ -83,7 +98,7 @@ class ActivationSteering:
 
         if prob_unbiased < self.threshold:
             self.dsv = self.dsv.to(hidden_states.device)
-            hidden_states[0, -1, :] += self.dsv
+            hidden_states[0, -1, :] += self.alpha * self.dsv
 
         if isinstance(output, tuple):
             return (hidden_states,) + output[1:]
@@ -123,7 +138,7 @@ def _load_model_and_components(args: argparse.Namespace):
 
     steerer = None
     if args.use_steering and classifier is not None:
-        steerer = ActivationSteering(model, optimal_layer, classifier, dsv)
+        steerer = ActivationSteering(model, optimal_layer, classifier, dsv, alpha=args.alpha)
         steerer.register()
 
     return model, tokenizer, steerer
@@ -381,6 +396,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--components_dir", type=str, required=True)
 
     parser.add_argument("--use_steering", action="store_true", default=True)
+    parser.add_argument("--alpha", type=float, default=1.0,
+                        help="Steering vector scale factor (official default: 1.0)")
     parser.add_argument("--use_4bit", action="store_true", default=True)
     parser.add_argument("--hf_token", type=str, default=os.getenv("HF_TOKEN"))
 

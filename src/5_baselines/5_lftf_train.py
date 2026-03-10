@@ -1,5 +1,37 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic LFTF training entrypoint."""
+"""
+LFTF: Locating First and Then Fine-Tuning for Mitigating Gender Bias in LLMs
+
+Paper : "LFTF: Locating First and Then Fine-Tuning for Mitigating Gender Bias
+        in Large Language Models"
+        arXiv:2505.15475
+
+Method (Sections 3–4):
+  Step 1 – BMI (Block Mitigating Importance) scoring:
+    BMI_i = 1 − cosine_sim(H_i, H_{i+1})   (last-token hidden states)
+    Select the block with the highest BMI score; apply LoRA only to that block's
+    attention (q_proj, v_proj) and MLP (down_proj) modules.
+
+  Step 2 – Debiasing fine-tuning with dataset-specific loss:
+    BBQ / generic : L = P("he"|p) + P("she"|p)
+      (minimize both pronoun probabilities jointly to force gender balance)
+    CrowS-Pairs   : L = max_prob(stereo) + max_prob(anti)
+      (reduce confidence on both sentence types)
+    StereoSet     : L = softplus(log_p(stereo) - log_p(anti))
+      (penalise stereotypical preference)
+
+Official hyperparameters (GenBiasEval, Section 4):
+  learning_rate : 1e-5  (Adam)
+  batch_size    : 32
+  num_epochs    : 2
+  LoRA r/alpha  : 8 / 16
+  bmi_samples   : 100 prompts for BMI scoring
+
+Dataset-agnostic adaptations:
+  - BBQ      : BBQ profession-template prompts for BMI; P(he)/P(she) loss
+  - CrowS    : stereotype/anti pairs for both BMI and training
+  - StereoSet: same as CrowS
+"""
 
 import argparse
 import importlib.util
@@ -159,6 +191,7 @@ def load_stereoset_pairs(data_path: str, split: str, bias_type: Optional[str], l
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not load {mod_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules["paper_baselines_shared_lftf_train"] = mod
     spec.loader.exec_module(mod)
 
     stereo_common = mod.get_dataset_common("stereoset")
@@ -369,8 +402,8 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "model_name": "meta-llama/Llama-3.1-8B-Instruct",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/lftf/models",
             "num_epochs": 2,
-            "batch_size": 16,
-            "learning_rate": 2e-5,
+            "batch_size": 32,
+            "learning_rate": 1e-5,
             "lora_r": 8,
             "lora_alpha": 16,
             "bmi_samples": 100,

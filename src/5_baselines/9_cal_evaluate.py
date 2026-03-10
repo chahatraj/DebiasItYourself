@@ -2,16 +2,18 @@
 """
 CAL: Causal-Guided Active Learning for LLM Debiasing - ICL-based Evaluation
 Paper: "Causal-Guided Active Learning for Debiasing Large Language Models"
-arXiv:2412.12140
+ACL 2024 (https://aclanthology.org/2024.acl-long.778)
+GitHub: https://github.com/spirit-moon-fly/CAL
 
 This script applies CAL's zero-shot ICL debiasing (Section 3.3):
 - Loads the bias pattern config produced by 9_cal_train.py
 - Prepends the zero-shot prompt prefix to all evaluation prompts
 - NO fine-tuning, NO LoRA adapters - pure inference-time prompting
 
-Zero-shot prefix format (from paper Section 3.3):
-  "We should treat people from different [induced pattern] equally.
-   When we lack information, choose 'unknown' rather than assuming based on stereotypes."
+Official zero-shot prefix format (from config.py BBQ_debias_prompt[0]):
+  "we should treat people from different [induced attributes] equally.
+   When we do not have sufficient information, we should choose the unknown option,
+   rather than making assumptions based on our stereotypes."
 
 The prompt_prefix is stored in the cal_config JSON and prepended to every
 evaluation prompt via the shared module's `prompt_prefix` parameter.
@@ -37,6 +39,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

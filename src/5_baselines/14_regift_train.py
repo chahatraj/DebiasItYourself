@@ -1,11 +1,27 @@
 """
 ReGiFT: Reasoning-Guided Fine-Tuning for Bias Mitigation
-Paper: "Reasoning Towards Fairness: Mitigating Bias in Language Models through Reasoning-Guided Fine-Tuning"
-arXiv:2504.05632v3
+Paper: "Reasoning Towards Fairness: Mitigating Bias in Language Models through
+        Reasoning-Guided Fine-Tuning"
+arXiv:2504.05632 (preprint, under review)
+GitHub: https://github.com/Sanchit-404/Reasoing-Towards-Fairness
 
-This script implements:
-1. Reasoning trace extraction from an advanced reasoning model
-2. Fine-tuning a target model on correct reasoning traces
+Official method (Algorithm 1 / Reproducibility Statement):
+  Step 1 — Reasoning Trace Extraction:
+    Use DeepSeek-R1-Distill-Qwen-32B on SQuAD-v2 training set to generate
+    structured traces in format: <think>R</think><answer>A</answer>
+    Only keep D_correct = traces where predicted A matches gold answer (Exact Match).
+  Step 2 — ReGiFT Fine-Tuning:
+    Standard SFT on D_correct using causal LM loss.
+    Output format trains the model to generate reasoning before answering.
+
+Official hyperparameters (Reproducibility Statement):
+  - batch_size=32, lr=2e-5, max_seq_length=1024
+  - Models fine-tuned: LLaMA 3.1 8B, Mistral 7B, Phi-4 14B
+  - Reasoning model: DeepSeek-R1-Distill-Qwen-32B (= DeepSeek Distill Qwen 2.5 32B)
+
+Evaluation: BBQ dataset (religion, nationality, age dimensions).
+  Metrics: Exact Match (ambiguous/disambiguating/overall), LLM-as-Judge (GPT-4o-mini).
+  For ReGiFT models: extract final answer from <answer>...</answer> tags.
 """
 
 import os
@@ -39,9 +55,11 @@ def parse_args():
     parser.add_argument("--num_epochs", type=int, default=3,
                         help="Number of training epochs")
     parser.add_argument("--batch_size", type=int, default=2,
-                        help="Training batch size")
-    parser.add_argument("--learning_rate", type=float, default=2e-4,
-                        help="Learning rate")
+                        help="Training batch size (reduced default for 8B QLoRA on A100 80GB)")
+    parser.add_argument("--learning_rate", type=float, default=2e-5,
+                        help="Learning rate (paper: 2e-5)")
+    parser.add_argument("--max_length", type=int, default=768,
+                        help="Max sequence length for fine-tuning examples")
     parser.add_argument("--lora_r", type=int, default=16,
                         help="LoRA rank")
     parser.add_argument("--lora_alpha", type=int, default=32,
@@ -180,7 +198,7 @@ Start with <think>"""
 class ReasoningDataset(Dataset):
     """Dataset for reasoning-guided fine-tuning"""
     
-    def __init__(self, traces, tokenizer, max_length=512):
+    def __init__(self, traces, tokenizer, max_length=1024):  # paper: max_seq_length=1024
         self.traces = traces
         self.tokenizer = tokenizer
         self.max_length = max_length
@@ -306,7 +324,7 @@ def train(args):
     target_model.print_trainable_parameters()
     
     # Create dataset
-    train_dataset = ReasoningDataset(correct_traces, target_tokenizer)
+    train_dataset = ReasoningDataset(correct_traces, target_tokenizer, max_length=args.max_length)
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True)
     print(f"✓ Dataset ready: {len(train_dataset)} examples")
     

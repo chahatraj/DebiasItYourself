@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic bias-aware PEFT evaluation entrypoint."""
+"""
+Bias-Aware PEFT evaluation entrypoint.
+
+Paper : "Bias-Aware Parameter-Efficient Fine-Tuning for Debiasing Large Language Models"
+        ACL 2025 Long (aclanthology.org/2025.acl-long.717)
+
+Loads the single-layer LoRA adapter from 6_peft_train.py and evaluates on
+BBQ (accuracy + bias score), CrowS-Pairs (% stereotype preferred),
+and StereoSet (lm_score, ss_score, icat_score).
+"""
 
 import argparse
 import importlib.util
@@ -48,6 +57,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

@@ -1,5 +1,40 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic bias-aware PEFT training entrypoint."""
+"""
+Bias-Aware PEFT: Parameter-Efficient Fine-Tuning with Interchange Ablation Layer Selection
+
+Paper : "Bias-Aware Parameter-Efficient Fine-Tuning for Debiasing Large Language Models"
+        ACL 2025 Long (aclanthology.org/2025.acl-long.717)
+
+Method (Sections 3–4):
+  Step 1 – Interchange ablation layer selection (Section 4.2.1 / Eq. 2):
+    For each layer l and each (gold, biased) sample pair:
+      Replace the biased sample's hidden state at layer l with the gold sample's.
+      Run remaining layers and measure KL(bias_dist || intervened_dist).
+    Select the layer with the maximum average KL divergence.
+    Apply LoRA only to that layer's o_proj and mlp.down_proj.
+
+  Step 2 – Three-term training objective (Section 4.2.2):
+    L = α·L_LM + β·L_bal1 + γ·L_bal2
+    where:
+      L_LM   = standard language-modeling NLL loss on the unbiased (anti) response
+      L_bal1 = ||h_correct − mean(h_correct)||₂ + ||h_biased − mean(h_biased)||₂
+               (within-class compactness of option logits)
+      L_bal2 = −||mean(h_correct) − mean(h_biased)||₂
+               (repulsion between correct and biased logit centroids)
+    Default weights: α=β=γ=1.0
+
+Official hyperparameters:
+  learning_rate : 5e-5  (Adam)
+  epochs        : 3
+  batch_size    : 16
+  LoRA r/alpha  : 8 / 16
+  target_modules: [o_proj, mlp.down_proj] of the selected layer
+
+Dataset-agnostic adaptations:
+  - BBQ      : gold = label, biased = target_loc; BBQDataset + compute_bbq_bias_losses
+  - CrowS    : gold = anti sentence, biased = stereo sentence; PairPeftDataset
+  - StereoSet: same as CrowS
+"""
 
 import argparse
 import importlib.util
@@ -17,7 +52,7 @@ import torch
 import torch.nn.functional as F
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from sklearn.model_selection import train_test_split
-from torch.optim import AdamW
+from torch.optim import Adam
 from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, set_seed
@@ -53,6 +88,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -82,6 +118,35 @@ def get_quantization_config(use_4bit: bool):
         bnb_4bit_quant_type="nf4",
         bnb_4bit_use_double_quant=True,
     )
+
+
+def prepare_kbit_model_for_training(model):
+    """
+    Enable k-bit training with non-reentrant checkpointing when available.
+    This avoids known instability around default reentrant checkpoint backward.
+    """
+    try:
+        return prepare_model_for_kbit_training(
+            model,
+            gradient_checkpointing_kwargs={"use_reentrant": False},
+        )
+    except TypeError:
+        model = prepare_model_for_kbit_training(model)
+        if hasattr(model, "gradient_checkpointing_enable"):
+            try:
+                model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
+            except TypeError:
+                model.gradient_checkpointing_enable()
+        return model
+
+
+def disable_gradient_checkpointing(model):
+    if hasattr(model, "gradient_checkpointing_disable"):
+        model.gradient_checkpointing_disable()
+    if hasattr(model, "model") and hasattr(model.model, "gradient_checkpointing_disable"):
+        model.model.gradient_checkpointing_disable()
+    if hasattr(model, "config"):
+        model.config.use_cache = True
 
 
 def format_bbq_prompt(row):
@@ -146,8 +211,8 @@ def compute_pair_bias_losses(model, anti_ids, anti_mask, stereo_ids, stereo_mask
     anti_out = model(input_ids=anti_ids, attention_mask=anti_mask)
     stereo_out = model(input_ids=stereo_ids, attention_mask=stereo_mask)
 
-    anti_logits = anti_out.logits[:, -2, :]
-    stereo_logits = stereo_out.logits[:, -2, :]
+    anti_logits = anti_out.logits[:, -1, :]
+    stereo_logits = stereo_out.logits[:, -1, :]
 
     anti_scores = anti_logits.max(dim=-1).values
     stereo_scores = stereo_logits.max(dim=-1).values
@@ -158,30 +223,93 @@ def compute_pair_bias_losses(model, anti_ids, anti_mask, stereo_ids, stereo_mask
 
 
 def find_target_layer(model, tokenizer, df: pd.DataFrame, text_col: Optional[str] = None, num_samples=10):
-    sample_df = df.sample(n=min(num_samples * (3 if text_col is None else 1), len(df)), random_state=SEED)
+    """
+    Interchange ablation layer selection (official method, Section 4.2.1 / Eq. 2).
+
+    For each sample pair (gold, biased), at each layer l we replace the biased sample's
+    hidden state at layer l with the gold sample's hidden state, run the remaining layers,
+    and measure the KL divergence between the original and intervened final output distributions.
+    The layer with the maximum average KL divergence is selected as the target.
+    """
     num_layers = model.config.num_hidden_layers
 
-    scores = [0.0] * num_layers
-    counts = [0] * num_layers
+    # Build (gold_text, biased_text) pairs from the dataframe
+    if text_col is not None:
+        # Pair dataset (CrowS-Pairs / StereoSet): anti = gold, stereo = biased
+        anti_col = "anti_sentence" if "anti_sentence" in df.columns else text_col
+        stereo_col = "stereo_sentence" if "stereo_sentence" in df.columns else text_col
+        sample_df = df.sample(n=min(num_samples, len(df)), random_state=SEED)
+        pairs = [(row[anti_col], row[stereo_col]) for _, row in sample_df.iterrows()]
+    else:
+        # BBQ: gold prompt = prompt + correct answer token, biased prompt = prompt + bias label token
+        sample_df = df.sample(n=min(num_samples, len(df)), random_state=SEED)
+        pairs = []
+        for _, row in sample_df.iterrows():
+            prompt = format_bbq_prompt(row)
+            gold_ans = ["A", "B", "C"][int(row["label"])]
+            # Use target_loc if available for biased answer, else pick a different option
+            tgt = row.get("target_loc")
+            if tgt is not None and int(tgt) != int(row["label"]):
+                bias_ans = ["A", "B", "C"][int(tgt)]
+            else:
+                opts = [0, 1, 2]
+                opts.remove(int(row["label"]))
+                bias_ans = ["A", "B", "C"][opts[0]]
+            pairs.append((prompt + " " + gold_ans, prompt + " " + bias_ans))
 
-    for _, row in tqdm(sample_df.iterrows(), total=len(sample_df), desc="Finding target layer"):
-        text = row[text_col] if text_col else format_bbq_prompt(row)
-        inputs = tokenizer(text, return_tensors="pt").to(model.device)
+    kl_scores = [0.0] * num_layers
+    n_valid = 0
+
+    for gold_text, biased_text in tqdm(pairs, desc="Finding target layer (interchange ablation)"):
+        gold_enc = tokenizer(gold_text, return_tensors="pt", truncation=True, max_length=256).to(model.device)
+        bias_enc = tokenizer(biased_text, return_tensors="pt", truncation=True, max_length=256).to(model.device)
 
         with torch.no_grad():
-            outputs = model(**inputs, output_hidden_states=True)
-            hidden_states = outputs.hidden_states
-            for i in range(num_layers):
-                h = hidden_states[i + 1]
-                diff = h.std().item()
-                weight = 1.0 - abs(i - num_layers / 2) / (num_layers / 2)
-                scores[i] += diff * weight
-                counts[i] += 1
+            gold_out = model(**gold_enc, output_hidden_states=True)
+            bias_out = model(**bias_enc, output_hidden_states=True)
 
-    avg = [scores[i] / max(1, counts[i]) for i in range(num_layers)]
-    mid_start, mid_end = num_layers // 4, 3 * num_layers // 4
-    mid = avg[mid_start:mid_end]
-    return mid_start + int(np.argmax(mid))
+        # Original biased final logits distribution
+        bias_logits = bias_out.logits[0, -1, :]
+        bias_probs = torch.softmax(bias_logits.float(), dim=-1)
+
+        gold_hidden = gold_out.hidden_states  # tuple of (num_layers+1) tensors
+
+        for layer_idx in range(num_layers):
+            # Replace biased hidden state at layer_idx with gold hidden state (if seq lengths match)
+            gold_h = gold_hidden[layer_idx + 1]  # [1, seq_gold, d]
+            bias_h = bias_out.hidden_states[layer_idx + 1]  # [1, seq_bias, d]
+
+            # Use last-token replacement (most informative position)
+            if gold_h.shape[1] == 0 or bias_h.shape[1] == 0:
+                continue
+
+            # Build intervened hidden states: replace last token of bias at this layer with gold's last token
+            intervened_h = bias_h.clone()
+            intervened_h[0, -1, :] = gold_h[0, -1, :]
+
+            # Run remaining layers from layer_idx+1 onward
+            h = intervened_h
+            try:
+                for subsequent_layer in model.model.layers[layer_idx + 1:]:
+                    h = subsequent_layer(h)[0]
+                h = model.model.norm(h)
+                intervened_logits = model.lm_head(h)[0, -1, :]
+                intervened_probs = torch.softmax(intervened_logits.float(), dim=-1)
+
+                # KL(bias_probs || intervened_probs)
+                kl = F.kl_div(intervened_probs.log(), bias_probs, reduction="sum").item()
+                kl_scores[layer_idx] += abs(kl)
+            except Exception:
+                continue
+
+        n_valid += 1
+
+    if n_valid == 0:
+        # Fallback: pick middle layer
+        return num_layers // 2
+
+    avg_kl = [kl_scores[i] / n_valid for i in range(num_layers)]
+    return int(np.argmax(avg_kl))
 
 
 def identify_crows_stereotype(row: pd.Series) -> Tuple[str, str, str]:
@@ -290,7 +418,18 @@ def run_step_with_retry(model, optimizer, anti_ids, anti_mask, stereo_ids, stere
             optimizer.step()
             return loss
         except RuntimeError as e:
-            if "CUBLAS_STATUS_NOT_INITIALIZED" not in str(e) or attempt == max_attempts - 1:
+            err_msg = str(e).lower()
+            transient = any(
+                needle in err_msg
+                for needle in (
+                    "cublas_status_not_initialized",
+                    "cuda error",
+                    "out of memory",
+                    "outofmemory",
+                    "cudnn",
+                )
+            )
+            if (not transient) or attempt == max_attempts - 1:
                 raise
             optimizer.zero_grad(set_to_none=True)
             if torch.cuda.is_available():
@@ -307,7 +446,7 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "data_dir": "/scratch/craj/diy/outputs/2_base_models/bbq/llama_8b",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/peft/models",
             "epochs": 3,
-            "batch_size": 16,
+            "batch_size": 4,
             "lr": 5e-5,
             "alpha": 1.0,
             "beta": 1.0,
@@ -321,7 +460,7 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/peft/models_crowspairs",
             "model_tag": "crowspairs_all",
             "epochs": 3,
-            "batch_size": 16,
+            "batch_size": 4,
             "lr": 5e-5,
             "alpha": 1.0,
             "beta": 1.0,
@@ -336,7 +475,7 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/peft/models_stereoset",
             "model_tag": "stereoset_all",
             "epochs": 3,
-            "batch_size": 16,
+            "batch_size": 4,
             "lr": 5e-5,
             "alpha": 1.0,
             "beta": 1.0,
@@ -418,7 +557,7 @@ def main():
         target_layer = find_target_layer(model, tokenizer, train_df) if args.target_layer is None else int(args.target_layer)
         print(f"Target layer: {target_layer}")
 
-        model = prepare_model_for_kbit_training(model)
+        model = prepare_kbit_model_for_training(model)
         lora_config = LoraConfig(
             r=8,
             lora_alpha=16,
@@ -431,12 +570,14 @@ def main():
             task_type="CAUSAL_LM",
         )
         model = get_peft_model(model, lora_config)
+        disable_gradient_checkpointing(model)
         model.print_trainable_parameters()
+        warmup_cuda(model.device)
 
         train_loader = DataLoader(BBQDataset(train_df, tokenizer, max_length=args.max_length), batch_size=args.batch_size, shuffle=True)
         option_tokens = [tokenizer.encode(opt, add_special_tokens=False)[0] for opt in ["A", "B", "C"]]
 
-        optimizer = AdamW(model.parameters(), lr=args.lr)
+        optimizer = Adam(model.parameters(), lr=args.lr)
         model.train()
 
         for epoch in range(args.epochs):
@@ -447,16 +588,39 @@ def main():
                 attention_mask = batch["attention_mask"].to(model.device)
                 labels = batch["label"].to(model.device)
 
-                outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=input_ids)
-                lm_loss = outputs.loss
-                logits = outputs.logits[:, -2, :]
+                max_attempts = 3
+                for attempt in range(max_attempts):
+                    try:
+                        outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=input_ids)
+                        lm_loss = outputs.loss
+                        logits = outputs.logits[:, -2, :]
 
-                l_bal1, l_bal2 = compute_bbq_bias_losses(logits, labels, option_tokens)
-                loss = args.alpha * lm_loss + args.beta * l_bal1 + args.gamma * l_bal2
+                        l_bal1, l_bal2 = compute_bbq_bias_losses(logits, labels, option_tokens)
+                        loss = args.alpha * lm_loss + args.beta * l_bal1 + args.gamma * l_bal2
 
-                optimizer.zero_grad()
-                loss.backward()
-                optimizer.step()
+                        optimizer.zero_grad(set_to_none=True)
+                        loss.backward()
+                        optimizer.step()
+                        break
+                    except RuntimeError as e:
+                        err_msg = str(e).lower()
+                        transient = any(
+                            needle in err_msg
+                            for needle in (
+                                "cublas_status_not_initialized",
+                                "cuda error",
+                                "out of memory",
+                                "outofmemory",
+                                "cudnn",
+                            )
+                        )
+                        if (not transient) or attempt == max_attempts - 1:
+                            raise
+                        optimizer.zero_grad(set_to_none=True)
+                        if torch.cuda.is_available():
+                            torch.cuda.empty_cache()
+                            torch.cuda.synchronize()
+                        time.sleep(0.2)
 
                 total += float(loss.item())
                 pbar.set_postfix(loss=f"{loss.item():.4f}")
@@ -478,7 +642,7 @@ def main():
         target_layer = find_target_layer(model, tokenizer, train_df, text_col="anti_sentence") if args.target_layer is None else int(args.target_layer)
         print(f"Target layer: {target_layer}")
 
-        model = prepare_model_for_kbit_training(model)
+        model = prepare_kbit_model_for_training(model)
         lora_config = LoraConfig(
             r=8,
             lora_alpha=16,
@@ -491,10 +655,12 @@ def main():
             task_type="CAUSAL_LM",
         )
         model = get_peft_model(model, lora_config)
+        disable_gradient_checkpointing(model)
         model.print_trainable_parameters()
+        warmup_cuda(model.device)
 
         train_loader = DataLoader(PairPeftDataset(train_df, tokenizer, max_length=args.max_length), batch_size=args.batch_size, shuffle=True)
-        optimizer = AdamW(model.parameters(), lr=args.lr)
+        optimizer = Adam(model.parameters(), lr=args.lr)
         model.train()
 
         for epoch in range(args.epochs):
@@ -506,14 +672,17 @@ def main():
                 stereo_ids = batch["stereo_input_ids"].to(model.device)
                 stereo_mask = batch["stereo_attention_mask"].to(model.device)
 
-                anti_outputs = model(input_ids=anti_ids, attention_mask=anti_mask, labels=anti_ids)
-                lm_loss = anti_outputs.loss
-                l_bal1, l_bal2 = compute_pair_bias_losses(model, anti_ids, anti_mask, stereo_ids, stereo_mask)
-                loss = args.alpha * lm_loss + args.beta * l_bal1 + args.gamma * l_bal2
-
-                optimizer.zero_grad()
-                loss.backward()
-                optimizer.step()
+                loss = run_step_with_retry(
+                    model,
+                    optimizer,
+                    anti_ids,
+                    anti_mask,
+                    stereo_ids,
+                    stereo_mask,
+                    args.alpha,
+                    args.beta,
+                    args.gamma,
+                )
 
                 total += float(loss.item())
                 pbar.set_postfix(loss=f"{loss.item():.4f}")
@@ -538,7 +707,7 @@ def main():
         target_layer = find_target_layer(model, tokenizer, train_df, text_col="anti_sentence") if args.target_layer is None else int(args.target_layer)
         print(f"Target layer: {target_layer}")
 
-        model = prepare_model_for_kbit_training(model)
+        model = prepare_kbit_model_for_training(model)
         lora_config = LoraConfig(
             r=8,
             lora_alpha=16,
@@ -551,11 +720,12 @@ def main():
             task_type="CAUSAL_LM",
         )
         model = get_peft_model(model, lora_config)
+        disable_gradient_checkpointing(model)
         model.print_trainable_parameters()
         warmup_cuda(model.device)
 
         train_loader = DataLoader(PairPeftDataset(train_df, tokenizer, max_length=args.max_length), batch_size=args.batch_size, shuffle=True)
-        optimizer = AdamW(model.parameters(), lr=args.lr)
+        optimizer = Adam(model.parameters(), lr=args.lr)
         model.train()
 
         for epoch in range(args.epochs):

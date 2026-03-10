@@ -33,17 +33,24 @@ def main() -> None:
     parser.add_argument("--model_path", type=str, default=None)
 
     parser.add_argument("--bold_max_samples", type=int, default=3000)
+    parser.add_argument("--crowspairs_max_samples", type=int, default=None)
+    parser.add_argument("--stereoset_max_samples", type=int, default=None)
     parser.add_argument("--honest_max_samples", type=int, default=None)
     parser.add_argument("--winobias_max_samples", type=int, default=None)
     parser.add_argument("--winogender_max_samples", type=int, default=None)
     parser.add_argument("--unqover_max_samples", type=int, default=2500)
     parser.add_argument("--bios_max_samples", type=int, default=500)
+    parser.add_argument("--bbq_model_dir", type=str, default=None)
 
-    parser.add_argument("--partition", type=str, default="gpuq")
-    parser.add_argument("--qos", type=str, default="gpu")
+    parser.add_argument("--partition", type=str, default="contrib-gpuq")
+    parser.add_argument("--qos", type=str, default="cs_dept")
+    parser.add_argument("--reservation", type=str, default="craj_278")
+    parser.add_argument("--nodelist", type=str, default="gpu029")
     parser.add_argument("--gres", type=str, default="gpu:A100.80gb:1")
-    parser.add_argument("--mem", type=str, default="40G")
-    parser.add_argument("--time", type=str, default="0-08:00:00")
+    parser.add_argument("--cpus_per_task", type=int, default=8)
+    parser.add_argument("--mem", type=str, default="50G")
+    parser.add_argument("--time", type=str, default="0-10:00:00")
+    parser.add_argument("--array_max_parallel", type=int, default=4)
 
     parser.add_argument("--venv_path", type=str, default=DEFAULT_VENV)
     parser.add_argument("--submit", action="store_true")
@@ -69,46 +76,76 @@ def main() -> None:
 
     commands: List[str] = []
 
+    bbq_model_dir = args.bbq_model_dir
+    if not bbq_model_dir and args.model == "llama_8b" and args.model_path is None:
+        candidate = ROOT / "outputs/2_base_models/bbq/llama_8b"
+        if candidate.is_dir():
+            bbq_model_dir = str(candidate)
+
+    if bbq_model_dir:
+        bbq_out = results_root / "bbq" / f"bbq_metrics_{run_tag}.csv"
+        bbq_out.parent.mkdir(parents=True, exist_ok=True)
+        commands.append(
+            "python 7_eval_shared.py "
+            f"--dataset bbq --model_dir {bbq_model_dir} --output_file {bbq_out} "
+            f"--model_name {args.model}"
+        )
+
     commands.append(
-        "python 11_additional_benchmarks_eval.py "
-        f"--benchmark bold {model_arg}{model_path_arg} "
+        "python 7_eval_shared.py "
+        f"--dataset crowspairs {model_arg}{model_path_arg} "
+        f"--output_dir {output_root} --results_dir {results_root} "
+        f"--batch_size 8 --max_length 1024{opt_max(args.crowspairs_max_samples)}"
+    )
+
+    commands.append(
+        "python 7_eval_shared.py "
+        f"--dataset stereoset {model_arg}{model_path_arg} "
+        f"--split all "
+        f"--output_dir {output_root} --results_dir {results_root} "
+        f"--batch_size 8 --max_length 1024{opt_max(args.stereoset_max_samples)}"
+    )
+
+    commands.append(
+        "python 7_eval_shared.py "
+        f"--dataset bold {model_arg}{model_path_arg} "
         f"--output_dir {output_root} --results_dir {results_root} "
         f"--batch_size 8 --max_length 1024{opt_max(args.bold_max_samples)}"
     )
 
     commands.append(
-        "python 11_additional_benchmarks_eval.py "
-        f"--benchmark honest {model_arg}{model_path_arg} "
+        "python 7_eval_shared.py "
+        f"--dataset honest {model_arg}{model_path_arg} "
         f"--honest_config en_binary "
         f"--output_dir {output_root} --results_dir {results_root} "
         f"--batch_size 8 --max_length 512{opt_max(args.honest_max_samples)}"
     )
 
     commands.append(
-        "python 11_additional_benchmarks_eval.py "
-        f"--benchmark winobias {model_arg}{model_path_arg} "
+        "python 7_eval_shared.py "
+        f"--dataset winobias {model_arg}{model_path_arg} "
         f"--output_dir {output_root} --results_dir {results_root} "
         f"--batch_size 8 --max_length 512{opt_max(args.winobias_max_samples)}"
     )
 
     commands.append(
-        "python 11_additional_benchmarks_eval.py "
-        f"--benchmark winogender {model_arg}{model_path_arg} "
+        "python 7_eval_shared.py "
+        f"--dataset winogender {model_arg}{model_path_arg} "
         f"--output_dir {output_root} --results_dir {results_root} "
         f"--batch_size 8 --max_length 512 --option_batch_size 2{opt_max(args.winogender_max_samples)}"
     )
 
     for dim in ["gender", "race", "religion", "nationality"]:
         commands.append(
-            "python 11_additional_benchmarks_eval.py "
-            f"--benchmark unqover --unqover_dim {dim} {model_arg}{model_path_arg} "
+            "python 7_eval_shared.py "
+            f"--dataset unqover --unqover_dim {dim} {model_arg}{model_path_arg} "
             f"--output_dir {output_root} --results_dir {results_root} "
             f"--batch_size 8 --max_length 512 --option_batch_size 2{opt_max(args.unqover_max_samples)}"
         )
 
     commands.append(
-        "python 11_additional_benchmarks_eval.py "
-        f"--benchmark bias_in_bios --bios_split test {model_arg}{model_path_arg} "
+        "python 7_eval_shared.py "
+        f"--dataset bias_in_bios --bios_split test {model_arg}{model_path_arg} "
         f"--output_dir {output_root} --results_dir {results_root} "
         f"--batch_size 4 --max_length 768 --option_batch_size 8{opt_max(args.bios_max_samples)}"
     )
@@ -120,20 +157,25 @@ def main() -> None:
         "run_tag": run_tag,
         "model": args.model,
         "model_path": args.model_path,
+        "bbq_model_dir": bbq_model_dir,
         "output_root": str(output_root),
         "results_root": str(results_root),
         "array_file": str(array_file),
         "num_jobs": len(commands),
         "partition": args.partition,
         "qos": args.qos,
+        "reservation": args.reservation,
+        "nodelist": args.nodelist,
         "gres": args.gres,
+        "cpus_per_task": args.cpus_per_task,
         "mem": args.mem,
         "time": args.time,
+        "array_max_parallel": args.array_max_parallel,
     }
 
     job_id = ""
     if args.submit:
-        array_spec = f"1-{len(commands)}"
+        array_spec = f"1-{len(commands)}%{args.array_max_parallel}"
         out_file = LOG_OUT_DIR / f"baseline_additional.{run_tag}.%A_%a.out.txt"
         err_file = LOG_ERR_DIR / f"baseline_additional.{run_tag}.%A_%a.err.txt"
 
@@ -146,8 +188,14 @@ def main() -> None:
             args.partition,
             "--qos",
             args.qos,
+            "--reservation",
+            args.reservation,
+            "--nodelist",
+            args.nodelist,
             "--gres",
             args.gres,
+            "--cpus-per-task",
+            str(args.cpus_per_task),
             "--mem",
             args.mem,
             "--time",

@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic debias_NLG-inspired LoRA evaluation entrypoint."""
+"""
+debias_NLG: Parameter-Efficient Multi-Objective Debiasing via LoRA - Evaluation
+Paper: "A Parameter-Efficient Multi-Objective Approach to Mitigate Stereotypical Bias in Language Models"
+GeBNLP @ ACL 2024 (https://aclanthology.org/2024.gebnlp-1.1)
+GitHub: https://github.com/Ewanwong/debias_NLG
+
+Evaluates a LoRA adapter trained by 10_debias_nlg_train.py on BBQ, CrowS-Pairs, or StereoSet.
+Official evaluation uses bias-bench (Meade et al.) and pedb (Xie & Lukasiewicz) frameworks.
+"""
 
 import argparse
 import importlib.util
@@ -20,6 +28,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

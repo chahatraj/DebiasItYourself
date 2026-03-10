@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic LFTF evaluation entrypoint."""
+"""
+LFTF evaluation entrypoint.
+
+Paper : "LFTF: Locating First and Then Fine-Tuning for Mitigating Gender Bias
+        in Large Language Models"
+        arXiv:2505.15475
+
+Loads the LoRA adapter from 5_lftf_train.py (single-block targeted adapter) and
+evaluates on BBQ (accuracy + bias score), CrowS-Pairs (% stereotype preferred),
+and StereoSet (lm_score, ss_score, icat_score).
+"""
 
 import argparse
 import importlib.util
@@ -47,6 +57,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

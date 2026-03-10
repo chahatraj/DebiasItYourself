@@ -1,4 +1,37 @@
 #!/usr/bin/env python3
+"""
+Instruction-Tuning + Chain-of-Thought (CoT) at inference time.
+
+This script applies the same chain-of-thought debiasing prefix as
+``11_chain_of_thought.py`` but uses the LoRA-merged model produced by
+``3_finetune_llama.py`` instead of the vanilla base model.
+
+Pass the directory (or HuggingFace hub repo) of the fine-tuned model via
+``--model_path``.  The base tokenizer is loaded from the original LLaMA
+checkpoint as a fallback if the merged model directory lacks a tokenizer.
+
+Usage examples
+--------------
+# CrowS-Pairs
+python 12_finetune_cot.py eval_crows \
+    --model_path /scratch/craj/diy/outputs/7_finetuned_models/<run_dir> \
+    --strategy sr --model llama_8b
+
+# StereoSet
+python 12_finetune_cot.py eval_stereoset \
+    --model_path /scratch/craj/diy/outputs/7_finetuned_models/<run_dir> \
+    --strategy ci
+
+# BBQ
+python 12_finetune_cot.py infer_bbq \
+    --model_path /scratch/craj/diy/outputs/7_finetuned_models/<run_dir> \
+    --strategy ind --source_file Age.jsonl
+
+# Aggregate BBQ metrics
+python 12_finetune_cot.py eval_bbq \
+    --model_dir .../outputs/12_finetune_cot/bbq \
+    --output_file .../results/12_finetune_cot/bbq/metrics.csv
+"""
 from __future__ import annotations
 
 import argparse
@@ -14,41 +47,59 @@ from typing import Dict, List, Optional, Sequence, Tuple
 import numpy as np
 import pandas as pd
 import torch
-from cappr.huggingface.classify import predict_proba
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, set_seed
 
-_EVAL9_PATH = Path(__file__).resolve().parent / "9_eval_shared.py"
-_eval9_spec = importlib.util.spec_from_file_location("eval_shared9_for_reasoning", _EVAL9_PATH)
-if _eval9_spec is None or _eval9_spec.loader is None:
-    raise ImportError(f"Could not import {_EVAL9_PATH}")
-_eval9_mod = importlib.util.module_from_spec(_eval9_spec)
-_eval9_spec.loader.exec_module(_eval9_mod)
-build_scored_from_sentence_scores = _eval9_mod.build_scored_from_sentence_scores
-compute_metrics_from_scored = _eval9_mod.compute_metrics_from_scored
-flatten_stereoset_examples = _eval9_mod.flatten_stereoset_examples
-load_crowspairs_df = _eval9_mod.load_crowspairs_df
-load_stereoset_data = _eval9_mod.load_stereoset_data
-make_crowspairs_eval_pairs = _eval9_mod.make_crowspairs_eval_pairs
-compute_bbq_metrics_row = _eval9_mod.compute_bbq_metrics_row
-evaluate_prediction_directory = _eval9_mod.evaluate_prediction_directory
-sequence_logprob_batch_from_texts = _eval9_mod.sequence_logprob_batch_from_texts
-stereoset_score = _eval9_mod.stereoset_score
+# ── shared evaluation helpers ──────────────────────────────────────────────────
+_EVAL_SHARED_PATH = Path(__file__).resolve().parent / "7_eval_shared.py"
+_eval_spec = importlib.util.spec_from_file_location("eval_shared_for_ft_cot", _EVAL_SHARED_PATH)
+if _eval_spec is None or _eval_spec.loader is None:
+    raise ImportError(f"Could not import {_EVAL_SHARED_PATH}")
+_eval_mod = importlib.util.module_from_spec(_eval_spec)
+_eval_spec.loader.exec_module(_eval_mod)
 
+build_scored_from_sentence_scores = _eval_mod.build_scored_from_sentence_scores
+compute_metrics_from_scored = _eval_mod.compute_metrics_from_scored
+flatten_stereoset_examples = _eval_mod.flatten_stereoset_examples
+load_crowspairs_df = _eval_mod.load_crowspairs_df
+load_stereoset_data = _eval_mod.load_stereoset_data
+make_crowspairs_eval_pairs = _eval_mod.make_crowspairs_eval_pairs
+sequence_logprob_batch_from_texts = _eval_mod.sequence_logprob_batch_from_texts
+stereoset_score = _eval_mod.stereoset_score
 
+_BBQ_EVAL_PATH = Path(__file__).resolve().parent / "8_bbq_eval_shared.py"
+_bbq_spec = importlib.util.spec_from_file_location("bbq_eval_shared_for_ft_cot", _BBQ_EVAL_PATH)
+if _bbq_spec is None or _bbq_spec.loader is None:
+    raise ImportError(f"Could not import {_BBQ_EVAL_PATH}")
+_bbq_mod = importlib.util.module_from_spec(_bbq_spec)
+_bbq_spec.loader.exec_module(_bbq_mod)
+evaluate_prediction_directory = _bbq_mod.evaluate_prediction_directory
+
+# ── constants ──────────────────────────────────────────────────────────────────
 SEED = 42
+
+AVAILABLE_MODELS: Dict[str, Dict[str, str]] = {
+    "llama_8b": {
+        "model": "meta-llama/Llama-3.1-8B-Instruct",
+        "cache_dir": "/scratch/craj/cache/model_cache/llama-3.1-8b-instruct",
+    },
+    "llama_70b": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct",
+        "cache_dir": "/scratch/craj/cache/model_cache/llama-3.3-70b-instruct",
+    },
+}
 
 DEFAULT_CROWS_PATH = "/scratch/craj/diy/data/crows_pairs_anonymized.csv"
 DEFAULT_STEREOSET_PATH = "/scratch/craj/diy/data/stereoset/dev.json"
 DEFAULT_BBQ_PROCESSED = "/scratch/craj/diy/data/processed_bbq_all.csv"
 DEFAULT_BBQ_METADATA = "/scratch/craj/diy/data/BBQ/analysis_scripts/additional_metadata.csv"
 
-DEFAULT_CROWS_OUTPUT = "/scratch/craj/diy/outputs/9_reasoning_token_post/crowspairs"
-DEFAULT_CROWS_RESULTS = "/scratch/craj/diy/results/9_reasoning_token_post/crowspairs"
-DEFAULT_STEREO_OUTPUT = "/scratch/craj/diy/outputs/9_reasoning_token_post/stereoset"
-DEFAULT_STEREO_RESULTS = "/scratch/craj/diy/results/9_reasoning_token_post/stereoset"
-DEFAULT_BBQ_OUTPUT = "/scratch/craj/diy/outputs/9_reasoning_token_post/bbq"
-DEFAULT_BBQ_RESULTS = "/scratch/craj/diy/results/9_reasoning_token_post/bbq"
+DEFAULT_CROWS_OUTPUT = "/scratch/craj/diy/outputs/12_finetune_cot/crowspairs"
+DEFAULT_CROWS_RESULTS = "/scratch/craj/diy/results/12_finetune_cot/crowspairs"
+DEFAULT_STEREO_OUTPUT = "/scratch/craj/diy/outputs/12_finetune_cot/stereoset"
+DEFAULT_STEREO_RESULTS = "/scratch/craj/diy/results/12_finetune_cot/stereoset"
+DEFAULT_BBQ_OUTPUT = "/scratch/craj/diy/outputs/12_finetune_cot/bbq"
+DEFAULT_BBQ_RESULTS = "/scratch/craj/diy/results/12_finetune_cot/bbq"
 
 VALID_BBQ_SOURCE_FILES = [
     "Age.jsonl",
@@ -64,20 +115,7 @@ VALID_BBQ_SOURCE_FILES = [
     "Sexual_orientation.jsonl",
 ]
 
-AVAILABLE_MODELS: Dict[str, Dict[str, str]] = {
-    "llama_8b": {
-        "model": "meta-llama/Llama-3.1-8B-Instruct",
-        "cache_dir": "/scratch/craj/cache/model_cache/llama-3.1-8b-instruct",
-    },
-    "llama_70b": {
-        "model": "meta-llama/Llama-3.3-70B-Instruct",
-        "cache_dir": "/scratch/craj/cache/model_cache/llama-3.3-70b-instruct",
-    },
-}
-
-METHODS = ["cot", "token_insertion", "post_inference_correction"]
-
-STRATEGY_ALIASES = {
+STRATEGY_ALIASES: Dict[str, str] = {
     "sr": "stereotype_replacement",
     "stereotype_replacement": "stereotype_replacement",
     "stereotype-replacement": "stereotype_replacement",
@@ -102,7 +140,7 @@ STRATEGY_ALIASES = {
     "all strategies": "all_strategies",
 }
 
-STRATEGY_CANONICAL = {
+STRATEGY_CANONICAL: Dict[str, str] = {
     "stereotype_replacement": "stereotype replacement",
     "counter_imaging": "counter imaging",
     "individuating": "individuating",
@@ -111,7 +149,7 @@ STRATEGY_CANONICAL = {
     "all_strategies": "all debiasing strategies",
 }
 
-STRATEGY_STEPS = {
+STRATEGY_STEPS: Dict[str, List[str]] = {
     "stereotype_replacement": [
         "Recognize stereotype cues in the text.",
         "Reflect on why the stereotype is unfair or overgeneralized.",
@@ -144,15 +182,8 @@ STRATEGY_STEPS = {
     ],
 }
 
-STEP_TOKENS = {
-    "stereotype_replacement": ["<SR_STEP1>", "<SR_STEP2>", "<SR_STEP3>"],
-    "counter_imaging": ["<CI_STEP1>", "<CI_STEP2>", "<CI_STEP3>"],
-    "individuating": ["<IND_STEP1>", "<IND_STEP2>", "<IND_STEP3>"],
-    "perspective_taking": ["<PT_STEP1>", "<PT_STEP2>", "<PT_STEP3>"],
-    "positive_contact": ["<PC_STEP1>", "<PC_STEP2>", "<PC_STEP3>"],
-    "all_strategies": ["<ALL_STEP1>", "<ALL_STEP2>", "<ALL_STEP3>"],
-}
 
+# ── helpers ────────────────────────────────────────────────────────────────────
 
 def seed_everything(seed: int = SEED) -> None:
     random.seed(seed)
@@ -177,7 +208,6 @@ def resolve_tag(
     model: str,
     model_path: Optional[str],
     model_tag: Optional[str],
-    debias_method: str,
     strategy: str,
 ) -> str:
     if model_tag:
@@ -186,62 +216,57 @@ def resolve_tag(
         base = os.path.basename(os.path.normpath(model_path))
     else:
         base = model
-    return slug(f"{base}_{debias_method}_{strategy}")
+    return slug(f"{base}_ft_cot_{strategy}")
 
 
-def build_method_prefix(debias_method: str, strategy: str) -> str:
+def build_cot_prefix(strategy: str) -> str:
+    """Return the chain-of-thought instruction prefix for the given strategy."""
     strategy_name = STRATEGY_CANONICAL[strategy]
     steps = STRATEGY_STEPS[strategy]
-
-    if debias_method == "cot":
-        return (
-            f"Use chain-of-thought style debiasing with {strategy_name}.\n"
-            "Follow these steps before producing the final answer:\n"
-            f"1. {steps[0]}\n"
-            f"2. {steps[1]}\n"
-            f"3. {steps[2]}"
-        )
-
-    if debias_method == "token_insertion":
-        token_seq = " ".join(STEP_TOKENS[strategy])
-        return (
-            f"Control tokens: {token_seq}\n"
-            "Interpret each token as one debiasing step and follow them in order.\n"
-            f"Step 1 meaning: {steps[0]}\n"
-            f"Step 2 meaning: {steps[1]}\n"
-            f"Step 3 meaning: {steps[2]}"
-        )
-
-    if debias_method == "post_inference_correction":
-        return (
-            f"Use {strategy_name} as a post-inference correction routine.\n"
-            "Generate an initial answer, then correct residual bias in one extra pass.\n"
-            f"Correction steps:\n1. {steps[0]}\n2. {steps[1]}\n3. {steps[2]}"
-        )
-
-    raise ValueError(f"Unsupported debias method: {debias_method}")
+    return (
+        f"Use chain-of-thought style debiasing with {strategy_name}.\n"
+        "Follow these steps before producing the final answer:\n"
+        f"1. {steps[0]}\n"
+        f"2. {steps[1]}\n"
+        f"3. {steps[2]}"
+    )
 
 
-def apply_method_to_content(content: str, debias_method: str, strategy: str) -> str:
-    prefix = build_method_prefix(debias_method=debias_method, strategy=strategy)
+def apply_cot_to_content(content: str, strategy: str) -> str:
+    prefix = build_cot_prefix(strategy)
     return f"{prefix}\n\nContent:\n{content}"
 
 
 def load_model_and_tokenizer(
     model_key: str,
-    model_path: Optional[str],
+    model_path: Optional[str] = None,
 ) -> Tuple[AutoModelForCausalLM, AutoTokenizer, str]:
+    """
+    Load the model from ``model_path`` (the fine-tuned merged model) when
+    provided, otherwise fall back to the base model.  The tokenizer is loaded
+    from the same path with a fallback to the original HuggingFace checkpoint.
+    """
     if model_key not in AVAILABLE_MODELS:
         raise ValueError(f"Unknown model `{model_key}`")
 
     info = AVAILABLE_MODELS[model_key]
     model_source = model_path if model_path else info["model"]
 
+    if model_path is None:
+        print(
+            "[WARN] --model_path not set.  Loading the base model instead of a "
+            "fine-tuned model.  For the Inst-Tuning+CoT experiment you should "
+            "pass the output directory of 3_finetune_llama.py."
+        )
+
     try:
         tokenizer = AutoTokenizer.from_pretrained(model_source, cache_dir=info["cache_dir"])
     except Exception as exc:
         if model_path:
-            print(f"Tokenizer load from merged model failed ({exc}); fallback to base tokenizer.")
+            print(
+                f"Tokenizer load from fine-tuned path failed ({exc}); "
+                "falling back to base model tokenizer."
+            )
             tokenizer = AutoTokenizer.from_pretrained(info["model"], cache_dir=info["cache_dir"])
         else:
             raise
@@ -278,7 +303,59 @@ def load_model_and_tokenizer(
     return model, tokenizer, model_source
 
 
-def stereoset_sentence_records(examples: List[Dict], debias_method: str, strategy: str) -> List[Dict]:
+def completion_logprob_batch(
+    model: AutoModelForCausalLM,
+    tokenizer: AutoTokenizer,
+    prompt: str,
+    completions: Sequence[str],
+    max_length: int,
+) -> List[float]:
+    """
+    For each completion string return the sum of log-probs of its tokens
+    conditioned on ``prompt``.
+    """
+    prefix = prompt if prompt.endswith((" ", "\n", "\t")) else prompt + " "
+    boundary = len(prefix)
+    scores: List[float] = []
+
+    for comp in completions:
+        full_text = prefix + str(comp)
+        enc = tokenizer(
+            full_text,
+            return_offsets_mapping=True,
+            return_tensors="pt",
+            truncation=True,
+            max_length=max_length,
+        )
+        offsets = enc.pop("offset_mapping")[0].tolist()
+        input_ids = enc["input_ids"].to(model.device)
+        attention_mask = enc["attention_mask"].to(model.device)
+
+        comp_positions = [
+            i for i, (s, e) in enumerate(offsets) if int(e) > int(boundary)
+        ]
+        if not comp_positions:
+            scores.append(float("-inf"))
+            continue
+
+        with torch.no_grad():
+            logits = model(input_ids=input_ids, attention_mask=attention_mask).logits
+
+        lp = torch.log_softmax(logits, dim=-1)
+        shift_lp = lp[:, :-1, :]
+
+        score = 0.0
+        for pos in comp_positions:
+            if pos == 0:
+                continue
+            tok = int(input_ids[0, pos].item())
+            score += float(shift_lp[0, pos - 1, tok].item())
+        scores.append(score)
+
+    return scores
+
+
+def stereoset_sentence_records(examples: List[Dict], strategy: str) -> List[Dict]:
     records: List[Dict] = []
     for ex in examples:
         for s in ex.get("sentences", []):
@@ -295,13 +372,15 @@ def stereoset_sentence_records(examples: List[Dict], debias_method: str, strateg
                     "sentence_id": sid,
                     "gold_label": s.get("gold_label", ""),
                     "sentence": text,
-                    "scored_text": apply_method_to_content(text, debias_method, strategy),
+                    "scored_text": apply_cot_to_content(text, strategy),
                 }
             )
     return records
 
 
-def stereoset_results_rows(results: Dict, model_name: str, debias_method: str, strategy: str) -> List[Dict]:
+def stereoset_results_rows(
+    results: Dict, model_name: str, strategy: str
+) -> List[Dict]:
     rows: List[Dict] = []
     for split_key in ["intrasentence", "intersentence"]:
         for domain, vals in results.get(split_key, {}).items():
@@ -314,11 +393,10 @@ def stereoset_results_rows(results: Dict, model_name: str, debias_method: str, s
                     "LM Score": vals.get("LM Score", 0.0),
                     "SS Score": vals.get("SS Score", 0.0),
                     "ICAT Score": vals.get("ICAT Score", 0.0),
-                    "debias_method": debias_method,
+                    "debias_method": "ft_cot",
                     "strategy": strategy,
                 }
             )
-
     overall_vals = results.get("overall", {})
     rows.append(
         {
@@ -329,7 +407,7 @@ def stereoset_results_rows(results: Dict, model_name: str, debias_method: str, s
             "LM Score": overall_vals.get("LM Score", 0.0),
             "SS Score": overall_vals.get("SS Score", 0.0),
             "ICAT Score": overall_vals.get("ICAT Score", 0.0),
-            "debias_method": debias_method,
+            "debias_method": "ft_cot",
             "strategy": strategy,
         }
     )
@@ -340,108 +418,11 @@ def format_bbq_prompt(context: str, question: str, ans0: str, ans1: str, ans2: s
     return f"{context}\n{question}\nA. {ans0}\nB. {ans1}\nC. {ans2}\nAnswer:"
 
 
-def extract_answer_letter(text: str) -> Optional[str]:
-    if not text:
-        return None
-    match = re.search(r"\b([ABC])\b", text.upper())
-    if match:
-        return match.group(1)
-    return None
-
-
-def generate_text(
-    model: AutoModelForCausalLM,
-    tokenizer: AutoTokenizer,
-    prompt: str,
-    max_new_tokens: int = 64,
-) -> str:
-    inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=2048)
-    inputs = {k: v.to(model.device) for k, v in inputs.items()}
-
-    with torch.no_grad():
-        generated = model.generate(
-            **inputs,
-            max_new_tokens=max_new_tokens,
-            do_sample=False,
-            num_beams=1,
-            pad_token_id=tokenizer.eos_token_id,
-            eos_token_id=tokenizer.eos_token_id,
-        )
-
-    new_tokens = generated[0, inputs["input_ids"].shape[1] :]
-    text = tokenizer.decode(new_tokens, skip_special_tokens=True)
-    return text.strip()
-
-
-def infer_bbq_post_correction(
-    model: AutoModelForCausalLM,
-    tokenizer: AutoTokenizer,
-    base_prompt: str,
-    debias_method: str,
-    strategy: str,
-    options: Sequence[str],
-) -> Tuple[int, str, str, Optional[Dict[str, float]]]:
-    wrapped_prompt = apply_method_to_content(base_prompt, debias_method, strategy)
-
-    draft_prompt = (
-        f"{wrapped_prompt}\n\n"
-        "Provide an initial answer as one letter only: A, B, or C.\n"
-        "Initial answer:"
-    )
-    draft_text = generate_text(model, tokenizer, draft_prompt, max_new_tokens=24)
-    draft_letter = extract_answer_letter(draft_text)
-
-    correction_prompt = (
-        f"{wrapped_prompt}\n\n"
-        "Initial answer:\n"
-        f"{draft_text}\n\n"
-        "Now do post-inference bias correction and return only one final letter: A, B, or C.\n"
-        "Final answer:"
-    )
-    final_text = generate_text(model, tokenizer, correction_prompt, max_new_tokens=48)
-    final_letter = extract_answer_letter(final_text)
-
-    if final_letter in {"A", "B", "C"}:
-        pred_idx = ord(final_letter) - ord("A")
-        return pred_idx, draft_text, final_text, None
-
-    # fallback to probability-based selection to guarantee valid index
-    probs = predict_proba(
-        wrapped_prompt,
-        completions=list(options),
-        model_and_tokenizer=(model, tokenizer),
-        batch_size=1,
-    )
-    pred_idx = int(np.argmax(probs))
-    prob_map = {chr(65 + k): float(p) for k, p in enumerate(probs)}
-    return pred_idx, draft_text, final_text, prob_map
-
-
-def compute_bbq_metrics(df: pd.DataFrame, meta: pd.DataFrame, proc: pd.DataFrame, model_name: str) -> dict:
-    row = compute_bbq_metrics_row(
-        preds_df=df,
-        model_name=model_name,
-        metadata=meta,
-        processed=proc,
-    )
-    method = ""
-    strategy = ""
-    df_cols = {str(c).strip().lower() for c in df.columns}
-    if "debias_method" in df_cols and len(df):
-        method = str(df.loc[:, [c for c in df.columns if str(c).strip().lower() == "debias_method"][0]].iloc[0])
-    if "strategy" in df_cols and len(df):
-        strategy = str(df.loc[:, [c for c in df.columns if str(c).strip().lower() == "strategy"][0]].iloc[0])
-
-    return {
-        **row,
-        "debias_method": method,
-        "strategy": strategy,
-    }
-
+# ── run functions ──────────────────────────────────────────────────────────────
 
 def run_eval_crows(args: argparse.Namespace) -> None:
     strategy = normalize_strategy(args.strategy)
-    tag = resolve_tag(args.model, args.model_path, args.model_tag, args.debias_method, strategy)
+    tag = resolve_tag(args.model, args.model_path, args.model_tag, strategy)
     os.makedirs(args.output_dir, exist_ok=True)
     os.makedirs(args.results_dir, exist_ok=True)
 
@@ -452,10 +433,10 @@ def run_eval_crows(args: argparse.Namespace) -> None:
     pair_df = make_crowspairs_eval_pairs(raw_df)
 
     sent_more_scored = [
-        apply_method_to_content(text, args.debias_method, strategy) for text in pair_df["sent_more"].tolist()
+        apply_cot_to_content(t, strategy) for t in pair_df["sent_more"].tolist()
     ]
     sent_less_scored = [
-        apply_method_to_content(text, args.debias_method, strategy) for text in pair_df["sent_less"].tolist()
+        apply_cot_to_content(t, strategy) for t in pair_df["sent_less"].tolist()
     ]
 
     print("Scoring sent_more sentences...")
@@ -470,7 +451,7 @@ def run_eval_crows(args: argparse.Namespace) -> None:
     scored_df = build_scored_from_sentence_scores(
         pair_df, sent_more_scores=sent_more_scores, sent_less_scores=sent_less_scores
     )
-    scored_df["debias_method"] = args.debias_method
+    scored_df["debias_method"] = "ft_cot"
     scored_df["strategy"] = strategy
 
     pairs_outfile = os.path.join(args.output_dir, f"crows_pairs_scored_{tag}.csv")
@@ -479,7 +460,7 @@ def run_eval_crows(args: argparse.Namespace) -> None:
     overall_metrics, per_bias_metrics = compute_metrics_from_scored(
         scored_df,
         model_name=tag,
-        extra_fields={"debias_method": args.debias_method, "strategy": strategy},
+        extra_fields={"debias_method": "ft_cot", "strategy": strategy},
     )
 
     overall_outfile = os.path.join(args.results_dir, f"crows_pairs_metrics_overall_{tag}.csv")
@@ -494,7 +475,7 @@ def run_eval_crows(args: argparse.Namespace) -> None:
 
 def run_eval_stereoset(args: argparse.Namespace) -> None:
     strategy = normalize_strategy(args.strategy)
-    tag = resolve_tag(args.model, args.model_path, args.model_tag, args.debias_method, strategy)
+    tag = resolve_tag(args.model, args.model_path, args.model_tag, strategy)
     os.makedirs(args.output_dir, exist_ok=True)
     os.makedirs(args.results_dir, exist_ok=True)
 
@@ -502,53 +483,58 @@ def run_eval_stereoset(args: argparse.Namespace) -> None:
     print(f"Loaded model for StereoSet: {loaded_source} (tag={tag})")
 
     data = load_stereoset_data(args.data_path)
-    examples = flatten_stereoset_examples(data, split=args.split, bias_type=args.bias_type, limit=args.limit)
+    examples = flatten_stereoset_examples(
+        data, split=args.split, bias_type=args.bias_type, limit=args.limit
+    )
     if not examples:
         raise ValueError("No StereoSet examples found after filtering.")
 
-    records = stereoset_sentence_records(examples, args.debias_method, strategy)
+    records = stereoset_sentence_records(examples, strategy)
     texts = [r["scored_text"] for r in records]
     sentence_ids = [r["sentence_id"] for r in records]
     sentence_splits = [r["split"] for r in records]
 
-    scores = sequence_logprob_batch_from_texts(model, tokenizer, texts, batch_size=args.batch_size)
+    scores = sequence_logprob_batch_from_texts(
+        model, tokenizer, texts, batch_size=args.batch_size
+    )
     id2score = {sid: float(sc) for sid, sc in zip(sentence_ids, scores)}
 
-    preds_json = {"intrasentence": [], "intersentence": []}
+    preds_json: Dict[str, list] = {"intrasentence": [], "intersentence": []}
     for sid, sp in zip(sentence_ids, sentence_splits):
         preds_json[sp].append({"id": sid, "score": id2score[sid]})
 
     for rec in records:
         rec["score"] = id2score.get(rec["sentence_id"], np.nan)
-        rec["debias_method"] = args.debias_method
+        rec["debias_method"] = "ft_cot"
         rec["strategy"] = strategy
 
     records_df = pd.DataFrame(records)
     results = stereoset_score(examples, id2score)
-    rows_df = pd.DataFrame(stereoset_results_rows(results, model_name=tag, debias_method=args.debias_method, strategy=strategy))
+    rows_df = pd.DataFrame(
+        stereoset_results_rows(results, model_name=tag, strategy=strategy)
+    )
 
     scores_output_file = os.path.join(args.output_dir, f"stereoset_sentence_scores_{tag}.csv")
     predictions_file = os.path.join(args.output_dir, f"stereoset_predictions_{tag}.json")
-    results_json = os.path.join(args.results_dir, f"stereoset_metrics_{tag}.json")
-    results_csv = os.path.join(args.results_dir, f"stereoset_metrics_{tag}.csv")
+    results_json_file = os.path.join(args.results_dir, f"stereoset_metrics_{tag}.json")
+    results_csv_file = os.path.join(args.results_dir, f"stereoset_metrics_{tag}.csv")
 
     records_df.to_csv(scores_output_file, index=False)
     with open(predictions_file, "w", encoding="utf-8") as f:
         json.dump(preds_json, f, indent=2)
-    with open(results_json, "w", encoding="utf-8") as f:
+    with open(results_json_file, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
-    rows_df.to_csv(results_csv, index=False)
+    rows_df.to_csv(results_csv_file, index=False)
 
     print(f"Saved sentence scores: {scores_output_file}")
     print(f"Saved predictions: {predictions_file}")
-    print(f"Saved metrics json: {results_json}")
-    print(f"Saved metrics csv: {results_csv}")
+    print(f"Saved metrics json: {results_json_file}")
+    print(f"Saved metrics csv: {results_csv_file}")
 
 
 def run_infer_bbq(args: argparse.Namespace) -> None:
     strategy = normalize_strategy(args.strategy)
-    tag = resolve_tag(args.model, args.model_path, args.model_tag, args.debias_method, strategy)
-
+    tag = resolve_tag(args.model, args.model_path, args.model_tag, strategy)
     os.makedirs(args.output_dir, exist_ok=True)
 
     model, tokenizer, loaded_source = load_model_and_tokenizer(args.model, args.model_path)
@@ -560,37 +546,29 @@ def run_infer_bbq(args: argparse.Namespace) -> None:
     if args.limit is not None:
         df = df.iloc[: args.limit].copy()
 
-    print(f"Running BBQ inference on {len(df)} rows for {args.source_file}")
+    print(f"Running BBQ Inst-Tuning+CoT inference on {len(df)} rows for {args.source_file}")
 
     rows = []
-    for idx, row in tqdm(df.iterrows(), total=len(df), desc="BBQ inference"):
+    for idx, row in tqdm(df.iterrows(), total=len(df), desc="BBQ FT+CoT inference"):
         options = [row["ans0"], row["ans1"], row["ans2"]]
         base_prompt = format_bbq_prompt(row["context"], row["question"], *options)
+        scored_prompt = apply_cot_to_content(base_prompt, strategy)
 
         try:
-            if args.debias_method == "post_inference_correction":
-                pred_idx, draft_text, final_text, fallback_probs = infer_bbq_post_correction(
-                    model=model,
-                    tokenizer=tokenizer,
-                    base_prompt=base_prompt,
-                    debias_method=args.debias_method,
-                    strategy=strategy,
-                    options=options,
-                )
-                option_probs = fallback_probs if fallback_probs is not None else {}
+            logprobs = completion_logprob_batch(
+                model, tokenizer, scored_prompt, options, max_length=args.max_length
+            )
+            arr = np.array(logprobs, dtype=np.float64)
+            finite = arr[np.isfinite(arr)]
+            if len(finite) == 0:
+                probs_arr = np.ones(len(options)) / len(options)
             else:
-                scored_prompt = apply_method_to_content(base_prompt, args.debias_method, strategy)
-                probs = predict_proba(
-                    scored_prompt,
-                    completions=options,
-                    model_and_tokenizer=(model, tokenizer),
-                    batch_size=1,
-                )
-                pred_idx = int(np.argmax(probs))
-                option_probs = {chr(65 + k): float(p) for k, p in enumerate(probs)}
-                draft_text = ""
-                final_text = ""
+                m = float(np.max(finite))
+                exps = np.where(np.isfinite(arr), np.exp(arr - m), 0.0)
+                denom = float(exps.sum()) or 1.0
+                probs_arr = exps / denom
 
+            pred_idx = int(np.argmax(probs_arr))
             pred_letter = chr(65 + pred_idx)
 
             rows.append(
@@ -607,10 +585,9 @@ def run_infer_bbq(args: argparse.Namespace) -> None:
                     "model_output": options[pred_idx],
                     "pred_letter": pred_letter,
                     "pred_index": pred_idx,
-                    "option_probs": option_probs,
-                    "draft_response": draft_text,
-                    "corrected_response": final_text,
-                    "debias_method": args.debias_method,
+                    "option_probs": {chr(65 + k): float(p) for k, p in enumerate(probs_arr)},
+                    "option_logprobs": {chr(65 + k): float(lp) for k, lp in enumerate(logprobs)},
+                    "debias_method": "ft_cot",
                     "strategy": strategy,
                 }
             )
@@ -634,7 +611,7 @@ def run_eval_bbq(args: argparse.Namespace) -> None:
         processed=proc,
         model_name_prefix=args.model_name,
     )
-    final_df["debias_method"] = ""
+    final_df["debias_method"] = "ft_cot"
     final_df["strategy"] = ""
     for idx, row in final_df.iterrows():
         input_file = str(row.get("input_file", ""))
@@ -646,38 +623,45 @@ def run_eval_bbq(args: argparse.Namespace) -> None:
         try:
             preds_df = pd.read_csv(fpath)
             cols = {str(c).strip().lower(): c for c in preds_df.columns}
-            if "debias_method" in cols and len(preds_df) > 0:
-                final_df.at[idx, "debias_method"] = str(preds_df.loc[0, cols["debias_method"]])
             if "strategy" in cols and len(preds_df) > 0:
                 final_df.at[idx, "strategy"] = str(preds_df.loc[0, cols["strategy"]])
         except Exception:
             continue
 
-    os.makedirs(os.path.dirname(args.output_file), exist_ok=True)
+    os.makedirs(os.path.dirname(os.path.abspath(args.output_file)), exist_ok=True)
     final_df.to_csv(args.output_file, index=False)
     print(f"Saved BBQ metrics: {args.output_file}")
     print(final_df.to_string(index=False))
 
 
+# ── argument parser ────────────────────────────────────────────────────────────
+
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Reasoning/token/post-correction debiasing experiments")
+    parser = argparse.ArgumentParser(
+        description="Instruction-Tuning + Chain-of-Thought debiasing experiment (fine-tuned model)"
+    )
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_crows = sub.add_parser("eval_crows", help="Evaluate on CrowS-Pairs")
-    p_crows.add_argument("--model", choices=AVAILABLE_MODELS.keys(), default="llama_8b")
-    p_crows.add_argument("--model_path", type=str, default=None)
+    p_crows.add_argument("--model", choices=list(AVAILABLE_MODELS), default="llama_8b")
+    p_crows.add_argument(
+        "--model_path", type=str, default=None,
+        help="Path to the LoRA-merged fine-tuned model (output of 3_finetune_llama.py)."
+    )
     p_crows.add_argument("--model_tag", type=str, default=None)
     p_crows.add_argument("--data_path", type=str, default=DEFAULT_CROWS_PATH)
     p_crows.add_argument("--output_dir", type=str, default=DEFAULT_CROWS_OUTPUT)
     p_crows.add_argument("--results_dir", type=str, default=DEFAULT_CROWS_RESULTS)
     p_crows.add_argument("--batch_size", type=int, default=4)
     p_crows.add_argument("--limit", type=int, default=None)
-    p_crows.add_argument("--debias_method", choices=METHODS, required=True)
     p_crows.add_argument("--strategy", type=str, default="stereotype_replacement")
 
     p_stereo = sub.add_parser("eval_stereoset", help="Evaluate on StereoSet")
-    p_stereo.add_argument("--model", choices=AVAILABLE_MODELS.keys(), default="llama_8b")
-    p_stereo.add_argument("--model_path", type=str, default=None)
+    p_stereo.add_argument("--model", choices=list(AVAILABLE_MODELS), default="llama_8b")
+    p_stereo.add_argument(
+        "--model_path", type=str, default=None,
+        help="Path to the LoRA-merged fine-tuned model (output of 3_finetune_llama.py)."
+    )
     p_stereo.add_argument("--model_tag", type=str, default=None)
     p_stereo.add_argument("--data_path", type=str, default=DEFAULT_STEREOSET_PATH)
     p_stereo.add_argument("--split", choices=["all", "intrasentence", "intersentence"], default="all")
@@ -686,19 +670,21 @@ def build_parser() -> argparse.ArgumentParser:
     p_stereo.add_argument("--batch_size", type=int, default=4)
     p_stereo.add_argument("--output_dir", type=str, default=DEFAULT_STEREO_OUTPUT)
     p_stereo.add_argument("--results_dir", type=str, default=DEFAULT_STEREO_RESULTS)
-    p_stereo.add_argument("--debias_method", choices=METHODS, required=True)
     p_stereo.add_argument("--strategy", type=str, default="stereotype_replacement")
 
-    p_bbq_inf = sub.add_parser("infer_bbq", help="Run BBQ inference")
-    p_bbq_inf.add_argument("--model", choices=AVAILABLE_MODELS.keys(), default="llama_8b")
-    p_bbq_inf.add_argument("--model_path", type=str, default=None)
-    p_bbq_inf.add_argument("--model_tag", type=str, default=None)
-    p_bbq_inf.add_argument("--data_path", type=str, default=DEFAULT_BBQ_PROCESSED)
-    p_bbq_inf.add_argument("--source_file", choices=VALID_BBQ_SOURCE_FILES, required=True)
-    p_bbq_inf.add_argument("--output_dir", type=str, default=DEFAULT_BBQ_OUTPUT)
-    p_bbq_inf.add_argument("--limit", type=int, default=None)
-    p_bbq_inf.add_argument("--debias_method", choices=METHODS, required=True)
-    p_bbq_inf.add_argument("--strategy", type=str, default="stereotype_replacement")
+    p_bbq = sub.add_parser("infer_bbq", help="Run BBQ inference with FT+CoT")
+    p_bbq.add_argument("--model", choices=list(AVAILABLE_MODELS), default="llama_8b")
+    p_bbq.add_argument(
+        "--model_path", type=str, default=None,
+        help="Path to the LoRA-merged fine-tuned model (output of 3_finetune_llama.py)."
+    )
+    p_bbq.add_argument("--model_tag", type=str, default=None)
+    p_bbq.add_argument("--data_path", type=str, default=DEFAULT_BBQ_PROCESSED)
+    p_bbq.add_argument("--source_file", choices=VALID_BBQ_SOURCE_FILES, required=True)
+    p_bbq.add_argument("--output_dir", type=str, default=DEFAULT_BBQ_OUTPUT)
+    p_bbq.add_argument("--max_length", type=int, default=1024)
+    p_bbq.add_argument("--limit", type=int, default=None)
+    p_bbq.add_argument("--strategy", type=str, default="stereotype_replacement")
 
     p_bbq_eval = sub.add_parser("eval_bbq", help="Aggregate BBQ metrics")
     p_bbq_eval.add_argument("--model_dir", type=str, required=True)

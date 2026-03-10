@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
+import os
 import argparse
+import time
 import json
 import pandas as pd
 from tqdm import tqdm
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-import os
+
+# torch.set_default_dtype(torch.float16)
 
 # ============================================================
 # Debiasing Prompts
@@ -121,6 +124,9 @@ def load_model(model_key):
     tokenizer = AutoTokenizer.from_pretrained(model_info["model"], cache_dir=model_info["cache_dir"])
     if tokenizer.pad_token is None and tokenizer.eos_token is not None:
         tokenizer.pad_token = tokenizer.eos_token
+
+    stop_token_id = tokenizer.encode("###")[0]
+
     quant_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16)
     model = AutoModelForCausalLM.from_pretrained(
         model_info["model"],
@@ -128,9 +134,12 @@ def load_model(model_key):
         device_map="auto",
         cache_dir=model_info["cache_dir"]
     )
-    return tokenizer, model
+    return tokenizer, model, stop_token_id
 
-def generate_one(prompt, tokenizer, model, max_new_tokens, temperature, top_p):
+
+
+def generate_one(prompt, tokenizer, model, stop_token_id, max_new_tokens, temperature, top_p):
+
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     outputs = model.generate(
         **inputs,
@@ -138,12 +147,34 @@ def generate_one(prompt, tokenizer, model, max_new_tokens, temperature, top_p):
         temperature=temperature,
         top_p=top_p,
         do_sample=True,
-        eos_token_id=tokenizer.eos_token_id,
+        eos_token_id=stop_token_id,
         pad_token_id=tokenizer.eos_token_id
     )
+
     output_tokens = outputs[0][inputs["input_ids"].shape[-1]:]
     generated = tokenizer.decode(output_tokens, skip_special_tokens=True).strip()
     return generated
+
+
+def estimate_eta(num_rows, tokenizer, model, stop_token_id, args):
+    sample_prompt = "Test. END###"
+
+    start = time.time()
+    for _ in range(3):
+        _ = generate_one(
+            sample_prompt, tokenizer, model, stop_token_id,
+            max_new_tokens=args.max_new_tokens,
+            temperature=args.temperature,
+            top_p=args.top_p
+        )
+    end = time.time()
+
+    avg_sec = (end - start) / 3
+    total_hours = (num_rows * avg_sec) / 3600
+
+    print(f"\nAvg time per generation : {avg_sec:.2f} sec")
+    print(f"Total rows              : {num_rows}")
+    print(f"Estimated runtime       : {total_hours:.2f} hours\n")
 
 
 # ============================================================
@@ -154,19 +185,27 @@ if __name__ == "__main__":
     parser.add_argument("--input_file", default="/scratch/craj/cognitive_debiasing/outputs/generations/seed_instances/seed_instances_300.csv")
     parser.add_argument("--model", choices=AVAILABLE_MODELS.keys(), default="llama_70b")
     parser.add_argument("--strategy", choices=DEBIASING_PROMPTS.keys(),
-                        help="Debiasing strategy to apply", default="stereotype_replacement")
+                        help="Debiasing strategy to apply", default="individuating")
     parser.add_argument("--example_level", choices=["zero", "one"], default="one",
                         help="Use zero-shot or one-shot prompt")
-    parser.add_argument("--max_new_tokens", type=int, default=500)
+    parser.add_argument("--scenarios",
+                    choices=["education","environment","healthcare","workplace","media","law_and_policy","sports","technology","economics","art_and_leisure"])
+    parser.add_argument("--max_new_tokens", type=int, default=200)
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top_p", type=float, default=0.95)
     parser.add_argument("--output_prefix", default="debiased_instances")
     parser.add_argument("--max_rows", type=int,
                     help="Limit the number of rows to process (from the top)")
-    parser.add_argument("--input_cols", nargs="+", default=["opinion_version", "action_version"],
+    parser.add_argument("--input_cols", nargs="+", default=["event_version"],
                         help="Specify one or more input columns to debias")
 
     args = parser.parse_args()
+
+    if args.scenarios is not None:
+        base = "/scratch/craj/diy/outputs/1_generations/seed_instances"
+        args.input_file = f"{base}/seed_instances_{args.scenarios}_all_dim.csv"
+        print(f"📘 Using scenarios input file: {args.input_file}")
+
 
     # Load data
     df = pd.read_csv(args.input_file) #.head(10)
@@ -174,7 +213,9 @@ if __name__ == "__main__":
         df = df.head(args.max_rows)
 
     # Load model
-    tokenizer, model = load_model(args.model)
+    tokenizer, model, stop_token_id = load_model(args.model)
+
+    estimate_eta(len(df)*len(args.input_cols), tokenizer, model, stop_token_id, args)
 
     # Select base prompt
     base_prompt = DEBIASING_PROMPTS[args.strategy][args.example_level]
@@ -182,10 +223,10 @@ if __name__ == "__main__":
     col_suffix = "_".join(args.input_cols)
 
     # Prepare save paths
-    save_dir = "/scratch/craj/diy/outputs/1_generations"
+    save_dir = "/scratch/craj/diy/outputs/1_generations/debiased_instances/positive_contact/event_version"
     os.makedirs(save_dir, exist_ok=True)
-    csv_path = os.path.join(save_dir, f"{args.output_prefix}_{args.strategy}_{args.example_level}_{col_suffix}.csv")
-    jsonl_path = os.path.join(save_dir, f"{args.output_prefix}_{args.strategy}_{args.example_level}_{col_suffix}.jsonl")
+    csv_path = os.path.join(save_dir, f"{args.output_prefix}_{args.strategy}_{args.scenarios}_{args.example_level}_{col_suffix}.csv")
+    jsonl_path = os.path.join(save_dir, f"{args.output_prefix}_{args.strategy}_{args.scenarios}_{args.example_level}_{col_suffix}.jsonl")
 
     # Generate debiased responses for specified input columns
     for col in args.input_cols:
@@ -198,7 +239,7 @@ if __name__ == "__main__":
                 prompt = (
                     f"{base_prompt}\n\n"
                     "Now apply the same steps to the new input below and output only valid JSON "
-                    "with exactly three keys: 'step 1', 'step 2', and 'step 3'.\n\n"
+                    "with exactly three keys: 'Step 1', 'Step 2', and 'Step 3'.\n\n"
                     f"Input: {input_text}\n\n"
                     "Debiased Response:\n"
                     "{\n"
@@ -209,15 +250,16 @@ if __name__ == "__main__":
                     "Return only the JSON object — no extra text or explanation."
                 )
                 debiased_output = generate_one(
-                    prompt, tokenizer, model,
+                    prompt, tokenizer, model, stop_token_id,
                     max_new_tokens=args.max_new_tokens,
                     temperature=args.temperature,
                     top_p=args.top_p
                 )
+
                 debiased_texts.append(debiased_output)
 
             # Save progress every 10 rows
-            if (i + 1) % 10 == 0:
+            if (i + 1) % 100 == 0:
                 df.loc[:i, f"debiased_{col}"] = debiased_texts
                 df.to_csv(csv_path, index=False)
                 with open(jsonl_path, "w", encoding="utf-8") as f:

@@ -1,8 +1,8 @@
-# How To Run `7_finetune_llama.py`
+# How To Run `3_finetune_llama.py`
 
 This guide documents the current CLI for:
 
-- `/scratch/craj/diy/src/3_experiments/7_finetune_llama.py`
+- `/scratch/craj/diy/src/3_experiments/3_finetune_llama.py`
 
 ## Setup
 
@@ -10,7 +10,7 @@ Run from the experiments folder with your project venv:
 
 ```bash
 cd /scratch/craj/diy/src/3_experiments
-/home/craj/nanotron-env/bin/python 7_finetune_llama.py ...
+/home/craj/nanotron-env/bin/python 3_finetune_llama.py ...
 ```
 
 ## Quick Preview (No Training)
@@ -18,7 +18,7 @@ cd /scratch/craj/diy/src/3_experiments
 Use preview mode to inspect what is fed into the model (sys prompt, instruction, input, debiased response):
 
 ```bash
-/home/craj/nanotron-env/bin/python 7_finetune_llama.py \
+/home/craj/nanotron-env/bin/python 3_finetune_llama.py \
   --strategies stereotype_replacement \
   --versions all \
   --preview_examples 5 \
@@ -42,7 +42,7 @@ Preview mode exits before model loading/training.
 Single strategy, all versions:
 
 ```bash
-/home/craj/nanotron-env/bin/python 7_finetune_llama.py \
+/home/craj/nanotron-env/bin/python 3_finetune_llama.py \
   --strategies stereotype_replacement \
   --versions all \
   --max_debias_samples 1000 \
@@ -53,7 +53,7 @@ Single strategy, all versions:
 All strategies, single version:
 
 ```bash
-/home/craj/nanotron-env/bin/python 7_finetune_llama.py \
+/home/craj/nanotron-env/bin/python 3_finetune_llama.py \
   --versions action \
   --max_debias_samples 1000 \
   --loss_mode response_only \
@@ -63,7 +63,7 @@ All strategies, single version:
 All strategies, all versions:
 
 ```bash
-/home/craj/nanotron-env/bin/python 7_finetune_llama.py \
+/home/craj/nanotron-env/bin/python 3_finetune_llama.py \
   --strategies all \
   --versions all \
   --max_debias_samples 1000 \
@@ -74,7 +74,7 @@ All strategies, all versions:
 Filtered by fixed scenario and bias dimension:
 
 ```bash
-/home/craj/nanotron-env/bin/python 7_finetune_llama.py \
+/home/craj/nanotron-env/bin/python 3_finetune_llama.py \
   --versions event \
   --bias_dimension race_ethnicity \
   --scenario technology \

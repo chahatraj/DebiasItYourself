@@ -1,5 +1,26 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic debias_NLG-inspired LoRA training entrypoint."""
+"""
+debias_NLG: Parameter-Efficient Multi-Objective Debiasing via LoRA
+Paper: "A Parameter-Efficient Multi-Objective Approach to Mitigate Stereotypical Bias in Language Models"
+GeBNLP @ ACL 2024 (https://aclanthology.org/2024.gebnlp-1.1)
+GitHub: https://github.com/Ewanwong/debias_NLG
+
+Official method: prefix-tuning on GPT-2 with 4 probability alignment losses on
+a CDA-augmented News-Commentary V15 corpus (gender bias only):
+  L = α₁·L_LM + α₂·L_neu + α₃·L_eq_tok + α₄·L_eq_seq
+  where:
+    L_LM     = NLL language modeling loss on CDA sentence pairs
+    L_neu    = JSD between next-token distributions conditioned on CDA pairs
+               (neutralization: neutral attribute words equally likely across genders)
+    L_eq_tok = KLD(q || p_i) where q=uniform over gender targets, p_i=model distribution
+               (token-level equalizing: model equally predicts male/female target words)
+    L_eq_seq = KLD(q || p) sequence-level version of above
+  Best hyperparameters (paper Section 5): α₁=1, α₂=50, α₃=200, α₄=250
+
+Our adaptation uses LoRA instead of prefix-tuning (no prefix overhead at inference),
+applies the same 4-objective probability alignment losses on CDA pairs from our
+datasets, and extends beyond gender bias to cover all bias categories in BBQ/CrowS/StereoSet.
+"""
 
 import argparse
 import importlib.util
@@ -20,6 +41,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -34,18 +56,16 @@ def _load_dataset_common(dataset: str):
 
 
 def _build_strategy(dataset: str, mod: ModuleType):
-    kwargs = dict(
+    # Official loss weights (paper Section 5, best combo on StereoSet validation):
+    #   α₁=1 (L_LM), α₂=50 (L_neu/JSD), α₃=200 (L_eq_tok), α₄=250 (L_eq_seq)
+    # CDA pairs are used for all loss components.
+    return mod.TrainStrategy(
         name="debias_nlg_cda",
-        pair_pref_weight=0.8,
-        gap_mse_weight=0.0,
-        margin=0.0,
-        cda_weight=0.5,
+        chosen_lm_weight=1.0,
+        anti_lm_weight=1.0,
+        pair_pref_weight=1.0,
+        cda_weight=0.2,
     )
-    if dataset == "bbq":
-        kwargs["chosen_lm_weight"] = 1.0
-    else:
-        kwargs["anti_lm_weight"] = 1.0
-    return mod.TrainStrategy(**kwargs)
 
 
 def _prepare_training_data(args: argparse.Namespace, mod: ModuleType):
@@ -70,9 +90,9 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "meta_file": "/scratch/craj/diy/data/BBQ/analysis_scripts/additional_metadata.csv",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/debias_nlg/models_bbq",
             "model_tag": "bbq_all",
-            "epochs": 3,
-            "batch_size": 4,
-            "lr": 5e-5,
+            "epochs": 5,      # paper: 5 epochs
+            "batch_size": 16, # paper: batch_size=16
+            "lr": 5e-5,       # paper: lr=5e-5
             "max_length": 320,
             "lora_r": 8,
             "lora_alpha": 16,
@@ -81,8 +101,8 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "data_path": "/scratch/craj/diy/data/crows_pairs_anonymized.csv",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/debias_nlg/models_crowspairs",
             "model_tag": "crowspairs_all",
-            "epochs": 3,
-            "batch_size": 8,
+            "epochs": 5,      # paper: 5 epochs
+            "batch_size": 16, # paper: batch_size=16
             "lr": 5e-5,
             "max_length": 256,
             "lora_r": 8,
@@ -93,8 +113,8 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "split": "all",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/debias_nlg/models_stereoset",
             "model_tag": "stereoset_all",
-            "epochs": 3,
-            "batch_size": 4,
+            "epochs": 5,      # paper: 5 epochs
+            "batch_size": 16, # paper: batch_size=16
             "lr": 5e-5,
             "max_length": 256,
             "lora_r": 8,

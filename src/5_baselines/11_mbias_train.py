@@ -1,5 +1,28 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic MBIAS-inspired LoRA training entrypoint."""
+"""
+MBIAS: Mitigating Bias in LLMs While Retaining Context
+Paper: "MBIAS: Mitigating Bias in Large Language Models While Retaining Context"
+WASSA @ ACL 2024 (https://aclanthology.org/2024.wassa-1.9)
+GitHub: https://github.com/shainarazavi/MBIAS
+
+Official method: QLoRA instruction fine-tuning (SFT) on Mistral-7B-Instruct-v0.2
+using paired (biased, benign) text data. Training uses standard causal LM loss (SFTTrainer).
+NO pairwise preference loss, NO margin, NO DPO — purely supervised seq2seq debiasing.
+
+Official hyperparameters (paper Table 2 / ift.py):
+  - Model: Mistral-7B-Instruct-v0.2
+  - LoRA: r=64, alpha=16, dropout=0.2
+  - lr=2e-5, batch_size=8 (train) / 4 (eval), epochs=2
+  - optimizer=paged_adamw_8bit, lr_scheduler=constant, warmup_ratio=0.05
+  - max_seq_length=2048, max_grad_norm=0.3, weight_decay=0.001
+  - 4-bit NF4 quantization (QLoRA)
+
+Instruction format (Mistral chat template):
+  <s>[INST] You are a text debiasing bot... {biased_text} [/INST] {benign_text} </s>
+
+Our adaptation applies the same SFT approach to BBQ/CrowS-Pairs/StereoSet
+by formatting (stereotype, anti-stereotype) pairs as (biased, benign) instruction pairs.
+"""
 
 import argparse
 import importlib.util
@@ -20,6 +43,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -34,18 +58,17 @@ def _load_dataset_common(dataset: str):
 
 
 def _build_strategy(dataset: str, mod: ModuleType):
-    kwargs = dict(
-        name="mbias",
-        pair_pref_weight=1.2,
-        gap_mse_weight=0.1,
-        margin=0.1,
-        cda_weight=0.2,
+    # MBIAS = SFT with standard causal LM loss on instruction-formatted (biased, benign) pairs.
+    # Official: SFTTrainer with formatting_func producing Mistral chat-template sequences.
+    # No pairwise preference loss, no margin, no DPO.
+    return mod.TrainStrategy(
+        name="mbias_sft",
+        chosen_lm_weight=1.0,
+        anti_lm_weight=1.0,
+        pair_pref_weight=0.0,
+        gap_mse_weight=0.0,
+        cda_weight=0.0,
     )
-    if dataset == "bbq":
-        kwargs["chosen_lm_weight"] = 1.0
-    else:
-        kwargs["anti_lm_weight"] = 1.0
-    return mod.TrainStrategy(**kwargs)
 
 
 def _prepare_training_data(args: argparse.Namespace, mod: ModuleType):
@@ -70,22 +93,22 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "meta_file": "/scratch/craj/diy/data/BBQ/analysis_scripts/additional_metadata.csv",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/mbias/models_bbq",
             "model_tag": "bbq_all",
-            "epochs": 3,
-            "batch_size": 4,
-            "lr": 5e-5,
-            "max_length": 320,
-            "lora_r": 8,
-            "lora_alpha": 16,
+            "epochs": 2,       # paper: 2 epochs
+            "batch_size": 8,   # paper: batch_size=8 (train)
+            "lr": 2e-5,        # paper: lr=2e-5
+            "max_length": 2048, # paper: max_seq_length=2048
+            "lora_r": 64,      # paper: LoRA r=64
+            "lora_alpha": 16,  # paper: LoRA alpha=16
         },
         "crowspairs": {
             "data_path": "/scratch/craj/diy/data/crows_pairs_anonymized.csv",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/mbias/models_crowspairs",
             "model_tag": "crowspairs_all",
-            "epochs": 3,
+            "epochs": 2,
             "batch_size": 8,
-            "lr": 5e-5,
-            "max_length": 256,
-            "lora_r": 8,
+            "lr": 2e-5,
+            "max_length": 2048,
+            "lora_r": 64,
             "lora_alpha": 16,
         },
         "stereoset": {
@@ -93,11 +116,11 @@ def _apply_defaults(args: argparse.Namespace) -> None:
             "split": "all",
             "output_dir": "/scratch/craj/diy/outputs/3_baselines/mbias/models_stereoset",
             "model_tag": "stereoset_all",
-            "epochs": 3,
-            "batch_size": 4,
-            "lr": 5e-5,
-            "max_length": 256,
-            "lora_r": 8,
+            "epochs": 2,
+            "batch_size": 8,
+            "lr": 2e-5,
+            "max_length": 2048,
+            "lora_r": 64,
             "lora_alpha": 16,
         },
     }

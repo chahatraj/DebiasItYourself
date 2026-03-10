@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic DPO evaluation entrypoint."""
+"""
+Preference-Aware DPO evaluation entrypoint.
+
+Paper : "SBM: Social Bias Mitigation for LLMs via Preference-Aware DPO"
+        Proceedings of WWW 2025 (arXiv:2412.16155)
+GitHub: https://github.com/KID-22/LLM-SBM
+
+Loads the LoRA adapter trained by 3_dpo_train.py and evaluates on the held-out
+test split across BBQ, CrowS-Pairs, and StereoSet.
+"""
 
 import argparse
 import importlib.util
@@ -50,6 +59,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

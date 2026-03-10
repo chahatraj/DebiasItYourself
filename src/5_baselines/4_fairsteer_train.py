@@ -1,5 +1,38 @@
 #!/usr/bin/env python3
-"""Dataset-agnostic FairSteer training entrypoint (BAD classifiers + DSV)."""
+"""
+FairSteer: Inference-Time Debiasing for LLMs with Dynamic Activation Steering
+
+Paper : "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering"
+        arXiv:2504.14492
+GitHub: https://github.com/LiYichen99/FairSteer
+
+Method (Sections 3–4):
+  Step 1 – BAD (Bias-Aware Detection) classifier training:
+    Collect hidden-state activations (last token) at every transformer layer for
+    biased vs. unbiased examples.  Train one logistic-regression classifier per
+    layer (sklearn / cuml, L2 penalty λ=1, 80/20 train/val split).
+    Select the layer with the highest validation accuracy as `optimal_layer`.
+
+    Official training data: 58,492 BBQ + 10,266 MMLU examples in 4:1 train/val
+    split.  In this dataset-agnostic port we cap at `num_examples_bad` (default
+    800) per dataset call because we run on smaller per-dataset splits.
+
+  Step 2 – DSV (Debiasing Steering Vector) extraction:
+    Sample `num_pairs_dsv` contrastive pairs (biased prompt vs. unbiased prompt),
+    compute mean(act_unbiased − act_biased) at `optimal_layer`.
+    Official: 10 examples × 11 BBQ categories = 110 pairs total.
+
+Official hyperparameters:
+  num_pairs_dsv  : 110  (10 per BBQ category)
+  optimal_layer  : selected automatically (paper reports layers 13–15)
+  α (inference)  : 1.0  (applied when bias_prob < 0.5 threshold)
+  max_gen_length : 512 tokens
+
+Dataset-agnostic adaptations:
+  - BBQ      : biased = model predicts target_loc; unbiased = model predicts label
+  - CrowS    : biased = stereo_lp > anti_lp; unbiased = anti_lp >= stereo_lp
+  - StereoSet: same as CrowS
+"""
 
 import argparse
 import importlib.util
@@ -36,6 +69,7 @@ def _load_module(module_name: str, module_path: Path, add_to_syspath: Optional[P
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not import module from {module_path}")
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

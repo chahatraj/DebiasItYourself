@@ -1,7 +1,0 @@
---file_key all_files
---file_key sr --pair opinion
---file_key sr --pair action
---file_key ci --pair opinion
---file_key ind
---file_key pt
---file_key pc
