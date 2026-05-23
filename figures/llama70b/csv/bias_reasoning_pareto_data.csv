@@ -1,6 +1,7 @@
 method_key,method_label,group,mean_bias_error,mean_reasoning_accuracy,n_bias_panels,n_reasoning_benchmarks,reasoning_source_scope,plotted
 base,Base Model Inference,base,5.6264287,90.723641,6,3,model_specific,True
 bba,BBA,baseline,6.9691804,87.696098,6,3,model_specific,True
+biasedit,BiasEdit,baseline,8.5883333,32.793474,6,3,model_specific,True
 cal,CAL,baseline,5.8737549,91.176796,6,3,model_specific,True
 dpo,DPO,baseline,11.554305,89.757845,6,3,model_specific,True
 debias_llms,DebiasLLMs,baseline,1.6986613,32.793474,6,3,model_specific,True
@@ -9,7 +10,7 @@ fairsteer,FairSteer,baseline,7.1908882,89.757845,6,3,model_specific,True
 lftf,LFTF,baseline,7.5598001,89.592208,6,3,model_specific,True
 peft,PEFT,baseline,2.6128619,80.460779,6,3,model_specific,True
 reduce_social_bias,Reduce Social Bias,baseline,7.0117085,90.178984,6,3,model_specific,True
-selfdebias_reprompting,SelfDebias: Reprompt,baseline,1.7897948,,4,0,,False
+selfdebias_reprompting,SelfDebias: Reprompt,baseline,1.9713085,88.839054,5,3,model_specific,True
 diy_twopass_it,DIY Two Pass (IT),diy_combo,2.7380952,91.155415,6,3,model_specific,True
 diy_it,DIY IT,diy_tune,5.8501414,89.983223,6,3,model_specific,True
 diy_twopass_no_it,DIY Two Pass (No IT),diy_twopass,2.0771564,89.840349,6,3,model_specific,True
