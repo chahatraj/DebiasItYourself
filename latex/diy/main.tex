@@ -11,6 +11,43 @@
 \usepackage{microtype}
 \usepackage{inconsolata}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\newcommand{\diy}{\textsc{DebiasItYourself}}
+
+% DIY-specific palette (mirrors edits.tex).
+\definecolor{diyShowBg}{HTML}{BFE1F4}
+\definecolor{diyTeachBg}{HTML}{F4BFD3}
+\definecolor{diyReviseBg}{HTML}{BFE7CE}
+\definecolor{diySrBg}{HTML}{F3B6A9}
+\definecolor{diyCiBg}{HTML}{B6D8F3}
+\definecolor{diyIndBg}{HTML}{BEE8CD}
+\definecolor{diyPtBg}{HTML}{F2CD79}
+\definecolor{diyPcBg}{HTML}{D1BDF0}
+\definecolor{diyBadgeBorder}{HTML}{3E4654}
+
+\newcommand{\highlightRounded}[2]{%
+  \begin{tikzpicture}[baseline=(word.base)]
+    \node[
+      rectangle,
+      rounded corners,
+      fill=#1,
+      draw=diyBadgeBorder,
+      line width=0.55pt,
+      inner sep=2pt
+    ] (word) {#2};
+  \end{tikzpicture}%
+}
+
+\newcommand{\showlabel}{\highlightRounded{diyShowBg}{\textsc{Show}}}
+\newcommand{\teachlabel}{\highlightRounded{diyTeachBg}{\textsc{Teach}}}
+\newcommand{\reviselabel}{\highlightRounded{diyReviseBg}{\textsc{Revise}}}
+\newcommand{\srfull}{\highlightRounded{diySrBg}{\textsc{Stereotype Replacement}}}
+\newcommand{\cifull}{\highlightRounded{diyCiBg}{\textsc{Counter-stereotypic Imaging}}}
+\newcommand{\indfull}{\highlightRounded{diyIndBg}{\textsc{Individuation}}}
+\newcommand{\ptfull}{\highlightRounded{diyPtBg}{\textsc{Perspective-taking}}}
+\newcommand{\pcfull}{\highlightRounded{diyPcBg}{\textsc{Positive Contact}}}
 
 \title{Debias It Yourself: Cognitive Intervention for Bias Mitigation}
 
@@ -22,7 +59,7 @@
 \maketitle
 
 \begin{abstract}
-Social bias in large language models is a well-documented harm, and many mitigation strategies have been proposed. These solutions share a structural limitation: each addresses bias on a particular dataset, a particular task, or a single bias dimension, and the gains rarely transfer beyond the slice they were designed for. In effect, existing methods teach a model to \emph{suppress} a specific symptom of bias rather than teach it \emph{how} to reduce bias as a behavior. LLMs are trained on human-produced text; humans are biased, and so models inherit that bias; but humans also have decades of social-psychology research on \emph{how} prejudice can be reduced, in the form of cognitive interventions validated in controlled studies. We propose to bring that literature into model training and inference: rather than narrow point-fixes, we teach models bias-reduction strategies, so that debiasing becomes a transferable bias intervention rather than a benchmark-specific patch. Concretely, we introduce \textsc{Debias It Yourself} (DIY), a framework that operationalizes five established prejudice-reducing interventions from social psychology, Stereotype Replacement, Counter-stereotypic Imaging, Individuation, Perspective-taking, and Positive Contact, instantiated through three complementary techniques: \emph{Show} (in-context demonstrations of intervention use), \emph{Teach} (instruction tuning on intervention-grounded supervision), and \emph{Revise} (intervention-guided self-revision). We evaluate DIY across a range of bias benchmarks against a broad set of debiasing baselines, and on reasoning benchmarks. DIY consistently lowers bias and outperforms existing baselines, with transferable cognitive behavior rather than dataset-specific suppression, generalizing across tasks, models, scales, and bias dimensions. Our code and data is available here{\footnote{\url{https://github.com/chahatraj/DebiasItYourself}}}.
+Social bias in large language models is a well-documented harm, and many mitigation strategies have been proposed. These solutions share a structural limitation: each addresses bias on a particular dataset, a particular task, or a single bias dimension, and the gains rarely transfer beyond the slice they were designed for. In effect, existing methods teach a model to \emph{suppress} a specific symptom of bias rather than teach it \emph{how} to reduce bias as a behavior. LLMs are trained on human-produced text; humans are biased, and so models inherit that bias; but humans also have decades of social-psychology research on \emph{how} prejudice can be reduced, in the form of cognitive interventions validated in controlled studies. We propose to bring that literature into model training and inference: rather than narrow point-fixes, we teach models bias-reduction strategies, so that debiasing becomes a transferable bias intervention rather than a benchmark-specific patch. Concretely, we introduce \diy{} (DIY), a framework that operationalizes five established prejudice-reducing interventions from social psychology, \srfull{}, \cifull{}, \indfull{}, \ptfull{}, and \pcfull{}, instantiated through three complementary techniques: \showlabel{} (in-context demonstrations of intervention use), \teachlabel{} (instruction tuning on intervention-grounded supervision), and \reviselabel{} (intervention-guided self-revision). We evaluate \diy{} across a range of bias benchmarks against a broad set of debiasing baselines, and on reasoning benchmarks. \diy{} consistently lowers bias and outperforms existing baselines, with transferable cognitive behavior rather than dataset-specific suppression, generalizing across tasks, models, scales, and bias dimensions. Our code and data is available here{\footnote{\url{https://github.com/chahatraj/DebiasItYourself}}}.
 \end{abstract}
 
 \section{Introduction}
