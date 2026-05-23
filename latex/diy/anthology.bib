@@ -1,8 +1,204 @@
-% Please download the latest anthology.bib from the following URL:
-%
-%     http://aclanthology.org/anthology.bib
-%
-% From the command line, this can be done with curl or wget. 
-%
-% If you are using Overleaf, go to "New File -> From External URL".
-% You will then be able to use it directly, and to periodically update it by clicking Overleaf's convenient "refresh" button.
+@inproceedings{nangia-etal-2020-crows,
+    title = "{C}row{S}-Pairs: A Challenge Dataset for Measuring Social Biases in Masked Language Models",
+    author = "Nangia, Nikita  and
+      Vania, Clara  and
+      Bhalerao, Rasika  and
+      Bowman, Samuel R.",
+    editor = "Webber, Bonnie  and
+      Cohn, Trevor  and
+      He, Yulan  and
+      Liu, Yang",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    month = nov,
+    year = "2020",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.emnlp-main.154/",
+    doi = "10.18653/v1/2020.emnlp-main.154",
+    abstract = "Pretrained language models, especially masked language models (MLMs) have seen success across many NLP tasks. However, there is ample evidence that they use the cultural biases that are undoubtedly present in the corpora they are trained on, implicitly creating harm with biased representations. To measure some forms of social bias in language models against protected demographic groups in the US, we introduce the Crowdsourced Stereotype Pairs benchmark (CrowS-Pairs). CrowS-Pairs has 1508 examples that cover stereotypes dealing with nine types of bias, like race, religion, and age. In CrowS-Pairs a model is presented with two sentences: one that is more stereotyping and another that is less stereotyping. The data focuses on stereotypes about historically disadvantaged groups and contrasts them with advantaged groups. We find that all three of the widely-used MLMs we evaluate substantially favor sentences that express stereotypes in every category in CrowS-Pairs. As work on building less biased models advances, this dataset can be used as a benchmark to evaluate progress."
+}
+
+@inproceedings{nadeem-etal-2021-stereoset,
+    title = "{S}tereo{S}et: Measuring stereotypical bias in pretrained language models",
+    author = "Nadeem, Moin  and
+      Bethke, Anna  and
+      Reddy, Siva",
+    editor = "Zong, Chengqing  and
+      Xia, Fei  and
+      Li, Wenjie  and
+      Navigli, Roberto",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.acl-long.416/",
+    doi = "10.18653/v1/2021.acl-long.416",
+    abstract = "A stereotype is an over-generalized belief about a particular group of people, e.g., Asians are good at math or African Americans are athletic. Such beliefs (biases) are known to hurt target groups. Since pretrained language models are trained on large real-world data, they are known to capture stereotypical biases. It is important to quantify to what extent these biases are present in them. Although this is a rapidly growing area of research, existing literature lacks in two important aspects: 1) they mainly evaluate bias of pretrained language models on a small set of artificial sentences, even though these models are trained on natural data 2) current evaluations focus on measuring bias without considering the language modeling ability of a model, which could lead to misleading trust on a model even if it is a poor language model. We address both these problems. We present StereoSet, a large-scale natural English dataset to measure stereotypical biases in four domains: gender, profession, race, and religion. We contrast both stereotypical bias and language modeling ability of popular models like BERT, GPT-2, RoBERTa, and XLnet. We show that these models exhibit strong stereotypical biases. Our data and code are available at \url{https://stereoset.mit.edu}."
+}
+
+@inproceedings{smith-etal-2022-im,
+    title = "{\textquotedblleft}{I}`m sorry to hear that{\textquotedblright}: Finding New Biases in Language Models with a Holistic Descriptor Dataset",
+    author = "Smith, Eric Michael  and
+      Hall, Melissa  and
+      Kambadur, Melanie  and
+      Presani, Eleonora  and
+      Williams, Adina",
+    editor = "Goldberg, Yoav  and
+      Kozareva, Zornitsa  and
+      Zhang, Yue",
+    booktitle = "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing",
+    month = dec,
+    year = "2022",
+    address = "Abu Dhabi, UAE",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.emnlp-main.625/",
+    doi = "10.18653/v1/2022.emnlp-main.625",
+    abstract = "As language models grow in popularity, it becomes increasingly important to clearly measure all possible markers of demographic identity in order to avoid perpetuating existing societal harms. Many datasets for measuring bias currently exist, but they are restricted in their coverage of demographic axes and are commonly used with preset bias tests that presuppose which types of biases models can exhibit. In this work, we present a new, more inclusive bias measurement dataset, HolisticBias, which includes nearly 600 descriptor terms across 13 different demographic axes. HolisticBias was assembled in a participatory process including experts and community members with lived experience of these terms. These descriptors combine with a set of bias measurement templates to produce over 450,000 unique sentence prompts, which we use to explore, identify, and reduce novel forms of bias in several generative models. We demonstrate that HolisticBias is effective at measuring previously undetectable biases in token likelihoods from language models, as well as in an offensiveness classifier. We will invite additions and amendments to the dataset, which we hope will serve as a basis for more easy-to-use and standardized methods for evaluating bias in NLP models."
+}
+
+@inproceedings{ruggeri-nozza-2023-multi,
+    title = "A Multi-dimensional study on Bias in Vision-Language models",
+    author = "Ruggeri, Gabriele  and
+      Nozza, Debora",
+    editor = "Rogers, Anna  and
+      Boyd-Graber, Jordan  and
+      Okazaki, Naoaki",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2023",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.findings-acl.403/",
+    doi = "10.18653/v1/2023.findings-acl.403",
+    pages = "6445--6455",
+    abstract = "In recent years, joint Vision-Language (VL) models have increased in popularity and capability. Very few studies have attempted to investigate bias in VL models, even though it is a well-known issue in both individual modalities. This paper presents the first multi-dimensional analysis of bias in English VL models, focusing on gender, ethnicity, and age as dimensions. When subjects are input as images, pre-trained VL models complete a neutral template with a hurtful word 5{\%} of the time, with higher percentages for female and young subjects. Bias presence in downstream models has been tested on Visual Question Answering. We developed a novel bias metric called the Vision-Language Association Test based on questions designed to elicit biased associations between stereotypical concepts and targets. Our findings demonstrate that pre-trained VL models contain biases that are perpetuated in downstream tasks."
+}
+
+@inproceedings{ross-etal-2021-measuring,
+    title = "Measuring Social Biases in Grounded Vision and Language Embeddings",
+    author = "Ross, Candace  and
+      Katz, Boris  and
+      Barbu, Andrei",
+    editor = "Toutanova, Kristina  and
+      Rumshisky, Anna  and
+      Zettlemoyer, Luke  and
+      Hakkani-Tur, Dilek  and
+      Beltagy, Iz  and
+      Bethard, Steven  and
+      Cotterell, Ryan  and
+      Chakraborty, Tanmoy  and
+      Zhou, Yichao",
+    booktitle = "Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+    month = jun,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.naacl-main.78/",
+    doi = "10.18653/v1/2021.naacl-main.78",
+    pages = "998--1008",
+    abstract = "We generalize the notion of measuring social biases in word embeddings to visually grounded word embeddings. Biases are present in grounded embeddings, and indeed seem to be equally or more significant than for ungrounded embeddings. This is despite the fact that vision and language can suffer from different biases, which one might hope could attenuate the biases in both. Multiple ways exist to generalize metrics measuring bias in word embeddings to this new setting. We introduce the space of generalizations (Grounded-WEAT and Grounded-SEAT) and demonstrate that three generalizations answer different yet important questions about how biases, language, and vision interact. These metrics are used on a new dataset, the first for grounded bias, created by augmenting standard linguistic bias benchmarks with 10,228 images from COCO, Conceptual Captions, and Google Images. Dataset construction is challenging because vision datasets are themselves very biased. The presence of these biases in systems will begin to have real-world consequences as they are deployed, making carefully measuring bias and then mitigating it critical to building a fair society."
+}
+
+@inproceedings{sathe-etal-2024-unified,
+    title = "A Unified Framework and Dataset for Assessing Societal Bias in Vision-Language Models",
+    author = "Sathe, Ashutosh  and
+      Jain, Prachi  and
+      Sitaram, Sunayana",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2024",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-emnlp.66/",
+    doi = "10.18653/v1/2024.findings-emnlp.66",
+    abstract = "Vision-language models (VLMs) have gained widespread adoption in both industry and academia. In this study, we propose a unified framework for systematically evaluating gender, race, and age biases in VLMs with respect to professions. Our evaluation encompasses all supported inference modes of the recent VLMs, including image-to-text, text-to-text, text-to-image, and image-to-image. We create a synthetic, high-quality dataset comprising text and images that intentionally obscure gender, race, and age distinctions across various professions. The dataset includes action-based descriptions of each profession and serves as a benchmark for evaluating societal biases in vision-language models (VLMs). In our benchmarking of popular vision-language models (VLMs), we observe that different input-output modalities result in distinct bias magnitudes and directions. We hope our work will help guide future progress in improving VLMs to learn socially unbiased representations. We will release our data and code."
+}
+
+@inproceedings{zhao-etal-2018-gender,
+    title = "Gender Bias in Coreference Resolution: Evaluation and Debiasing Methods",
+    author = "Zhao, Jieyu  and
+      Wang, Tianlu  and
+      Yatskar, Mark  and
+      Ordonez, Vicente  and
+      Chang, Kai-Wei",
+    editor = "Walker, Marilyn  and
+      Ji, Heng  and
+      Stent, Amanda",
+    booktitle = "Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers)",
+    month = jun,
+    year = "2018",
+    address = "New Orleans, Louisiana",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/N18-2003/",
+    doi = "10.18653/v1/N18-2003",
+    pages = "15--20",
+    abstract = "In this paper, we introduce a new benchmark for co-reference resolution focused on gender bias, WinoBias. Our corpus contains Winograd-schema style sentences with entities corresponding to people referred by their occupation (e.g. the nurse, the doctor, the carpenter). We demonstrate that a rule-based, a feature-rich, and a neural coreference system all link gendered pronouns to pro-stereotypical entities with higher accuracy than anti-stereotypical entities, by an average difference of 21.1 in F1 score. Finally, we demonstrate a data-augmentation approach that, in combination with existing word-embedding debiasing techniques, removes the bias demonstrated by these systems in WinoBias without significantly affecting their performance on existing datasets."
+}
+
+@inproceedings{jiang-etal-2024-modscan,
+    title = "$\texttt{ModSCAN}$: Measuring Stereotypical Bias in Large Vision-Language Models from Vision and Language Modalities",
+    author = "Jiang, Yukun  and
+      Li, Zheng  and
+      Shen, Xinyue  and
+      Liu, Yugeng  and
+      Backes, Michael  and
+      Zhang, Yang",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.emnlp-main.713/",
+    doi = "10.18653/v1/2024.emnlp-main.713"
+}
+
+@inproceedings{zhou-etal-2022-vlstereoset,
+    title = "{VLS}tereo{S}et: A Study of Stereotypical Bias in Pre-trained Vision-Language Models",
+    author = "Zhou, Kankan  and
+      Lai, Eason  and
+      Jiang, Jing",
+    editor = "He, Yulan  and
+      Ji, Heng  and
+      Li, Sujian  and
+      Liu, Yang  and
+      Chang, Chua-Hui",
+    booktitle = "Proceedings of the 2nd Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 12th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    month = nov,
+    year = "2022",
+    address = "Online only",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.aacl-main.40/",
+    doi = "10.18653/v1/2022.aacl-main.40",
+    pages = "527--538",
+    abstract = "In this paper we study how to measure stereotypical bias in pre-trained vision-language models. We leverage a recently released text-only dataset, StereoSet, which covers a wide range of stereotypical bias, and extend it into a vision-language probing dataset called VLStereoSet to measure stereotypical bias in vision-language models. We analyze the differences between text and image and propose a probing task that detects bias by evaluating a model`s tendency to pick stereotypical statements as captions for anti-stereotypical images. We further define several metrics to measure both a vision-language model`s overall stereotypical bias and its intra-modal and inter-modal bias. Experiments on six representative pre-trained vision-language models demonstrate that stereotypical biases clearly exist in most of these models and across all four bias categories, with gender bias slightly more evident. Further analysis using gender bias data and two vision-language models also suggest that both intra-modal and inter-modal bias exist."
+}
+
+
+@inproceedings{mukherjee2025crossroads,
+  title={Crossroads of continents: Automated artifact extraction for cultural adaptation with large multimodal models},
+  author={Mukherjee, Anjishnu and Zhu, Ziwei and Anastasopoulos, Antonios},
+  booktitle={2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  pages={1755--1764},
+  year={2025},
+  organization={IEEE}
+}
+
+@article{wang2024vlbiasbench,
+  title={Vlbiasbench: A comprehensive benchmark for evaluating bias in large vision-language model},
+  author={Wang, Sibo and Cao, Xiangkui and Zhang, Jie and Yuan, Zheng and Shan, Shiguang and Chen, Xilin and Gao, Wen},
+  journal={arXiv preprint arXiv:2406.14194},
+  year={2024}
+}
+
+@article{huang2025visbias,
+  title={VisBias: Measuring Explicit and Implicit Social Biases in Vision Language Models},
+  author={Huang, Jen-tse and Qin, Jiantong and Zhang, Jianping and Yuan, Youliang and Wang, Wenxuan and Zhao, Jieyu},
+  journal={arXiv preprint arXiv:2503.07575},
+  year={2025}
+}
