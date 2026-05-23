@@ -1,0 +1,2 @@
+model,benchmark,dimension,n_raw_rows,n_paired_rows,pairing_coverage,delta_positional_error,epsilon_attributive_error,mu_bias_intensity,eta_bias_intensity
+lftf_addl_baseline_remaining_20260309_154403,unqover,race,2500,14,0.0056315366049879325,0.2077444847744044,0.3339148034295048,0.19469772850226225,1.0

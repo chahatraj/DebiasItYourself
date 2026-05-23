@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5083333333333333,llama_8b_selfdebiasing_explanation,winogender
+male,240,0.5416666666666666,llama_8b_selfdebiasing_explanation,winogender
+neutral,240,0.5541666666666667,llama_8b_selfdebiasing_explanation,winogender

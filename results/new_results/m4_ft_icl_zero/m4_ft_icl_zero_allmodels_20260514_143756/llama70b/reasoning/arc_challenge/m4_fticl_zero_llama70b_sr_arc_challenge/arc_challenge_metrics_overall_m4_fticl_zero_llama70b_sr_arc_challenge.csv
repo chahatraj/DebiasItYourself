@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_fticl_zero_llama70b_sr_arc_challenge,arc_challenge,test,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,1172,0.8481228668941979,strategy,stereotype_replacement,v2,zero

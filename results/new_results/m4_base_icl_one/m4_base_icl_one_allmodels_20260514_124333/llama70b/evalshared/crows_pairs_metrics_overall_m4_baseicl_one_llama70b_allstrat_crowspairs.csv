@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_baseicl_one_llama70b_allstrat_crowspairs,1508,25.0,26.9,13.76,1015,67.31,1290,218,25.0,,,strategy,all_strategies,v2,one

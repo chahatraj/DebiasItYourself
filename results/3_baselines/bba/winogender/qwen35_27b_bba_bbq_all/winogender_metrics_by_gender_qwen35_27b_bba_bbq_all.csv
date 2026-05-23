@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.85,qwen35_27b_bba_bbq_all,winogender
+male,240,0.8625,qwen35_27b_bba_bbq_all,winogender
+neutral,240,0.9375,qwen35_27b_bba_bbq_all,winogender

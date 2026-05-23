@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+pilot_l8b_same_base_m6_all_strategies_self_debias_two_pass_all_strategies,winobias,200,0.53,0.56,0.5,0.06000000000000005,0.06000000000000005

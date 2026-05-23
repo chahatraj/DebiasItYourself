@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type
+qwen35_27b_dpo_crowspairs_all,87,67.82,68.49,64.29,0,0.0,73,14,67.82,,,age
+qwen35_27b_dpo_crowspairs_all,60,68.33,70.18,33.33,0,0.0,57,3,68.33,,,disability
+qwen35_27b_dpo_crowspairs_all,262,60.69,66.04,52.43,1,0.38,159,103,60.69,,,gender
+qwen35_27b_dpo_crowspairs_all,159,54.09,54.05,54.55,1,0.63,148,11,54.09,,,nationality
+qwen35_27b_dpo_crowspairs_all,63,74.6,80.77,45.45,0,0.0,52,11,74.6,,,physical-appearance
+qwen35_27b_dpo_crowspairs_all,516,62.6,64.48,41.86,4,0.78,473,43,62.6,,,race-color
+qwen35_27b_dpo_crowspairs_all,105,69.52,70.71,50.0,1,0.95,99,6,69.52,,,religion
+qwen35_27b_dpo_crowspairs_all,84,75.0,77.78,58.33,0,0.0,72,12,75.0,,,sexual-orientation
+qwen35_27b_dpo_crowspairs_all,172,71.51,72.61,60.0,0,0.0,157,15,71.51,,,socioeconomic

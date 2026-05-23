@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+llama70b_plain_base_crowspairs,87,70.11,75.34,42.86,0,0.0,73,14,70.11,,,age,off,,v1,zero
+llama70b_plain_base_crowspairs,60,73.33,75.44,33.33,1,1.67,57,3,73.33,,,disability,off,,v1,zero
+llama70b_plain_base_crowspairs,262,60.69,65.41,53.4,2,0.76,159,103,60.69,,,gender,off,,v1,zero
+llama70b_plain_base_crowspairs,159,64.15,64.19,63.64,2,1.26,148,11,64.15,,,nationality,off,,v1,zero
+llama70b_plain_base_crowspairs,63,79.37,84.62,54.55,0,0.0,52,11,79.37,,,physical-appearance,off,,v1,zero
+llama70b_plain_base_crowspairs,516,60.66,62.58,39.53,8,1.55,473,43,60.66,,,race-color,off,,v1,zero
+llama70b_plain_base_crowspairs,105,73.33,74.75,50.0,0,0.0,99,6,73.33,,,religion,off,,v1,zero
+llama70b_plain_base_crowspairs,84,73.81,75.0,66.67,1,1.19,72,12,73.81,,,sexual-orientation,off,,v1,zero
+llama70b_plain_base_crowspairs,172,75.0,77.07,53.33,1,0.58,157,15,75.0,,,socioeconomic,off,,v1,zero

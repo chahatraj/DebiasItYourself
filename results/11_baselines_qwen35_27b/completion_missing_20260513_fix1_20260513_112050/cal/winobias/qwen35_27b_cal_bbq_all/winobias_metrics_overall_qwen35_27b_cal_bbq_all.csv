@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+qwen35_27b_cal_bbq_all,winobias,1584,0.8863636363636364,0.9343434343434344,0.8383838383838383,0.09595959595959602,0.09595959595959602

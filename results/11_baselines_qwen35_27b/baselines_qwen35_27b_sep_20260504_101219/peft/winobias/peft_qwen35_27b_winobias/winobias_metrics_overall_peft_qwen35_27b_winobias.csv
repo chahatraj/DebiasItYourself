@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+peft_qwen35_27b_winobias,winobias,1584,0.2676767676767677,0.2727272727272727,0.26262626262626265,0.010101010101010055,0.010101010101010055

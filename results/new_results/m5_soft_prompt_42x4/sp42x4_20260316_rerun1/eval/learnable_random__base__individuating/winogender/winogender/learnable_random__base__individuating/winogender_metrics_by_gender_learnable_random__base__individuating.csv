@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.65,learnable_random__base__individuating,winogender
+male,240,0.625,learnable_random__base__individuating,winogender
+neutral,240,0.6083333333333333,learnable_random__base__individuating,winogender

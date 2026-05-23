@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+fixed__base__counter_imaging,87,70.11,73.97,50.0,2,2.3,73,14,70.11,,,age,counter_imaging
+fixed__base__counter_imaging,60,65.0,66.67,33.33,0,0.0,57,3,65.0,,,disability,counter_imaging
+fixed__base__counter_imaging,262,63.36,62.26,65.05,1,0.38,159,103,63.36,,,gender,counter_imaging
+fixed__base__counter_imaging,159,57.86,56.76,72.73,1,0.63,148,11,57.86,,,nationality,counter_imaging
+fixed__base__counter_imaging,63,71.43,71.15,72.73,0,0.0,52,11,71.43,,,physical-appearance,counter_imaging
+fixed__base__counter_imaging,516,56.4,56.03,60.47,3,0.58,473,43,56.4,,,race-color,counter_imaging
+fixed__base__counter_imaging,105,75.24,74.75,83.33,0,0.0,99,6,75.24,,,religion,counter_imaging
+fixed__base__counter_imaging,84,82.14,84.72,66.67,1,1.19,72,12,82.14,,,sexual-orientation,counter_imaging
+fixed__base__counter_imaging,172,70.93,71.97,60.0,0,0.0,157,15,70.93,,,socioeconomic,counter_imaging

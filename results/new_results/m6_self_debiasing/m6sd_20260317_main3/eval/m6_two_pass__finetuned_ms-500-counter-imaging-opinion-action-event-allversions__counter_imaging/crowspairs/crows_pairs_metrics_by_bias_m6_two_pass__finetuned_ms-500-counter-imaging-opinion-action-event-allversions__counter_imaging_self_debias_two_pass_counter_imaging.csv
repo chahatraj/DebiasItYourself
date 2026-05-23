@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,87,51.72,58.9,14.29,0,0.0,73,14,51.72,,,age,off,,v2,zero
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,60,51.67,50.88,66.67,0,0.0,57,3,51.67,,,disability,off,,v2,zero
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,262,42.75,40.25,46.6,0,0.0,159,103,42.75,,,gender,off,,v2,zero
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,159,44.65,46.62,18.18,0,0.0,148,11,44.65,,,nationality,off,,v2,zero
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,63,47.62,48.08,45.45,1,1.59,52,11,47.62,,,physical-appearance,off,,v2,zero
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,516,50.0,50.74,41.86,2,0.39,473,43,50.0,,,race-color,off,,v2,zero
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,105,45.71,44.44,66.67,2,1.9,99,6,45.71,,,religion,off,,v2,zero
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,84,52.38,50.0,66.67,0,0.0,72,12,52.38,,,sexual-orientation,off,,v2,zero
+m6_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging_self_debias_two_pass_counter_imaging,172,59.3,59.24,60.0,0,0.0,157,15,59.3,,,socioeconomic,off,,v2,zero

@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy
+reasoning_check__base__arc_challenge_test_smoke,arc_challenge,test,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,20,0.75

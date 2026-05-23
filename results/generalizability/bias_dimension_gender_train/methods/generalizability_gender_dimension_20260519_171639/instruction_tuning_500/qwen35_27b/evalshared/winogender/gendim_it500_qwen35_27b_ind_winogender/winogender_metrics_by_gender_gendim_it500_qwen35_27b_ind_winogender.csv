@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.8916666666666667,gendim_it500_qwen35_27b_ind_winogender,winogender
+male,240,0.9166666666666666,gendim_it500_qwen35_27b_ind_winogender,winogender
+neutral,240,0.9625,gendim_it500_qwen35_27b_ind_winogender,winogender

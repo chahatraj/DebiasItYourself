@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+gendim_icl_noft_one_llama8b_pt_bbq:gendim_icl_noft_one_llama8b_pt_bbq_instr_perspective_taking_ALL,0.392,0.313,0.472,1.226,3.779,58476,29238,29238,bbq_preds_gendim_icl_noft_one_llama8b_pt_bbq_instr_perspective_taking_ALL.csv

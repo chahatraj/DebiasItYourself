@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.8005050505050505,qwen35_27b_reduce_social_bias_system2,winobias
+type1,pro,396,0.9267676767676768,qwen35_27b_reduce_social_bias_system2,winobias
+type2,anti,396,0.9696969696969697,qwen35_27b_reduce_social_bias_system2,winobias
+type2,pro,396,0.9924242424242424,qwen35_27b_reduce_social_bias_system2,winobias

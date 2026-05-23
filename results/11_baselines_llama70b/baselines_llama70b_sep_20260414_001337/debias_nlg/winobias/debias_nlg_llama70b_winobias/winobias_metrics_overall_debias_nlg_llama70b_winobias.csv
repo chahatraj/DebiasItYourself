@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+debias_nlg_llama70b_winobias,winobias,1584,0.8882575757575758,0.9558080808080808,0.8207070707070707,0.13510101010101006,0.13510101010101006

@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.525,learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winogender
+male,240,0.5083333333333333,learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winogender
+neutral,240,0.5083333333333333,learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winogender

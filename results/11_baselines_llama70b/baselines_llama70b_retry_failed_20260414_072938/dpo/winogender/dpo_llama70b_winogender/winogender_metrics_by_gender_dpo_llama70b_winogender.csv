@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.8541666666666666,dpo_llama70b_winogender,winogender
+male,240,0.8416666666666667,dpo_llama70b_winogender,winogender
+neutral,240,0.8333333333333334,dpo_llama70b_winogender,winogender

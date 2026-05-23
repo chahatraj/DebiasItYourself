@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm
+llama_8b_debias_llms_crowspairs_all,1508,39.06,39.15,38.53,34,2.25,1290,218,39.06,,

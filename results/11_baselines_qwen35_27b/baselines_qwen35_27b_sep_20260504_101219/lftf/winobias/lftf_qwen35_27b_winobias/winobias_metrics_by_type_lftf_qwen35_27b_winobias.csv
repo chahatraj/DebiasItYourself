@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.7146464646464646,lftf_qwen35_27b_winobias,winobias
+type1,pro,396,0.8005050505050505,lftf_qwen35_27b_winobias,winobias
+type2,anti,396,0.7651515151515151,lftf_qwen35_27b_winobias,winobias
+type2,pro,396,0.8813131313131313,lftf_qwen35_27b_winobias,winobias

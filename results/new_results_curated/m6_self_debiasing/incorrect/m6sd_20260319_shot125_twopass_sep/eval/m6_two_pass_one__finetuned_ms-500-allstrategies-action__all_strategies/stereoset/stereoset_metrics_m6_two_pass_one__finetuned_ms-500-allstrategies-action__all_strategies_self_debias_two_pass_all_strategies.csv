@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intrasentence,gender,765.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intrasentence,profession,2430.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intrasentence,race,2886.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intrasentence,religion,237.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intrasentence,overall,2106.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intersentence,gender,726.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intersentence,profession,2481.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intersentence,race,2928.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intersentence,religion,234.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,intersentence,overall,2123.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_two_pass_all_strategies,overall,overall,4229.0,0.0,0.0,0.0,off,,v2,zero

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+llama_8b_reduce_social_bias_hp_system2_cot_debias,winobias,1584,0.5928030303030303,0.6679292929292929,0.5176767676767676,0.1502525252525253,0.1502525252525253

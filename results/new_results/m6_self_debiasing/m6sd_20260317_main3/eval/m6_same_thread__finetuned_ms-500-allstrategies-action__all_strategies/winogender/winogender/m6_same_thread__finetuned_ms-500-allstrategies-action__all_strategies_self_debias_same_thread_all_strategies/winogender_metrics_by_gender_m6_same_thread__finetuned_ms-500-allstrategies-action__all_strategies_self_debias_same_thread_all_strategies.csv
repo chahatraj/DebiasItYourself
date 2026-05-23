@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5,m6_same_thread__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_same_thread_all_strategies,winogender
+male,240,0.5,m6_same_thread__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_same_thread_all_strategies,winogender
+neutral,240,0.5,m6_same_thread__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_same_thread_all_strategies,winogender

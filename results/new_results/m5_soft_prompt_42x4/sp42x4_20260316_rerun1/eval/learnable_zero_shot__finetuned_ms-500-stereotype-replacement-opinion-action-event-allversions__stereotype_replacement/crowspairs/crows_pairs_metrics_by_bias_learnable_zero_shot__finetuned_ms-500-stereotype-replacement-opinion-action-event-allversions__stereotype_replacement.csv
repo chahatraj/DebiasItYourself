@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,87,78.16,84.93,42.86,0,0.0,73,14,78.16,,,age,stereotype_replacement
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,60,76.67,78.95,33.33,0,0.0,57,3,76.67,,,disability,stereotype_replacement
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,262,64.12,71.07,53.4,1,0.38,159,103,64.12,,,gender,stereotype_replacement
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,159,56.6,55.41,72.73,1,0.63,148,11,56.6,,,nationality,stereotype_replacement
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,63,66.67,69.23,54.55,1,1.59,52,11,66.67,,,physical-appearance,stereotype_replacement
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,516,56.2,55.18,67.44,2,0.39,473,43,56.2,,,race-color,stereotype_replacement
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,105,68.57,68.69,66.67,0,0.0,99,6,68.57,,,religion,stereotype_replacement
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,84,82.14,83.33,75.0,0,0.0,72,12,82.14,,,sexual-orientation,stereotype_replacement
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,172,69.19,70.06,60.0,0,0.0,157,15,69.19,,,socioeconomic,stereotype_replacement

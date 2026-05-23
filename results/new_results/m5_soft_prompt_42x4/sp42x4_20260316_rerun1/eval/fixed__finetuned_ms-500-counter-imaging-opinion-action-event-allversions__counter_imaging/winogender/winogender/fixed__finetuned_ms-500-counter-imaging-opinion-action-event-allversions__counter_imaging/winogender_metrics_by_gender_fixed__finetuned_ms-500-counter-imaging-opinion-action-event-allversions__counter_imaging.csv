@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.65,fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winogender
+male,240,0.675,fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winogender
+neutral,240,0.6,fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winogender

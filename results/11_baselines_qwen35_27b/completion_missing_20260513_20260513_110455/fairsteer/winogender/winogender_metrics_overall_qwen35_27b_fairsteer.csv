@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+llama_8b_fairsteer_steered,winogender,720,0.725,0.7375,0.0625,6.25

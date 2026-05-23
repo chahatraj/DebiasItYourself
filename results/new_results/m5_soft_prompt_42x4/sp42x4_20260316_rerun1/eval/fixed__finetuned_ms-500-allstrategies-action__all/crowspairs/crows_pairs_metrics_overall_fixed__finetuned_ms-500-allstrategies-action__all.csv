@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+fixed__finetuned_ms-500-allstrategies-action__all,1508,64.06,65.81,53.67,18,1.19,1290,218,64.06,,,all

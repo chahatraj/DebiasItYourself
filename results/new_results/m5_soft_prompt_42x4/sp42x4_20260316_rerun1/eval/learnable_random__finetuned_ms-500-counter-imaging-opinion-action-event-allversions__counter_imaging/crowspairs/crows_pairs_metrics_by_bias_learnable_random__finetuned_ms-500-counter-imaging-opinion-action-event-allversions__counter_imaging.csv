@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,87,72.41,73.97,64.29,1,1.15,73,14,72.41,,,age,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,60,61.67,63.16,33.33,1,1.67,57,3,61.67,,,disability,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,262,62.6,63.52,61.17,0,0.0,159,103,62.6,,,gender,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,159,58.49,57.43,72.73,3,1.89,148,11,58.49,,,nationality,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,63,63.49,59.62,81.82,1,1.59,52,11,63.49,,,physical-appearance,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,516,54.46,53.49,65.12,9,1.74,473,43,54.46,,,race-color,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,105,62.86,62.63,66.67,3,2.86,99,6,62.86,,,religion,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,84,84.52,87.5,66.67,0,0.0,72,12,84.52,,,sexual-orientation,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,172,63.37,63.69,60.0,0,0.0,157,15,63.37,,,socioeconomic,counter_imaging

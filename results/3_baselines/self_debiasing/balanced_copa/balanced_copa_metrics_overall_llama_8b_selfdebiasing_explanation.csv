@@ -1,0 +1,2 @@
+model,benchmark,source_file,n,accuracy,accuracy_cause,accuracy_effect
+llama_8b_selfdebiasing_explanation,balanced_copa,/scratch/craj/diy/data/balanced_copa/balanced-copa-dev-all.xml,1000,0.668,0.654,0.682

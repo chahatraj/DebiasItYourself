@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+gendim_icl_it_zero_qwen35_27b_pt_crowspairs,1508,63.59,66.51,46.33,201,13.33,1290,218,63.59,,,strategy,perspective_taking,v2,zero

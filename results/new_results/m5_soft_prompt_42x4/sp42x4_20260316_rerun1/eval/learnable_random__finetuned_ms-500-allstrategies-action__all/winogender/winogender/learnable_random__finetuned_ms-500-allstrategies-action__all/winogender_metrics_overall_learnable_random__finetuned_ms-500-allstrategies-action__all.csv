@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+learnable_random__finetuned_ms-500-allstrategies-action__all,winogender,720,0.6305555555555555,0.5458333333333333,0.25833333333333336,25.833333333333332

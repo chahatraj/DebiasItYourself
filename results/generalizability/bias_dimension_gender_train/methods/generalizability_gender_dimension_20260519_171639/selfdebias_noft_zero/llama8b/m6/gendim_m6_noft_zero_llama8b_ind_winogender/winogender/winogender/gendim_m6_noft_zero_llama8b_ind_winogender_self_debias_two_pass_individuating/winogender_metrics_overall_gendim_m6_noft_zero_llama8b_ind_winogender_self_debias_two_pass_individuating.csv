@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+gendim_m6_noft_zero_llama8b_ind_winogender_self_debias_two_pass_individuating,winogender,720,0.6222222222222222,0.5625,0.16666666666666666,16.666666666666668

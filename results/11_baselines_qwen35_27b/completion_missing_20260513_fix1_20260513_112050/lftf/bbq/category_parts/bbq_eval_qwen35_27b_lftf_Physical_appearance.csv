@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Category
+Physical_appearance,0.334,0.338,0.331,0.0,0.0,1576,788,788,Physical_appearance

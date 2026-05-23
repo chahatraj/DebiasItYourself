@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.73989898989899,dpo_qwen35_27b_winobias,winobias
+type1,pro,396,0.8156565656565656,dpo_qwen35_27b_winobias,winobias
+type2,anti,396,0.8207070707070707,dpo_qwen35_27b_winobias,winobias
+type2,pro,396,0.9191919191919192,dpo_qwen35_27b_winobias,winobias

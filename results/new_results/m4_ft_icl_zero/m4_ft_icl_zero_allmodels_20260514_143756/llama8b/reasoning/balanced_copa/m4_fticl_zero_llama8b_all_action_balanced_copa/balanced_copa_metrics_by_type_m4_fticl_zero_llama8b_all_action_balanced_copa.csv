@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.654,m4_fticl_zero_llama8b_all_action_balanced_copa,balanced_copa
+effect,500,0.724,m4_fticl_zero_llama8b_all_action_balanced_copa,balanced_copa

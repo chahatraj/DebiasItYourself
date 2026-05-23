@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+qwen35_27b_reduce_social_bias_system2,winobias,1584,0.9223484848484849,0.9595959595959596,0.88510101010101,0.0744949494949495,0.0744949494949495

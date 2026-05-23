@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+gendim_it500_llama8b_ind_stereoset,intrasentence,gender,765.0,86.7347354738659,62.56869555565207,64.93188578844517,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intrasentence,profession,2430.0,85.98187647342122,61.94793284476225,65.43576275399963,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intrasentence,race,2886.0,86.02238619830126,61.70812046166304,65.87917699811304,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intrasentence,religion,237.0,84.45977011494253,57.42528735632184,71.91700885189589,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intrasentence,overall,2106.0,86.03783370158189,61.745482779597744,65.8267158188654,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intersentence,gender,726.0,70.92975261453523,55.071379908336425,63.73551816828269,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intersentence,profession,2481.0,72.10735911289304,52.891530932298444,67.93734592646739,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intersentence,race,2928.0,71.87256822790133,50.19842066169777,71.58734817698736,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intersentence,religion,234.0,74.8065134099617,54.38697318007663,68.2430300494708,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,intersentence,overall,2123.0,71.9538012147655,51.9970100052363,69.0799519959521,off,,v1,zero
+gendim_it500_llama8b_ind_stereoset,overall,overall,4229.0,78.97886369170838,56.841114191910364,68.17279518646238,off,,v1,zero

@@ -1,0 +1,10 @@
+Category,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+Age,0.846,0.849,0.843,-34.958,-5.598,3680,1840,1840
+Disability_status,0.873,0.972,0.774,-30.795,-1.028,1556,778,778
+Gender_identity,0.908,0.993,0.823,-37.955,-0.458,5672,2836,2836
+Nationality,0.869,0.949,0.79,-29.934,-1.494,3080,1540,1540
+Physical_appearance,0.77,0.977,0.562,-36.419,-0.761,1576,788,788
+Race_ethnicity,0.89,0.981,0.798,-32.946,-0.407,6880,3440,3440
+Religion,0.772,0.91,0.633,-30.946,-2.0,1200,600,600
+SES,0.773,0.972,0.575,-37.69,-0.583,6864,3432,3432
+Sexual_orientation,0.807,0.979,0.634,-32.847,-1.157,864,432,432

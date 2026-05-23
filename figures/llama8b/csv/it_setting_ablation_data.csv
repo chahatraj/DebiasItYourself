@@ -1,0 +1,17 @@
+overall_rank,trial,label,loss_mode,learning_rate,lora_r,lora_alpha,epochs,eval_loss,mean_normalized_bias_error,num_best_metrics,crows_stereotype_preference_pct,crows_error,bbq_bias_ambig,bbq_ambig_error,bbq_bias_disambig,bbq_disambig_error,bbq_accuracy,bbq_accuracy_ambig,bbq_accuracy_disambig,bbq_metric_source,winobias_accuracy,winobias_gap
+1,mask_lr1e4_r64_e3,"Resp. only
+lr=1e-4, r=64, e=3",response_only,1e-4,64,128,3,0.9921624064445496,9.54125,2,66.0,16.0,14.0,14.0,7.895,7.895,0.465,0.34,0.59,results/new_results/it_ablation_llama8b_small_20260506_bbq_stratified200_fix/bbq/bbq_metrics_ittrial_l8b_mask_lr1e4_r64_e3_bbq_strat200.csv,0.765,0.27
+2,mask_lr5e5_r256_e3,"Resp. only
+lr=5e-5, r=256, e=3",response_only,5e-5,256,256,3,0.9904385209083557,10.340250000000001,1,66.0,16.0,16.0,16.0,9.091,9.091,0.47,0.34,0.6,results/new_results/it_ablation_llama8b_small_20260506_bbq_stratified200_fix/bbq/bbq_metrics_ittrial_l8b_mask_lr5e5_r256_e3_bbq_strat200.csv,0.765,0.27
+3,control_full_lr2e4_r256_e3,"Full seq.
+lr=2e-4, r=256, e=3",full_sequence,2e-4,256,256,3,0.7174205780029297,10.492,1,63.5,13.5,15.0,15.0,13.158,13.158,0.465,0.35,0.58,results/new_results/it_ablation_llama8b_small_20260506_bbq_stratified200_fix/bbq/bbq_metrics_ittrial_l8b_control_full_lr2e4_r256_e3_bbq_strat200.csv,0.765,0.31000000000000005
+4,mask_lr1e4_r256_e3,"Resp. only
+lr=1e-4, r=256, e=3",response_only,1e-4,256,256,3,1.0497808456420898,10.7015,0,66.0,16.0,16.0,16.0,10.526,10.526,0.46,0.34,0.58,results/new_results/it_ablation_llama8b_small_20260506_bbq_stratified200_fix/bbq/bbq_metrics_ittrial_l8b_mask_lr1e4_r256_e3_bbq_strat200.csv,0.77,0.28
+5,mask_lr1e4_r128_e2,"Resp. only
+lr=1e-4, r=128, e=2",response_only,1e-4,128,256,2,0.9871397018432617,10.742,0,64.0,14.0,17.0,17.0,11.688,11.688,0.47,0.35,0.59,results/new_results/it_ablation_llama8b_small_20260506_bbq_stratified200_fix/bbq/bbq_metrics_ittrial_l8b_mask_lr1e4_r128_e2_bbq_strat200.csv,0.77,0.28
+6,mask_lr1e4_r128_e3,"Resp. only
+lr=1e-4, r=128, e=3",response_only,1e-4,128,256,3,1.0559852123260498,10.742,0,65.0,15.0,16.0,16.0,11.688,11.688,0.465,0.34,0.59,results/new_results/it_ablation_llama8b_small_20260506_bbq_stratified200_fix/bbq/bbq_metrics_ittrial_l8b_mask_lr1e4_r128_e3_bbq_strat200.csv,0.77,0.28
+7,mask_lr2e4_r256_e3,"Resp. only
+lr=2e-4, r=256, e=3",response_only,2e-4,256,256,3,1.1408802270889282,10.98675,1,66.0,16.0,13.0,13.0,14.667,14.667,0.475,0.37,0.58,results/new_results/it_ablation_llama8b_small_20260506_bbq_stratified200_fix/bbq/bbq_metrics_ittrial_l8b_mask_lr2e4_r256_e3_bbq_strat200.csv,0.78,0.28
+8,mask_lr1e4_r128_e1,"Resp. only
+lr=1e-4, r=128, e=1",response_only,1e-4,128,256,1,0.9800882339477539,11.242,0,64.0,14.0,19.0,19.0,11.688,11.688,0.47,0.35,0.59,results/new_results/it_ablation_llama8b_small_20260506_bbq_stratified200_fix/bbq/bbq_metrics_ittrial_l8b_mask_lr1e4_r128_e1_bbq_strat200.csv,0.76,0.28

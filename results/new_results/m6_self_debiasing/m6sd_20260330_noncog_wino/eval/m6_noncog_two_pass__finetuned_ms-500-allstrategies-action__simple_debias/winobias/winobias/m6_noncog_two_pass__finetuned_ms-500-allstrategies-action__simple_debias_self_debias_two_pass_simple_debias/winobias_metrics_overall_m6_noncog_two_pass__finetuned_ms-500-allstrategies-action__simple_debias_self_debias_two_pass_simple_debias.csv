@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_noncog_two_pass__finetuned_ms-500-allstrategies-action__simple_debias_self_debias_two_pass_simple_debias,winobias,1584,0.538510101010101,0.5921717171717171,0.48484848484848486,0.10732323232323226,0.10732323232323226

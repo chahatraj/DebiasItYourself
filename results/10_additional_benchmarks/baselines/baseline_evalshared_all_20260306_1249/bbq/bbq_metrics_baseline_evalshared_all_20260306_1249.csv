@@ -1,0 +1,11 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+llama_8b:llama_8b_Age,0.447,0.206,0.689,4.38,22.663,3680,1840,1840,bbq_preds_llama_8b_Age.csv
+llama_8b:llama_8b_Disability_status,0.391,0.158,0.623,4.264,0.386,1556,778,778,bbq_preds_llama_8b_Disability_status.csv
+llama_8b:llama_8b_Gender_identity,0.516,0.952,0.08,-9.408,0.0,5720,2860,2860,bbq_preds_llama_8b_Gender_identity.csv
+llama_8b:llama_8b_Nationality,0.528,0.331,0.725,6.519,12.468,3080,1540,1540,bbq_preds_llama_8b_Nationality.csv
+llama_8b:llama_8b_Physical_appearance,0.435,0.223,0.646,6.213,23.604,1576,788,788,bbq_preds_llama_8b_Physical_appearance.csv
+llama_8b:llama_8b_Race_ethnicity,0.513,0.56,0.466,0.995,2.616,6880,3440,3440,bbq_preds_llama_8b_Race_ethnicity.csv
+llama_8b:llama_8b_Religion,0.596,0.555,0.637,8.428,13.5,1200,600,600,bbq_preds_llama_8b_Religion.csv
+llama_8b:llama_8b_SES,0.528,0.541,0.516,1.81,5.128,6864,3432,3432,bbq_preds_llama_8b_SES.csv
+llama_8b:llama_8b_Sexual_orientation,0.62,0.556,0.685,-0.935,3.704,864,432,432,bbq_preds_llama_8b_Sexual_orientation.csv
+llama_8b,0.507,0.526,0.487,3.047,7.39,31420,15710,15710,__overall__

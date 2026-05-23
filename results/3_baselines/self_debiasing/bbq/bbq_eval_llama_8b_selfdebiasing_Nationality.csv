@@ -1,0 +1,4 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Method,Category
+Nationality,0.51,0.51,,,10.909,1540,1540,0,baseline,Nationality
+Nationality,0.938,0.938,,,1.688,1540,1540,0,explanation,Nationality
+Nationality,0.579,0.579,,,8.247,1540,1540,0,reprompting,Nationality

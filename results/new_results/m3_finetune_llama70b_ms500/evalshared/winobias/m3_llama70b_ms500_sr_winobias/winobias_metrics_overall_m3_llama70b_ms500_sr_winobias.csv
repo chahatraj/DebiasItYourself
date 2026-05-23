@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m3_llama70b_ms500_sr_winobias,winobias,1584,0.8901515151515151,0.9570707070707071,0.8232323232323232,0.13383838383838387,0.13383838383838387

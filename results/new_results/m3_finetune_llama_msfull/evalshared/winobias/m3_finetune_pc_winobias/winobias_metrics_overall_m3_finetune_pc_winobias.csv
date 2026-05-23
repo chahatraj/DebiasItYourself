@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m3_finetune_pc_winobias,winobias,1584,0.7582070707070707,0.8863636363636364,0.6300505050505051,0.25631313131313127,0.25631313131313127

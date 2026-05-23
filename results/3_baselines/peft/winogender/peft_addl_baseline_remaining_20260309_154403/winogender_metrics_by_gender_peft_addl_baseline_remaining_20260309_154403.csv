@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6,peft_addl_baseline_remaining_20260309_154403,winogender
+male,240,0.5958333333333333,peft_addl_baseline_remaining_20260309_154403,winogender
+neutral,240,0.5666666666666667,peft_addl_baseline_remaining_20260309_154403,winogender

@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,gender,765.0,88.29210660515008,63.057104891887505,65.23532066376691,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,profession,2430.0,88.50483726739341,58.10718978331019,74.15432701803856,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,race,2886.0,89.38777486355042,62.12066392034069,67.71899130938698,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,religion,237.0,84.06896551724138,61.05747126436781,65.47716210860088,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,overall,2106.0,88.71180981914989,60.67472224485505,69.7723312259933,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,gender,726.0,46.18131868131868,62.11748597618163,34.98928905166961,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,profession,2481.0,42.45081294273915,59.216419272648416,34.62592313183807,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,race,2928.0,51.995259481725924,58.65997832806632,42.98970307624729,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,religion,234.0,46.248084291187745,60.39080459770114,36.636988153432874,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,overall,2123.0,47.41659707988682,59.37467179170583,38.5262963778169,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,overall,overall,4229.0,68.02644275594963,59.974770426942996,54.45547976690609,positive_contact

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+gendim_icl_noft_one_llama8b_pt_winogender,winogender,720,0.6402777777777777,0.5708333333333333,0.19166666666666668,18.333333333333332

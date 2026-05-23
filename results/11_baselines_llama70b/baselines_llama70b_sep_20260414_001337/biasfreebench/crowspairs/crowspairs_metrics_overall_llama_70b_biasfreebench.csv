@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm
+llama_70b_biasfreebench_self_reflection,1508,68.77,72.09,49.08,24,1.59,1290,218,68.77,,

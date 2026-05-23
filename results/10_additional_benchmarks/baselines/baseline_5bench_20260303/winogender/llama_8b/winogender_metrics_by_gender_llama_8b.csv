@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6375,llama_8b,winogender
+male,240,0.6291666666666667,llama_8b,winogender
+neutral,240,0.65,llama_8b,winogender

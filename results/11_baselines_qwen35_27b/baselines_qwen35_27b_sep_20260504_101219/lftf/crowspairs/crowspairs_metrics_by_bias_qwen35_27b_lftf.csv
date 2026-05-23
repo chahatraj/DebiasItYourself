@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type
+qwen35_27b_lftf,87,62.07,61.64,64.29,1,1.15,73,14,62.07,,,age
+qwen35_27b_lftf,60,71.67,71.93,66.67,0,0.0,57,3,71.67,,,disability
+qwen35_27b_lftf,262,57.63,65.41,45.63,3,1.15,159,103,57.63,,,gender
+qwen35_27b_lftf,159,54.72,56.08,36.36,2,1.26,148,11,54.72,,,nationality
+qwen35_27b_lftf,63,66.67,71.15,45.45,0,0.0,52,11,66.67,,,physical-appearance
+qwen35_27b_lftf,516,64.92,66.81,44.19,4,0.78,473,43,64.92,,,race-color
+qwen35_27b_lftf,105,63.81,64.65,50.0,0,0.0,99,6,63.81,,,religion
+qwen35_27b_lftf,84,70.24,72.22,58.33,2,2.38,72,12,70.24,,,sexual-orientation
+qwen35_27b_lftf,172,66.28,68.79,40.0,2,1.16,157,15,66.28,,,socioeconomic

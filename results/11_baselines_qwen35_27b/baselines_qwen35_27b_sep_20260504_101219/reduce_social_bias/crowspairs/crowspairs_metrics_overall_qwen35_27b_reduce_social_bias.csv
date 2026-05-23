@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm
+qwen35_27b_reduce_social_bias_system2,1508,65.78,67.44,55.96,19,1.26,1290,218,65.78,,

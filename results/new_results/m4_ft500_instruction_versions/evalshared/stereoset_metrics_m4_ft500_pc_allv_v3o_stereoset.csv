@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_ft500_pc_allv_v3o_stereoset,intrasentence,gender,765.0,87.56450369276456,65.44495005799354,60.51591596500977,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intrasentence,profession,2430.0,87.03733974834664,62.10922962483533,65.95823708939591,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intrasentence,race,2886.0,87.47170224527916,61.95986471940431,66.5487077326881,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intrasentence,religion,237.0,85.40229885057471,63.356321839080465,62.58908706566256,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intrasentence,overall,2106.0,87.23991654126355,62.51076562963027,65.41115355333848,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intersentence,gender,726.0,70.5791239758631,60.2294022402718,56.13947899756079,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intersentence,profession,2481.0,63.12103731867357,56.57012016808086,54.826781312321536,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intersentence,race,2928.0,66.88427952330746,54.00947501335278,61.52086257261138,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intersentence,religion,234.0,65.11494252873563,57.96360153256705,54.743953406438536,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,intersentence,overall,2123.0,65.8557120220774,55.91936117118409,58.05923712919407,strategy,positive_contact,v2,one
+m4_ft500_pc_allv_v3o_stereoset,overall,overall,4229.0,76.52744798501509,59.15682027113094,62.512486244872996,strategy,positive_contact,v2,one

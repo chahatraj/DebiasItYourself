@@ -1,0 +1,3 @@
+gender,n,accuracy,model,benchmark
+female,45672,0.720966894377299,m6_proxy_sr_bias_in_bios,bias_in_bios
+male,53397,0.6639324306608986,m6_proxy_sr_bias_in_bios,bias_in_bios

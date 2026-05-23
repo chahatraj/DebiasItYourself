@@ -1,0 +1,2 @@
+Category,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+Age,0.882,0.977,0.786,-35.475,-0.598,3680,1840,1840

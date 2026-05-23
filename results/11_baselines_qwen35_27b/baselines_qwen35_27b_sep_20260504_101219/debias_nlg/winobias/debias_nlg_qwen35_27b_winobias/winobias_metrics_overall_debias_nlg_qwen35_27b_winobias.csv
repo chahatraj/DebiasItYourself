@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+debias_nlg_qwen35_27b_winobias,winobias,1584,0.851010101010101,0.9255050505050505,0.7765151515151515,0.148989898989899,0.148989898989899

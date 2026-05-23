@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.93,m3_qwen35_27b_ms500_all_event_balanced_copa,balanced_copa
+effect,500,0.918,m3_qwen35_27b_ms500_all_event_balanced_copa,balanced_copa

@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.4116161616161616,learnable_zero_shot__base__stereotype_replacement,winobias
+type1,pro,396,0.696969696969697,learnable_zero_shot__base__stereotype_replacement,winobias
+type2,anti,396,0.3055555555555556,learnable_zero_shot__base__stereotype_replacement,winobias
+type2,pro,396,0.6767676767676768,learnable_zero_shot__base__stereotype_replacement,winobias

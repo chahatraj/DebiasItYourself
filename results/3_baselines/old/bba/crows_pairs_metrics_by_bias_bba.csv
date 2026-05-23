@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy
+bba,87,43.68,39.73,64.29,2,2.3,73,14,43.68,,,age,off,
+bba,60,60.0,61.4,33.33,1,1.67,57,3,60.0,,,disability,off,
+bba,262,51.53,45.28,61.17,4,1.53,159,103,51.53,,,gender,off,
+bba,159,42.14,41.22,54.55,2,1.26,148,11,42.14,,,nationality,off,
+bba,63,49.21,42.31,81.82,2,3.17,52,11,49.21,,,physical-appearance,off,
+bba,516,48.64,46.72,69.77,12,2.33,473,43,48.64,,,race-color,off,
+bba,105,39.05,36.36,83.33,2,1.9,99,6,39.05,,,religion,off,
+bba,84,60.71,59.72,66.67,0,0.0,72,12,60.71,,,sexual-orientation,off,
+bba,172,37.21,33.12,80.0,0,0.0,157,15,37.21,,,socioeconomic,off,

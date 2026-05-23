@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_two_pass__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,winobias,1584,0.7026515151515151,0.8207070707070707,0.5845959595959596,0.23611111111111116,0.23611111111111116

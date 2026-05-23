@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.6792929292929293,dpo_llama70b_winobias,winobias
+type1,pro,396,0.9292929292929293,dpo_llama70b_winobias,winobias
+type2,anti,396,0.9570707070707071,dpo_llama70b_winobias,winobias
+type2,pro,396,0.9949494949494949,dpo_llama70b_winobias,winobias

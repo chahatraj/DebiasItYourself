@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intrasentence,gender,765.0,86.77159788681527,68.27089367958935,55.06370509885364
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intrasentence,profession,2430.0,85.7388652128109,64.68899324380374,60.55051297596332
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intrasentence,race,2886.0,86.88522973691107,64.04529524175278,62.47865566086239
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intrasentence,religion,237.0,81.97701149425286,59.54022988505747,66.33542079534945
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intrasentence,overall,2106.0,86.24912962359544,64.6535449679529,60.97201963587236
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intersentence,gender,726.0,60.420482295482294,62.77428288297854,44.98391564011255
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intersentence,profession,2481.0,55.47825816296339,56.937536693932685,47.780609128542814
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intersentence,race,2928.0,60.1770107293065,55.02028924935549,54.13489072885275
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intersentence,religion,234.0,54.29022988505747,59.11302681992337,44.39526346501079
+llama_8b_reduce_social_bias_hp_system2_cot_debias,intersentence,overall,2123.0,58.19994485764467,56.88529649473841,50.185467331198474
+llama_8b_reduce_social_bias_hp_system2_cot_debias,overall,overall,4229.0,72.20736773251565,60.74017928476971,56.69696622994539

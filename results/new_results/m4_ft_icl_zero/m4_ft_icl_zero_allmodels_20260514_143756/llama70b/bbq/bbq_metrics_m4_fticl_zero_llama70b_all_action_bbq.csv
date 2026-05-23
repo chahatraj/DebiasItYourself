@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_fticl_zero_llama70b_all_action_bbq:m4_fticl_zero_llama70b_all_action_bbq_instr_all_strategies_ALL,0.398,0.255,0.541,0.688,4.956,58476,29238,29238,bbq_preds_m4_fticl_zero_llama70b_all_action_bbq_instr_all_strategies_ALL.csv

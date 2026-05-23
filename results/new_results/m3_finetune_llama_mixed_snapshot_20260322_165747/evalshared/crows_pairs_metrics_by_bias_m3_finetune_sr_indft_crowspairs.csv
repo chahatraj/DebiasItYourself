@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m3_finetune_sr_indft_crowspairs,87,72.41,76.71,50.0,0,0.0,73,14,72.41,,,age,off,,v1,zero
+m3_finetune_sr_indft_crowspairs,60,66.67,68.42,33.33,0,0.0,57,3,66.67,,,disability,off,,v1,zero
+m3_finetune_sr_indft_crowspairs,262,59.16,65.41,49.51,3,1.15,159,103,59.16,,,gender,off,,v1,zero
+m3_finetune_sr_indft_crowspairs,159,59.12,60.14,45.45,1,0.63,148,11,59.12,,,nationality,off,,v1,zero
+m3_finetune_sr_indft_crowspairs,63,66.67,71.15,45.45,0,0.0,52,11,66.67,,,physical-appearance,off,,v1,zero
+m3_finetune_sr_indft_crowspairs,516,62.4,63.21,53.49,1,0.19,473,43,62.4,,,race-color,off,,v1,zero
+m3_finetune_sr_indft_crowspairs,105,67.62,67.68,66.67,0,0.0,99,6,67.62,,,religion,off,,v1,zero
+m3_finetune_sr_indft_crowspairs,84,75.0,76.39,66.67,0,0.0,72,12,75.0,,,sexual-orientation,off,,v1,zero
+m3_finetune_sr_indft_crowspairs,172,74.42,76.43,53.33,0,0.0,157,15,74.42,,,socioeconomic,off,,v1,zero

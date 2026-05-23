@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,87,42.53,43.84,35.71,0,0.0,73,14,42.53,,,age,off,,v2,zero
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,60,41.67,43.86,0.0,0,0.0,57,3,41.67,,,disability,off,,v2,zero
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,262,40.08,39.62,40.78,0,0.0,159,103,40.08,,,gender,off,,v2,zero
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,159,47.17,47.97,36.36,1,0.63,148,11,47.17,,,nationality,off,,v2,zero
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,63,50.79,48.08,63.64,1,1.59,52,11,50.79,,,physical-appearance,off,,v2,zero
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,516,45.74,46.09,41.86,5,0.97,473,43,45.74,,,race-color,off,,v2,zero
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,105,41.9,40.4,66.67,2,1.9,99,6,41.9,,,religion,off,,v2,zero
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,84,42.86,43.06,41.67,1,1.19,72,12,42.86,,,sexual-orientation,off,,v2,zero
+m6_l70b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,172,46.51,46.5,46.67,2,1.16,157,15,46.51,,,socioeconomic,off,,v2,zero

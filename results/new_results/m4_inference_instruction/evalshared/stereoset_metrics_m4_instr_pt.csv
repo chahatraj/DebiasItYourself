@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy
+m4_instr_pt,intrasentence,gender,765.0,90.13776022689066,64.03415859502816,64.83760777839456,strategy,perspective_taking
+m4_instr_pt,intrasentence,profession,2430.0,89.35502228433192,64.00336866757385,64.32959589739639,strategy,perspective_taking
+m4_instr_pt,intrasentence,race,2886.0,88.02831814343263,67.54902170043053,57.1321008364026,strategy,perspective_taking
+m4_instr_pt,intrasentence,religion,237.0,88.36781609195403,56.6896551724138,76.544811732065,strategy,perspective_taking
+m4_instr_pt,intrasentence,overall,2106.0,88.81204015491521,65.3452707938005,61.55514403637406,strategy,perspective_taking
+m4_instr_pt,intersentence,gender,726.0,75.32159668029234,57.17099325794978,64.51898344084456,strategy,perspective_taking
+m4_instr_pt,intersentence,profession,2481.0,79.84673990609289,54.581500424622405,72.53038245040331,strategy,perspective_taking
+m4_instr_pt,intersentence,race,2928.0,75.64613825324028,53.30729689466248,70.64245349047728,strategy,perspective_taking
+m4_instr_pt,intersentence,religion,234.0,78.94540229885058,56.92528735632184,68.01101037125116,strategy,perspective_taking
+m4_instr_pt,intersentence,overall,2123.0,77.32551073416346,54.41763918474664,70.49358661016771,strategy,perspective_taking
+m4_instr_pt,overall,overall,4229.0,83.04831477857762,59.866544039148316,66.66031767577985,strategy,perspective_taking

@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.65,fixed__finetuned_ms-500-allstrategies-action__all,winogender
+male,240,0.65,fixed__finetuned_ms-500-allstrategies-action__all,winogender
+neutral,240,0.5958333333333333,fixed__finetuned_ms-500-allstrategies-action__all,winogender

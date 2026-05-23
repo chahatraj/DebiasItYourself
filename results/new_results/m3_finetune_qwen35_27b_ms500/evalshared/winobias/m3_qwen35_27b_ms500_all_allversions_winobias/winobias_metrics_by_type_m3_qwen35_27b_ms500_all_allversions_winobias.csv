@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.8080808080808081,m3_qwen35_27b_ms500_all_allversions_winobias,winobias
+type1,pro,396,0.9242424242424242,m3_qwen35_27b_ms500_all_allversions_winobias,winobias
+type2,anti,396,0.9747474747474747,m3_qwen35_27b_ms500_all_allversions_winobias,winobias
+type2,pro,396,0.98989898989899,m3_qwen35_27b_ms500_all_allversions_winobias,winobias

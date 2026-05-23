@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+llama_8b_selfdebiasing_explanation,winobias,1584,0.5928030303030303,0.63510101010101,0.5505050505050505,0.08459595959595956,0.08459595959595956

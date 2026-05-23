@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+gendim_m6_noft_zero_qwen35_27b_sr_crowspairs_self_debias_two_pass_stereotype_replacement,1508,48.54,47.75,53.21,9,0.6,1290,218,48.54,,,off,,v2,zero

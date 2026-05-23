@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+fixed__base__counter_imaging,intrasentence,gender,765.0,89.35425613034309,65.5735303343999,61.52303176327035,counter_imaging
+fixed__base__counter_imaging,intrasentence,profession,2430.0,91.26179195098415,61.06085654082381,71.07312018241724,counter_imaging
+fixed__base__counter_imaging,intrasentence,race,2886.0,89.3393498515702,62.78811909876283,66.48970492941183,counter_imaging
+fixed__base__counter_imaging,intrasentence,religion,237.0,86.55172413793105,64.6896551724138,61.12342449464923,counter_imaging
+fixed__base__counter_imaging,intrasentence,overall,2106.0,89.96541882156048,62.55699053976478,67.37152056059425,counter_imaging
+fixed__base__counter_imaging,intersentence,gender,726.0,52.4144303763869,62.58431986692856,39.22243122640071,counter_imaging
+fixed__base__counter_imaging,intersentence,profession,2481.0,48.90589526514627,59.52214142371726,39.59211824178173,counter_imaging
+fixed__base__counter_imaging,intersentence,race,2928.0,53.38026991839098,57.43312915141181,45.44462110957852,counter_imaging
+fixed__base__counter_imaging,intersentence,religion,234.0,50.083333333333336,64.07854406130268,35.981325031928485,counter_imaging
+fixed__base__counter_imaging,intersentence,overall,2123.0,51.433682009877636,59.13083193690552,42.041035883308965,counter_imaging
+fixed__base__counter_imaging,overall,overall,4229.0,70.63936631549075,60.76477551627077,55.43102789553321,counter_imaging

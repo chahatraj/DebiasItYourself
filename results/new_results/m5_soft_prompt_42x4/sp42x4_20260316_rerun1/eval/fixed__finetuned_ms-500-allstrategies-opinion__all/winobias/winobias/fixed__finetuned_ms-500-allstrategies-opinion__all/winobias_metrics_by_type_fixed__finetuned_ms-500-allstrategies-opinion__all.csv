@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.31565656565656564,fixed__finetuned_ms-500-allstrategies-opinion__all,winobias
+type1,pro,396,0.8358585858585859,fixed__finetuned_ms-500-allstrategies-opinion__all,winobias
+type2,anti,396,0.7348484848484849,fixed__finetuned_ms-500-allstrategies-opinion__all,winobias
+type2,pro,396,0.946969696969697,fixed__finetuned_ms-500-allstrategies-opinion__all,winobias

@@ -1,0 +1,2 @@
+domain,n,sentiment_positive_prop,sentiment_negative_prop,gender_unigram_male_prop,gender_unigram_female_prop,toxicity_prop,model,benchmark
+gender,3000,0.318,0.05533333333333333,0.5123333333333333,0.234,,debias_nlg_addl_baseline_remaining_20260309_154403,bold

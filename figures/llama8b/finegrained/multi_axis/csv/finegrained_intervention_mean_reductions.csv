@@ -1,0 +1,21 @@
+method,intervention_key,intervention_label,mean_bias_error,mean_reduction_vs_base
+ICL,stereotype_replacement,Stereotype replacement,3.53909,2.19186
+DIY IT,stereotype_replacement,Stereotype replacement,4.66137,1.06958
+DIY Two Pass (No IT),stereotype_replacement,Stereotype replacement,2.91797,2.81298
+DIY Two Pass (IT),stereotype_replacement,Stereotype replacement,2.83735,2.8936
+ICL,individuating,Individuation,3.26323,2.46772
+DIY IT,individuating,Individuation,4.61172,1.11923
+DIY Two Pass (No IT),individuating,Individuation,2.26713,3.46382
+DIY Two Pass (IT),individuating,Individuation,1.7575,3.97345
+ICL,perspective_taking,Perspective-taking,4.09286,1.63809
+DIY IT,perspective_taking,Perspective-taking,4.55969,1.17126
+DIY Two Pass (No IT),perspective_taking,Perspective-taking,1.82608,3.90487
+DIY Two Pass (IT),perspective_taking,Perspective-taking,1.84548,3.88547
+ICL,counter_imaging,Counter-stereotypic imaging,3.4464,2.28455
+DIY IT,counter_imaging,Counter-stereotypic imaging,4.46309,1.26786
+DIY Two Pass (No IT),counter_imaging,Counter-stereotypic imaging,2.28065,3.4503
+DIY Two Pass (IT),counter_imaging,Counter-stereotypic imaging,1.86905,3.8619
+ICL,positive_contact,Positive contact,3.50528,2.22567
+DIY IT,positive_contact,Positive contact,4.48267,1.24828
+DIY Two Pass (No IT),positive_contact,Positive contact,1.89965,3.8313
+DIY Two Pass (IT),positive_contact,Positive contact,1.8997,3.83125

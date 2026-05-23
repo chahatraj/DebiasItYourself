@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.2702020202020202,fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,winobias
+type1,pro,396,0.8762626262626263,fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,winobias
+type2,anti,396,0.8737373737373737,fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,winobias
+type2,pro,396,0.9848484848484849,fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,winobias

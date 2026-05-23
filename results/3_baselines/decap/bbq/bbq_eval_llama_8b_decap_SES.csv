@@ -1,0 +1,3 @@
+Bias_dimension,Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+SES,decap_SES,0.677,0.959,0.395,4.993,1.748,6864,3432,3432
+overall,decap_SES,0.677,0.959,0.395,4.993,1.748,6864,3432,3432

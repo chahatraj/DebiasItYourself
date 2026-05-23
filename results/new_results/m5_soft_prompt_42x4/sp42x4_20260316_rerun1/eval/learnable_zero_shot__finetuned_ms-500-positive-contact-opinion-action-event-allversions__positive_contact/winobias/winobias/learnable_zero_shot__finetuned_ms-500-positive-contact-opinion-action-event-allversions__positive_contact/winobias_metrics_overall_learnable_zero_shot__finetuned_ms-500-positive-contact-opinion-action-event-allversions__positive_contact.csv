@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winobias,1584,0.255050505050505,0.26136363636363635,0.24873737373737373,0.012626262626262624,0.012626262626262624

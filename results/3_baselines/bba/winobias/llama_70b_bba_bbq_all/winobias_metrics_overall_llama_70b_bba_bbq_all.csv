@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+llama_70b_bba_bbq_all,winobias,1584,0.8825757575757576,0.9570707070707071,0.8080808080808081,0.148989898989899,0.148989898989899

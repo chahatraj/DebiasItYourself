@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+lftf_llama70b_winobias,winobias,1584,0.8939393939393939,0.9646464646464646,0.8232323232323232,0.14141414141414144,0.14141414141414144

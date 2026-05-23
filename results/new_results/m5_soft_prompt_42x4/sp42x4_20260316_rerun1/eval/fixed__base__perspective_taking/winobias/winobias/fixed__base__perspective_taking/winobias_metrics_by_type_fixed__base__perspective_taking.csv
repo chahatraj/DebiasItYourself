@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3005050505050505,fixed__base__perspective_taking,winobias
+type1,pro,396,0.8712121212121212,fixed__base__perspective_taking,winobias
+type2,anti,396,0.8484848484848485,fixed__base__perspective_taking,winobias
+type2,pro,396,0.9823232323232324,fixed__base__perspective_taking,winobias

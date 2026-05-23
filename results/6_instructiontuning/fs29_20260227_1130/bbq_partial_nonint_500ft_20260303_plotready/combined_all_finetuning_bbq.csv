@@ -1,0 +1,3 @@
+dimension,allstrat500_action/bbq_eval_allstrat500_action_partial.csv|Bias_score_disambig,allstrat500_action/bbq_eval_allstrat500_action_partial.csv|Bias_score_ambig,allstrat500_event/bbq_eval_allstrat500_event_partial.csv|Bias_score_disambig,allstrat500_event/bbq_eval_allstrat500_event_partial.csv|Bias_score_ambig
+allstrat500_action_partial:allstrat500_action_Religion,11.828,15.667,,
+allstrat500_event_partial:allstrat500_event_Religion,,,11.198,19.0

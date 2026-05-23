@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.6919191919191919,lftf_llama70b_winobias,winobias
+type1,pro,396,0.9343434343434344,lftf_llama70b_winobias,winobias
+type2,anti,396,0.9545454545454546,lftf_llama70b_winobias,winobias
+type2,pro,396,0.9949494949494949,lftf_llama70b_winobias,winobias

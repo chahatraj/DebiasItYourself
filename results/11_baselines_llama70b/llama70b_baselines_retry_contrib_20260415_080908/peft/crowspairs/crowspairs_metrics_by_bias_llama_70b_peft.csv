@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type
+llama_70b_peft_crowspairs_all,87,65.52,69.86,42.86,0,0.0,73,14,65.52,,,age
+llama_70b_peft_crowspairs_all,60,73.33,75.44,33.33,1,1.67,57,3,73.33,,,disability
+llama_70b_peft_crowspairs_all,262,60.69,62.89,57.28,1,0.38,159,103,60.69,,,gender
+llama_70b_peft_crowspairs_all,159,58.49,58.78,54.55,0,0.0,148,11,58.49,,,nationality
+llama_70b_peft_crowspairs_all,63,71.43,76.92,45.45,0,0.0,52,11,71.43,,,physical-appearance
+llama_70b_peft_crowspairs_all,516,48.84,48.63,51.16,4,0.78,473,43,48.84,,,race-color
+llama_70b_peft_crowspairs_all,105,65.71,65.66,66.67,0,0.0,99,6,65.71,,,religion
+llama_70b_peft_crowspairs_all,84,71.43,70.83,75.0,1,1.19,72,12,71.43,,,sexual-orientation
+llama_70b_peft_crowspairs_all,172,73.26,73.89,66.67,0,0.0,157,15,73.26,,,socioeconomic

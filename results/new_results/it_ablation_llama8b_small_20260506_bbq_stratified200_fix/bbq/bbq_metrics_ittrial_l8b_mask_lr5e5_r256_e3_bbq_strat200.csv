@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+ittrial_l8b_mask_lr5e5_r256_e3_bbq_strat200:ittrial_l8b_mask_lr5e5_r256_e3_bbq_strat200_instr_off_ALL,0.47,0.34,0.6,9.091,16.0,200,100,100,bbq_preds_ittrial_l8b_mask_lr5e5_r256_e3_bbq_strat200_instr_off_ALL.csv

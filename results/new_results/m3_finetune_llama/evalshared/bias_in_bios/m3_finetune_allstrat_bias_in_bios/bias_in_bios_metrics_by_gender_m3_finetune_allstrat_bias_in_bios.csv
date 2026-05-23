@@ -1,0 +1,3 @@
+gender,n,accuracy,model,benchmark
+female,45672,0.6922184270450167,m3_finetune_allstrat_bias_in_bios,bias_in_bios
+male,53397,0.6254658501413937,m3_finetune_allstrat_bias_in_bios,bias_in_bios

@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.842,m4_baseicl_zero_qwen35_27b_pc_balanced_copa,balanced_copa
+effect,500,0.866,m4_baseicl_zero_qwen35_27b_pc_balanced_copa,balanced_copa

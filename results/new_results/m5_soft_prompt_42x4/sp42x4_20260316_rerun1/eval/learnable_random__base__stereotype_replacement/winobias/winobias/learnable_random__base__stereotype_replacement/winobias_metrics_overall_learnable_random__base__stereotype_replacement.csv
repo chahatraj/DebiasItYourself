@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+learnable_random__base__stereotype_replacement,winobias,1584,0.6281565656565656,0.8459595959595959,0.41035353535353536,0.43560606060606055,0.43560606060606055

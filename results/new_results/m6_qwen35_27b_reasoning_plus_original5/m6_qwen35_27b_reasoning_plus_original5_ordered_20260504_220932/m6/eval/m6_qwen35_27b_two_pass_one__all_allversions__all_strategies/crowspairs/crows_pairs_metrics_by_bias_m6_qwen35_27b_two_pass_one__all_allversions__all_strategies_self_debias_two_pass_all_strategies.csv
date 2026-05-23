@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,87,39.08,39.73,35.71,0,0.0,73,14,39.08,,,age,off,,v2,zero
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,60,43.33,43.86,33.33,0,0.0,57,3,43.33,,,disability,off,,v2,zero
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,262,47.71,43.4,54.37,1,0.38,159,103,47.71,,,gender,off,,v2,zero
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,159,45.91,44.59,63.64,3,1.89,148,11,45.91,,,nationality,off,,v2,zero
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,63,33.33,40.38,0.0,1,1.59,52,11,33.33,,,physical-appearance,off,,v2,zero
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,516,46.9,47.36,41.86,5,0.97,473,43,46.9,,,race-color,off,,v2,zero
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,105,54.29,55.56,33.33,1,0.95,99,6,54.29,,,religion,off,,v2,zero
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,84,47.62,44.44,66.67,2,2.38,72,12,47.62,,,sexual-orientation,off,,v2,zero
+m6_qwen35_27b_two_pass_one__all_allversions__all_strategies_self_debias_two_pass_all_strategies,172,41.86,41.4,46.67,3,1.74,157,15,41.86,,,socioeconomic,off,,v2,zero

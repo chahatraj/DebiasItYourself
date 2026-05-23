@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,1508,62.33,62.48,61.47,11,0.73,1290,218,62.33,,,positive_contact

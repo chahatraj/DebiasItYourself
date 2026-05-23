@@ -1,0 +1,11 @@
+Category,Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+Age,llama_8b_debias_llms_bbq_all,0.335,0.34,0.33,0.0,0.0,3680,1840,1840
+Disability_status,llama_8b_debias_llms_bbq_all,0.325,0.301,0.35,0.0,0.0,1556,778,778
+Gender_identity,llama_8b_debias_llms_bbq_all,0.336,0.343,0.33,-0.215,0.0,5656,2828,2828
+Nationality,llama_8b_debias_llms_bbq_all,0.331,0.325,0.338,0.096,0.0,3080,1540,1540
+Physical_appearance,llama_8b_debias_llms_bbq_all,0.328,0.312,0.344,0.0,0.0,1576,788,788
+Race_ethnicity,llama_8b_debias_llms_bbq_all,0.334,0.33,0.338,0.043,0.058,6880,3440,3440
+Religion,llama_8b_debias_llms_bbq_all,0.325,0.3,0.35,0.0,0.0,1200,600,600
+SES,llama_8b_debias_llms_bbq_all,0.328,0.312,0.345,-0.127,0.0,6864,3432,3432
+Sexual_orientation,llama_8b_debias_llms_bbq_all,0.331,0.324,0.338,0.0,0.0,864,432,432
+overall,llama_8b_debias_llms_bbq_all,0.332,0.325,0.338,-0.047,0.013,31356,15678,15678

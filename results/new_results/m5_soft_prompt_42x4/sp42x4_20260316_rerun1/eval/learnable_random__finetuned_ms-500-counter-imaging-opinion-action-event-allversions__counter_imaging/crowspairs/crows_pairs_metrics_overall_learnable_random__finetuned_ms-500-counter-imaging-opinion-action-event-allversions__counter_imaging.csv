@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,1508,61.27,60.85,63.76,18,1.19,1290,218,61.27,,,counter_imaging

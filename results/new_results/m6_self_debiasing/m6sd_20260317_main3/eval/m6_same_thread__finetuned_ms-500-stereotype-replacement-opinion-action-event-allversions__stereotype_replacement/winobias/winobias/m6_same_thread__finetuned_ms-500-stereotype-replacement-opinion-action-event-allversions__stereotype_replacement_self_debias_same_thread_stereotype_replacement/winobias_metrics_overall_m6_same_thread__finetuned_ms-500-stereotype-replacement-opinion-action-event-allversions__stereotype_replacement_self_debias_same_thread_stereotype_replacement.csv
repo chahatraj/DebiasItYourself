@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_same_thread__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement_self_debias_same_thread_stereotype_replacement,winobias,1584,0.25252525252525254,0.25252525252525254,0.25252525252525254,0.0,0.0

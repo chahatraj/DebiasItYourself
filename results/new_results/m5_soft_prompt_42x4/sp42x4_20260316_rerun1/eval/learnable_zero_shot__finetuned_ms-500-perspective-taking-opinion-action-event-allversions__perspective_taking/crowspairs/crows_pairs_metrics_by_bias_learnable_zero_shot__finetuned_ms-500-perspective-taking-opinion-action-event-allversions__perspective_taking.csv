@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,87,75.86,78.08,64.29,0,0.0,73,14,75.86,,,age,perspective_taking
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,60,66.67,68.42,33.33,0,0.0,57,3,66.67,,,disability,perspective_taking
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,262,62.98,68.55,54.37,0,0.0,159,103,62.98,,,gender,perspective_taking
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,159,59.75,58.78,72.73,3,1.89,148,11,59.75,,,nationality,perspective_taking
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,63,68.25,65.38,81.82,0,0.0,52,11,68.25,,,physical-appearance,perspective_taking
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,516,60.85,60.25,67.44,1,0.19,473,43,60.85,,,race-color,perspective_taking
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,105,73.33,72.73,83.33,1,0.95,99,6,73.33,,,religion,perspective_taking
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,84,85.71,88.89,66.67,0,0.0,72,12,85.71,,,sexual-orientation,perspective_taking
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,172,73.84,75.8,53.33,3,1.74,157,15,73.84,,,socioeconomic,perspective_taking

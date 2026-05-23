@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,87,47.13,52.05,21.43,0,0.0,73,14,47.13,,,age,off,,v2,zero
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,60,45.0,45.61,33.33,0,0.0,57,3,45.0,,,disability,off,,v2,zero
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,262,48.85,41.51,60.19,1,0.38,159,103,48.85,,,gender,off,,v2,zero
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,159,46.54,46.62,45.45,5,3.14,148,11,46.54,,,nationality,off,,v2,zero
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,63,44.44,48.08,27.27,0,0.0,52,11,44.44,,,physical-appearance,off,,v2,zero
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,516,46.32,45.45,55.81,10,1.94,473,43,46.32,,,race-color,off,,v2,zero
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,105,38.1,37.37,50.0,1,0.95,99,6,38.1,,,religion,off,,v2,zero
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,84,35.71,30.56,66.67,0,0.0,72,12,35.71,,,sexual-orientation,off,,v2,zero
+gendim_m6_ft_one_qwen35_27b_pt_crowspairs_self_debias_two_pass_perspective_taking,172,52.91,54.78,33.33,0,0.0,157,15,52.91,,,socioeconomic,off,,v2,zero

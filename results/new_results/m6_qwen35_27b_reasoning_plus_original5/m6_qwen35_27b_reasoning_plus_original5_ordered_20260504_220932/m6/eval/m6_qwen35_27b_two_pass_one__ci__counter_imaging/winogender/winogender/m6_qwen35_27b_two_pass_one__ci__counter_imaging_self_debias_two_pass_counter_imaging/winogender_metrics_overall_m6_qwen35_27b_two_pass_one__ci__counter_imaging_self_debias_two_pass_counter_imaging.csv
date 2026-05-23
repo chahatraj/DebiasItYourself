@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+m6_qwen35_27b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,winogender,720,0.6944444444444444,0.6875,0.0375,3.75

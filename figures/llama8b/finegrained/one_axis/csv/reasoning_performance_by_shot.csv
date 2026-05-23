@@ -1,0 +1,25 @@
+figure_slug,strategy_label,ft_checkpoint,method,method_family,shot,dataset_key,accuracy
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 1-shot",Two Pass (No IT),1,balanced_copa,74.7
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 1-shot",Two Pass (IT),1,balanced_copa,72.6
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 2-shot",Two Pass (No IT),2,balanced_copa,75.0
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 2-shot",Two Pass (IT),2,balanced_copa,72.3
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,balanced_copa,73.6
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,balanced_copa,71.89999999999999
+base,Base,,Base Model Inference,Base,,balanced_copa,73.2
+all_strategies_all_versions,All interventions,all-version,DIY IT,DIY IT,,balanced_copa,75.0
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,arc_easy,81.523569
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,arc_easy,76.220539
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 1-shot",Two Pass (No IT),1,arc_easy,81.523569
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 1-shot",Two Pass (IT),1,arc_easy,73.611111
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 2-shot",Two Pass (No IT),2,arc_easy,82.070707
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 2-shot",Two Pass (IT),2,arc_easy,77.483165
+base,Base,,Base Model Inference,Base,,arc_easy,75.841751
+all_strategies_all_versions,All interventions,all-version,DIY IT,DIY IT,,arc_easy,73.611111
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,arc_challenge,69.368601
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,arc_challenge,65.614334
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 1-shot",Two Pass (No IT),1,arc_challenge,68.088737
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 1-shot",Two Pass (IT),1,arc_challenge,65.102389
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 2-shot",Two Pass (No IT),2,arc_challenge,69.539249
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 2-shot",Two Pass (IT),2,arc_challenge,66.723549
+base,Base,,Base Model Inference,Base,,arc_challenge,66.808874
+all_strategies_all_versions,All interventions,all-version,DIY IT,DIY IT,,arc_challenge,63.822526

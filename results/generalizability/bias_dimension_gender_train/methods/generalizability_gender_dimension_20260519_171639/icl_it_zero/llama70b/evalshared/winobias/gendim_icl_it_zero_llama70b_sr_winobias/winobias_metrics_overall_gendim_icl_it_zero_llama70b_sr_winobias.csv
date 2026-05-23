@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+gendim_icl_it_zero_llama70b_sr_winobias,winobias,1584,0.8876262626262627,0.9608585858585859,0.8143939393939394,0.1464646464646464,0.1464646464646464

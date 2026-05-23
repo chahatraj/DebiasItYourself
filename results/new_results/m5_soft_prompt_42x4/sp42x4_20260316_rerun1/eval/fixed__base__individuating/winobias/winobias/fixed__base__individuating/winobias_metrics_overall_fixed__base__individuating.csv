@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__base__individuating,winobias,1584,0.7279040404040404,0.9027777777777778,0.553030303030303,0.3497474747474748,0.3497474747474748

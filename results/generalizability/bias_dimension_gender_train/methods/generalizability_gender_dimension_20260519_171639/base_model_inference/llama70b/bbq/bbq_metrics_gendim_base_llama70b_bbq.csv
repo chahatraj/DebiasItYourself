@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+gendim_base_llama70b_bbq:gendim_base_llama70b_bbq_instr_off_ALL,0.396,0.234,0.558,0.388,7.046,58476,29238,29238,bbq_preds_gendim_base_llama70b_bbq_instr_off_ALL.csv

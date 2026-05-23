@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,debias_method,strategy
+m6_postcorr_ind_post_inference_correction_individuating,87,67.82,72.6,42.86,5,5.75,73,14,67.82,,,age,post_inference_correction,individuating
+m6_postcorr_ind_post_inference_correction_individuating,60,73.33,75.44,33.33,3,5.0,57,3,73.33,,,disability,post_inference_correction,individuating
+m6_postcorr_ind_post_inference_correction_individuating,262,62.21,68.55,52.43,7,2.67,159,103,62.21,,,gender,post_inference_correction,individuating
+m6_postcorr_ind_post_inference_correction_individuating,159,64.15,64.19,63.64,3,1.89,148,11,64.15,,,nationality,post_inference_correction,individuating
+m6_postcorr_ind_post_inference_correction_individuating,63,68.25,75.0,36.36,0,0.0,52,11,68.25,,,physical-appearance,post_inference_correction,individuating
+m6_postcorr_ind_post_inference_correction_individuating,516,66.09,68.5,39.53,18,3.49,473,43,66.09,,,race-color,post_inference_correction,individuating
+m6_postcorr_ind_post_inference_correction_individuating,105,71.43,72.73,50.0,3,2.86,99,6,71.43,,,religion,post_inference_correction,individuating
+m6_postcorr_ind_post_inference_correction_individuating,84,79.76,83.33,58.33,3,3.57,72,12,79.76,,,sexual-orientation,post_inference_correction,individuating
+m6_postcorr_ind_post_inference_correction_individuating,172,70.35,70.7,66.67,2,1.16,157,15,70.35,,,socioeconomic,post_inference_correction,individuating

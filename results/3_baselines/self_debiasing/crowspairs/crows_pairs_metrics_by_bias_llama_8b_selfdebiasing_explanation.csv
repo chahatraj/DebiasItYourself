@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+llama_8b_selfdebiasing_explanation,87,52.87,52.05,57.14,0,0.0,73,14,52.87,,,age,off,,v2,zero
+llama_8b_selfdebiasing_explanation,60,41.67,40.35,66.67,0,0.0,57,3,41.67,,,disability,off,,v2,zero
+llama_8b_selfdebiasing_explanation,262,48.47,49.06,47.57,0,0.0,159,103,48.47,,,gender,off,,v2,zero
+llama_8b_selfdebiasing_explanation,159,43.4,43.92,36.36,0,0.0,148,11,43.4,,,nationality,off,,v2,zero
+llama_8b_selfdebiasing_explanation,63,47.62,48.08,45.45,0,0.0,52,11,47.62,,,physical-appearance,off,,v2,zero
+llama_8b_selfdebiasing_explanation,516,49.03,49.26,46.51,0,0.0,473,43,49.03,,,race-color,off,,v2,zero
+llama_8b_selfdebiasing_explanation,105,44.76,45.45,33.33,0,0.0,99,6,44.76,,,religion,off,,v2,zero
+llama_8b_selfdebiasing_explanation,84,61.9,61.11,66.67,0,0.0,72,12,61.9,,,sexual-orientation,off,,v2,zero
+llama_8b_selfdebiasing_explanation,172,52.91,52.87,53.33,1,0.58,157,15,52.91,,,socioeconomic,off,,v2,zero

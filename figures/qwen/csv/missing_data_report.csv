@@ -1,0 +1,206 @@
+figure,method,dataset_key,panel_label,reason
+baseline_comparison_lollipop,BiasEdit,crowspairs,CrowS-Pairs,metric file not available
+baseline_comparison_lollipop,SelfDebias: Reprompt,crowspairs,CrowS-Pairs,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (No IT),crowspairs,CrowS-Pairs,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (IT),crowspairs,CrowS-Pairs,metric file not available
+baseline_comparison_lollipop,BiasEdit,stereoset,StereoSet,metric file not available
+baseline_comparison_lollipop,SelfDebias: Reprompt,stereoset,StereoSet,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (No IT),stereoset,StereoSet,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (IT),stereoset,StereoSet,metric file not available
+baseline_comparison_lollipop,BiasEdit,bbq,BBQ Ambig.,metric file not available
+baseline_comparison_lollipop,SelfDebias: Reprompt,bbq,BBQ Ambig.,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (No IT),bbq,BBQ Ambig.,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (IT),bbq,BBQ Ambig.,metric file not available
+baseline_comparison_lollipop,BiasEdit,bbq,BBQ Disambig.,metric file not available
+baseline_comparison_lollipop,SelfDebias: Reprompt,bbq,BBQ Disambig.,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (No IT),bbq,BBQ Disambig.,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (IT),bbq,BBQ Disambig.,metric file not available
+baseline_comparison_lollipop,BiasEdit,winobias,WinoBias,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (No IT),winobias,WinoBias,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (IT),winobias,WinoBias,metric file not available
+baseline_comparison_lollipop,BiasEdit,winogender,WinoGender,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (No IT),winogender,WinoGender,metric file not available
+baseline_comparison_lollipop,DIY Two Pass (IT),winogender,WinoGender,metric file not available
+baseline_reasoning_performance,BiasEdit,arc_challenge,ARC-Challenge,baseline reasoning metric file not available
+baseline_reasoning_performance,BiasEdit,arc_easy,ARC-Easy,baseline reasoning metric file not available
+baseline_reasoning_performance,BiasEdit,balanced_copa,Balanced COPA,baseline reasoning metric file not available
+debiasing_method_bars_by_shot,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_all_strategies_all_versions,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_all_strategies_opinion,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_all_strategies_action,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_all_strategies_event,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_stereotype_replacement_all_versions,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_individuation_all_versions,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_perspective_taking_all_versions,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_counter_stereotypic_imaging_all_versions,IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,No IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,IT 2,crowspairs,CrowS-Pairs,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,No IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,IT 2,stereoset,StereoSet,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,No IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,IT 2,bbq,BBQ Ambig.,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,No IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,IT 2,bbq,BBQ Disambig.,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,No IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,IT 2,winobias,WinoBias,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,No IT 2,winogender,WinoGender,metric file not available
+debiasing_method_bars_by_shot_positive_contact_all_versions,IT 2,winogender,WinoGender,metric file not available
+reasoning_performance_by_shot,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_all_versions,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_all_versions,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_all_versions,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_all_versions,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_all_versions,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_all_versions,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_opinion,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_opinion,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_opinion,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_opinion,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_opinion,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_opinion,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_action,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_action,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_action,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_action,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_action,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_action,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_event,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_event,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_event,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_event,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_event,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_all_strategies_event,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_stereotype_replacement_all_versions,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_stereotype_replacement_all_versions,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_stereotype_replacement_all_versions,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_stereotype_replacement_all_versions,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_stereotype_replacement_all_versions,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_stereotype_replacement_all_versions,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_individuation_all_versions,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_individuation_all_versions,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_individuation_all_versions,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_individuation_all_versions,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_individuation_all_versions,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_individuation_all_versions,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_perspective_taking_all_versions,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_perspective_taking_all_versions,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_perspective_taking_all_versions,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_perspective_taking_all_versions,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_perspective_taking_all_versions,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_perspective_taking_all_versions,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_counter_stereotypic_imaging_all_versions,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_counter_stereotypic_imaging_all_versions,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_counter_stereotypic_imaging_all_versions,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_counter_stereotypic_imaging_all_versions,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_positive_contact_all_versions,No IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_positive_contact_all_versions,IT 2,arc_challenge,ARC-Challenge,reasoning metric file not available
+reasoning_performance_by_shot_positive_contact_all_versions,No IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_positive_contact_all_versions,IT 2,arc_easy,ARC-Easy,reasoning metric file not available
+reasoning_performance_by_shot_positive_contact_all_versions,No IT 2,balanced_copa,Balanced COPA,reasoning metric file not available
+reasoning_performance_by_shot_positive_contact_all_versions,IT 2,balanced_copa,Balanced COPA,reasoning metric file not available

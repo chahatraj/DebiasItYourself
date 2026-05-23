@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+learnable_zero_shot__base__counter_imaging,winobias,1584,0.6369949494949495,0.8371212121212122,0.43686868686868685,0.4002525252525253,0.4002525252525253

@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy
+llama_8b_baseline,87,73.56,75.34,64.29,0,0.0,73,14,73.56,,,age,off,
+llama_8b_baseline,60,70.0,70.18,66.67,0,0.0,57,3,70.0,,,disability,off,
+llama_8b_baseline,262,66.41,67.92,64.08,2,0.76,159,103,66.41,,,gender,off,
+llama_8b_baseline,159,53.46,52.7,63.64,0,0.0,148,11,53.46,,,nationality,off,
+llama_8b_baseline,63,69.84,69.23,72.73,0,0.0,52,11,69.84,,,physical-appearance,off,
+llama_8b_baseline,516,55.23,53.91,69.77,1,0.19,473,43,55.23,,,race-color,off,
+llama_8b_baseline,105,66.67,65.66,83.33,0,0.0,99,6,66.67,,,religion,off,
+llama_8b_baseline,84,77.38,79.17,66.67,1,1.19,72,12,77.38,,,sexual-orientation,off,
+llama_8b_baseline,172,70.35,70.7,66.67,0,0.0,157,15,70.35,,,socioeconomic,off,

@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,87,56.32,57.53,50.0,0,0.0,73,14,56.32,,,age,off,,v2,zero
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,60,41.67,40.35,66.67,1,1.67,57,3,41.67,,,disability,off,,v2,zero
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,262,43.51,38.99,50.49,0,0.0,159,103,43.51,,,gender,off,,v2,zero
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,159,50.31,51.35,36.36,0,0.0,148,11,50.31,,,nationality,off,,v2,zero
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,63,46.03,40.38,72.73,0,0.0,52,11,46.03,,,physical-appearance,off,,v2,zero
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,516,51.36,51.59,48.84,4,0.78,473,43,51.36,,,race-color,off,,v2,zero
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,105,39.05,37.37,66.67,0,0.0,99,6,39.05,,,religion,off,,v2,zero
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,84,48.81,47.22,58.33,1,1.19,72,12,48.81,,,sexual-orientation,off,,v2,zero
+m6_two_pass__base__positive_contact_self_debias_two_pass_positive_contact,172,57.56,57.32,60.0,1,0.58,157,15,57.56,,,socioeconomic,off,,v2,zero

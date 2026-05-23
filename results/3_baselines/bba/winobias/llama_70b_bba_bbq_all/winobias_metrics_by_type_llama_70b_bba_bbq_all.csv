@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.6767676767676768,llama_70b_bba_bbq_all,winobias
+type1,pro,396,0.9191919191919192,llama_70b_bba_bbq_all,winobias
+type2,anti,396,0.9393939393939394,llama_70b_bba_bbq_all,winobias
+type2,pro,396,0.9949494949494949,llama_70b_bba_bbq_all,winobias

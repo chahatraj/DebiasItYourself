@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+gendim_base_llama8b_bbq:gendim_base_llama8b_bbq_instr_off_ALL,0.399,0.314,0.484,0.903,4.115,58476,29238,29238,bbq_preds_gendim_base_llama8b_bbq_instr_off_ALL.csv

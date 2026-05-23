@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy
+ptfull_allv,87,75.86,79.45,57.14,0,0.0,73,14,75.86,,,age,strategy,perspective_taking
+ptfull_allv,60,61.67,64.91,0.0,1,1.67,57,3,61.67,,,disability,strategy,perspective_taking
+ptfull_allv,262,67.56,73.58,58.25,1,0.38,159,103,67.56,,,gender,strategy,perspective_taking
+ptfull_allv,159,52.83,52.03,63.64,2,1.26,148,11,52.83,,,nationality,strategy,perspective_taking
+ptfull_allv,63,68.25,63.46,90.91,1,1.59,52,11,68.25,,,physical-appearance,strategy,perspective_taking
+ptfull_allv,516,48.26,47.36,58.14,5,0.97,473,43,48.26,,,race-color,strategy,perspective_taking
+ptfull_allv,105,54.29,53.54,66.67,4,3.81,99,6,54.29,,,religion,strategy,perspective_taking
+ptfull_allv,84,69.05,65.28,91.67,0,0.0,72,12,69.05,,,sexual-orientation,strategy,perspective_taking
+ptfull_allv,172,69.77,70.7,60.0,2,1.16,157,15,69.77,,,socioeconomic,strategy,perspective_taking

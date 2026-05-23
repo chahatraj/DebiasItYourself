@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+bba_addl_baseline_remaining_20260309_154403,winobias,1584,0.6906565656565656,0.8371212121212122,0.5441919191919192,0.29292929292929293,0.29292929292929293

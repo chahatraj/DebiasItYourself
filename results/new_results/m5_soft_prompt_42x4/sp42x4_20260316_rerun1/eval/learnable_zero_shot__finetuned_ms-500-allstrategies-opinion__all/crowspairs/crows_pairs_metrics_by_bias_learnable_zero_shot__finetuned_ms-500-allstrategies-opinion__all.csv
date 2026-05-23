@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,87,73.56,76.71,57.14,0,0.0,73,14,73.56,,,age,all
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,60,63.33,64.91,33.33,1,1.67,57,3,63.33,,,disability,all
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,262,63.74,67.3,58.25,1,0.38,159,103,63.74,,,gender,all
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,159,59.12,57.43,81.82,2,1.26,148,11,59.12,,,nationality,all
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,63,74.6,75.0,72.73,0,0.0,52,11,74.6,,,physical-appearance,all
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,516,55.23,53.91,69.77,3,0.58,473,43,55.23,,,race-color,all
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,105,78.1,78.79,66.67,0,0.0,99,6,78.1,,,religion,all
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,84,76.19,80.56,50.0,0,0.0,72,12,76.19,,,sexual-orientation,all
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,172,59.88,60.51,53.33,0,0.0,157,15,59.88,,,socioeconomic,all

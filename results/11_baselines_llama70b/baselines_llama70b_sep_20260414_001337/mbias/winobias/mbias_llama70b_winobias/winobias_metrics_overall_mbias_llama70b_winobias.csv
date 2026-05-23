@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+mbias_llama70b_winobias,winobias,1584,0.889520202020202,0.9671717171717171,0.8118686868686869,0.15530303030303028,0.15530303030303028

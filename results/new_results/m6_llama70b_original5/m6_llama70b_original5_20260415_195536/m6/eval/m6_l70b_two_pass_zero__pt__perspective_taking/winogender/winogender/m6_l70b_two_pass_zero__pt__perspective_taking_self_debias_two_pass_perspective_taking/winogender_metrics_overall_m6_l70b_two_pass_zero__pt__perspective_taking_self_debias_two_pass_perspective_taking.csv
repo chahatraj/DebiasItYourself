@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+m6_l70b_two_pass_zero__pt__perspective_taking_self_debias_two_pass_perspective_taking,winogender,720,0.7944444444444444,0.7791666666666667,0.09166666666666666,9.166666666666666

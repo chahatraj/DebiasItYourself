@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_qwen35_27b_two_pass_one__ci__counter_imaging_self_debias_two_pass_counter_imaging,winobias,1584,0.6919191919191919,0.7146464646464646,0.6691919191919192,0.045454545454545414,0.045454545454545414

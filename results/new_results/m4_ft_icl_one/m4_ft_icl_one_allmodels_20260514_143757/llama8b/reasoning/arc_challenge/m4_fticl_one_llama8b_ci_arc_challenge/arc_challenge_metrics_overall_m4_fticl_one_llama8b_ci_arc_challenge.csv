@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_fticl_one_llama8b_ci_arc_challenge,arc_challenge,test,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,1172,0.6126279863481229,strategy,counter_imaging,v2,one

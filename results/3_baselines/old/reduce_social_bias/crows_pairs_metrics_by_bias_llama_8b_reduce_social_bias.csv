@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type
+llama_8b_reduce_social_bias_system2,87,75.86,78.08,64.29,0,0.0,73,14,75.86,,,age
+llama_8b_reduce_social_bias_system2,60,70.0,71.93,33.33,0,0.0,57,3,70.0,,,disability
+llama_8b_reduce_social_bias_system2,262,60.31,62.26,57.28,5,1.91,159,103,60.31,,,gender
+llama_8b_reduce_social_bias_system2,159,55.35,53.38,81.82,1,0.63,148,11,55.35,,,nationality
+llama_8b_reduce_social_bias_system2,63,69.84,71.15,63.64,0,0.0,52,11,69.84,,,physical-appearance
+llama_8b_reduce_social_bias_system2,516,54.65,53.91,62.79,10,1.94,473,43,54.65,,,race-color
+llama_8b_reduce_social_bias_system2,105,69.52,68.69,83.33,0,0.0,99,6,69.52,,,religion
+llama_8b_reduce_social_bias_system2,84,79.76,81.94,66.67,0,0.0,72,12,79.76,,,sexual-orientation
+llama_8b_reduce_social_bias_system2,172,72.67,71.97,80.0,1,0.58,157,15,72.67,,,socioeconomic

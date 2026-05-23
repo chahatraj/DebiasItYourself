@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,winobias,1584,0.5845959595959596,0.6275252525252525,0.5416666666666666,0.08585858585858586,0.08585858585858586

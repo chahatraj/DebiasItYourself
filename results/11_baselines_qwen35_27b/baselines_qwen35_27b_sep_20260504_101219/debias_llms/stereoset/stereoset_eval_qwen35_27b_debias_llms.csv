@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score
+qwen35_27b_debias_llms_stereoset_all,intrasentence,gender,765.0,70.43020674977197,45.9905958775524,64.78254352402452
+qwen35_27b_debias_llms_stereoset_all,intrasentence,profession,2430.0,68.511796007185,42.65330165334377,58.445086038136296
+qwen35_27b_debias_llms_stereoset_all,intrasentence,race,2886.0,72.70657370784593,39.962268973927124,58.11039309371194
+qwen35_27b_debias_llms_stereoset_all,intrasentence,religion,237.0,68.32183908045977,42.94252873563219,58.67825075967763
+qwen35_27b_debias_llms_stereoset_all,intrasentence,overall,2106.0,70.65896352452027,41.86043389422924,59.15629743305872
+qwen35_27b_debias_llms_stereoset_all,intersentence,gender,726.0,68.92242218329176,60.31580134841005,54.70262186941
+qwen35_27b_debias_llms_stereoset_all,intersentence,profession,2481.0,61.86451304843964,54.80971736485271,55.913496594894895
+qwen35_27b_debias_llms_stereoset_all,intersentence,race,2928.0,64.84565106024905,51.133005396554395,63.37624160836215
+qwen35_27b_debias_llms_stereoset_all,intersentence,religion,234.0,60.42049808429118,51.53639846743295,58.56389887112637
+qwen35_27b_debias_llms_stereoset_all,intersentence,overall,2123.0,64.06157652794869,53.70692308997391,59.31214978371701
+qwen35_27b_debias_llms_stereoset_all,overall,overall,4229.0,67.40255559204577,47.76332174809744,64.38739898773812

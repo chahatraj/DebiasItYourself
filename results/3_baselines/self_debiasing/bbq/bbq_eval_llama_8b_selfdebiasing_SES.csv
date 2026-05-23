@@ -1,0 +1,4 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Method,Category
+SES,0.363,0.363,,,13.957,3432,3432,0,baseline,SES
+SES,0.936,0.936,,,1.719,3432,3432,0,explanation,SES
+SES,0.421,0.421,,,18.124,3432,3432,0,reprompting,SES

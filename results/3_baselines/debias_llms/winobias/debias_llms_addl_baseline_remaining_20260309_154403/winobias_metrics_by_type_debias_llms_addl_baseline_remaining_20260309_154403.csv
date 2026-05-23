@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3005050505050505,debias_llms_addl_baseline_remaining_20260309_154403,winobias
+type1,pro,396,0.8383838383838383,debias_llms_addl_baseline_remaining_20260309_154403,winobias
+type2,anti,396,0.7626262626262627,debias_llms_addl_baseline_remaining_20260309_154403,winobias
+type2,pro,396,0.9747474747474747,debias_llms_addl_baseline_remaining_20260309_154403,winobias

@@ -1,0 +1,2 @@
+model,benchmark,n_pairs,stereotype_preference_pct
+llama_8b,winobias,792,65.78282828282829

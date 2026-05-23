@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+qwen35_27b_selfdebiasing_reprompting,winobias,1584,0.5940656565656566,0.6186868686868687,0.5694444444444444,0.04924242424242431,0.04924242424242431

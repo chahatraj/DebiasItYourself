@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.7575757575757576,qwen35_27b_cal_bbq_all,winobias
+type1,pro,396,0.8838383838383839,qwen35_27b_cal_bbq_all,winobias
+type2,anti,396,0.9191919191919192,qwen35_27b_cal_bbq_all,winobias
+type2,pro,396,0.9848484848484849,qwen35_27b_cal_bbq_all,winobias

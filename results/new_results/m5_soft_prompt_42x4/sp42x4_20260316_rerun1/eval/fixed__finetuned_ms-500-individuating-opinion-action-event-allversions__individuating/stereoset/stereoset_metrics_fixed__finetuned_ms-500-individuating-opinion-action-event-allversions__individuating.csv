@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,gender,765.0,85.95125599038643,63.09953026039982,63.43283441507767,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,profession,2430.0,87.6692383375825,58.81342278440322,72.21591708446797,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,race,2886.0,87.52611334516384,60.37737843655717,69.3602813198886,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,religion,237.0,84.06896551724138,59.356321839080465,68.33743955608402,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,overall,2106.0,87.2498314811261,60.08927310594171,69.64408391591665,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,gender,726.0,50.63100546796199,62.234808267416966,38.241792582220896,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,profession,2481.0,46.267613319884354,58.94289857206061,37.99228185806343,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,race,2928.0,53.47121016077264,57.09293017620171,45.885858958625285,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,religion,234.0,50.083333333333336,65.46743295019158,34.59012132822477,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,overall,2123.0,50.24749392486033,58.76433955733954,41.439771951603696,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,overall,overall,4229.0,68.68589668326182,59.36432164392322,55.82196010439497,individuating

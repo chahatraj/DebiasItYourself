@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6625,learnable_random__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winogender
+male,240,0.6458333333333334,learnable_random__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winogender
+neutral,240,0.5791666666666667,learnable_random__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winogender

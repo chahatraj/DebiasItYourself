@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Category
+SES,0.334,0.337,0.332,0.0,0.0,6864,3432,3432,SES

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__base__perspective_taking,winobias,1584,0.7506313131313131,0.9267676767676768,0.5744949494949495,0.3522727272727273,0.3522727272727273

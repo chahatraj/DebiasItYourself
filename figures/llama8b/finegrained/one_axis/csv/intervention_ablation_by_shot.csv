@@ -1,0 +1,31 @@
+strategy_label,method_family,shot,mean_reduction_vs_base,n_panels
+Stereotype replacement,Two Pass (IT),0,2.8935973333333336,6
+Stereotype replacement,Two Pass (IT),1,3.4078226666666667,6
+Stereotype replacement,Two Pass (IT),2,3.3307070000000008,6
+Stereotype replacement,Two Pass (No IT),0,2.8129803333333334,6
+Stereotype replacement,Two Pass (No IT),1,2.939385666666667,6
+Stereotype replacement,Two Pass (No IT),2,3.040400333333333,6
+Individuation,Two Pass (IT),0,3.973455166666667,6
+Individuation,Two Pass (IT),1,3.7840676666666666,6
+Individuation,Two Pass (IT),2,-11.123678333333336,6
+Individuation,Two Pass (No IT),0,3.4638185,6
+Individuation,Two Pass (No IT),1,3.724276,6
+Individuation,Two Pass (No IT),2,4.106509999999999,6
+Perspective-taking,Two Pass (IT),0,3.885468166666666,6
+Perspective-taking,Two Pass (IT),1,4.125559666666666,6
+Perspective-taking,Two Pass (IT),2,-0.7167673333333338,6
+Perspective-taking,Two Pass (No IT),0,3.9048700000000003,6
+Perspective-taking,Two Pass (No IT),1,3.951090833333333,6
+Perspective-taking,Two Pass (No IT),2,-0.7930563333333334,6
+Counter-stereotypic imaging,Two Pass (IT),0,3.861898666666667,6
+Counter-stereotypic imaging,Two Pass (IT),1,3.9813185,6
+Counter-stereotypic imaging,Two Pass (IT),2,4.126127333333333,6
+Counter-stereotypic imaging,Two Pass (No IT),0,3.4502973333333333,6
+Counter-stereotypic imaging,Two Pass (No IT),1,3.7064039999999996,6
+Counter-stereotypic imaging,Two Pass (No IT),2,3.6681408333333336,6
+Positive contact,Two Pass (IT),0,3.831251066666667,6
+Positive contact,Two Pass (IT),1,4.347073166666666,6
+Positive contact,Two Pass (IT),2,4.296389499999999,6
+Positive contact,Two Pass (No IT),0,3.8312969999999997,6
+Positive contact,Two Pass (No IT),1,3.624832666666666,6
+Positive contact,Two Pass (No IT),2,3.6624976666666673,6

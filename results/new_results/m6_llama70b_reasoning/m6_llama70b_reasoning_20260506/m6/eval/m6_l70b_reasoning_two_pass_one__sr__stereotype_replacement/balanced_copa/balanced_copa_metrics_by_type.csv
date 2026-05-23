@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.906,m6_l70b_reasoning_two_pass_one__sr__stereotype_replacement,balanced_copa
+effect,500,0.908,m6_l70b_reasoning_two_pass_one__sr__stereotype_replacement,balanced_copa

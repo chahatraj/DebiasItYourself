@@ -1,0 +1,11 @@
+Category,Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+Age,Age,0.649,0.673,0.626,7.4,0.2,3312,1659,1653
+Disability_status,Age,0.678,0.62,0.735,10.1,4.7,1401,698,703
+Gender_identity,Age,0.736,0.825,0.647,12.6,0.7,5090,2549,2541
+Nationality,Age,0.754,0.831,0.676,0.9,1.8,2772,1388,1384
+Physical_appearance,Age,0.569,0.541,0.596,5.8,6.5,1419,706,713
+Race_ethnicity,Age,0.759,0.826,0.692,4.1,0.2,6192,3111,3081
+Religion,Age,0.684,0.675,0.693,5.7,4.0,1080,539,541
+SES,Age,0.708,0.747,0.67,4.0,-1.1,6178,3100,3078
+Sexual_orientation,Age,0.762,0.726,0.798,3.4,-0.6,778,391,387
+overall,Age,0.714,0.758,0.67,6.1,0.7,28222,14141,14081

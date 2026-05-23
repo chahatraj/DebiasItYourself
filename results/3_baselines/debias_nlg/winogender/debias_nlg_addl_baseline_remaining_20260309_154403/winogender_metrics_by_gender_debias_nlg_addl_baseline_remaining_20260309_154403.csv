@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5625,debias_nlg_addl_baseline_remaining_20260309_154403,winogender
+male,240,0.55,debias_nlg_addl_baseline_remaining_20260309_154403,winogender
+neutral,240,0.5291666666666667,debias_nlg_addl_baseline_remaining_20260309_154403,winogender

@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.625,fixed__base__stereotype_replacement,winogender
+male,240,0.6583333333333333,fixed__base__stereotype_replacement,winogender
+neutral,240,0.6,fixed__base__stereotype_replacement,winogender

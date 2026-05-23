@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_baseicl_zero_qwen35_27b_sr_bbq:m4_baseicl_zero_qwen35_27b_sr_bbq_instr_stereotype_replacement_ALL,0.374,0.185,0.563,1.167,12.255,58476,29238,29238,bbq_preds_m4_baseicl_zero_qwen35_27b_sr_bbq_instr_stereotype_replacement_ALL.csv

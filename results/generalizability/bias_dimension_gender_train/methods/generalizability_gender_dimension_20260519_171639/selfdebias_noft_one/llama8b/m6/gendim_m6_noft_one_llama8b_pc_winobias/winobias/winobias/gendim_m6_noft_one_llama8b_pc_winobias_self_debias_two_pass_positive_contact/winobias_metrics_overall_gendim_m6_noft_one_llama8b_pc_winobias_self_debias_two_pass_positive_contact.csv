@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+gendim_m6_noft_one_llama8b_pc_winobias_self_debias_two_pass_positive_contact,winobias,1584,0.5738636363636364,0.6641414141414141,0.48358585858585856,0.18055555555555558,0.18055555555555558

@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score
+llama_70b_biasedit_stereoset_all,intrasentence,gender,765.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intrasentence,profession,2430.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intrasentence,race,2886.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intrasentence,religion,237.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intrasentence,overall,2106.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intersentence,gender,726.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intersentence,profession,2481.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intersentence,race,2928.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intersentence,religion,234.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,intersentence,overall,2123.0,0.0,0.0,0.0
+llama_70b_biasedit_stereoset_all,overall,overall,4229.0,0.0,0.0,0.0

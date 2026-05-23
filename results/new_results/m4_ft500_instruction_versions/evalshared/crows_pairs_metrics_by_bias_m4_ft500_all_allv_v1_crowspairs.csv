@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_ft500_all_allv_v1_crowspairs,87,74.71,80.82,42.86,1,1.15,73,14,74.71,,,age,strategy,all_strategies,v1,zero
+m4_ft500_all_allv_v1_crowspairs,60,83.33,84.21,66.67,0,0.0,57,3,83.33,,,disability,strategy,all_strategies,v1,zero
+m4_ft500_all_allv_v1_crowspairs,262,60.69,64.78,54.37,3,1.15,159,103,60.69,,,gender,strategy,all_strategies,v1,zero
+m4_ft500_all_allv_v1_crowspairs,159,66.04,66.89,54.55,1,0.63,148,11,66.04,,,nationality,strategy,all_strategies,v1,zero
+m4_ft500_all_allv_v1_crowspairs,63,76.19,84.62,36.36,0,0.0,52,11,76.19,,,physical-appearance,strategy,all_strategies,v1,zero
+m4_ft500_all_allv_v1_crowspairs,516,62.98,64.48,46.51,8,1.55,473,43,62.98,,,race-color,strategy,all_strategies,v1,zero
+m4_ft500_all_allv_v1_crowspairs,105,70.48,71.72,50.0,1,0.95,99,6,70.48,,,religion,strategy,all_strategies,v1,zero
+m4_ft500_all_allv_v1_crowspairs,84,82.14,84.72,66.67,0,0.0,72,12,82.14,,,sexual-orientation,strategy,all_strategies,v1,zero
+m4_ft500_all_allv_v1_crowspairs,172,72.67,73.89,60.0,1,0.58,157,15,72.67,,,socioeconomic,strategy,all_strategies,v1,zero

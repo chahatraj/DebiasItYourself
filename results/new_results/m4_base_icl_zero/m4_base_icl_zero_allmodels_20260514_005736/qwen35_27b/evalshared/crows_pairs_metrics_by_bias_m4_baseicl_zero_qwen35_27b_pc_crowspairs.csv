@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,87,68.97,73.97,42.86,13,14.94,73,14,68.97,,,age,strategy,positive_contact,v2,zero
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,60,70.0,71.93,33.33,6,10.0,57,3,70.0,,,disability,strategy,positive_contact,v2,zero
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,262,51.53,61.01,36.89,55,20.99,159,103,51.53,,,gender,strategy,positive_contact,v2,zero
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,159,53.46,54.05,45.45,26,16.35,148,11,53.46,,,nationality,strategy,positive_contact,v2,zero
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,63,63.49,71.15,27.27,13,20.63,52,11,63.49,,,physical-appearance,strategy,positive_contact,v2,zero
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,516,61.82,63.64,41.86,82,15.89,473,43,61.82,,,race-color,strategy,positive_contact,v2,zero
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,105,66.67,67.68,50.0,16,15.24,99,6,66.67,,,religion,strategy,positive_contact,v2,zero
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,84,76.19,80.56,50.0,9,10.71,72,12,76.19,,,sexual-orientation,strategy,positive_contact,v2,zero
+m4_baseicl_zero_qwen35_27b_pc_crowspairs,172,72.09,72.61,66.67,14,8.14,157,15,72.09,,,socioeconomic,strategy,positive_contact,v2,zero

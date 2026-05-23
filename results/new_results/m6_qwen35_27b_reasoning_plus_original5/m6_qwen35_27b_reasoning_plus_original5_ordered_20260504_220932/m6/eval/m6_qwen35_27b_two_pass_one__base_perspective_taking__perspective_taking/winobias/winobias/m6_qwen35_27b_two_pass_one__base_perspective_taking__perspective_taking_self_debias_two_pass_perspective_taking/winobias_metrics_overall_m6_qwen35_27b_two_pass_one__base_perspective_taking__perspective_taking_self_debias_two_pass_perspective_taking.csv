@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_qwen35_27b_two_pass_one__base_perspective_taking__perspective_taking_self_debias_two_pass_perspective_taking,winobias,1584,0.6022727272727273,0.6111111111111112,0.5934343434343434,0.017676767676767735,0.017676767676767735

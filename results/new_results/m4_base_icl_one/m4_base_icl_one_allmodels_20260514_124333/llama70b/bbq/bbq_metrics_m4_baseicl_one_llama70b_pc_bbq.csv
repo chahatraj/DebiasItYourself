@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_baseicl_one_llama70b_pc_bbq:m4_baseicl_one_llama70b_pc_bbq_instr_positive_contact_ALL,0.41,0.305,0.515,0.49,4.58,58476,29238,29238,bbq_preds_m4_baseicl_one_llama70b_pc_bbq_instr_positive_contact_ALL.csv

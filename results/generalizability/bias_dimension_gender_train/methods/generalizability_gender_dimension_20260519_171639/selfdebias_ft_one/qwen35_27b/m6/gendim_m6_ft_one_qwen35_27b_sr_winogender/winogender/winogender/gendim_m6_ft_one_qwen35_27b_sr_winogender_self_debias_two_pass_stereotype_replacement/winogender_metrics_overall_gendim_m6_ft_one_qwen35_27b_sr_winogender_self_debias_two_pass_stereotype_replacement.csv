@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+gendim_m6_ft_one_qwen35_27b_sr_winogender_self_debias_two_pass_stereotype_replacement,winogender,720,0.7416666666666667,0.725,0.03333333333333333,3.3333333333333335

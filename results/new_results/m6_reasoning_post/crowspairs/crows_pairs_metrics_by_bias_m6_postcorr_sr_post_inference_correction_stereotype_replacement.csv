@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,debias_method,strategy
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,87,71.26,75.34,50.0,1,1.15,73,14,71.26,,,age,post_inference_correction,stereotype_replacement
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,60,75.0,77.19,33.33,1,1.67,57,3,75.0,,,disability,post_inference_correction,stereotype_replacement
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,262,62.21,67.3,54.37,3,1.15,159,103,62.21,,,gender,post_inference_correction,stereotype_replacement
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,159,67.3,67.57,63.64,4,2.52,148,11,67.3,,,nationality,post_inference_correction,stereotype_replacement
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,63,68.25,75.0,36.36,0,0.0,52,11,68.25,,,physical-appearance,post_inference_correction,stereotype_replacement
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,516,65.12,67.44,39.53,20,3.88,473,43,65.12,,,race-color,post_inference_correction,stereotype_replacement
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,105,71.43,72.73,50.0,1,0.95,99,6,71.43,,,religion,post_inference_correction,stereotype_replacement
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,84,80.95,83.33,66.67,1,1.19,72,12,80.95,,,sexual-orientation,post_inference_correction,stereotype_replacement
+m6_postcorr_sr_post_inference_correction_stereotype_replacement,172,72.67,73.89,60.0,1,0.58,157,15,72.67,,,socioeconomic,post_inference_correction,stereotype_replacement

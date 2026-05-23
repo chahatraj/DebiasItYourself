@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_qwen35_27b_two_pass_zero__pc__positive_contact_self_debias_two_pass_positive_contact,winobias,1584,0.6275252525252525,0.6515151515151515,0.6035353535353535,0.04797979797979801,0.04797979797979801

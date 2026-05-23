@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy
+allstrat1000_action,intrasentence,gender,765.0,86.3649569432178,61.25299386603734,66.92767032876563,strategy,all_strategies
+allstrat1000_action,intrasentence,profession,2430.0,86.45922316033058,56.939747016598304,74.45912044064436,strategy,all_strategies
+allstrat1000_action,intrasentence,race,2886.0,86.75987131705877,63.671653898578064,63.036852658418816,strategy,all_strategies
+allstrat1000_action,intrasentence,religion,237.0,82.73563218390804,59.17241379310345,67.5579231074118,strategy,all_strategies
+allstrat1000_action,intrasentence,overall,2106.0,86.44289276212577,60.638216846663845,68.05092800099771,strategy,all_strategies
+allstrat1000_action,intersentence,gender,726.0,62.467705402488015,65.50118560988128,43.10123548114102,strategy,all_strategies
+allstrat1000_action,intersentence,profession,2481.0,55.88907712297591,61.45122976832284,43.08910384948165,strategy,all_strategies
+allstrat1000_action,intersentence,race,2928.0,59.88319697983986,59.11831226389068,48.96252319139475,strategy,all_strategies
+allstrat1000_action,intersentence,religion,234.0,60.09770114942529,61.283524904214566,46.5354229973136,strategy,all_strategies
+allstrat1000_action,intersentence,overall,2123.0,58.70174129666669,60.894412219762096,45.911321942592316,strategy,all_strategies
+allstrat1000_action,overall,overall,4229.0,72.53272949268275,60.777146366336716,56.89881265083175,strategy,all_strategies

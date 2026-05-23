@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.601010101010101,debias_llms_qwen35_27b_winobias,winobias
+type1,pro,396,0.7777777777777778,debias_llms_qwen35_27b_winobias,winobias
+type2,anti,396,0.8409090909090909,debias_llms_qwen35_27b_winobias,winobias
+type2,pro,396,0.9318181818181818,debias_llms_qwen35_27b_winobias,winobias

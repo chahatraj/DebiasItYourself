@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+llama_70b_cal_bbq_all,winogender,720,0.8555555555555555,0.8458333333333333,0.10416666666666667,8.75

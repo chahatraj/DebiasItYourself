@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winobias,1584,0.7525252525252525,0.922979797979798,0.5820707070707071,0.34090909090909094,0.34090909090909094

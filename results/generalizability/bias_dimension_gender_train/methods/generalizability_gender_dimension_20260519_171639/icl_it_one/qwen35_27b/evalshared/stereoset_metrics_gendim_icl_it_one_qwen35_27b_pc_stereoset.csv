@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intrasentence,gender,765.0,88.29058332971377,60.7411968064142,69.3236526957624,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intrasentence,profession,2430.0,85.63376202500157,56.833910880433585,73.9294920642992,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intrasentence,race,2886.0,85.53331766412794,63.78914721050174,61.94468749066256,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intrasentence,religion,237.0,80.82758620689656,57.6551724137931,68.45260404280619,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intrasentence,overall,2106.0,85.74178339970229,60.529165965779626,67.68599404735441,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intersentence,gender,726.0,69.69668515864167,61.52600821079081,53.630193850573555,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intersentence,profession,2481.0,66.89227014248335,57.131148169042135,57.351896347490516,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intersentence,race,2928.0,67.60690821375532,57.32335313125697,57.70472295451916,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intersentence,religion,234.0,67.29406130268198,61.52298850574713,51.78548740476504,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,intersentence,overall,2123.0,67.58817513245765,57.94182538508436,56.852705432488065,strategy,positive_contact,v2,one
+gendim_icl_it_one_qwen35_27b_pc_stereoset,overall,overall,4229.0,76.64746170573888,59.20095927736964,62.54285822837383,strategy,positive_contact,v2,one

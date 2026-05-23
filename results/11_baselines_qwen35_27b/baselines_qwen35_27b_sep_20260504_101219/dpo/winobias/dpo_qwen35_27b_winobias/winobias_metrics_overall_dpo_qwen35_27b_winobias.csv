@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+dpo_qwen35_27b_winobias,winobias,1584,0.8238636363636364,0.8674242424242424,0.7803030303030303,0.08712121212121215,0.08712121212121215

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+gendim_m6_ft_one_qwen35_27b_pt_winobias_self_debias_two_pass_perspective_taking,winobias,1584,0.5536616161616161,0.571969696969697,0.5353535353535354,0.03661616161616166,0.03661616161616166

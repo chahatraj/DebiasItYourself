@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5791666666666667,learnable_zero_shot__finetuned_ms-500-allstrategies-action__all,winogender
+male,240,0.6333333333333333,learnable_zero_shot__finetuned_ms-500-allstrategies-action__all,winogender
+neutral,240,0.5541666666666667,learnable_zero_shot__finetuned_ms-500-allstrategies-action__all,winogender

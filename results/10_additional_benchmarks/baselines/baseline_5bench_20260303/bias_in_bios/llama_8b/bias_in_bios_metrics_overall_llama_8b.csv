@@ -1,0 +1,2 @@
+model,benchmark,split,n,accuracy,accuracy_male,accuracy_female,gender_accuracy_gap_abs,avg_confidence
+llama_8b,bias_in_bios,test,500,0.682,0.6702898550724637,0.6964285714285714,0.02613871635610765,0.8872743571487388

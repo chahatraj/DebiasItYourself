@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+llama_70b_reduce_social_bias_system2,winobias,1584,0.851010101010101,0.9305555555555556,0.7714646464646465,0.15909090909090906,0.15909090909090906

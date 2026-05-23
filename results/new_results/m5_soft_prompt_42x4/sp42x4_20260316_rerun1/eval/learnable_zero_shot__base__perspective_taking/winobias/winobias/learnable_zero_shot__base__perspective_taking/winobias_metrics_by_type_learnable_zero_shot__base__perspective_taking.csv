@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.4797979797979798,learnable_zero_shot__base__perspective_taking,winobias
+type1,pro,396,0.5429292929292929,learnable_zero_shot__base__perspective_taking,winobias
+type2,anti,396,0.005050505050505051,learnable_zero_shot__base__perspective_taking,winobias
+type2,pro,396,0.050505050505050504,learnable_zero_shot__base__perspective_taking,winobias

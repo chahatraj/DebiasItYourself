@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+dpo_addl_baseline_remaining_20260309_154403,winogender,720,0.6277777777777778,0.5541666666666667,0.225,20.833333333333332

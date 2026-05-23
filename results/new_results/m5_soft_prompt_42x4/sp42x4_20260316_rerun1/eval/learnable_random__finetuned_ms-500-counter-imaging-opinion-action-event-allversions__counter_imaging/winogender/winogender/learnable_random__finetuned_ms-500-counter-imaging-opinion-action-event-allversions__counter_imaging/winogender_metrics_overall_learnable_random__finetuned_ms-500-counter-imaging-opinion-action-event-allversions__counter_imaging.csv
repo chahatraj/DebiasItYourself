@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winogender,720,0.6291666666666667,0.575,0.3375,33.75

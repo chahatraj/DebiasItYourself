@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,87,75.86,79.45,57.14,0,0.0,73,14,75.86,,,age,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,60,70.0,71.93,33.33,1,1.67,57,3,70.0,,,disability,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,262,60.69,64.78,54.37,0,0.0,159,103,60.69,,,gender,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,159,62.26,60.14,90.91,0,0.0,148,11,62.26,,,nationality,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,63,69.84,69.23,72.73,0,0.0,52,11,69.84,,,physical-appearance,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,516,58.53,57.51,69.77,6,1.16,473,43,58.53,,,race-color,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,105,68.57,68.69,66.67,1,0.95,99,6,68.57,,,religion,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,84,82.14,84.72,66.67,0,0.0,72,12,82.14,,,sexual-orientation,positive_contact
+learnable_zero_shot__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,172,70.35,71.34,60.0,0,0.0,157,15,70.35,,,socioeconomic,positive_contact

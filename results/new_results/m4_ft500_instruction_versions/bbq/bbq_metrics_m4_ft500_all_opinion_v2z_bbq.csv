@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_ft500_all_opinion_v2z_bbq:m4_ft500_all_opinion_v2z_bbq_instr_all_strategies_ALL,0.389,0.294,0.485,1.645,3.577,58540,29270,29270,bbq_preds_m4_ft500_all_opinion_v2z_bbq_instr_all_strategies_ALL.csv

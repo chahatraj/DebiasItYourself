@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.906,m6_qwen35_27b_two_pass_one__base_stereotype_replacement__stereotype_replacement,balanced_copa
+effect,500,0.886,m6_qwen35_27b_two_pass_one__base_stereotype_replacement__stereotype_replacement,balanced_copa

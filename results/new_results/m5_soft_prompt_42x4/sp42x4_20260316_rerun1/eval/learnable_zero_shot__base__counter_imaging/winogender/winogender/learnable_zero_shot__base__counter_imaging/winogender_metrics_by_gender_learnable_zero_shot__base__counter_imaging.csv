@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6333333333333333,learnable_zero_shot__base__counter_imaging,winogender
+male,240,0.6625,learnable_zero_shot__base__counter_imaging,winogender
+neutral,240,0.6083333333333333,learnable_zero_shot__base__counter_imaging,winogender

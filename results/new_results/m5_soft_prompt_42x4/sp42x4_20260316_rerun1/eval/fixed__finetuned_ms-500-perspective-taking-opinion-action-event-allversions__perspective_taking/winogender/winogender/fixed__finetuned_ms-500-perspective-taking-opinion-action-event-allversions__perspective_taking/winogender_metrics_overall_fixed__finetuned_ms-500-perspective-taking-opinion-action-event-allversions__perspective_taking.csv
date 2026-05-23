@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+fixed__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,winogender,720,0.6666666666666666,0.6,0.22916666666666666,22.916666666666668

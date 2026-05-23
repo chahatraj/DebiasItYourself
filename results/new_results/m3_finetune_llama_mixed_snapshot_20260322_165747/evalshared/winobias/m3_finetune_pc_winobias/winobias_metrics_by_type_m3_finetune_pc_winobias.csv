@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3787878787878788,m3_finetune_pc_winobias,winobias
+type1,pro,396,0.8055555555555556,m3_finetune_pc_winobias,winobias
+type2,anti,396,0.8813131313131313,m3_finetune_pc_winobias,winobias
+type2,pro,396,0.9671717171717171,m3_finetune_pc_winobias,winobias

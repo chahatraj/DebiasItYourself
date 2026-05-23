@@ -1,0 +1,4 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Method,Category
+Disability_status,0.371,0.371,,,7.841,778,778,0,baseline,Disability_status
+Disability_status,0.883,0.883,,,2.442,778,778,0,explanation,Disability_status
+Disability_status,0.454,0.454,,,11.954,778,778,0,reprompting,Disability_status

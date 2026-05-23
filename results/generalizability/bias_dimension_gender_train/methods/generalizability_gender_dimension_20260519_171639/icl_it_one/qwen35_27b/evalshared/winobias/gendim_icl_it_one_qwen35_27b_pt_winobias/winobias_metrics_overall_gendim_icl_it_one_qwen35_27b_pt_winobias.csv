@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+gendim_icl_it_one_qwen35_27b_pt_winobias,winobias,1584,0.9090909090909091,0.9595959595959596,0.8585858585858586,0.101010101010101,0.101010101010101

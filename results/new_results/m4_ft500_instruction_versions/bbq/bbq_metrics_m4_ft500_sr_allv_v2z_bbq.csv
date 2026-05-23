@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_ft500_sr_allv_v2z_bbq:m4_ft500_sr_allv_v2z_bbq_instr_stereotype_replacement_ALL,0.385,0.281,0.489,1.454,4.394,58540,29270,29270,bbq_preds_m4_ft500_sr_allv_v2z_bbq_instr_stereotype_replacement_ALL.csv

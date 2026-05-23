@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m4_fticl_one_llama8b_ci_winobias,winobias,1584,0.7632575757575758,0.898989898989899,0.6275252525252525,0.2714646464646465,0.2714646464646465

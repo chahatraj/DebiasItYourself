@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+gendim_it500_qwen35_27b_pc_winogender,winogender,720,0.9305555555555556,0.9166666666666666,0.04583333333333333,4.583333333333333

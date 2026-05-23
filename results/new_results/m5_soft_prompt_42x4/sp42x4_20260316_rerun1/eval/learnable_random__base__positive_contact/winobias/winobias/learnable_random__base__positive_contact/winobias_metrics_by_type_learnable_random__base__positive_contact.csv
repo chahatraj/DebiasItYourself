@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.23737373737373738,learnable_random__base__positive_contact,winobias
+type1,pro,396,0.8257575757575758,learnable_random__base__positive_contact,winobias
+type2,anti,396,0.49747474747474746,learnable_random__base__positive_contact,winobias
+type2,pro,396,0.9090909090909091,learnable_random__base__positive_contact,winobias

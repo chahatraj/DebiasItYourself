@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+lftf_qwen35_27b_winobias,winobias,1584,0.7904040404040404,0.8409090909090909,0.73989898989899,0.101010101010101,0.101010101010101

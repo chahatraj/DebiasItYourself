@@ -1,0 +1,2 @@
+model,benchmark,dimension,n_raw_rows,n_paired_rows,pairing_coverage,delta_positional_error,epsilon_attributive_error,mu_bias_intensity,eta_bias_intensity
+m3_finetune_allstrat_unqover_gender,unqover,gender,10000,23,0.0023053021950486118,0.38372995005765054,0.5497788774659632,0.24207557874086016,1.0

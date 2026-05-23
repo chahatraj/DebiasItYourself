@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3838383838383838,llama_8b_fairsteer_steered,winobias
+type1,pro,396,0.7550505050505051,llama_8b_fairsteer_steered,winobias
+type2,anti,396,0.8080808080808081,llama_8b_fairsteer_steered,winobias
+type2,pro,396,0.8813131313131313,llama_8b_fairsteer_steered,winobias

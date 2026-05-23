@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy
+llama_70b_lftf_bbq_all,arc_challenge,test,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,1172,0.8668941979522184

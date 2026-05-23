@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m3_finetune_ci,87,72.41,76.71,50.0,0,0.0,73,14,72.41,,,age,off,,v1,zero
+m3_finetune_ci,60,66.67,68.42,33.33,0,0.0,57,3,66.67,,,disability,off,,v1,zero
+m3_finetune_ci,262,58.78,63.52,51.46,1,0.38,159,103,58.78,,,gender,off,,v1,zero
+m3_finetune_ci,159,55.97,57.43,36.36,1,0.63,148,11,55.97,,,nationality,off,,v1,zero
+m3_finetune_ci,63,65.08,69.23,45.45,0,0.0,52,11,65.08,,,physical-appearance,off,,v1,zero
+m3_finetune_ci,516,62.21,63.0,53.49,3,0.58,473,43,62.21,,,race-color,off,,v1,zero
+m3_finetune_ci,105,67.62,67.68,66.67,1,0.95,99,6,67.62,,,religion,off,,v1,zero
+m3_finetune_ci,84,76.19,77.78,66.67,0,0.0,72,12,76.19,,,sexual-orientation,off,,v1,zero
+m3_finetune_ci,172,73.26,75.16,53.33,1,0.58,157,15,73.26,,,socioeconomic,off,,v1,zero

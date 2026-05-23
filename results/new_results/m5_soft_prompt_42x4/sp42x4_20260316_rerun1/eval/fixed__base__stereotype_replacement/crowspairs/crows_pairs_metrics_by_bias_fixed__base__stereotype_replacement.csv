@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+fixed__base__stereotype_replacement,87,72.41,78.08,42.86,0,0.0,73,14,72.41,,,age,stereotype_replacement
+fixed__base__stereotype_replacement,60,68.33,71.93,0.0,0,0.0,57,3,68.33,,,disability,stereotype_replacement
+fixed__base__stereotype_replacement,262,62.21,61.01,64.08,3,1.15,159,103,62.21,,,gender,stereotype_replacement
+fixed__base__stereotype_replacement,159,60.38,59.46,72.73,1,0.63,148,11,60.38,,,nationality,stereotype_replacement
+fixed__base__stereotype_replacement,63,69.84,69.23,72.73,0,0.0,52,11,69.84,,,physical-appearance,stereotype_replacement
+fixed__base__stereotype_replacement,516,57.75,57.51,60.47,6,1.16,473,43,57.75,,,race-color,stereotype_replacement
+fixed__base__stereotype_replacement,105,71.43,71.72,66.67,0,0.0,99,6,71.43,,,religion,stereotype_replacement
+fixed__base__stereotype_replacement,84,80.95,83.33,66.67,0,0.0,72,12,80.95,,,sexual-orientation,stereotype_replacement
+fixed__base__stereotype_replacement,172,70.35,71.34,60.0,0,0.0,157,15,70.35,,,socioeconomic,stereotype_replacement

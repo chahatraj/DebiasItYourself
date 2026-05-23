@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+debias_nlg_addl_baseline_remaining_20260309_154403,winobias,1584,0.28535353535353536,0.29545454545454547,0.27525252525252525,0.02020202020202022,0.02020202020202022

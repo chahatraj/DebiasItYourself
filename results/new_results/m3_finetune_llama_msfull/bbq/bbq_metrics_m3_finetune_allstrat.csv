@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Age,0.411,0.197,0.626,7.962,17.5,3680,1840,1840,bbq_preds_m3_finetune_allstrat_instr_off_Age.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Disability_status,0.316,0.078,0.554,2.557,4.242,1556,778,778,bbq_preds_m3_finetune_allstrat_instr_off_Disability_status.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Gender_identity,0.498,0.934,0.063,-0.392,0.804,5720,2860,2860,bbq_preds_m3_finetune_allstrat_instr_off_Gender_identity.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Nationality,0.427,0.237,0.616,2.591,6.039,3080,1540,1540,bbq_preds_m3_finetune_allstrat_instr_off_Nationality.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Physical_appearance,0.355,0.173,0.538,2.222,16.751,1576,788,788,bbq_preds_m3_finetune_allstrat_instr_off_Physical_appearance.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Race_ethnicity,0.38,0.297,0.464,0.866,1.279,6880,3440,3440,bbq_preds_m3_finetune_allstrat_instr_off_Race_ethnicity.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Race_x_SES,0.324,0.034,0.615,0.851,3.728,11160,5580,5580,bbq_preds_m3_finetune_allstrat_instr_off_Race_x_SES.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Race_x_gender,0.39,0.313,0.468,-0.386,0.363,15960,7980,7980,bbq_preds_m3_finetune_allstrat_instr_off_Race_x_gender.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Religion,0.5,0.463,0.537,9.795,9.0,1200,600,600,bbq_preds_m3_finetune_allstrat_instr_off_Religion.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_SES,0.468,0.544,0.393,-0.546,3.322,6864,3432,3432,bbq_preds_m3_finetune_allstrat_instr_off_SES.csv
+m3_finetune_allstrat:m3_finetune_allstrat_instr_off_Sexual_orientation,0.471,0.394,0.549,-1.22,4.63,864,432,432,bbq_preds_m3_finetune_allstrat_instr_off_Sexual_orientation.csv
+m3_finetune_allstrat,0.4,0.328,0.472,1.254,3.662,58540,29270,29270,__overall__

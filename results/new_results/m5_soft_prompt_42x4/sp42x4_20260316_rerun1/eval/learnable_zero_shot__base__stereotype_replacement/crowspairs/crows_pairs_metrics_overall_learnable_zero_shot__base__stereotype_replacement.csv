@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+learnable_zero_shot__base__stereotype_replacement,1508,66.45,66.67,65.14,4,0.27,1290,218,66.45,,,stereotype_replacement

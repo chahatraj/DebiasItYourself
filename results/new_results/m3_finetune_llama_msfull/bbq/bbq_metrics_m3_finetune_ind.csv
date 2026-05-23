@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m3_finetune_ind:m3_finetune_ind_instr_off_ALL,0.399,0.306,0.491,1.278,4.387,58540,29270,29270,bbq_preds_m3_finetune_ind_instr_off_ALL.csv

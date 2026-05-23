@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+gendim_icl_noft_one_llama8b_sr_bbq:gendim_icl_noft_one_llama8b_sr_bbq_instr_stereotype_replacement_ALL,0.397,0.324,0.471,0.941,3.307,58476,29238,29238,bbq_preds_gendim_icl_noft_one_llama8b_sr_bbq_instr_stereotype_replacement_ALL.csv

@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.9166666666666666,m4_fticl_one_qwen35_27b_all_event_winogender,winogender
+male,240,0.9291666666666667,m4_fticl_one_qwen35_27b_all_event_winogender,winogender
+neutral,240,0.9458333333333333,m4_fticl_one_qwen35_27b_all_event_winogender,winogender

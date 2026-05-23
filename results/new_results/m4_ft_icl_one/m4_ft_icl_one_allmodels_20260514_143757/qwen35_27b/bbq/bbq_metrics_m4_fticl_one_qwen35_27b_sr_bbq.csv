@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_fticl_one_qwen35_27b_sr_bbq:m4_fticl_one_qwen35_27b_sr_bbq_instr_stereotype_replacement_ALL,0.409,0.252,0.566,0.875,10.955,58476,29238,29238,bbq_preds_m4_fticl_one_qwen35_27b_sr_bbq_instr_stereotype_replacement_ALL.csv

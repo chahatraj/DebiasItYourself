@@ -1,0 +1,16 @@
+method_key,method_label,group,mean_bias_error,mean_reasoning_accuracy,n_bias_panels,n_reasoning_benchmarks,reasoning_source_scope,plotted
+base,Base Model Inference,base,4.6400209,87.265902,6,3,model_specific,True
+bba,BBA,baseline,6.6429987,82.659185,6,3,model_specific,True
+cal,CAL,baseline,5.1124702,92.279045,6,3,model_specific,True
+dpo,DPO,baseline,9.0560775,88.424466,6,3,model_specific,True
+debias_llms,DebiasLLMs,baseline,2.1200028,61.117051,6,3,model_specific,True
+debias_nlg,DebiasNLG,baseline,11.933831,83.724598,6,3,model_specific,True
+fairsteer,FairSteer,baseline,6.0560009,86.501541,6,3,model_specific,True
+lftf,LFTF,baseline,4.5436681,86.079285,6,3,model_specific,True
+peft,PEFT,baseline,1.9796206,81.960984,6,3,model_specific,True
+reduce_social_bias,Reduce Social Bias,baseline,6.3244981,92.95306,6,3,model_specific,True
+selfdebias_reprompting,SelfDebias: Reprompt,baseline,0.066287878,76.68298,2,3,model_specific,True
+diy_twopass_it,DIY Two Pass (IT),diy_combo,1.773088,92.963842,6,3,model_specific,True
+diy_it,DIY IT,diy_tune,4.5718463,92.390737,6,3,model_specific,True
+diy_twopass_no_it,DIY Two Pass (No IT),diy_twopass,1.1725842,87.680729,6,3,model_specific,True
+icl,ICL,icl,5.2424822,90.409697,6,3,model_specific,True

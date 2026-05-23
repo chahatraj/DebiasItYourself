@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+learnable_random__base__individuating,intrasentence,gender,765.0,89.08389315998012,65.7372754459711,61.04513787081877,individuating
+learnable_random__base__individuating,intrasentence,profession,2430.0,89.10817732057042,59.536979243484446,72.1117205699502,individuating
+learnable_random__base__individuating,intrasentence,race,2886.0,89.0770667167902,60.93100078255418,69.60303699701291,individuating
+learnable_random__base__individuating,intrasentence,religion,237.0,87.70114942528737,70.02298850574714,52.58036728762055,individuating
+learnable_random__base__individuating,intrasentence,overall,2106.0,89.03749495312941,61.35528006903084,68.81658111637533,individuating
+learnable_random__base__individuating,intersentence,gender,726.0,50.44531153226805,63.54625648103909,36.778408966627616,individuating
+learnable_random__base__individuating,intersentence,profession,2481.0,45.00327837888089,58.08870618114222,37.722912458982535,individuating
+learnable_random__base__individuating,intersentence,race,2928.0,51.047475646181,57.065105501300046,43.83435962587473,individuating
+learnable_random__base__individuating,intersentence,religion,234.0,47.213601532567054,62.6896551724138,35.23111507464658,individuating
+learnable_random__base__individuating,intersentence,overall,2123.0,48.53039739935854,58.487803972262014,40.29206740292395,individuating
+learnable_random__base__individuating,overall,overall,4229.0,68.72810353986112,59.87212007305403,55.158261729085154,individuating

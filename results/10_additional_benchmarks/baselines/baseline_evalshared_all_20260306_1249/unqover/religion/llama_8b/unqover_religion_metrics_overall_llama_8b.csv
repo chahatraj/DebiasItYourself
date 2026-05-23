@@ -1,0 +1,2 @@
+model,benchmark,dimension,n_raw_rows,n_paired_rows,pairing_coverage,delta_positional_error,epsilon_attributive_error,mu_bias_intensity,eta_bias_intensity
+llama_8b,unqover,religion,2500,18,0.007252215954875101,0.17698934487062915,0.4569307381991972,0.20139350610628312,0.9772727272727273

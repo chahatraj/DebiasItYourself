@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_fticl_zero_llama70b_ind_bbq:m4_fticl_zero_llama70b_ind_bbq_instr_individuating_ALL,0.42,0.298,0.543,0.56,5.39,58476,29238,29238,bbq_preds_m4_fticl_zero_llama70b_ind_bbq_instr_individuating_ALL.csv

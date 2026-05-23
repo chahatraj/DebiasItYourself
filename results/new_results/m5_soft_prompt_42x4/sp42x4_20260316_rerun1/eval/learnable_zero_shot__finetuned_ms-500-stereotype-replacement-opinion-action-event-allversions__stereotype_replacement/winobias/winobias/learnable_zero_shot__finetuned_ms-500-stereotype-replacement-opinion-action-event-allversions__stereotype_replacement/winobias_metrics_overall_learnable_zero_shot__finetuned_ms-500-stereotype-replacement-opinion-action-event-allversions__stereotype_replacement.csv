@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winobias,1584,0.6407828282828283,0.8712121212121212,0.41035353535353536,0.46085858585858586,0.46085858585858586

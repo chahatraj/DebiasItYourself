@@ -1,0 +1,2 @@
+model,benchmark,dimension,n_raw_rows,n_paired_rows,pairing_coverage,delta_positional_error,epsilon_attributive_error,mu_bias_intensity,eta_bias_intensity
+m3_finetune_allstrat_unqover_religion,unqover,religion,10000,465,0.04876769795490299,0.23663246687301595,0.6374059542275132,0.5365843754978833,0.836510573304691

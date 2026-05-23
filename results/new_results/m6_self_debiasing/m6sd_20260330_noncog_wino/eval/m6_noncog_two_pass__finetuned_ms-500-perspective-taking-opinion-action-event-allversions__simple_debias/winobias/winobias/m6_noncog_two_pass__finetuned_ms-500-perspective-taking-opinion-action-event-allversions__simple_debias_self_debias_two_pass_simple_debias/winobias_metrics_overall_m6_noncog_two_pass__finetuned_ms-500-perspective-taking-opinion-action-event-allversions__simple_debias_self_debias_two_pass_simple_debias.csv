@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_noncog_two_pass__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__simple_debias_self_debias_two_pass_simple_debias,winobias,1584,0.5429292929292929,0.5984848484848485,0.48737373737373735,0.11111111111111116,0.11111111111111116

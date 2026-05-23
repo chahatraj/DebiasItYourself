@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_baseicl_one_llama8b_ind_bbq:m4_baseicl_one_llama8b_ind_bbq_instr_individuating_ALL,0.399,0.323,0.475,1.071,2.514,58476,29238,29238,bbq_preds_m4_baseicl_one_llama8b_ind_bbq_instr_individuating_ALL.csv

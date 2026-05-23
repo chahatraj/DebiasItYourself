@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.8375,mbias_llama70b_winogender,winogender
+male,240,0.8625,mbias_llama70b_winogender,winogender
+neutral,240,0.8458333333333333,mbias_llama70b_winogender,winogender

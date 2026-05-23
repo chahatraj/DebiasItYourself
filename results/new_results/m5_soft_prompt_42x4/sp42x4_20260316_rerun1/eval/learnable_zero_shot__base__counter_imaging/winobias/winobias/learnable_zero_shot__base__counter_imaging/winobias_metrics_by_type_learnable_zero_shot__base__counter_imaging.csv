@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.35858585858585856,learnable_zero_shot__base__counter_imaging,winobias
+type1,pro,396,0.7803030303030303,learnable_zero_shot__base__counter_imaging,winobias
+type2,anti,396,0.5151515151515151,learnable_zero_shot__base__counter_imaging,winobias
+type2,pro,396,0.8939393939393939,learnable_zero_shot__base__counter_imaging,winobias

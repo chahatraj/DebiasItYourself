@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+fixed__base__counter_imaging:fixed__base__counter_imaging_Age,0.658,0.591,0.726,7.115,16.793,3680,1840,1840,bbq_preds_fixed__base__counter_imaging_Age.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Disability_status,0.688,0.68,0.695,5.38,6.041,1556,778,778,bbq_preds_fixed__base__counter_imaging_Disability_status.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Gender_identity,0.636,0.96,0.313,4.743,1.573,5720,2860,2860,bbq_preds_fixed__base__counter_imaging_Gender_identity.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Nationality,0.743,0.794,0.692,8.839,7.727,3080,1540,1540,bbq_preds_fixed__base__counter_imaging_Nationality.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Physical_appearance,0.591,0.796,0.387,9.548,13.325,1576,788,788,bbq_preds_fixed__base__counter_imaging_Physical_appearance.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Race_ethnicity,0.69,0.937,0.443,4.639,0.93,6880,3440,3440,bbq_preds_fixed__base__counter_imaging_Race_ethnicity.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Race_x_SES,0.674,0.935,0.413,6.526,1.882,11160,5580,5580,bbq_preds_fixed__base__counter_imaging_Race_x_SES.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Race_x_gender,0.701,0.966,0.436,1.864,-0.476,15960,7980,7980,bbq_preds_fixed__base__counter_imaging_Race_x_gender.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Religion,0.721,0.868,0.573,8.696,6.833,1200,600,600,bbq_preds_fixed__base__counter_imaging_Religion.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_SES,0.715,0.751,0.679,0.611,2.535,6864,3432,3432,bbq_preds_fixed__base__counter_imaging_SES.csv
+fixed__base__counter_imaging:fixed__base__counter_imaging_Sexual_orientation,0.721,0.884,0.558,-1.845,1.852,864,432,432,bbq_preds_fixed__base__counter_imaging_Sexual_orientation.csv
+fixed__base__counter_imaging,0.687,0.883,0.491,4.33,2.938,58540,29270,29270,__overall__

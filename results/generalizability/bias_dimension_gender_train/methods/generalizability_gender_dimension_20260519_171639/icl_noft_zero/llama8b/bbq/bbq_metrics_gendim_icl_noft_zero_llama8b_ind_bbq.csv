@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+gendim_icl_noft_zero_llama8b_ind_bbq:gendim_icl_noft_zero_llama8b_ind_bbq_instr_individuating_ALL,0.4,0.304,0.496,0.996,3.93,58476,29238,29238,bbq_preds_gendim_icl_noft_zero_llama8b_ind_bbq_instr_individuating_ALL.csv

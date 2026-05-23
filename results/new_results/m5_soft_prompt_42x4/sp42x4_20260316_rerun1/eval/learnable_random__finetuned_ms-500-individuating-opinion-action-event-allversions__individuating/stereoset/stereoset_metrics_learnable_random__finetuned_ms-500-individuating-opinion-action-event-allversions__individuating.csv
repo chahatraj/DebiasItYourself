@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,gender,765.0,83.59190294407685,63.78959237220106,60.53793759976859,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,profession,2430.0,81.68620229699803,57.927426365197796,68.73497522175597,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,race,2886.0,83.19281370400739,56.739934901788786,71.97853073077435,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,religion,237.0,79.67816091954023,56.27586206896552,69.67717796274276,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intrasentence,overall,2106.0,82.53773258802019,58.06561971328151,69.22337332699033,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,gender,726.0,48.193227867140905,60.10690396559962,38.45154135023185,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,profession,2481.0,43.47396368514277,55.85528376030784,38.38291581390619,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,race,2928.0,47.65365219175007,54.5551276388781,43.31228282790758,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,religion,234.0,46.06417624521074,61.061302681992345,35.873580320312385,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,intersentence,overall,2123.0,46.0743695805611,55.99868424697241,40.546657680719164,individuating
+learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,overall,overall,4229.0,64.24081334446832,56.97568837825585,55.2783354433341,individuating

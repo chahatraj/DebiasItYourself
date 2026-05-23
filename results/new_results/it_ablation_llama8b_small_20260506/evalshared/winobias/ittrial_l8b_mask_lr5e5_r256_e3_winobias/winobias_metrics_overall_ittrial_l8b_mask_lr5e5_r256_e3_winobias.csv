@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+ittrial_l8b_mask_lr5e5_r256_e3_winobias,winobias,200,0.765,0.9,0.63,0.27,0.27

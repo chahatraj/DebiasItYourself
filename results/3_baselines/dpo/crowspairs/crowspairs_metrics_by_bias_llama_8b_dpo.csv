@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type
+llama_8b_dpo_crowspairs_all,87,73.56,76.71,57.14,1,1.15,73,14,73.56,,,age
+llama_8b_dpo_crowspairs_all,60,70.0,71.93,33.33,0,0.0,57,3,70.0,,,disability
+llama_8b_dpo_crowspairs_all,262,60.31,67.92,48.54,2,0.76,159,103,60.31,,,gender
+llama_8b_dpo_crowspairs_all,159,61.01,60.81,63.64,0,0.0,148,11,61.01,,,nationality
+llama_8b_dpo_crowspairs_all,63,63.49,69.23,36.36,0,0.0,52,11,63.49,,,physical-appearance
+llama_8b_dpo_crowspairs_all,516,56.59,56.87,53.49,4,0.78,473,43,56.59,,,race-color
+llama_8b_dpo_crowspairs_all,105,68.57,69.7,50.0,0,0.0,99,6,68.57,,,religion
+llama_8b_dpo_crowspairs_all,84,78.57,80.56,66.67,0,0.0,72,12,78.57,,,sexual-orientation
+llama_8b_dpo_crowspairs_all,172,70.93,71.97,60.0,1,0.58,157,15,70.93,,,socioeconomic

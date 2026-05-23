@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6625,gendim_icl_it_zero_llama8b_pt_winogender,winogender
+male,240,0.6666666666666666,gendim_icl_it_zero_llama8b_pt_winogender,winogender
+neutral,240,0.6708333333333333,gendim_icl_it_zero_llama8b_pt_winogender,winogender

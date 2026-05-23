@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6458333333333334,m3_finetune_allstrat_event_winogender,winogender
+male,240,0.6458333333333334,m3_finetune_allstrat_event_winogender,winogender
+neutral,240,0.65,m3_finetune_allstrat_event_winogender,winogender

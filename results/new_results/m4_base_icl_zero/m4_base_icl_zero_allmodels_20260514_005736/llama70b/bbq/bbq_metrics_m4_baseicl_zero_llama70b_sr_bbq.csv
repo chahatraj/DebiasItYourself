@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_baseicl_zero_llama70b_sr_bbq:m4_baseicl_zero_llama70b_sr_bbq_instr_stereotype_replacement_ALL,0.419,0.307,0.53,0.761,5.654,58476,29238,29238,bbq_preds_m4_baseicl_zero_llama70b_sr_bbq_instr_stereotype_replacement_ALL.csv

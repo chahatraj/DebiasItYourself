@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,1508,65.32,66.2,60.09,3,0.2,1290,218,65.32,,,counter_imaging

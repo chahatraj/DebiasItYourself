@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+m4_ft500_sr_allv_v1_winogender,winogender,720,0.6541666666666667,0.5875,0.17916666666666667,15.416666666666666

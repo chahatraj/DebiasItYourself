@@ -1,0 +1,2 @@
+asks_for,n,accuracy,model,benchmark
+cause,2,1.0,llama70b_smoke_sr_copa2,balanced_copa

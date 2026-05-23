@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m4_ft500_all_event_v5f_winobias,winobias,1584,0.7771464646464646,0.9116161616161617,0.6426767676767676,0.26893939393939403,0.26893939393939403

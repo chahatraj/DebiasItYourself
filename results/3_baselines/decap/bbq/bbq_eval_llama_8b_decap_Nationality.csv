@@ -1,0 +1,3 @@
+Bias_dimension,Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+Nationality,decap_Nationality,0.635,0.951,0.319,1.852,0.714,3080,1540,1540
+overall,decap_Nationality,0.635,0.951,0.319,1.852,0.714,3080,1540,1540

@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6125,mbias_addl_baseline_remaining_20260309_154403,winogender
+male,240,0.6083333333333333,mbias_addl_baseline_remaining_20260309_154403,winogender
+neutral,240,0.6083333333333333,mbias_addl_baseline_remaining_20260309_154403,winogender

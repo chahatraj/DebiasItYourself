@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm
+llama_70b_debias_nlg_crowspairs_all,1508,5.7,6.36,1.83,2,0.13,1290,218,5.7,,

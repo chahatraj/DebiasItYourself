@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_qwen35_27b_two_pass_one__base_all_strategies__all_strategies_self_debias_two_pass_all_strategies,1508,48.08,47.36,52.29,14,0.93,1290,218,48.08,,,off,,v2,zero

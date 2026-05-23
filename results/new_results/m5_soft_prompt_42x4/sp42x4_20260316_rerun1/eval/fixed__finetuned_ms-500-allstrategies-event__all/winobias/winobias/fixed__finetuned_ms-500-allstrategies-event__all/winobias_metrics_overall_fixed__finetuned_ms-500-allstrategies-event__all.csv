@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__finetuned_ms-500-allstrategies-event__all,winobias,1584,0.7026515151515151,0.8876262626262627,0.5176767676767676,0.36994949494949503,0.36994949494949503

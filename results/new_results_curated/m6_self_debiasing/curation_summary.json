@@ -1,0 +1,6 @@
+{
+  "correct_count": 29,
+  "incorrect_count": 276,
+  "correct_root": "/scratch/craj/diy/results/new_results_curated/m6_self_debiasing/correct",
+  "incorrect_root": "/scratch/craj/diy/results/new_results_curated/m6_self_debiasing/incorrect"
+}

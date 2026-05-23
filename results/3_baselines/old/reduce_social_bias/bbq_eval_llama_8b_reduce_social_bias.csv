@@ -1,0 +1,11 @@
+Category,Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+Age,llama_8b_reduce_social_bias_system2,0.713,0.651,0.774,4.0,-2.4,3680,1840,1840
+Disability_status,llama_8b_reduce_social_bias_system2,0.748,0.763,0.733,8.2,0.1,1556,778,778
+Gender_identity,llama_8b_reduce_social_bias_system2,0.786,0.862,0.711,7.4,-0.5,5656,2828,2828
+Nationality,llama_8b_reduce_social_bias_system2,0.789,0.834,0.745,0.4,1.2,3080,1540,1540
+Physical_appearance,llama_8b_reduce_social_bias_system2,0.663,0.852,0.475,9.4,-0.2,1576,788,788
+Race_ethnicity,llama_8b_reduce_social_bias_system2,0.846,0.821,0.871,1.6,0.6,6880,3440,3440
+Religion,llama_8b_reduce_social_bias_system2,0.752,0.848,0.657,3.7,1.7,1200,600,600
+SES,llama_8b_reduce_social_bias_system2,0.786,0.862,0.71,2.8,-1.0,6864,3432,3432
+Sexual_orientation,llama_8b_reduce_social_bias_system2,0.747,0.856,0.637,-0.5,-1.1,864,432,432
+overall,llama_8b_reduce_social_bias_system2,0.781,0.819,0.742,3.8,-0.2,31356,15678,15678

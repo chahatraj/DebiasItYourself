@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm
+llama_8b_reduce_social_bias_system2,1508,62.67,62.64,62.84,17,1.13,1290,218,62.67,,

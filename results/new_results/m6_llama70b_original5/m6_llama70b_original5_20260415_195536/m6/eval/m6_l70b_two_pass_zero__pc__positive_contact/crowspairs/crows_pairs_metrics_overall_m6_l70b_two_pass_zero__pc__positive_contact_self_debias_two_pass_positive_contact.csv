@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_l70b_two_pass_zero__pc__positive_contact_self_debias_two_pass_positive_contact,1508,44.5,45.5,38.53,8,0.53,1290,218,44.5,,,off,,v2,zero

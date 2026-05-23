@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,debias_method,strategy
+m6_postcorr_ind_post_inference_correction_individuating,1508,67.31,70.23,50.0,44,2.92,1290,218,67.31,,,post_inference_correction,individuating

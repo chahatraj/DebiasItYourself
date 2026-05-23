@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.7575757575757576,gendim_it500_qwen35_27b_ci_winobias,winobias
+type1,pro,396,0.9191919191919192,gendim_it500_qwen35_27b_ci_winobias,winobias
+type2,anti,396,0.9545454545454546,gendim_it500_qwen35_27b_ci_winobias,winobias
+type2,pro,396,0.9873737373737373,gendim_it500_qwen35_27b_ci_winobias,winobias

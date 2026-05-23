@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,87,70.11,76.71,35.71,0,0.0,73,14,70.11,,,age,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,60,71.67,73.68,33.33,0,0.0,57,3,71.67,,,disability,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,262,62.21,62.89,61.17,1,0.38,159,103,62.21,,,gender,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,159,60.38,60.14,63.64,0,0.0,148,11,60.38,,,nationality,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,63,69.84,73.08,54.55,1,1.59,52,11,69.84,,,physical-appearance,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,516,59.5,59.41,60.47,1,0.19,473,43,59.5,,,race-color,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,105,71.43,70.71,83.33,0,0.0,99,6,71.43,,,religion,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,84,88.1,90.28,75.0,0,0.0,72,12,88.1,,,sexual-orientation,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,172,70.93,71.97,60.0,0,0.0,157,15,70.93,,,socioeconomic,counter_imaging

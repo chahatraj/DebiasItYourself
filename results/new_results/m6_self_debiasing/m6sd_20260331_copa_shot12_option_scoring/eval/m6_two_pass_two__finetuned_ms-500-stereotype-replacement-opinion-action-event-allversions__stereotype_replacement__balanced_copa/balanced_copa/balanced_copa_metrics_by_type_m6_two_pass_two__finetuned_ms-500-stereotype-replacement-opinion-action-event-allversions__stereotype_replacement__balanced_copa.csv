@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.746,m6_two_pass_two__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement__balanced_copa,balanced_copa
+effect,500,0.784,m6_two_pass_two__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement__balanced_copa,balanced_copa

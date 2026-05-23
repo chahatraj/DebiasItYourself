@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+learnable_random__base__perspective_taking,1508,64.26,64.26,64.22,4,0.27,1290,218,64.26,,,perspective_taking

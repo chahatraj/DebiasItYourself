@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Category
+Gender_identity,0.326,0.303,0.348,0.0,0.0,5656,2828,2828,Gender_identity

@@ -1,0 +1,69 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{De-Arteaga et~al.(2019)}]{PLACEHOLDER_biasbios_verify}
+Maria De-Arteaga and 1 others. 2019.
+\newblock Bias in bios: A case study of semantic representation bias in a high-stakes setting.
+\newblock TODO: Replace with verified BibTeX from ACM/arXiv metadata.
+
+\bibitem[{Devine et~al.(2012)Devine, Forscher, Austin, and Cox}]{devine2012longterm}
+Patricia~G. Devine, Patrick~S. Forscher, Anthony~J. Austin, and William T.~L. Cox. 2012.
+\newblock \href {https://doi.org/10.1016/j.jesp.2012.06.003} {Long-term reduction in implicit race bias: A prejudice habit-breaking intervention}.
+\newblock \emph{Journal of Experimental Social Psychology}, 48(6):1267--1278.
+
+\bibitem[{Dhamala et~al.(2021)}]{PLACEHOLDER_bold_verify}
+Jwala Dhamala and 1 others. 2021.
+\newblock Bold: Dataset and metrics for measuring biases in open-ended language generation.
+\newblock TODO: Replace with verified BibTeX from arXiv/venue metadata.
+
+\bibitem[{Li et~al.(2020)Li, Khashabi, Khot, Sabharwal, and Srikumar}]{li-etal-2020-unqovering}
+Tao Li, Daniel Khashabi, Tushar Khot, Ashish Sabharwal, and Vivek Srikumar. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.findings-emnlp.311} {{UNQOVER}ing stereotyping biases via underspecified questions}.
+\newblock In \emph{Findings of the Association for Computational Linguistics: EMNLP 2020}, pages 3475--3489, Online. Association for Computational Linguistics.
+
+\bibitem[{Meade et~al.(2021)Meade, Poole-Dayan, and Reddy}]{PLACEHOLDER_meade_survey_verify}
+Nicholas Meade, Elinor Poole-Dayan, and Siva Reddy. 2021.
+\newblock An empirical survey of the effectiveness of debiasing techniques for pre-trained language models.
+\newblock TODO: Replace with verified BibTeX from arXiv/venue metadata.
+
+\bibitem[{Nadeem et~al.(2021)Nadeem, Bethke, and Reddy}]{nadeem-etal-2021-stereoset}
+Moin Nadeem, Anna Bethke, and Siva Reddy. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.acl-long.416} {{S}tereo{S}et: Measuring stereotypical bias in pretrained language models}.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)}, pages 5356--5371, Online. Association for Computational Linguistics.
+
+\bibitem[{Nangia et~al.(2020)Nangia, Vania, Bhalerao, and Bowman}]{nangia-etal-2020-crows}
+Nikita Nangia, Clara Vania, Rasika Bhalerao, and Samuel~R. Bowman. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.154} {{C}row{S}-pairs: A challenge dataset for measuring social biases in masked language models}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)}, pages 1953--1967, Online. Association for Computational Linguistics.
+
+\bibitem[{Nozza et~al.(2021)Nozza, Bianchi, and Hovy}]{nozza-etal-2021-honest}
+Debora Nozza, Federico Bianchi, and Dirk Hovy. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.naacl-main.191} {{HONEST}: Measuring hurtful sentence completion in language models}.
+\newblock In \emph{Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies}, pages 2398--2406, Online. Association for Computational Linguistics.
+
+\bibitem[{Parrish et~al.(2022)Parrish, Chen, Nangia, Padmakumar, Phang, Thompson, Htut, and Bowman}]{parrish-etal-2022-bbq}
+Alicia Parrish, Angelica Chen, Nikita Nangia, Vishakh Padmakumar, Jason Phang, Jana Thompson, Phu~Mon Htut, and Samuel Bowman. 2022.
+\newblock \href {https://doi.org/10.18653/v1/2022.findings-acl.165} {{BBQ}: A hand-built bias benchmark for question answering}.
+\newblock In \emph{Findings of the Association for Computational Linguistics: ACL 2022}, pages 2086--2105, Dublin, Ireland. Association for Computational Linguistics.
+
+\bibitem[{Rudinger et~al.(2018)Rudinger, Naradowsky, Leonard, and Van~Durme}]{rudinger-etal-2018-gender}
+Rachel Rudinger, Jason Naradowsky, Brian Leonard, and Benjamin Van~Durme. 2018.
+\newblock \href {https://doi.org/10.18653/v1/N18-2002} {Gender bias in coreference resolution}.
+\newblock In \emph{Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers)}, pages 8--14, New Orleans, Louisiana. Association for Computational Linguistics.
+
+\bibitem[{Schick et~al.(2021)Schick, Udupa, and Schuetze}]{PLACEHOLDER_schick_selfdebias_verify}
+Timo Schick, Sahana Udupa, and Hinrich Schuetze. 2021.
+\newblock Self-diagnosis and self-debiasing: A proposal for reducing corpus-based bias in nlp.
+\newblock TODO: Replace with verified BibTeX from arXiv/venue metadata.
+
+\bibitem[{Smith et~al.(2022)Smith, Hall, Kambadur, Presani, and Williams}]{smith-etal-2022-im}
+Eric~Michael Smith, Melissa Hall, Melanie Kambadur, Eleonora Presani, and Adina Williams. 2022.
+\newblock \href {https://doi.org/10.18653/v1/2022.emnlp-main.625} {``{I}{'}m sorry to hear that'': Finding new biases in language models with a holistic descriptor dataset}.
+\newblock In \emph{Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing}, pages 9180--9211, Abu Dhabi, United Arab Emirates. Association for Computational Linguistics.
+
+\bibitem[{Zhao et~al.(2018)Zhao, Wang, Yatskar, Ordonez, and Chang}]{zhao-etal-2018-gender}
+Jieyu Zhao, Tianlu Wang, Mark Yatskar, Vicente Ordonez, and Kai-Wei Chang. 2018.
+\newblock \href {https://doi.org/10.18653/v1/N18-2003} {Gender bias in coreference resolution: Evaluation and debiasing methods}.
+\newblock In \emph{Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers)}, pages 15--20, New Orleans, Louisiana. Association for Computational Linguistics.
+
+\end{thebibliography}

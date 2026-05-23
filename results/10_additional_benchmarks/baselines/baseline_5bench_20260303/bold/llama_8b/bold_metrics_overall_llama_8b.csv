@@ -1,0 +1,2 @@
+model,benchmark,n,mean_avg_logprob_per_token,ppl_proxy
+llama_8b,bold,3000,-1.5607465796505289,4.762375410808775

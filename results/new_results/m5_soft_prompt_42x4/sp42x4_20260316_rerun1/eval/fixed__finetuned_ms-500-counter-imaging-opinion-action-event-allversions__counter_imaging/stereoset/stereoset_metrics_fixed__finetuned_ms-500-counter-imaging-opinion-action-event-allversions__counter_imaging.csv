@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,gender,765.0,89.70578238186934,65.40535776622733,62.06678895602876,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,profession,2430.0,90.55381514668737,57.63557099163207,76.72521346437419,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,race,2886.0,91.8460963774275,62.14139658104503,69.54329876664289,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,religion,237.0,87.97701149425286,71.17241379310344,50.72329766151407,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,overall,2106.0,90.93750357328435,61.18643323681225,70.59217732438593,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,gender,726.0,52.71830926722231,63.866570225265875,38.097866514997854,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,profession,2481.0,47.41759789291306,59.40281189237438,38.50042282540687,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,race,2928.0,53.923989382585354,58.217670068708266,45.06139831189307,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,religion,234.0,53.77107279693487,61.54022988505747,41.360461972079094,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,overall,2123.0,51.294783109158125,59.508947736108354,41.539594874758166,counter_imaging
+fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,overall,overall,4229.0,71.05429356700844,60.29523157067099,56.42388543975264,counter_imaging

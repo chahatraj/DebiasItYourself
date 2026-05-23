@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_noncog_two_pass__base__simple_debias_self_debias_two_pass_simple_debias,winobias,1584,0.5321969696969697,0.5845959595959596,0.4797979797979798,0.10479797979797978,0.10479797979797978

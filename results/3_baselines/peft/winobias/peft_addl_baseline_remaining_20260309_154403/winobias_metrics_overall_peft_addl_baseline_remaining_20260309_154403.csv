@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+peft_addl_baseline_remaining_20260309_154403,winobias,1584,0.6704545454545454,0.8093434343434344,0.5315656565656566,0.2777777777777778,0.2777777777777778

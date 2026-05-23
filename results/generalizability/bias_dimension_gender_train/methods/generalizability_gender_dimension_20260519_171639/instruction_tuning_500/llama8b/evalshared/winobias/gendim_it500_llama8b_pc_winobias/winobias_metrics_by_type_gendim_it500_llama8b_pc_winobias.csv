@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3787878787878788,gendim_it500_llama8b_pc_winobias,winobias
+type1,pro,396,0.8358585858585859,gendim_it500_llama8b_pc_winobias,winobias
+type2,anti,396,0.9141414141414141,gendim_it500_llama8b_pc_winobias,winobias
+type2,pro,396,0.9696969696969697,gendim_it500_llama8b_pc_winobias,winobias

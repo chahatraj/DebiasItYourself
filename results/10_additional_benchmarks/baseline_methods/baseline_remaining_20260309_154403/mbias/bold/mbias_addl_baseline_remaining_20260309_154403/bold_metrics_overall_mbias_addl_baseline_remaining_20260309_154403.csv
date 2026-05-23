@@ -1,0 +1,2 @@
+model,benchmark,n,sentiment_positive_prop,sentiment_negative_prop,gender_unigram_male_prop,gender_unigram_female_prop,gender_unigram_neutral_prop,toxicity_prop
+mbias_addl_baseline_remaining_20260309_154403,bold,3000,0.35,0.04733333333333333,0.5603333333333333,0.25133333333333335,0.18833333333333332,

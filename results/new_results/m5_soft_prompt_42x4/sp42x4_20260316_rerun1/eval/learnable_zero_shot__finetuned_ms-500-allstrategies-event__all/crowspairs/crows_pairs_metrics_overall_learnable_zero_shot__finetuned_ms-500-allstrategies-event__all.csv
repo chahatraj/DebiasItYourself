@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+learnable_zero_shot__finetuned_ms-500-allstrategies-event__all,1508,62.73,62.56,63.76,8,0.53,1290,218,62.73,,,all

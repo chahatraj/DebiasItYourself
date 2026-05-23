@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.43434343434343436,m6_noncog_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__simple_debias_self_debias_two_pass_simple_debias,winobias
+type1,pro,396,0.6161616161616161,m6_noncog_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__simple_debias_self_debias_two_pass_simple_debias,winobias
+type2,anti,396,0.4772727272727273,m6_noncog_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__simple_debias_self_debias_two_pass_simple_debias,winobias
+type2,pro,396,0.5202020202020202,m6_noncog_two_pass__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__simple_debias_self_debias_two_pass_simple_debias,winobias

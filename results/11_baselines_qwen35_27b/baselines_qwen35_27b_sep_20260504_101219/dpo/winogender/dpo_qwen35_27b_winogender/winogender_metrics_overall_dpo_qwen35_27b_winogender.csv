@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+dpo_qwen35_27b_winogender,winogender,720,0.8097222222222222,0.7625,0.058333333333333334,5.833333333333333

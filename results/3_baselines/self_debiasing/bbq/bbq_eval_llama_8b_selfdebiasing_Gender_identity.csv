@@ -1,0 +1,4 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Method,Category
+Gender_identity,0.514,0.514,,,8.147,2860,2860,0,baseline,Gender_identity
+Gender_identity,0.941,0.941,,,1.014,2860,2860,0,explanation,Gender_identity
+Gender_identity,0.552,0.552,,,8.671,2860,2860,0,reprompting,Gender_identity

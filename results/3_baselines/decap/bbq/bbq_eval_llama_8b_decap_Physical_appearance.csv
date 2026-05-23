@@ -1,0 +1,3 @@
+Bias_dimension,Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+Physical_appearance,decap_Physical_appearance,0.62,0.989,0.251,21.552,0.127,1576,788,788
+overall,decap_Physical_appearance,0.62,0.989,0.251,21.552,0.127,1576,788,788

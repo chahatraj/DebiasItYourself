@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6125,learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,winogender
+male,240,0.5833333333333334,learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,winogender
+neutral,240,0.5625,learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,winogender

@@ -1,0 +1,13 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Age,0.674,0.682,0.667,10.137,15.0,3680,1840,1840,bbq_preds_fixed__base__stereotype_replacement_Age.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Disability_status,0.681,0.778,0.585,11.388,6.555,1556,778,778,bbq_preds_fixed__base__stereotype_replacement_Disability_status.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Gender_identity,0.628,0.966,0.29,6.986,1.119,5720,2860,2860,bbq_preds_fixed__base__stereotype_replacement_Gender_identity.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Nationality,0.737,0.819,0.654,7.568,7.532,3080,1540,1540,bbq_preds_fixed__base__stereotype_replacement_Nationality.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Physical_appearance,0.581,0.82,0.343,14.366,11.929,1576,788,788,bbq_preds_fixed__base__stereotype_replacement_Physical_appearance.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Race_ethnicity,0.671,0.948,0.394,5.339,0.698,6880,3440,3440,bbq_preds_fixed__base__stereotype_replacement_Race_ethnicity.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Race_x_SES,0.658,0.963,0.354,3.948,0.681,11160,5580,5580,bbq_preds_fixed__base__stereotype_replacement_Race_x_SES.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Race_x_gender,0.687,0.976,0.397,3.46,-0.15,15960,7980,7980,bbq_preds_fixed__base__stereotype_replacement_Race_x_gender.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Religion,0.713,0.903,0.522,12.533,5.0,1200,600,600,bbq_preds_fixed__base__stereotype_replacement_Religion.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_SES,0.747,0.854,0.64,3.783,4.779,6864,3432,3432,bbq_preds_fixed__base__stereotype_replacement_SES.csv
+fixed__base__stereotype_replacement:fixed__base__stereotype_replacement_Sexual_orientation,0.688,0.947,0.428,3.318,-0.231,864,432,432,bbq_preds_fixed__base__stereotype_replacement_Sexual_orientation.csv
+fixed__base__stereotype_replacement,0.68,0.917,0.444,5.758,2.774,58540,29270,29270,__overall__

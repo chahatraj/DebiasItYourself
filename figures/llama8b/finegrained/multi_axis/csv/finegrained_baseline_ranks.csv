@@ -1,0 +1,97 @@
+panel_label,method_label,group,rank,bias_error
+CrowS-Pairs,ICL,icl,1,0.33
+CrowS-Pairs,DIY Two Pass (IT),diy_combo,2,0.86
+CrowS-Pairs,BiasEdit,baseline,3,2.06
+CrowS-Pairs,SelfDebias: Reprompt,baseline,4,3.25
+CrowS-Pairs,DIY Two Pass (No IT),diy_twopass,5,4.18
+CrowS-Pairs,DebiasLLMs,baseline,6,10.94
+CrowS-Pairs,PEFT,baseline,7,13.0
+CrowS-Pairs,DPO,baseline,8,13.2
+CrowS-Pairs,LFTF,baseline,9,13.93
+CrowS-Pairs,DIY IT,diy_tune,10,14.19
+CrowS-Pairs,FairSteer,baseline,11,15.05
+CrowS-Pairs,Base Model,base,12,15.19
+CrowS-Pairs,CAL,baseline,13,15.25
+CrowS-Pairs,Reduce Social Bias,baseline,14,16.51
+CrowS-Pairs,BBA,baseline,15,17.18
+CrowS-Pairs,DebiasNLG,baseline,16,40.58
+StereoSet,ICL,icl,1,0.204296
+StereoSet,DebiasLLMs,baseline,2,3.26316
+StereoSet,SelfDebias: Reprompt,baseline,3,4.80072
+StereoSet,DIY Two Pass (No IT),diy_twopass,4,4.88712
+StereoSet,DIY Two Pass (IT),diy_combo,5,6.12982
+StereoSet,DIY IT,diy_tune,6,6.92228
+StereoSet,BiasEdit,baseline,7,6.95246
+StereoSet,PEFT,baseline,8,6.95246
+StereoSet,Base Model,base,9,8.29053
+StereoSet,CAL,baseline,10,9.86432
+StereoSet,FairSteer,baseline,11,10.1904
+StereoSet,LFTF,baseline,12,10.2198
+StereoSet,Reduce Social Bias,baseline,13,10.7402
+StereoSet,BBA,baseline,14,11.1298
+StereoSet,DPO,baseline,15,34.5186
+StereoSet,DebiasNLG,baseline,16,35.1025
+BBQ Ambig.,DebiasLLMs,baseline,1,0.013
+BBQ Ambig.,DPO,baseline,2,0.598
+BBQ Ambig.,PEFT,baseline,3,0.7
+BBQ Ambig.,DIY Two Pass (IT),diy_combo,4,1.604
+BBQ Ambig.,BiasEdit,baseline,5,2.1
+BBQ Ambig.,CAL,baseline,6,2.13
+BBQ Ambig.,DIY Two Pass (No IT),diy_twopass,7,2.281
+BBQ Ambig.,ICL,icl,8,4.056
+BBQ Ambig.,DIY IT,diy_tune,9,4.448
+BBQ Ambig.,Reduce Social Bias,baseline,10,7.042
+BBQ Ambig.,Base Model,base,11,7.39
+BBQ Ambig.,DebiasNLG,baseline,12,10.977
+BBQ Ambig.,SelfDebias: Reprompt,baseline,13,11.0931
+BBQ Ambig.,BBA,baseline,14,22.433
+BBQ Ambig.,FairSteer,baseline,15,22.7943
+BBQ Ambig.,LFTF,baseline,16,24.3502
+BBQ Disambig.,DebiasLLMs,baseline,1,0.047
+BBQ Disambig.,DebiasNLG,baseline,2,0.243
+BBQ Disambig.,DIY Two Pass (No IT),diy_twopass,3,0.662
+BBQ Disambig.,DIY IT,diy_tune,4,0.797
+BBQ Disambig.,DIY Two Pass (IT),diy_combo,5,0.895
+BBQ Disambig.,ICL,icl,6,1.468
+BBQ Disambig.,Base Model,base,7,3.047
+BBQ Disambig.,BBA,baseline,8,3.263
+BBQ Disambig.,SelfDebias: Reprompt,baseline,9,4.95
+BBQ Disambig.,Reduce Social Bias,baseline,10,5.114
+BBQ Disambig.,LFTF,baseline,11,5.48978
+BBQ Disambig.,BiasEdit,baseline,12,5.9
+BBQ Disambig.,FairSteer,baseline,13,5.95744
+BBQ Disambig.,PEFT,baseline,14,6.1
+BBQ Disambig.,CAL,baseline,15,6.85
+BBQ Disambig.,DPO,baseline,16,35.475
+WinoBias,DebiasNLG,baseline,1,0.020202
+WinoBias,DIY Two Pass (IT),diy_combo,2,0.0896465
+WinoBias,DIY Two Pass (No IT),diy_twopass,3,0.119949
+WinoBias,Reduce Social Bias,baseline,4,0.150253
+WinoBias,SelfDebias: Reprompt,baseline,5,0.169192
+WinoBias,FairSteer,baseline,6,0.222222
+WinoBias,CAL,baseline,7,0.255051
+WinoBias,DIY IT,diy_tune,8,0.261364
+WinoBias,Base Model,base,9,0.276515
+WinoBias,BiasEdit,baseline,10,0.276515
+WinoBias,ICL,icl,11,0.277778
+WinoBias,DPO,baseline,12,0.277778
+WinoBias,PEFT,baseline,13,0.277778
+WinoBias,LFTF,baseline,14,0.27904
+WinoBias,BBA,baseline,15,0.292929
+WinoBias,DebiasLLMs,baseline,16,0.375
+WinoGender,DebiasNLG,baseline,1,0.0708333
+WinoGender,PEFT,baseline,2,0.0875
+WinoGender,CAL,baseline,3,0.0916667
+WinoGender,BBA,baseline,4,0.1125
+WinoGender,DIY Two Pass (IT),diy_combo,5,0.141667
+WinoGender,DIY Two Pass (No IT),diy_twopass,6,0.158333
+WinoGender,Reduce Social Bias,baseline,7,0.1625
+WinoGender,FairSteer,baseline,8,0.175
+WinoGender,ICL,icl,9,0.179167
+WinoGender,Base Model,base,10,0.191667
+WinoGender,BiasEdit,baseline,11,0.191667
+WinoGender,LFTF,baseline,12,0.191667
+WinoGender,DebiasLLMs,baseline,13,0.191667
+WinoGender,SelfDebias: Reprompt,baseline,14,0.2
+WinoGender,DPO,baseline,15,0.225
+WinoGender,DIY IT,diy_tune,16,0.225

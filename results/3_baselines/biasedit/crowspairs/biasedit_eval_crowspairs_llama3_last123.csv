@@ -1,0 +1,4 @@
+model,dataset,model_config,split,valid_path
+biasedit_llama3_last123,crowspairs,llama3_last123,gender,dataset/crows/gender.csv
+biasedit_llama3_last123,crowspairs,llama3_last123,race,dataset/crows/race.csv
+biasedit_llama3_last123,crowspairs,llama3_last123,religion,dataset/crows/religion.csv

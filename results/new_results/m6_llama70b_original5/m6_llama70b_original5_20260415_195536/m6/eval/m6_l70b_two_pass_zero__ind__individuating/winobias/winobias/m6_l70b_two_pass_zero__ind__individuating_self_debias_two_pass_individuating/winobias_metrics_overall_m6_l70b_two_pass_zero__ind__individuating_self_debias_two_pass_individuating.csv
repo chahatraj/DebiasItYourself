@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_l70b_two_pass_zero__ind__individuating_self_debias_two_pass_individuating,winobias,1584,0.5953282828282829,0.6313131313131313,0.5593434343434344,0.0719696969696969,0.0719696969696969

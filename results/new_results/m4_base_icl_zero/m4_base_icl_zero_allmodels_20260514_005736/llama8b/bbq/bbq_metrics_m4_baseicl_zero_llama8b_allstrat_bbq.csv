@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_baseicl_zero_llama8b_allstrat_bbq:m4_baseicl_zero_llama8b_allstrat_bbq_instr_all_strategies_ALL,0.389,0.286,0.491,1.468,4.056,58476,29238,29238,bbq_preds_m4_baseicl_zero_llama8b_allstrat_bbq_instr_all_strategies_ALL.csv

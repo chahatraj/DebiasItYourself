@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy
+ci500_allv,87,75.86,83.56,35.71,1,1.15,73,14,75.86,,,age,strategy,counter_imaging
+ci500_allv,60,76.67,77.19,66.67,0,0.0,57,3,76.67,,,disability,strategy,counter_imaging
+ci500_allv,262,62.6,64.15,60.19,4,1.53,159,103,62.6,,,gender,strategy,counter_imaging
+ci500_allv,159,57.23,57.43,54.55,2,1.26,148,11,57.23,,,nationality,strategy,counter_imaging
+ci500_allv,63,74.6,75.0,72.73,0,0.0,52,11,74.6,,,physical-appearance,strategy,counter_imaging
+ci500_allv,516,58.14,57.08,69.77,3,0.58,473,43,58.14,,,race-color,strategy,counter_imaging
+ci500_allv,105,62.86,62.63,66.67,2,1.9,99,6,62.86,,,religion,strategy,counter_imaging
+ci500_allv,84,84.52,86.11,75.0,0,0.0,72,12,84.52,,,sexual-orientation,strategy,counter_imaging
+ci500_allv,172,64.53,64.33,66.67,2,1.16,157,15,64.53,,,socioeconomic,strategy,counter_imaging

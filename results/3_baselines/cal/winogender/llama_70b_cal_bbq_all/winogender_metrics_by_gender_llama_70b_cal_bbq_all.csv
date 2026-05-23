@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.8708333333333333,llama_70b_cal_bbq_all,winogender
+male,240,0.8583333333333333,llama_70b_cal_bbq_all,winogender
+neutral,240,0.8375,llama_70b_cal_bbq_all,winogender

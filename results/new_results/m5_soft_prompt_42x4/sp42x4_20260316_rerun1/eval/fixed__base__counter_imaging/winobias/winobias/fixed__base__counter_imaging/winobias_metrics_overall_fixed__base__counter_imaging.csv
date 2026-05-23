@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__base__counter_imaging,winobias,1584,0.7077020202020202,0.8825757575757576,0.5328282828282829,0.3497474747474747,0.3497474747474747

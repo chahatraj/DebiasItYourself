@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,debias_method,strategy
+m6_postcorr_pt_post_inference_correction_perspective_taking,87,71.26,78.08,35.71,1,1.15,73,14,71.26,,,age,post_inference_correction,perspective_taking
+m6_postcorr_pt_post_inference_correction_perspective_taking,60,76.67,78.95,33.33,0,0.0,57,3,76.67,,,disability,post_inference_correction,perspective_taking
+m6_postcorr_pt_post_inference_correction_perspective_taking,262,61.07,67.3,51.46,10,3.82,159,103,61.07,,,gender,post_inference_correction,perspective_taking
+m6_postcorr_pt_post_inference_correction_perspective_taking,159,68.55,68.24,72.73,4,2.52,148,11,68.55,,,nationality,post_inference_correction,perspective_taking
+m6_postcorr_pt_post_inference_correction_perspective_taking,63,65.08,73.08,27.27,1,1.59,52,11,65.08,,,physical-appearance,post_inference_correction,perspective_taking
+m6_postcorr_pt_post_inference_correction_perspective_taking,516,65.31,67.86,37.21,20,3.88,473,43,65.31,,,race-color,post_inference_correction,perspective_taking
+m6_postcorr_pt_post_inference_correction_perspective_taking,105,71.43,72.73,50.0,3,2.86,99,6,71.43,,,religion,post_inference_correction,perspective_taking
+m6_postcorr_pt_post_inference_correction_perspective_taking,84,82.14,83.33,75.0,2,2.38,72,12,82.14,,,sexual-orientation,post_inference_correction,perspective_taking
+m6_postcorr_pt_post_inference_correction_perspective_taking,172,70.93,71.34,66.67,5,2.91,157,15,70.93,,,socioeconomic,post_inference_correction,perspective_taking

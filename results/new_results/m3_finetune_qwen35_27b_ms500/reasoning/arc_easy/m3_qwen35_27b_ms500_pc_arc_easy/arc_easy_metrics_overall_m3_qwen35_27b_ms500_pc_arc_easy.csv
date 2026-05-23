@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy
+m3_qwen35_27b_ms500_pc_arc_easy,arc_easy,test,/scratch/craj/diy/data/ai2_arc/arc_easy/test.jsonl,2376,0.9162457912457912

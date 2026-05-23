@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+peft_llama70b_winobias,winobias,1584,0.889520202020202,0.9621212121212122,0.8169191919191919,0.14520202020202022,0.14520202020202022

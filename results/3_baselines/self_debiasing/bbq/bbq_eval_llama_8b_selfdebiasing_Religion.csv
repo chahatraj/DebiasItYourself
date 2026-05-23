@@ -1,0 +1,4 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Method,Category
+Religion,0.607,0.607,,,8.667,600,600,0,baseline,Religion
+Religion,0.888,0.888,,,3.833,600,600,0,explanation,Religion
+Religion,0.638,0.638,,,3.167,600,600,0,reprompting,Religion

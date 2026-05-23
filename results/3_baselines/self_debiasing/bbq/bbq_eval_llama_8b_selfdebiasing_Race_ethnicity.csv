@@ -1,0 +1,4 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Method,Category
+Race_ethnicity,0.615,0.615,,,1.424,3440,3440,0,baseline,Race_ethnicity
+Race_ethnicity,0.943,0.943,,,0.901,3440,3440,0,explanation,Race_ethnicity
+Race_ethnicity,0.613,0.613,,,0.407,3440,3440,0,reprompting,Race_ethnicity

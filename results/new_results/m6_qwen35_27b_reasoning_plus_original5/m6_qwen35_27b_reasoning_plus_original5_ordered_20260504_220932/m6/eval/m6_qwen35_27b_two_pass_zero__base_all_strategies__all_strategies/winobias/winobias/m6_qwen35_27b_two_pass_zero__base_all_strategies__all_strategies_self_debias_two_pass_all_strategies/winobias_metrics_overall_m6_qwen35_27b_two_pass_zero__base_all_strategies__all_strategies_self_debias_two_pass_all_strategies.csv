@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_qwen35_27b_two_pass_zero__base_all_strategies__all_strategies_self_debias_two_pass_all_strategies,winobias,1584,0.553030303030303,0.5593434343434344,0.5467171717171717,0.012626262626262652,0.012626262626262652

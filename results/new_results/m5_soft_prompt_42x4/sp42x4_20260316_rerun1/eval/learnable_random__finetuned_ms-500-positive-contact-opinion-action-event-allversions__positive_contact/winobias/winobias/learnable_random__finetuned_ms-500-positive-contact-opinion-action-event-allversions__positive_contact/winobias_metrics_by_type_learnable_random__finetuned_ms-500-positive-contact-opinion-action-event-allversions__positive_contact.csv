@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.28535353535353536,learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winobias
+type1,pro,396,0.8459595959595959,learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winobias
+type2,anti,396,0.7727272727272727,learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winobias
+type2,pro,396,0.9570707070707071,learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winobias

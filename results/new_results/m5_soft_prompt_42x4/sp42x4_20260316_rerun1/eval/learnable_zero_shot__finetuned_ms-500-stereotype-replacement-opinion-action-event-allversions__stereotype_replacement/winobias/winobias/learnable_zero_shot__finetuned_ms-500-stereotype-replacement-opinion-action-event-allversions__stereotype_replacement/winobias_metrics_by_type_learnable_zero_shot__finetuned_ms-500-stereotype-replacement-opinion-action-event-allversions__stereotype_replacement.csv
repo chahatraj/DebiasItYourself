@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.29797979797979796,learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winobias
+type1,pro,396,0.8232323232323232,learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winobias
+type2,anti,396,0.5227272727272727,learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winobias
+type2,pro,396,0.9191919191919192,learnable_zero_shot__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winobias

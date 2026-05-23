@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.75,m4_baseicl_zero_qwen35_27b_allstrat_winobias,winobias
+type1,pro,396,0.8383838383838383,m4_baseicl_zero_qwen35_27b_allstrat_winobias,winobias
+type2,anti,396,0.851010101010101,m4_baseicl_zero_qwen35_27b_allstrat_winobias,winobias
+type2,pro,396,0.9191919191919192,m4_baseicl_zero_qwen35_27b_allstrat_winobias,winobias

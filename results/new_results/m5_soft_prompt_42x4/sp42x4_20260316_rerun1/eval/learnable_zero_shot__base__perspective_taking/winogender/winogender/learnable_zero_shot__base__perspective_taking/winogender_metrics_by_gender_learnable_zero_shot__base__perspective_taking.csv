@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5416666666666666,learnable_zero_shot__base__perspective_taking,winogender
+male,240,0.5291666666666667,learnable_zero_shot__base__perspective_taking,winogender
+neutral,240,0.5208333333333334,learnable_zero_shot__base__perspective_taking,winogender

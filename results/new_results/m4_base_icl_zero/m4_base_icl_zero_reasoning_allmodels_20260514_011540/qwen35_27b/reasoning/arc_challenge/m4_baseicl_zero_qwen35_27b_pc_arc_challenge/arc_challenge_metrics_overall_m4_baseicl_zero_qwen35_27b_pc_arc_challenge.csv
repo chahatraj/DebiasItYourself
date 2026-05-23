@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_baseicl_zero_qwen35_27b_pc_arc_challenge,arc_challenge,test,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,1172,0.9027303754266212,strategy,positive_contact,v2,zero

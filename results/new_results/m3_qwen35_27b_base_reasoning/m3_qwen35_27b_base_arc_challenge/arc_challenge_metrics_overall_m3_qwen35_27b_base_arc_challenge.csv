@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy
+m3_qwen35_27b_base_arc_challenge,arc_challenge,test,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,1172,0.8378839590443686

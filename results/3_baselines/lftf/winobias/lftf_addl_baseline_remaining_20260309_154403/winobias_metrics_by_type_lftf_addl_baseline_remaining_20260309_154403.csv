@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.351010101010101,lftf_addl_baseline_remaining_20260309_154403,winobias
+type1,pro,396,0.8333333333333334,lftf_addl_baseline_remaining_20260309_154403,winobias
+type2,anti,396,0.8863636363636364,lftf_addl_baseline_remaining_20260309_154403,winobias
+type2,pro,396,0.9621212121212122,lftf_addl_baseline_remaining_20260309_154403,winobias

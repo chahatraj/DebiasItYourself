@@ -1,0 +1,2 @@
+model,benchmark,source_file,n,accuracy,accuracy_cause,accuracy_effect
+llama_8b_bba_bbq_all,balanced_copa,/scratch/craj/diy/data/balanced_copa/balanced-copa-dev-all.xml,1000,0.733,0.71,0.756

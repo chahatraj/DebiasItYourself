@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.30808080808080807,fixed__base__stereotype_replacement,winobias
+type1,pro,396,0.851010101010101,fixed__base__stereotype_replacement,winobias
+type2,anti,396,0.8282828282828283,fixed__base__stereotype_replacement,winobias
+type2,pro,396,0.9696969696969697,fixed__base__stereotype_replacement,winobias

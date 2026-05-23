@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.85,llama_70b_reduce_social_bias_system2,winogender
+male,240,0.8416666666666667,llama_70b_reduce_social_bias_system2,winogender
+neutral,240,0.8666666666666667,llama_70b_reduce_social_bias_system2,winogender

@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6416666666666667,fixed__base__counter_imaging,winogender
+male,240,0.6708333333333333,fixed__base__counter_imaging,winogender
+neutral,240,0.5958333333333333,fixed__base__counter_imaging,winogender

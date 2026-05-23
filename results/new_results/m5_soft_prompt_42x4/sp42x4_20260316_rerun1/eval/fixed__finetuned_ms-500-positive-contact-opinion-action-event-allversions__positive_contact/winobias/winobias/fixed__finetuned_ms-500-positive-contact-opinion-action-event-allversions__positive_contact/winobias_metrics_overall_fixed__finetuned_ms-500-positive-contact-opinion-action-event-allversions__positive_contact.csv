@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,winobias,1584,0.7575757575757576,0.9381313131313131,0.577020202020202,0.36111111111111116,0.36111111111111116

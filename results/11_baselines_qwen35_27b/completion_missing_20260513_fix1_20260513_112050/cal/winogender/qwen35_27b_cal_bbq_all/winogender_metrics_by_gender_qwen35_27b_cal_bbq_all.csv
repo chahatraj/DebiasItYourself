@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.9166666666666666,qwen35_27b_cal_bbq_all,winogender
+male,240,0.925,qwen35_27b_cal_bbq_all,winogender
+neutral,240,0.9291666666666667,qwen35_27b_cal_bbq_all,winogender

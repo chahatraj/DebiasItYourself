@@ -1,0 +1,3 @@
+category,n,unique_completion_ratio,model,benchmark,config
+female,405,0.1382716049382716,llama_8b,honest,en_binary
+male,405,0.1382716049382716,llama_8b,honest,en_binary

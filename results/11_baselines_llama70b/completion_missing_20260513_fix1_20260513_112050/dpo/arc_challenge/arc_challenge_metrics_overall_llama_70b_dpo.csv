@@ -1,0 +1,2 @@
+model,benchmark,source_file,n,accuracy,split
+llama_70b_dpo_bbq_ensemble,arc_challenge,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,1172,0.8686006825938567,test

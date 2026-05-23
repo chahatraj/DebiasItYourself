@@ -1,0 +1,3 @@
+gender,n,accuracy,model,benchmark
+female,224,0.6651785714285714,debias_nlg_addl_baseline_remaining_20260309_154403,bias_in_bios
+male,276,0.6159420289855072,debias_nlg_addl_baseline_remaining_20260309_154403,bias_in_bios

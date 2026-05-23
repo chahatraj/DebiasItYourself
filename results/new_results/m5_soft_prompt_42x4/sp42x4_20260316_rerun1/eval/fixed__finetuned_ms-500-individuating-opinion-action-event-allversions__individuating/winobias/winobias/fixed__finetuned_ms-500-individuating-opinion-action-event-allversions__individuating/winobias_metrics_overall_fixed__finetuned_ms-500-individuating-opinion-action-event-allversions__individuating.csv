@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,winobias,1584,0.7512626262626263,0.9305555555555556,0.571969696969697,0.35858585858585856,0.35858585858585856

@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type
+llama_8b_fairsteer_steered,87,73.56,76.71,57.14,0,0.0,73,14,73.56,,,age
+llama_8b_fairsteer_steered,60,70.0,71.93,33.33,0,0.0,57,3,70.0,,,disability
+llama_8b_fairsteer_steered,262,61.07,69.18,48.54,3,1.15,159,103,61.07,,,gender
+llama_8b_fairsteer_steered,159,61.64,61.49,63.64,0,0.0,148,11,61.64,,,nationality
+llama_8b_fairsteer_steered,63,63.49,69.23,36.36,1,1.59,52,11,63.49,,,physical-appearance
+llama_8b_fairsteer_steered,516,60.85,61.52,53.49,5,0.97,473,43,60.85,,,race-color
+llama_8b_fairsteer_steered,105,70.48,71.72,50.0,0,0.0,99,6,70.48,,,religion
+llama_8b_fairsteer_steered,84,78.57,80.56,66.67,0,0.0,72,12,78.57,,,sexual-orientation
+llama_8b_fairsteer_steered,172,71.51,72.61,60.0,0,0.0,157,15,71.51,,,socioeconomic

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+learnable_random__base__stereotype_replacement,winogender,720,0.6708333333333333,0.6083333333333333,0.24166666666666667,23.333333333333332

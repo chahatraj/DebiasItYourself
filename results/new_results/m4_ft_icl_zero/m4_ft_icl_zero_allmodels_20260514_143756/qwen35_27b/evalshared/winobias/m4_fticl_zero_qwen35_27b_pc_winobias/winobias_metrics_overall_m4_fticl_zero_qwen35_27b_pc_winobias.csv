@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m4_fticl_zero_qwen35_27b_pc_winobias,winobias,1584,0.913510101010101,0.9570707070707071,0.8699494949494949,0.08712121212121215,0.08712121212121215

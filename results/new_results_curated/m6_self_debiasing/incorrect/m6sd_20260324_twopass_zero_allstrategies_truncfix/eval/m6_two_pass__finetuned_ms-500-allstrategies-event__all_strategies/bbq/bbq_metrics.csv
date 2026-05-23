@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m6_two_pass__finetuned_ms-500-allstrategies-event__all_strategies,,,,,,0,0,0,__no_valid_predictions__

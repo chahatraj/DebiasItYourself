@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.4166666666666667,llama_8b_selfdebiasing_reprompting,winobias
+type1,pro,396,0.7373737373737373,llama_8b_selfdebiasing_reprompting,winobias
+type2,anti,396,0.9494949494949495,llama_8b_selfdebiasing_reprompting,winobias
+type2,pro,396,0.9671717171717171,llama_8b_selfdebiasing_reprompting,winobias

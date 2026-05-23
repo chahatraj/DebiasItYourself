@@ -1,0 +1,2 @@
+model,benchmark,dimension,n_raw_rows,n_paired_rows,pairing_coverage,delta_positional_error,epsilon_attributive_error,mu_bias_intensity,eta_bias_intensity
+peft_addl_baseline_remaining_20260309_154403,unqover,race,2500,14,0.0056315366049879325,0.08921341285286769,0.3057167850173653,0.11819654508988935,1.0

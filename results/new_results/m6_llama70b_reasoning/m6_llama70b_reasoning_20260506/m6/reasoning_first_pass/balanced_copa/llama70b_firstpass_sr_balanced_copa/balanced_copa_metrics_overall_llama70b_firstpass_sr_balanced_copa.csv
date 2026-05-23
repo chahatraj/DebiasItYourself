@@ -1,0 +1,2 @@
+model,benchmark,source_file,n,accuracy,accuracy_cause,accuracy_effect,n_cause,n_effect
+llama70b_firstpass_sr_balanced_copa,balanced_copa,/scratch/craj/diy/data/balanced_copa/balanced-copa-dev-all.xml,1000,0.907,0.9,0.914,500,500

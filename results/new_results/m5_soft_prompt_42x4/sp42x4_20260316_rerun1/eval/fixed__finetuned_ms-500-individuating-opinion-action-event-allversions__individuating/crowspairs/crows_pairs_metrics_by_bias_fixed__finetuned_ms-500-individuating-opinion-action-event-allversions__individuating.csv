@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,87,74.71,78.08,57.14,0,0.0,73,14,74.71,,,age,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,60,73.33,77.19,0.0,0,0.0,57,3,73.33,,,disability,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,262,61.45,63.52,58.25,2,0.76,159,103,61.45,,,gender,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,159,59.75,58.78,72.73,1,0.63,148,11,59.75,,,nationality,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,63,68.25,71.15,54.55,2,3.17,52,11,68.25,,,physical-appearance,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,516,53.68,52.85,62.79,4,0.78,473,43,53.68,,,race-color,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,105,70.48,69.7,83.33,0,0.0,99,6,70.48,,,religion,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,84,85.71,88.89,66.67,0,0.0,72,12,85.71,,,sexual-orientation,individuating
+fixed__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,172,70.93,71.97,60.0,0,0.0,157,15,70.93,,,socioeconomic,individuating

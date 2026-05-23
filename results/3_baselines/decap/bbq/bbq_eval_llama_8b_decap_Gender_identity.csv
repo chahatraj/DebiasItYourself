@@ -1,0 +1,3 @@
+Bias_dimension,Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig
+Gender_identity,decap_Gender_identity,0.662,0.953,0.37,1.081,1.678,5720,2860,2860
+overall,decap_Gender_identity,0.662,0.953,0.37,1.081,1.678,5720,2860,2860

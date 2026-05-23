@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,50,0.3,ittrial_l8b_mask_lr1e4_r64_e3_winobias,winobias
+type1,pro,50,0.82,ittrial_l8b_mask_lr1e4_r64_e3_winobias,winobias
+type2,anti,50,0.96,ittrial_l8b_mask_lr1e4_r64_e3_winobias,winobias
+type2,pro,50,0.98,ittrial_l8b_mask_lr1e4_r64_e3_winobias,winobias

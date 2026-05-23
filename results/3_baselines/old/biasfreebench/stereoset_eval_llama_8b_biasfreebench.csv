@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score
+llama_8b_biasfreebench_self_reflection,intrasentence,gender,255,87.80817797339536,67.34621948100208,57.3453794263272
+llama_8b_biasfreebench_self_reflection,intrasentence,profession,810,86.54768435358876,63.439911037152136,63.28382078991363
+llama_8b_biasfreebench_self_reflection,intrasentence,race,962,87.0670629325163,63.84369159551997,62.96047158520661
+llama_8b_biasfreebench_self_reflection,intrasentence,religion,79,83.97701149425286,63.17241379310345,61.85341260404279
+llama_8b_biasfreebench_self_reflection,intrasentence,overall,2106,86.84629886575902,64.10822360433687,62.34135879361511
+llama_8b_biasfreebench_self_reflection,intersentence,gender,242,31.84271646228168,60.480437436959164,25.168204508166223
+llama_8b_biasfreebench_self_reflection,intersentence,profession,827,31.643195995012828,53.66266094072915,29.32523003479742
+llama_8b_biasfreebench_self_reflection,intersentence,race,976,31.80857827445857,49.99366669438353,31.804549205509815
+llama_8b_biasfreebench_self_reflection,intersentence,religion,78,26.490421455938698,52.446360153256705,25.194319226083
+llama_8b_biasfreebench_self_reflection,intersentence,overall,2123,31.548140844576277,52.80753524112714,29.77669050031247
+llama_8b_biasfreebench_self_reflection,overall,overall,4229,59.12731789789875,58.44355638556957,49.14242104593065

@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3383838383838384,learnable_random__base__stereotype_replacement,winobias
+type1,pro,396,0.8080808080808081,learnable_random__base__stereotype_replacement,winobias
+type2,anti,396,0.4823232323232323,learnable_random__base__stereotype_replacement,winobias
+type2,pro,396,0.8838383838383839,learnable_random__base__stereotype_replacement,winobias

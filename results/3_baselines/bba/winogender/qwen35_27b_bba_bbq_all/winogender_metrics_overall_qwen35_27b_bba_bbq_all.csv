@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+qwen35_27b_bba_bbq_all,winogender,720,0.8833333333333333,0.8416666666666667,0.07916666666666666,7.916666666666667

@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6125,learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,winogender
+male,240,0.6583333333333333,learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,winogender
+neutral,240,0.5875,learnable_random__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating,winogender

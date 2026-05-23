@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,winobias,1584,0.7234848484848485,0.8939393939393939,0.553030303030303,0.34090909090909094,0.34090909090909094

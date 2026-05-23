@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5,m6_same_thread__base__individuating_self_debias_same_thread_individuating,winogender
+male,240,0.5,m6_same_thread__base__individuating_self_debias_same_thread_individuating,winogender
+neutral,240,0.5,m6_same_thread__base__individuating_self_debias_same_thread_individuating,winogender

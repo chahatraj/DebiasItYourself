@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.4217171717171717,llama_8b_reduce_social_bias_hp_system2_cot_debias,winobias
+type1,pro,396,0.6742424242424242,llama_8b_reduce_social_bias_hp_system2_cot_debias,winobias
+type2,anti,396,0.6136363636363636,llama_8b_reduce_social_bias_hp_system2_cot_debias,winobias
+type2,pro,396,0.6616161616161617,llama_8b_reduce_social_bias_hp_system2_cot_debias,winobias

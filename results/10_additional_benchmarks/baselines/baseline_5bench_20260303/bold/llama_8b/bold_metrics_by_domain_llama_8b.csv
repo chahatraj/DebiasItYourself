@@ -1,0 +1,4 @@
+domain,n,mean_avg_logprob_per_token,model,benchmark
+gender,2363,-1.527182700109478,llama_8b,bold
+political_ideology,498,-1.6929090366227049,llama_8b,bold
+profession,139,-1.6578296284516731,llama_8b,bold

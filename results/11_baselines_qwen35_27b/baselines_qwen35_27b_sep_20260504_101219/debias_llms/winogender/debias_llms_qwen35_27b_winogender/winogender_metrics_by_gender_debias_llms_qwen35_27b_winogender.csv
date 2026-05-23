@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6958333333333333,debias_llms_qwen35_27b_winogender,winogender
+male,240,0.6916666666666667,debias_llms_qwen35_27b_winogender,winogender
+neutral,240,0.85,debias_llms_qwen35_27b_winogender,winogender

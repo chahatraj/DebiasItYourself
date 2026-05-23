@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6416666666666667,qwen35_27b_selfdebiasing_reprompting,winogender
+male,240,0.625,qwen35_27b_selfdebiasing_reprompting,winogender
+neutral,240,0.5875,qwen35_27b_selfdebiasing_reprompting,winogender

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m4_baseicl_zero_llama8b_sr_winobias,winobias,1584,0.7588383838383839,0.8977272727272727,0.6199494949494949,0.2777777777777778,0.2777777777777778

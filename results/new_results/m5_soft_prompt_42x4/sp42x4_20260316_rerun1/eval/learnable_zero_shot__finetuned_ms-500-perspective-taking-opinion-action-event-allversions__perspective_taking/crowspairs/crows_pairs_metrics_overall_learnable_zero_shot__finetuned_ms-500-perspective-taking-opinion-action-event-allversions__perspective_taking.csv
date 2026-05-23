@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+learnable_zero_shot__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,1508,66.25,67.13,61.01,8,0.53,1290,218,66.25,,,perspective_taking

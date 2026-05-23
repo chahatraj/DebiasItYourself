@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6208333333333333,gendim_m6_noft_zero_llama8b_ci_winogender_self_debias_two_pass_counter_imaging,winogender
+male,240,0.5875,gendim_m6_noft_zero_llama8b_ci_winogender_self_debias_two_pass_counter_imaging,winogender
+neutral,240,0.625,gendim_m6_noft_zero_llama8b_ci_winogender_self_debias_two_pass_counter_imaging,winogender

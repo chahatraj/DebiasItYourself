@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_baseicl_one_llama8b_pc_arc_easy,arc_easy,test,/scratch/craj/diy/data/ai2_arc/arc_easy/test.jsonl,2376,0.7798821548821548,strategy,positive_contact,v2,one

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+llama_8b_fairsteer_steered,winobias,1584,0.7070707070707071,0.8181818181818182,0.5959595959595959,0.22222222222222232,0.22222222222222232

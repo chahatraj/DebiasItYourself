@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.936,qwen35_firstpass_ind_balanced_copa,balanced_copa
+effect,500,0.93,qwen35_firstpass_ind_balanced_copa,balanced_copa

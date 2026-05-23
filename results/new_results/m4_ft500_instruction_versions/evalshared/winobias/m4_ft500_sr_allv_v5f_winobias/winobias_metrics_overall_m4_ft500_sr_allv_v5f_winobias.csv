@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m4_ft500_sr_allv_v5f_winobias,winobias,1584,0.7702020202020202,0.9027777777777778,0.6376262626262627,0.26515151515151514,0.26515151515151514

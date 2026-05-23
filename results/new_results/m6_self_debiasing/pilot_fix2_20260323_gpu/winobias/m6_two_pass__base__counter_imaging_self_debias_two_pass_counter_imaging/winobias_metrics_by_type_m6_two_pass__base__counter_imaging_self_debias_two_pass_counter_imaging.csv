@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,50,0.36,m6_two_pass__base__counter_imaging_self_debias_two_pass_counter_imaging,winobias
+type1,pro,50,0.64,m6_two_pass__base__counter_imaging_self_debias_two_pass_counter_imaging,winobias
+type2,anti,50,0.58,m6_two_pass__base__counter_imaging_self_debias_two_pass_counter_imaging,winobias
+type2,pro,50,0.58,m6_two_pass__base__counter_imaging_self_debias_two_pass_counter_imaging,winobias

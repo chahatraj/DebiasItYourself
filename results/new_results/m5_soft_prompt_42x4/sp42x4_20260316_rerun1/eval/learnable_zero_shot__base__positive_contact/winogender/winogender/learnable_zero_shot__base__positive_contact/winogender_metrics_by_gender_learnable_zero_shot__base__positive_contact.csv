@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6375,learnable_zero_shot__base__positive_contact,winogender
+male,240,0.6125,learnable_zero_shot__base__positive_contact,winogender
+neutral,240,0.5833333333333334,learnable_zero_shot__base__positive_contact,winogender

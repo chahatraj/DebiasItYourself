@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.882,m4_fticl_one_qwen35_27b_all_opinion_balanced_copa,balanced_copa
+effect,500,0.894,m4_fticl_one_qwen35_27b_all_opinion_balanced_copa,balanced_copa

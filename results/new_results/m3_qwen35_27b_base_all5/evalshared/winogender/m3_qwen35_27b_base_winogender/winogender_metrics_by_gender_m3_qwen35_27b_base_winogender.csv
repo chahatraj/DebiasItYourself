@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.7875,m3_qwen35_27b_base_winogender,winogender
+male,240,0.7958333333333333,m3_qwen35_27b_base_winogender,winogender
+neutral,240,0.8833333333333333,m3_qwen35_27b_base_winogender,winogender

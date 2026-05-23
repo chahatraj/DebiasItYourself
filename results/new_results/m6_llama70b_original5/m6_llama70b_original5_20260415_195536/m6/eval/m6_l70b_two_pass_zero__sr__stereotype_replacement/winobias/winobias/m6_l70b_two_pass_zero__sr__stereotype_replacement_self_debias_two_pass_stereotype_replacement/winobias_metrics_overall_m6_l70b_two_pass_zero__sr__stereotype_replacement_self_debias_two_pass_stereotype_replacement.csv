@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_l70b_two_pass_zero__sr__stereotype_replacement_self_debias_two_pass_stereotype_replacement,winobias,1584,0.5984848484848485,0.6262626262626263,0.5707070707070707,0.05555555555555558,0.05555555555555558

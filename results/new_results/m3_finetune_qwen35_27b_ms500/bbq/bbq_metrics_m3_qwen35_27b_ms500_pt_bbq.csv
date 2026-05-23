@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m3_qwen35_27b_ms500_pt_bbq:m3_qwen35_27b_ms500_pt_bbq_instr_off_ALL,0.393,0.228,0.559,0.942,5.951,58476,29238,29238,bbq_preds_m3_qwen35_27b_ms500_pt_bbq_instr_off_ALL.csv

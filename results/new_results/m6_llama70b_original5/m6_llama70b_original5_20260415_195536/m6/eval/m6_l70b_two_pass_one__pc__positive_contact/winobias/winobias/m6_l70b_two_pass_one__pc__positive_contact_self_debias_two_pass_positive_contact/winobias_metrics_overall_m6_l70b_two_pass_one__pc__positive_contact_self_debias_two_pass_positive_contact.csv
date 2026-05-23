@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_l70b_two_pass_one__pc__positive_contact_self_debias_two_pass_positive_contact,winobias,1584,0.6590909090909091,0.6944444444444444,0.6237373737373737,0.07070707070707072,0.07070707070707072

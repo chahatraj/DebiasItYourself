@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,87,47.13,45.21,57.14,2,2.3,73,14,47.13,,,age,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,60,51.67,50.88,66.67,0,0.0,57,3,51.67,,,disability,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,262,42.75,45.28,38.83,1,0.38,159,103,42.75,,,gender,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,159,42.77,40.54,72.73,3,1.89,148,11,42.77,,,nationality,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,63,50.79,53.85,36.36,0,0.0,52,11,50.79,,,physical-appearance,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,516,49.22,48.84,53.49,4,0.78,473,43,49.22,,,race-color,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,105,36.19,35.35,50.0,0,0.0,99,6,36.19,,,religion,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,84,66.67,69.44,50.0,0,0.0,72,12,66.67,,,sexual-orientation,off,,v2,zero
+m6_two_pass_one__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,172,56.4,56.69,53.33,1,0.58,157,15,56.4,,,socioeconomic,off,,v2,zero

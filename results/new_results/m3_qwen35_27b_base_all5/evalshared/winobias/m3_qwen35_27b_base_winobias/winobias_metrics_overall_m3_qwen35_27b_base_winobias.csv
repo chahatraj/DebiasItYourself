@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m3_qwen35_27b_base_winobias,winobias,1584,0.8402777777777778,0.8787878787878788,0.8017676767676768,0.07702020202020199,0.07702020202020199

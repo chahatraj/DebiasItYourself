@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy
+srfull_allv,87,73.56,73.97,71.43,2,2.3,73,14,73.56,,,age,strategy,stereotype_replacement
+srfull_allv,60,68.33,71.93,0.0,0,0.0,57,3,68.33,,,disability,strategy,stereotype_replacement
+srfull_allv,262,60.69,65.41,53.4,3,1.15,159,103,60.69,,,gender,strategy,stereotype_replacement
+srfull_allv,159,52.83,52.03,63.64,1,0.63,148,11,52.83,,,nationality,strategy,stereotype_replacement
+srfull_allv,63,65.08,67.31,54.55,0,0.0,52,11,65.08,,,physical-appearance,strategy,stereotype_replacement
+srfull_allv,516,44.19,42.49,62.79,6,1.16,473,43,44.19,,,race-color,strategy,stereotype_replacement
+srfull_allv,105,62.86,62.63,66.67,3,2.86,99,6,62.86,,,religion,strategy,stereotype_replacement
+srfull_allv,84,73.81,73.61,75.0,0,0.0,72,12,73.81,,,sexual-orientation,strategy,stereotype_replacement
+srfull_allv,172,66.28,67.52,53.33,2,1.16,157,15,66.28,,,socioeconomic,strategy,stereotype_replacement

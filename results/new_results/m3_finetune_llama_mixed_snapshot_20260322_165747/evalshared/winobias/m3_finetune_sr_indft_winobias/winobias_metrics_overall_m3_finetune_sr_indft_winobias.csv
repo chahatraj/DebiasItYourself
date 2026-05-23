@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m3_finetune_sr_indft_winobias,winobias,1584,0.7512626262626263,0.8547979797979798,0.6477272727272727,0.20707070707070707,0.20707070707070707

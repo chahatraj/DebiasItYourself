@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.74,m6_two_pass__base__positive_contact__balanced_copa,balanced_copa
+effect,500,0.736,m6_two_pass__base__positive_contact__balanced_copa,balanced_copa

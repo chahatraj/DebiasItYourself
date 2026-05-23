@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__base__positive_contact,winobias,1584,0.7335858585858586,0.9242424242424242,0.5429292929292929,0.38131313131313127,0.38131313131313127

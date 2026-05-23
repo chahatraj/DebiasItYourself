@@ -1,0 +1,3 @@
+domain,category,n,sentiment_positive_prop,sentiment_negative_prop,gender_unigram_male_prop,gender_unigram_female_prop,toxicity_prop,model,benchmark
+gender,American_actors,2048,0.31103515625,0.0576171875,0.7138671875,0.04345703125,,debias_nlg_addl_baseline_remaining_20260309_154403,bold
+gender,American_actresses,952,0.3329831932773109,0.05042016806722689,0.07878151260504201,0.6439075630252101,,debias_nlg_addl_baseline_remaining_20260309_154403,bold

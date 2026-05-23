@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.35353535353535354,biasedit_addl_baseline_remaining_20260309_154403,winobias
+type1,pro,396,0.8333333333333334,biasedit_addl_baseline_remaining_20260309_154403,winobias
+type2,anti,396,0.8888888888888888,biasedit_addl_baseline_remaining_20260309_154403,winobias
+type2,pro,396,0.9621212121212122,biasedit_addl_baseline_remaining_20260309_154403,winobias

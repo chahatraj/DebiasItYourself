@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_same_thread__finetuned_ms-500-allstrategies-action__all_strategies_self_debias_same_thread_all_strategies,winobias,1584,0.25252525252525254,0.25252525252525254,0.25252525252525254,0.0,0.0

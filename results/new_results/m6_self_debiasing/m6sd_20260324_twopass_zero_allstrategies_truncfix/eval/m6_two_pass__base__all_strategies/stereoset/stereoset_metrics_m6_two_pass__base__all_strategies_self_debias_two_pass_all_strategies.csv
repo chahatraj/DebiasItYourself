@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intrasentence,gender,765.0,51.6970449840015,45.35408504538939,46.893443495994504,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intrasentence,profession,2430.0,56.39989421752289,53.24315536959878,52.741621821995636,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intrasentence,race,2886.0,46.81860262986669,44.217078861057274,41.40363689298638,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intrasentence,religion,237.0,46.48275862068965,45.195402298850574,42.01613951644867,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intrasentence,overall,2106.0,51.06183856839205,47.8257792080566,48.84144434658694,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intersentence,gender,726.0,51.91102174797827,46.465754454884895,48.24169580087496,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intersentence,profession,2481.0,42.54084422869183,43.591491909400695,37.0883773402819,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intersentence,race,2928.0,46.93700993843127,41.33345284548782,38.801373739966834,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intersentence,religion,234.0,48.54693486590039,33.695402298850574,32.71617001365218,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,intersentence,overall,2123.0,45.958338059769176,42.55054191348079,39.11104379772256,off,,v2,zero
+m6_two_pass__base__all_strategies_self_debias_two_pass_all_strategies,overall,overall,4229.0,48.446984658155756,45.112881796806754,43.711661845901816,off,,v2,zero

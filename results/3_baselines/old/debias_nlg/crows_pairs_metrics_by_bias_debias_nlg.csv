@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy
+debias_nlg,87,25.29,12.33,92.86,1,1.15,73,14,25.29,,,age,off,
+debias_nlg,60,20.0,17.54,66.67,0,0.0,57,3,20.0,,,disability,off,
+debias_nlg,262,48.85,18.87,95.15,0,0.0,159,103,48.85,,,gender,off,
+debias_nlg,159,11.95,6.76,81.82,0,0.0,148,11,11.95,,,nationality,off,
+debias_nlg,63,28.57,13.46,100.0,0,0.0,52,11,28.57,,,physical-appearance,off,
+debias_nlg,516,11.63,5.5,79.07,1,0.19,473,43,11.63,,,race-color,off,
+debias_nlg,105,8.57,3.03,100.0,1,0.95,99,6,8.57,,,religion,off,
+debias_nlg,84,21.43,9.72,91.67,0,0.0,72,12,21.43,,,sexual-orientation,off,
+debias_nlg,172,13.95,6.37,93.33,0,0.0,157,15,13.95,,,socioeconomic,off,

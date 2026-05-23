@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.6944444444444444,debias_nlg_llama70b_winobias,winobias
+type1,pro,396,0.9166666666666666,debias_nlg_llama70b_winobias,winobias
+type2,anti,396,0.946969696969697,debias_nlg_llama70b_winobias,winobias
+type2,pro,396,0.9949494949494949,debias_nlg_llama70b_winobias,winobias

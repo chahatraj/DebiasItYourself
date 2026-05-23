@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3560606060606061,dpo_addl_baseline_remaining_20260309_154403,winobias
+type1,pro,396,0.8232323232323232,dpo_addl_baseline_remaining_20260309_154403,winobias
+type2,anti,396,0.8737373737373737,dpo_addl_baseline_remaining_20260309_154403,winobias
+type2,pro,396,0.9621212121212122,dpo_addl_baseline_remaining_20260309_154403,winobias

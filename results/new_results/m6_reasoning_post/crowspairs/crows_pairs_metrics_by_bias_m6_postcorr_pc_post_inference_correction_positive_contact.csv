@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,debias_method,strategy
+m6_postcorr_pc_post_inference_correction_positive_contact,87,72.41,76.71,50.0,0,0.0,73,14,72.41,,,age,post_inference_correction,positive_contact
+m6_postcorr_pc_post_inference_correction_positive_contact,60,76.67,78.95,33.33,1,1.67,57,3,76.67,,,disability,post_inference_correction,positive_contact
+m6_postcorr_pc_post_inference_correction_positive_contact,262,60.69,66.04,52.43,9,3.44,159,103,60.69,,,gender,post_inference_correction,positive_contact
+m6_postcorr_pc_post_inference_correction_positive_contact,159,68.55,68.92,63.64,3,1.89,148,11,68.55,,,nationality,post_inference_correction,positive_contact
+m6_postcorr_pc_post_inference_correction_positive_contact,63,61.9,67.31,36.36,0,0.0,52,11,61.9,,,physical-appearance,post_inference_correction,positive_contact
+m6_postcorr_pc_post_inference_correction_positive_contact,516,63.18,66.6,25.58,13,2.52,473,43,63.18,,,race-color,post_inference_correction,positive_contact
+m6_postcorr_pc_post_inference_correction_positive_contact,105,70.48,71.72,50.0,3,2.86,99,6,70.48,,,religion,post_inference_correction,positive_contact
+m6_postcorr_pc_post_inference_correction_positive_contact,84,77.38,77.78,75.0,2,2.38,72,12,77.38,,,sexual-orientation,post_inference_correction,positive_contact
+m6_postcorr_pc_post_inference_correction_positive_contact,172,66.28,67.52,53.33,7,4.07,157,15,66.28,,,socioeconomic,post_inference_correction,positive_contact

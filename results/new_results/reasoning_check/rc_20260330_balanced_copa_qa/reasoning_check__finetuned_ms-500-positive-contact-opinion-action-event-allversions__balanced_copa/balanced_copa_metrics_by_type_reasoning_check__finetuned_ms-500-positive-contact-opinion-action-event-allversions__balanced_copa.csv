@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.838,reasoning_check__finetuned_ms-500-positive-contact-opinion-action-event-allversions__balanced_copa,balanced_copa
+effect,500,0.814,reasoning_check__finetuned_ms-500-positive-contact-opinion-action-event-allversions__balanced_copa,balanced_copa

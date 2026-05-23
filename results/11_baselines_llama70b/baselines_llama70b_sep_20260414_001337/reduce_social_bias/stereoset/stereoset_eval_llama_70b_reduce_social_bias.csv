@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score
+llama_70b_reduce_social_bias_system2,intrasentence,gender,765.0,90.63466501292588,68.56837590750635,56.97589440870745
+llama_70b_reduce_social_bias_system2,intrasentence,profession,2430.0,90.12573105867669,64.05042759778618,64.79962987992697
+llama_70b_reduce_social_bias_system2,intrasentence,race,2886.0,89.62076707653651,66.36344752390693,60.29067269435269
+llama_70b_reduce_social_bias_system2,intrasentence,religion,237.0,83.03448275862068,61.839080459770116,63.37344431232658
+llama_70b_reduce_social_bias_system2,intrasentence,overall,2106.0,89.69075499899664,65.59237897783049,61.72091014395463
+llama_70b_reduce_social_bias_system2,intersentence,gender,726.0,61.83206588097893,67.96099431968997,39.62075819971976
+llama_70b_reduce_social_bias_system2,intersentence,profession,2481.0,55.49617437863638,60.59533129362569,43.736167317226894
+llama_70b_reduce_social_bias_system2,intersentence,race,2928.0,58.04389349092568,56.31787711892148,50.70960975933699
+llama_70b_reduce_social_bias_system2,intersentence,religion,234.0,54.19827586206896,64.5574712643678,38.418478993262
+llama_70b_reduce_social_bias_system2,intersentence,overall,2123.0,57.409884600359646,59.72893508961958,46.23914378477065
+llama_70b_reduce_social_bias_system2,overall,overall,4229.0,73.50690722411686,62.63316022098039,54.93441649789667

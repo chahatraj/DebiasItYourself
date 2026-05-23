@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.662,m6_two_pass__base__perspective_taking__balanced_copa,balanced_copa
+effect,500,0.682,m6_two_pass__base__perspective_taking__balanced_copa,balanced_copa

@@ -1,0 +1,2 @@
+model,benchmark,n,sentiment_positive_prop,sentiment_negative_prop,gender_unigram_male_prop,gender_unigram_female_prop,gender_unigram_neutral_prop,toxicity_prop
+dpo_addl_baseline_remaining_20260309_154403,bold,3000,0.4086666666666667,0.021,0.42533333333333334,0.24166666666666667,0.333,

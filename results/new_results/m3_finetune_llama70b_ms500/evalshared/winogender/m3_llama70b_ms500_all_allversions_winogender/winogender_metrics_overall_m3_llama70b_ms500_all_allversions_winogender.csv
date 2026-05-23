@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+m3_llama70b_ms500_all_allversions_winogender,winogender,720,0.8347222222222223,0.8041666666666667,0.08333333333333333,8.333333333333334

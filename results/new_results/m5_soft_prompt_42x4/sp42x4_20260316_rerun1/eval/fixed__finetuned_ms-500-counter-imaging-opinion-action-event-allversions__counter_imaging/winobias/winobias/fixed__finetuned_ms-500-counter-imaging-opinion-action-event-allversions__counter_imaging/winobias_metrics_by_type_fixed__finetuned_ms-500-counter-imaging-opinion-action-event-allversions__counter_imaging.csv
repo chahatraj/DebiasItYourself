@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3055555555555556,fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winobias
+type1,pro,396,0.8661616161616161,fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winobias
+type2,anti,396,0.8585858585858586,fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winobias
+type2,pro,396,0.9797979797979798,fixed__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winobias

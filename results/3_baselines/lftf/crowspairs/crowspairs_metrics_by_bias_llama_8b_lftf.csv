@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type
+llama_8b_lftf,87,68.97,71.23,57.14,0,0.0,73,14,68.97,,,age
+llama_8b_lftf,60,68.33,70.18,33.33,0,0.0,57,3,68.33,,,disability
+llama_8b_lftf,262,60.69,70.44,45.63,2,0.76,159,103,60.69,,,gender
+llama_8b_lftf,159,62.26,62.84,54.55,0,0.0,148,11,62.26,,,nationality
+llama_8b_lftf,63,65.08,71.15,36.36,0,0.0,52,11,65.08,,,physical-appearance
+llama_8b_lftf,516,59.11,60.25,46.51,8,1.55,473,43,59.11,,,race-color
+llama_8b_lftf,105,67.62,68.69,50.0,1,0.95,99,6,67.62,,,religion
+llama_8b_lftf,84,78.57,80.56,66.67,0,0.0,72,12,78.57,,,sexual-orientation
+llama_8b_lftf,172,70.93,71.97,60.0,1,0.58,157,15,70.93,,,socioeconomic

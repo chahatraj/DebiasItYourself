@@ -1,0 +1,1383 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.12)  22 MAY 2026 14:12
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-03-20>
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen150
+) (./acl.sty
+Conference Style for ACL
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2026/03/08 line numbers on paragraphs v5.9
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count283
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+\linenopenalty=\count284
+\output=\toks18
+\linenoprevgraf=\count285
+\linenumbersep=\dimen151
+\linenumberwidth=\dimen152
+\c@linenumber=\count286
+\c@pagewiselinenumber=\count287
+\c@LN@truepage=\count288
+\c@internallinenumber=\count289
+\c@internallinenumbers=\count290
+\quotelinenumbersep=\dimen153
+\bframerule=\dimen154
+\bframesep=\dimen155
+\bframebox=\box53
+)
+\cv@tmpc@=\count291
+\cv@tmpc=\count292
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count293
+\Gm@cntv=\count294
+\c@Gm@tempcnt=\count295
+\Gm@bindingoffset=\dimen156
+\Gm@wd@mp=\dimen157
+\Gm@odd@mp=\dimen158
+\Gm@even@mp=\dimen159
+\Gm@layoutwidth=\dimen160
+\Gm@layoutheight=\dimen161
+\Gm@layouthoffset=\dimen162
+\Gm@layoutvoffset=\dimen163
+\Gm@dimlist=\toks19
+)
+\titlebox=\skip51
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen164
+\captionmargin=\dimen165
+\caption@leftmargin=\dimen166
+\caption@rightmargin=\dimen167
+\caption@width=\dimen168
+\caption@indent=\dimen169
+\caption@parindent=\dimen170
+\caption@hangindent=\dimen171
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count296
+\c@continuedfloat=\count297
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip52
+\bibsep=\skip53
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count298
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count299
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen172
+\Hy@linkcounter=\count300
+\Hy@pagecounter=\count301
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count302
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `breaklinks' set `true' on input line 4072.
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4468.
+\c@Hy@tempcnt=\count303
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4807.
+\XeTeXLinkMargin=\dimen173
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count304
+\Field@Width=\dimen174
+\Fld@charsize=\dimen175
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
+\Hy@abspage=\count305
+\c@Item=\count306
+\c@Hfootnote=\count307
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
+\Fld@listcount=\count308
+\c@bookmark@seq@number=\count309
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip54
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 305.
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 116.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks20
+\inpenc@posthook=\toks21
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
+\MT@toks=\toks22
+\MT@tempbox=\box54
+\MT@count=\count310
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
+LaTeX Info: Redefining \leftprotrusion on input line 1085.
+\MT@prot@toks=\toks23
+LaTeX Info: Redefining \rightprotrusion on input line 1104.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen176
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count311
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2026/03/01 v3.2d Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
+\MT@outer@space=\skip55
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/inconsolata/inconsolata.sty
+Package: inconsolata 2019/05/17 v1.12
+ `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/home/craj/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/home/craj/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks24
+\XKV@tempa@toks=\toks25
+\XKV@tempb@toks=\toks26
+)
+\XKV@depth=\count312
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\zifour@ocount=\count313
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen177
+\Gin@req@width=\dimen178
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen179
+\lightrulewidth=\dimen180
+\cmidrulewidth=\dimen181
+\belowrulesep=\dimen182
+\belowbottomsep=\dimen183
+\aboverulesep=\dimen184
+\abovetopsep=\dimen185
+\cmidrulesep=\dimen186
+\cmidrulekern=\dimen187
+\defaultaddspace=\dimen188
+\@cmidla=\count314
+\@cmidlb=\count315
+\@aboverulesep=\dimen189
+\@belowrulesep=\dimen190
+\@thisruleclass=\count316
+\@lastruleclass=\count317
+\@thisrulewidth=\dimen191
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip56
+\multirow@cntb=\count318
+\multirow@dima=\skip57
+\bigstrutjot=\dimen192
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen193
+\ar@mcellbox=\box55
+\extrarowheight=\dimen194
+\NC@list=\toks27
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box56
+)
+\rotheadsize=\dimen195
+\c@nlinenum=\count319
+\TeXr@lab=\toks28
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen196
+\TX@old@table=\dimen197
+\TX@old@col=\dimen198
+\TX@target=\dimen199
+\TX@delta=\dimen256
+\TX@cols=\count320
+\TX@ftn=\toks29
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip60
+
+For additional information on amsmath, use the `?' option.
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks30
+\ex@=\dimen257
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen258
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count321
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count322
+\leftroot@=\count323
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count324
+\DOTSCASE@=\count325
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box57
+\strutbox@=\box58
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen259
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count326
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count327
+\dotsspace@=\muskip18
+\c@parentequation=\count328
+\dspbrk@lvl=\count329
+\tag@help=\toks31
+\row@=\count330
+\column@=\count331
+\maxfields@=\count332
+\andhelp@=\toks32
+\eqnshift@=\dimen260
+\alignsep@=\dimen261
+\tagshift@=\dimen262
+\tagwidth@=\dimen263
+\totwidth@=\dimen264
+\lineht@=\dimen265
+\@envbody=\toks33
+\multlinegap=\skip61
+\multlinetaggap=\skip62
+\mathdisplay@stack=\toks34
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+\@LN@amsmath@ams@eqpen=\count333
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip63
+\enit@outerparindent=\dimen266
+\enit@toks=\toks35
+\enit@inbox=\box59
+\enit@count@id=\count334
+\enitdp@description=\count335
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks36
+\pgfutil@tempdima=\dimen267
+\pgfutil@tempdimb=\dimen268
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box60
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks37
+\pgfkeys@temptoks=\toks38
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks39
+))
+\pgf@x=\dimen269
+\pgf@y=\dimen270
+\pgf@xa=\dimen271
+\pgf@ya=\dimen272
+\pgf@xb=\dimen273
+\pgf@yb=\dimen274
+\pgf@xc=\dimen275
+\pgf@yc=\dimen276
+\pgf@xd=\dimen277
+\pgf@yd=\dimen278
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count336
+\c@pgf@countb=\count337
+\c@pgf@countc=\count338
+\c@pgf@countd=\count339
+\t@pgf@toka=\toks40
+\t@pgf@tokb=\toks41
+\t@pgf@tokc=\toks42
+\pgf@sys@id@count=\count340
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+))) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count341
+\pgfsyssoftpath@bigbuffer@items=\count342
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen279
+\pgfmath@count=\count343
+\pgfmath@box=\box61
+\pgfmath@toks=\toks43
+\pgfmath@stack@operand=\toks44
+\pgfmath@stack@operation=\toks45
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count344
+)) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen280
+\pgf@picmaxx=\dimen281
+\pgf@picminy=\dimen282
+\pgf@picmaxy=\dimen283
+\pgf@pathminx=\dimen284
+\pgf@pathmaxx=\dimen285
+\pgf@pathminy=\dimen286
+\pgf@pathmaxy=\dimen287
+\pgf@xx=\dimen288
+\pgf@xy=\dimen289
+\pgf@yx=\dimen290
+\pgf@yy=\dimen291
+\pgf@zx=\dimen292
+\pgf@zy=\dimen293
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen294
+\pgf@path@lasty=\dimen295
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen296
+\pgf@shorten@start@additional=\dimen297
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box62
+\pgf@hbox=\box63
+\pgf@layerbox@main=\box64
+\pgf@picture@serial@count=\count345
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen298
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen299
+\pgf@pt@y=\dimen300
+\pgf@pt@temp=\dimen301
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen302
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen303
+\pgf@sys@shading@range@num=\count346
+\pgf@shadingcount=\count347
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box65
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box66
+) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen304
+\pgf@nodesepend=\dimen305
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen306
+\pgffor@skip=\dimen307
+\pgffor@stack=\toks46
+\pgffor@toks=\toks47
+)) (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count348
+\pgfplotmarksize=\dimen308
+)
+\tikz@lastx=\dimen309
+\tikz@lasty=\dimen310
+\tikz@lastxsaved=\dimen311
+\tikz@lastysaved=\dimen312
+\tikz@lastmovetox=\dimen313
+\tikz@lastmovetoy=\dimen314
+\tikzleveldistance=\dimen315
+\tikzsiblingdistance=\dimen316
+\tikz@figbox=\box67
+\tikz@figbox@bg=\box68
+\tikz@tempbox=\box69
+\tikz@tempbox@bg=\box70
+\tikztreelevel=\count349
+\tikznumberofchildren=\count350
+\tikznumberofcurrentchild=\count351
+\tikz@fig@count=\count352
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count353
+\pgfmatrixcurrentcolumn=\count354
+\pgf@matrix@numberofcolumns=\count355
+)
+\tikz@expandcount=\count356
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks48
+\verbatim@line=\toks49
+\verbatim@in@stream=\read3
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box71
+\tcb@upperbox=\box72
+\tcb@lowerbox=\box73
+\tcb@phantombox=\box74
+\c@tcbbreakpart=\count357
+\c@tcblayer=\count358
+\c@tcolorbox@number=\count359
+\l__tcobox_tmpa_box=\box75
+\l__tcobox_tmpa_dim=\dimen317
+\tcb@temp=\box76
+\tcb@temp=\box77
+\tcb@temp=\box78
+\tcb@temp=\box79
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
+\c@tcbrastercolumn=\count360
+\c@tcbrasterrow=\count361
+\c@tcbrasternum=\count362
+\c@tcbraster=\count363
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
+Package: tikzfill.image 2026/03/26 v1.1.0 Image filling library for TikZ
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
+File: tikzlibraryfill.image.code.tex 2026/03/26 v1.1.0 Image filling library
+\l__tikzfill_tmpa_dim=\dimen318
+\l__tikzfill_tmpb_dim=\dimen319
+\l__tikzfill_img_box=\box80
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.9.0'
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/pdfcol/pdfcol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+)
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box81
+\tcb@totalupperbox=\box82
+\tcb@totallowerbox=\box83
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.9.0'
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.9.0'
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.9.0'
+\tcbfitdim=\dimen320
+\tcb@lowerfitdim=\dimen321
+\tcb@upperfitdim=\dimen322
+\tcb@cur@hbadness=\count364
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.9.0'
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.9.0'
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count365
+\lst@gtempboxa=\box84
+\lst@token=\toks50
+\lst@length=\count366
+\lst@currlwidth=\dimen323
+\lst@column=\count367
+\lst@pos=\count368
+\lst@lostspace=\dimen324
+\lst@width=\dimen325
+\lst@newlines=\count369
+\lst@lineno=\count370
+\lst@maxwidth=\dimen326
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count371
+\lst@skipnumbers=\count372
+\lst@framebox=\box85
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.9.0'
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.9.0'
+)
+\c@tcblisting=\count373
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
+Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.9.0'
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.9.0'
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.9.0'
+(/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (/home/craj/.TinyTeX/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (/home/craj/.TinyTeX/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.9.0'
+)) (/home/craj/.TinyTeX/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count374
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: heightrounded 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=704.60031pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=17.07182pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring ON on input line 116.
+(./main.out) (./main.out)
+\@outlinefile=\write4
+\openout4 = `main.out'.
+
+LaTeX Info: Redefining \microtypecontext on input line 116.
+Package microtype Info: Applying patch `item' on input line 116.
+Package microtype Info: Applying patch `toc' on input line 116.
+Package microtype Info: Applying patch `eqnum' on input line 116.
+Package microtype Info: Applying patch `footnote' on input line 116.
+Package microtype Info: Applying patch `verbatim' on input line 116.
+LaTeX Info: Redefining \microtypesetup on input line 116.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+Package microtype Info: Patching command `\showhyphens'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/microtype/mt-ptm.cfg
+File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+)
+\c@lstlisting=\count375
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 117.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 117.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 117.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/home/craj/.TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+Underfull \hbox (badness 1009) in paragraph at lines 120--121
+[]\T1/ptm/m/n/10 (+20) Large lan-guage mod-els of-ten han-dle bias-
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 120--121
+\T1/ptm/m/n/10 (+20) task ev-i-dence: names, group de-scrip-tors,
+ []
+
+[1{/home/craj/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/craj/.TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
+ []\T1/ptm/b/n/10.95 (+20) Bias bench-marks.[] \T1/ptm/m/n/10.95 (+20) CrowS-Pairs eval-u-ates
+ []
+
+
+Underfull \hbox (badness 1303) in paragraph at lines 159--160
+\T1/ptm/m/n/10.95 (+20) dis-am-biguated con-texts ([][]Par-rish et al.[][], [][]2022[][]).
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 159--160
+\T1/ptm/m/n/10.95 (+20) gen-er-a-tion, and oc-cu-pa-tion pre-dic-tion ([][]Nozza
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
+[]|\T1/ptm/m/n/9 (+20) Expected fail-ure
+ []
+
+
+Underfull \hbox (badness 4531) in paragraph at lines 208--208
+\T1/ptm/m/n/9 (+20) sponse and re-place it
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 208--208
+[]|\T1/ptm/m/n/9 (+20) Overly generic re-
+ []
+
+
+Underfull \hbox (badness 1189) in paragraph at lines 208--208
+[]|\T1/ptm/m/n/9 (+20) Token re-place-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
+\T1/ptm/m/n/9 (+20) ev-i-dence rather than
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
+[]|\T1/ptm/m/n/9 (+20) Ignoring rel-e-vant
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
+\T1/ptm/m/n/9 (+20) iden-tity con-text
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 208--208
+[]|\T1/ptm/m/n/9 (+20) Producing ver-bose
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
+\T1/ptm/m/n/9 (+20) em-pa-thy lan-guage
+ []
+
+
+Underfull \hbox (badness 1859) in paragraph at lines 208--208
+\T1/ptm/m/n/9 (+20) in-stead of con-cise
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 208--208
+\T1/ptm/m/n/9 (+20) in-ter-ac-tions in-volv-ing iden-ti-ties
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 208--208
+[][][][] 
+ []
+
+
+Underfull \hbox (badness 6526) in paragraph at lines 216--218
+\T1/ptm/m/sc/10.95 (+20) DebiasItYourself \T1/ptm/m/n/10.95 (+20) con-structs intervention-
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 220.
+(/home/craj/.TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
+)
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 10.95pt on input line 220.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `zi4' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [3{/home/craj/.TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+Underfull \hbox (badness 1478) in paragraph at lines 228--229
+[]\T1/ptm/b/n/10.95 (+20) Identity di-men-sion\T1/ptm/m/n/10.95 (+20) : age, dis-abil-ity, gen-
+ []
+
+
+Underfull \hbox (badness 8113) in paragraph at lines 230--231
+\T1/ptm/m/sc/10.95 (+20) Re-place-ment\T1/ptm/m/n/10.95 (+20) , \T1/ptm/m/sc/10.95 (+20) Counter-stereotypic
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 232--233
+\T1/ptm/m/n/10.95 (+20) This de-sign lets us test whether train-ing on
+ []
+
+
+Underfull \hbox (badness 2512) in paragraph at lines 237--238
+\T1/ptm/m/n/10.95 (+20) The pri-mary im-ple-men-ta-tion of \T1/ptm/m/sc/10.95 (+20) De-bi-a-sItY-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
+ []\T1/ptm/b/n/10.95 (+20) Inference-time \T1/ptm/b/sc/10.95 (+20) De-bi-a-sItY-our-self\T1/ptm/b/n/10.95 (+20) .[] \T1/ptm/m/n/10.95 (+20) The
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+ []\T1/ptm/b/n/10.95 (+20) Soft-prompt \T1/ptm/b/sc/10.95 (+20) De-bi-a-sItY-our-self\T1/ptm/b/n/10.95 (+20) .[] \T1/ptm/m/n/10.95 (+20) Soft-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+\T1/ptm/m/n/10.95 (+20) prompt vari-ants learn con-tin-u-ous prompt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
+ []\T1/ptm/b/n/10.95 (+20) Self-revising \T1/ptm/b/sc/10.95 (+20) De-bi-a-sItY-our-self\T1/ptm/b/n/10.95 (+20) .[] \T1/ptm/m/n/10.95 (+20) Self-
+ []
+
+[4]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 267.
+ (/home/craj/.TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Underfull \hbox (badness 1005) in paragraph at lines 270--271
+[]\T1/ptm/b/n/10.95 (+20) WinoBias\T1/ptm/m/n/10.95 (+20) : gender-linked coref-er-ence bias
+ []
+
+
+Underfull \hbox (badness 7379) in paragraph at lines 283--284
+\T1/ptm/m/n/10.95 (+20) de-grades or-di-nary task com-pe-tence. We
+ []
+
+
+Underfull \hbox (badness 4205) in paragraph at lines 283--284
+\T1/ptm/m/n/10.95 (+20) there-fore eval-u-ate rea-son-ing and knowl-edge
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 283--284
+\T1/ptm/m/n/10.95 (+20) tasks us-ing Bal-anced COPA, ARC-Challenge,
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 283--284
+\T1/ptm/m/n/10.95 (+20) and ARC-Easy. These eval-u-a-tions com-pare
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
+[]\T1/ptm/m/n/10.95 (+20) , [], [],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
+[]\T1/ptm/m/n/10.95 (+20) , and
+ []
+
+
+Underfull \hbox (badness 1189) in paragraph at lines 283--284
+[]\T1/ptm/m/n/10.95 (+20) . For the
+ []
+
+
+Underfull \hbox (badness 1038) in paragraph at lines 283--284
+\T1/ptm/m/n/10.95 (+20) pri-mary \T1/ptm/m/sc/10.95 (+20) Llama \T1/ptm/m/n/10.95 (+20) 8B set-ting, we use the full
+ []
+
+<../../figures/llama8b/pdf/debiasing_method_bars.pdf, id=266, 868.79378pt x 472.67473pt>
+File: ../../figures/llama8b/pdf/debiasing_method_bars.pdf Graphic file (type pdf)
+<use ../../figures/llama8b/pdf/debiasing_method_bars.pdf>
+Package pdftex.def Info: ../../figures/llama8b/pdf/debiasing_method_bars.pdf  used on input line 296.
+(pdftex.def)             Requested size: 455.24411pt x 247.68193pt.
+
+Underfull \hbox (badness 2126) in paragraph at lines 301--302
+\T1/ptm/m/n/10.95 (+20) com-ing from inference-time in-ter-ven-tion use.
+ []
+
+
+Underfull \hbox (badness 2126) in paragraph at lines 301--302
+\T1/ptm/m/n/10.95 (+20) a mean bias er-ror of $\OT1/cmr/m/n/10.95 5\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 73$\T1/ptm/m/n/10.95 (+20) . [] re-duces
+ []
+
+[5]
+Underfull \hbox (badness 1354) in paragraph at lines 336--337
+\T1/ptm/m/n/9 (+20) benchmark bias er-ror rel-a-tive to [], with
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 342--343
+\T1/ptm/m/n/10.95 (+20) ex-ist-ing mit-i-ga-tion base-lines. This com-par-i-
+ []
+
+
+Underfull \hbox (badness 4832) in paragraph at lines 342--343
+\T1/ptm/m/n/10.95 (+20) optimization, and representation-oriented ap-
+ []
+
+<../../figures/llama8b/pdf/baseline_comparison_lollipop.pdf, id=276, 1131.95468pt x 856.47174pt>
+File: ../../figures/llama8b/pdf/baseline_comparison_lollipop.pdf Graphic file (type pdf)
+<use ../../figures/llama8b/pdf/baseline_comparison_lollipop.pdf>
+Package pdftex.def Info: ../../figures/llama8b/pdf/baseline_comparison_lollipop.pdf  used on input line 346.
+(pdftex.def)             Requested size: 455.24411pt x 344.45145pt.
+<../../figures/llama8b/pdf/baseline_comparison_average_rank.pdf, id=279, 805.56586pt x 589.98335pt>
+File: ../../figures/llama8b/pdf/baseline_comparison_average_rank.pdf Graphic file (type pdf)
+<use ../../figures/llama8b/pdf/baseline_comparison_average_rank.pdf>
+Package pdftex.def Info: ../../figures/llama8b/pdf/baseline_comparison_average_rank.pdf  used on input line 353.
+(pdftex.def)             Requested size: 455.24411pt x 333.41324pt.
+
+Underfull \hbox (badness 1275) in paragraph at lines 358--359
+[]\T1/ptm/m/n/10.95 (+20) Figures [][]2[][] and [][]3[][] show that no prior base-
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 358--359
+\T1/ptm/m/n/10.95 (+20) line dom-i-nates all datasets. Some base-lines
+ []
+
+
+Underfull \hbox (badness 2689) in paragraph at lines 358--359
+\T1/ptm/m/n/10.95 (+20) hav-ior varies sub-stan-tially across bench-mark
+ []
+
+
+Underfull \hbox (badness 2828) in paragraph at lines 358--359
+\T1/ptm/m/n/10.95 (+20) across this het-ero-ge-neous eval-u-a-tion sur-face,
+ []
+
+
+Underfull \hbox (badness 4954) in paragraph at lines 358--359
+[] \T1/ptm/m/n/10.95 (+20) are es-pe-
+ []
+
+<../../figures/llama8b/pdf/debiasing_method_bars_by_shot.pdf, id=282, 1016.71408pt x 474.93677pt>
+File: ../../figures/llama8b/pdf/debiasing_method_bars_by_shot.pdf Graphic file (type pdf)
+<use ../../figures/llama8b/pdf/debiasing_method_bars_by_shot.pdf>
+Package pdftex.def Info: ../../figures/llama8b/pdf/debiasing_method_bars_by_shot.pdf  used on input line 371.
+(pdftex.def)             Requested size: 455.24411pt x 212.66151pt.
+
+Underfull \hbox (badness 2393) in paragraph at lines 376--377
+[]\T1/ptm/m/n/10.95 (+20) Figure [][]4[][] shows that \T1/ptm/m/sc/10.95 (+20) De-bi-a-sItY-our-self
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 376--377
+\T1/ptm/m/n/10.95 (+20) is not tied to a sin-gle de-liv-ery mech-a-nism.
+ []
+
+
+Underfull \hbox (badness 6380) in paragraph at lines 376--377
+[] \T1/ptm/m/n/10.95 (+20) pro-vides a learned
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
+[] \T1/ptm/m/n/10.95 (+20) and
+ []
+
+[6 <../../figures/llama8b/pdf/debiasing_method_bars.pdf>]
+<../../figures/llama8b/pdf/reasoning_performance.pdf, id=312, 760.60559pt x 366.01462pt>
+File: ../../figures/llama8b/pdf/reasoning_performance.pdf Graphic file (type pdf)
+<use ../../figures/llama8b/pdf/reasoning_performance.pdf>
+Package pdftex.def Info: ../../figures/llama8b/pdf/reasoning_performance.pdf  used on input line 389.
+(pdftex.def)             Requested size: 455.24411pt x 219.06873pt.
+<../../figures/llama8b/pdf/bias_reasoning_pareto.pdf, id=313, 543.54594pt x 298.17879pt>
+File: ../../figures/llama8b/pdf/bias_reasoning_pareto.pdf Graphic file (type pdf)
+<use ../../figures/llama8b/pdf/bias_reasoning_pareto.pdf>
+Package pdftex.def Info: ../../figures/llama8b/pdf/bias_reasoning_pareto.pdf  used on input line 396.
+(pdftex.def)             Requested size: 455.24411pt x 249.7405pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
+[]\T1/ptm/m/n/10.95 (+20) Figure [][]5[][] shows that
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
+[] \T1/ptm/m/n/10.95 (+20) and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+[]\T1/ptm/b/n/9 (+20) Result 4: \T1/ptm/m/sc/9 (+20) De-bi-a-sItY-our-self \T1/ptm/m/n/9 (+20) can re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+\T1/ptm/m/n/9 (+20) duce bias while pre-serv-ing rea-son-ing, but
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+\T1/ptm/m/n/9 (+20) the trade-off de-pends on the in-ter-face;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+[] \T1/ptm/m/n/9 (+20) and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+[] \T1/ptm/m/n/9 (+20) give the
+ []
+
+<../../figures/llama8b/pdf/intervention_ablation.pdf, id=316, 862.61475pt x 491.67447pt>
+File: ../../figures/llama8b/pdf/intervention_ablation.pdf Graphic file (type pdf)
+<use ../../figures/llama8b/pdf/intervention_ablation.pdf>
+Package pdftex.def Info: ../../figures/llama8b/pdf/intervention_ablation.pdf  used on input line 414.
+(pdftex.def)             Requested size: 455.24411pt x 259.48338pt.
+
+Underfull \hbox (badness 1337) in paragraph at lines 419--420
+\T1/ptm/m/sc/10.95 (+20) taking \T1/ptm/m/n/10.95 (+20) and \T1/ptm/m/sc/10.95 (+20) Pos-i-tive Con-tact \T1/ptm/m/n/10.95 (+20) are strong
+ []
+
+
+Underfull \hbox (badness 2591) in paragraph at lines 419--420
+\T1/ptm/m/n/10.95 (+20) wards at-ten-tion to instance-specific ev-i-dence.
+ []
+
+[7]
+Underfull \hbox (badness 2573) in paragraph at lines 424--425
+[]\T1/ptm/b/n/9 (+20) Result 5: \T1/ptm/m/n/9 (+20) The in-ter-ven-tion in-ven-tory is not
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
+\T1/ptm/m/n/9 (+20) dec-o-ra-tive; \T1/ptm/m/sc/9 (+20) Stereo-type Re-place-ment\T1/ptm/m/n/9 (+20) ,
+ []
+
+
+Underfull \hbox (badness 1005) in paragraph at lines 424--425
+\T1/ptm/m/sc/9 (+20) Counter-stereotypic Imag-ing\T1/ptm/m/n/9 (+20) , \T1/ptm/m/sc/9 (+20) In-di-vid-u-
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 424--425
+\T1/ptm/m/sc/9 (+20) a-tion\T1/ptm/m/n/9 (+20) , \T1/ptm/m/sc/9 (+20) Perspective-taking\T1/ptm/m/n/9 (+20) , and \T1/ptm/m/sc/9 (+20) Pos-i-tive
+ []
+
+[8 <../../figures/llama8b/pdf/baseline_comparison_lollipop.pdf>] [9 <../../figures/llama8b/pdf/baseline_comparison_average_rank.pdf> <../../figures/llama8b/pdf/debiasing_method_bars_by_shot.pdf>] [10 <../../figures/llama8b/pdf/reasoning_performance.pdf> <../../figures/llama8b/pdf/bias_reasoning_pareto.pdf>] [11 <../../figures/llama8b/pdf/intervention_ablation.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12
+
+]
+Underfull \vbox (badness 4634) has occurred while \output is active []
+
+
+Underfull \vbox (badness 4634) has occurred while \output is active []
+
+ (./main.bbl [13]
+Underfull \hbox (badness 6510) in paragraph at lines 45--48
+[]\T1/ptm/m/n/10 (+20) Alicia Par-rish, An-gel-ica Chen, Nikita Nan-gia,
+ []
+
+) [14
+
+]
+<../../figures/qwen/pdf/debiasing_method_bars.pdf, id=511, 868.03496pt x 472.67473pt>
+File: ../../figures/qwen/pdf/debiasing_method_bars.pdf Graphic file (type pdf)
+<use ../../figures/qwen/pdf/debiasing_method_bars.pdf>
+Package pdftex.def Info: ../../figures/qwen/pdf/debiasing_method_bars.pdf  used on input line 500.
+(pdftex.def)             Requested size: 455.24411pt x 247.89108pt.
+
+Underfull \hbox (badness 3375) in paragraph at lines 501--501
+[]\T1/ptm/m/n/10 (+20) Figure 8: |\T1/ptm/m/sc/10 (+20) Qwen \T1/ptm/m/n/10 (+20) de-bi-as-ing per-for-mance un-der the avail-able bias met-rics. The fig-ure uses the
+ []
+
+
+Underfull \hbox (badness 6110) in paragraph at lines 501--501
+\T1/ptm/m/n/10 (+20) same bias-error nor-mal-iza-tion as Fig-ure [][]1[][] and in-cludes [], [], [],
+ []
+
+<../../figures/qwen/pdf/baseline_comparison_lollipop.pdf, id=514, 1131.89268pt x 856.47174pt>
+File: ../../figures/qwen/pdf/baseline_comparison_lollipop.pdf Graphic file (type pdf)
+<use ../../figures/qwen/pdf/baseline_comparison_lollipop.pdf>
+Package pdftex.def Info: ../../figures/qwen/pdf/baseline_comparison_lollipop.pdf  used on input line 507.
+(pdftex.def)             Requested size: 455.24411pt x 344.46452pt.
+<../../figures/qwen/pdf/baseline_comparison_average_rank.pdf, id=515, 805.56586pt x 589.98335pt>
+File: ../../figures/qwen/pdf/baseline_comparison_average_rank.pdf Graphic file (type pdf)
+<use ../../figures/qwen/pdf/baseline_comparison_average_rank.pdf>
+Package pdftex.def Info: ../../figures/qwen/pdf/baseline_comparison_average_rank.pdf  used on input line 514.
+(pdftex.def)             Requested size: 455.24411pt x 333.41324pt.
+<../../figures/qwen/pdf/reasoning_performance.pdf, id=516, 848.88394pt x 366.1652pt>
+File: ../../figures/qwen/pdf/reasoning_performance.pdf Graphic file (type pdf)
+<use ../../figures/qwen/pdf/reasoning_performance.pdf>
+Package pdftex.def Info: ../../figures/qwen/pdf/reasoning_performance.pdf  used on input line 521.
+(pdftex.def)             Requested size: 455.24411pt x 196.36856pt.
+<../../figures/qwen/pdf/reasoning_performance_by_shot.pdf, id=517, 1018.28429pt x 321.90503pt>
+File: ../../figures/qwen/pdf/reasoning_performance_by_shot.pdf Graphic file (type pdf)
+<use ../../figures/qwen/pdf/reasoning_performance_by_shot.pdf>
+Package pdftex.def Info: ../../figures/qwen/pdf/reasoning_performance_by_shot.pdf  used on input line 528.
+(pdftex.def)             Requested size: 455.24411pt x 143.91284pt.
+<../../figures/qwen/pdf/bias_reasoning_pareto.pdf, id=518, 540.56331pt x 298.17879pt>
+File: ../../figures/qwen/pdf/bias_reasoning_pareto.pdf Graphic file (type pdf)
+<use ../../figures/qwen/pdf/bias_reasoning_pareto.pdf>
+Package pdftex.def Info: ../../figures/qwen/pdf/bias_reasoning_pareto.pdf  used on input line 535.
+(pdftex.def)             Requested size: 455.24411pt x 251.12819pt.
+<../../figures/qwen/pdf/intervention_ablation.pdf, id=521, 867.98442pt x 491.67447pt>
+File: ../../figures/qwen/pdf/intervention_ablation.pdf Graphic file (type pdf)
+<use ../../figures/qwen/pdf/intervention_ablation.pdf>
+Package pdftex.def Info: ../../figures/qwen/pdf/intervention_ablation.pdf  used on input line 542.
+(pdftex.def)             Requested size: 455.24411pt x 257.87788pt.
+<../../figures/llama70b/pdf/debiasing_method_bars.pdf, id=522, 868.03496pt x 472.67473pt>
+File: ../../figures/llama70b/pdf/debiasing_method_bars.pdf Graphic file (type pdf)
+<use ../../figures/llama70b/pdf/debiasing_method_bars.pdf>
+Package pdftex.def Info: ../../figures/llama70b/pdf/debiasing_method_bars.pdf  used on input line 549.
+(pdftex.def)             Requested size: 455.24411pt x 247.89108pt.
+<../../figures/llama70b/pdf/baseline_comparison_lollipop.pdf, id=525, 1131.89268pt x 856.47174pt>
+File: ../../figures/llama70b/pdf/baseline_comparison_lollipop.pdf Graphic file (type pdf)
+<use ../../figures/llama70b/pdf/baseline_comparison_lollipop.pdf>
+Package pdftex.def Info: ../../figures/llama70b/pdf/baseline_comparison_lollipop.pdf  used on input line 556.
+(pdftex.def)             Requested size: 455.24411pt x 344.46452pt.
+<../../figures/llama70b/pdf/baseline_comparison_average_rank.pdf, id=526, 805.56586pt x 589.98335pt>
+File: ../../figures/llama70b/pdf/baseline_comparison_average_rank.pdf Graphic file (type pdf)
+<use ../../figures/llama70b/pdf/baseline_comparison_average_rank.pdf>
+Package pdftex.def Info: ../../figures/llama70b/pdf/baseline_comparison_average_rank.pdf  used on input line 563.
+(pdftex.def)             Requested size: 455.24411pt x 333.41324pt.
+<../../figures/llama70b/pdf/reasoning_performance.pdf, id=527, 777.83727pt x 366.1652pt>
+File: ../../figures/llama70b/pdf/reasoning_performance.pdf Graphic file (type pdf)
+<use ../../figures/llama70b/pdf/reasoning_performance.pdf>
+Package pdftex.def Info: ../../figures/llama70b/pdf/reasoning_performance.pdf  used on input line 570.
+(pdftex.def)             Requested size: 455.24411pt x 214.30914pt.
+<../../figures/llama70b/pdf/bias_reasoning_pareto.pdf, id=528, 545.63248pt x 298.17879pt>
+File: ../../figures/llama70b/pdf/bias_reasoning_pareto.pdf Graphic file (type pdf)
+<use ../../figures/llama70b/pdf/bias_reasoning_pareto.pdf>
+Package pdftex.def Info: ../../figures/llama70b/pdf/bias_reasoning_pareto.pdf  used on input line 577.
+(pdftex.def)             Requested size: 455.24411pt x 248.78503pt.
+<../../figures/llama70b/pdf/intervention_ablation.pdf, id=531, 867.98442pt x 491.67447pt>
+File: ../../figures/llama70b/pdf/intervention_ablation.pdf Graphic file (type pdf)
+<use ../../figures/llama70b/pdf/intervention_ablation.pdf>
+Package pdftex.def Info: ../../figures/llama70b/pdf/intervention_ablation.pdf  used on input line 584.
+(pdftex.def)             Requested size: 455.24411pt x 257.87788pt.
+<../../figures/bootstrap_ci/pdf/all_models_bootstrap_confidence_intervals.pdf, id=532, 1293.79858pt x 538.55605pt>
+File: ../../figures/bootstrap_ci/pdf/all_models_bootstrap_confidence_intervals.pdf Graphic file (type pdf)
+<use ../../figures/bootstrap_ci/pdf/all_models_bootstrap_confidence_intervals.pdf>
+Package pdftex.def Info: ../../figures/bootstrap_ci/pdf/all_models_bootstrap_confidence_intervals.pdf  used on input line 596.
+(pdftex.def)             Requested size: 455.24411pt x 189.49998pt.
+
+Underfull \hbox (badness 5726) in paragraph at lines 611--612
+ []\T1/ptm/b/n/10.95 (+20) In-context Learn-ing.[] \T1/ptm/m/n/10.95 (+20) Shows whether bias-
+ []
+
+[15
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
+[]\T1/ptm/m/n/10.95 (+20) train with-out race/ethnicity, test on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--711
+[]\T1/ptm/m/n/10.95 (+20) no coreference-like data, test Wino-
+ []
+
+
+Underfull \hbox (badness 5607) in paragraph at lines 712--713
+[]\T1/ptm/m/n/10.95 (+20) no pair-wise sen-tence data, test CrowS-
+ []
+
+[16 <../../figures/qwen/pdf/debiasing_method_bars.pdf>] [17 <../../figures/qwen/pdf/baseline_comparison_lollipop.pdf>]
+Underfull \hbox (badness 1389) in paragraph at lines 783--784
+[]\T1/ptm/m/sc/10.95 (+20) DebiasItYourself \T1/ptm/m/n/10.95 (+20) works be-cause
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 815--816
+\T1/ptm/m/n/10.95 (+20) Additional ex-per-i-ments/analyses that would
+ []
+
+[18 <../../figures/qwen/pdf/baseline_comparison_average_rank.pdf>] [19 <../../figures/qwen/pdf/reasoning_performance.pdf> <../../figures/qwen/pdf/reasoning_performance_by_shot.pdf>]
+Underfull \hbox (badness 2435) in paragraph at lines 867--868
+[]\T1/ptm/m/n/10.95 (+20) Can the model choose which bias-
+ []
+
+
+Underfull \hbox (badness 1983) in paragraph at lines 892--893
+[]\T1/ptm/m/n/10.95 (+20) Do bias-reducing in-ter-ven-tions com-
+ []
+
+[20 <../../figures/qwen/pdf/bias_reasoning_pareto.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 925--926
+[]\T1/ptm/m/n/10.95 (+20) This would match your ``across iden-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 960--961
+[]\T1/ptm/m/n/10.95 (+20) confidence on stereo-typ-i-cal vs anti-
+ []
+
+
+Underfull \hbox (badness 1320) in paragraph at lines 972--973
+ []\T1/ptm/b/n/10.95 (+20) 11. Ro-bust-ness to Prompt Word-ing.[] \T1/ptm/m/n/10.95 (+20) For
+ []
+
+[21 <../../figures/qwen/pdf/intervention_ablation.pdf>]
+Underfull \hbox (badness 5260) in paragraph at lines 985--986
+[]\T1/ptm/m/n/10.95 (+20) Is \T1/ptm/m/sc/10.95 (+20) De-bi-a-sItY-our-self \T1/ptm/m/n/10.95 (+20) ro-bust, or
+ []
+
+[22 <../../figures/llama70b/pdf/debiasing_method_bars.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1055
+[]\T1/ptm/m/n/10.95 (+20) whether \T1/ptm/m/sc/10.95 (+20) De-bi-a-sItY-our-self \T1/ptm/m/n/10.95 (+20) re-duces
+ []
+
+[23 <../../figures/llama70b/pdf/baseline_comparison_lollipop.pdf>]
+Underfull \hbox (badness 2903) in paragraph at lines 1124--1125
+[]\T1/ptm/m/n/10.95 (+20) Intervention rout-ing/selection: makes the
+ []
+
+[24 <../../figures/llama70b/pdf/baseline_comparison_average_rank.pdf>] [25 <../../figures/llama70b/pdf/reasoning_performance.pdf> <../../figures/llama70b/pdf/bias_reasoning_pareto.pdf>] [26 <../../figures/llama70b/pdf/intervention_ablation.pdf> <../../figures/bootstrap_ci/pdf/all_models_bootstrap_confidence_intervals.pdf>] (./main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-03-20>
+ ***********
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 91B7EC6D044C7E941486176F60B092AD;4993.
+ ) 
+Here is how much of TeX's memory you used:
+ 33548 strings out of 469339
+ 660810 string characters out of 5466426
+ 1149931 words of memory out of 5000000
+ 61061 multiletter control sequences out of 15000+600000
+ 736071 words of font info for 527 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 98i,15n,108p,1488b,1119s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</home/craj/.TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></home/craj/.TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (26 pages, 1376587 bytes).
+PDF statistics:
+ 1045 PDF objects out of 1200 (max. 8388607)
+ 670 compressed objects within 7 object streams
+ 158 named destinations out of 1000 (max. 500000)
+ 77838 words of extra memory for PDF output out of 89155 (max. 10000000)
+

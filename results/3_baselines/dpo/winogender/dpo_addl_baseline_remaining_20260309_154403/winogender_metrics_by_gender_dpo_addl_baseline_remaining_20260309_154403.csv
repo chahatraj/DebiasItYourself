@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6458333333333334,dpo_addl_baseline_remaining_20260309_154403,winogender
+male,240,0.6208333333333333,dpo_addl_baseline_remaining_20260309_154403,winogender
+neutral,240,0.6166666666666667,dpo_addl_baseline_remaining_20260309_154403,winogender

@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,9,66.67,75.0,0.0,0,0.0,8,1,66.67,,,age,off,,v1,zero
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,17,76.47,75.0,100.0,0,0.0,16,1,76.47,,,disability,off,,v1,zero
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,44,54.55,60.71,43.75,0,0.0,28,16,54.55,,,gender,off,,v1,zero
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,11,72.73,70.0,100.0,0,0.0,10,1,72.73,,,nationality,off,,v1,zero
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,14,50.0,70.0,0.0,1,7.14,10,4,50.0,,,physical-appearance,off,,v1,zero
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,68,67.65,66.13,83.33,0,0.0,62,6,67.65,,,race-color,off,,v1,zero
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,11,72.73,70.0,100.0,0,0.0,10,1,72.73,,,religion,off,,v1,zero
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,9,77.78,75.0,100.0,0,0.0,8,1,77.78,,,sexual-orientation,off,,v1,zero
+ittrial_l8b_mask_lr1e4_r256_e3_crowspairs,17,76.47,75.0,100.0,0,0.0,16,1,76.47,,,socioeconomic,off,,v1,zero

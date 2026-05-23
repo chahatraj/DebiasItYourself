@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+learnable_random__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,winobias,1584,0.7411616161616161,0.9027777777777778,0.5795454545454546,0.3232323232323232,0.3232323232323232

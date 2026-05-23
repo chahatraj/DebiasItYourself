@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.892,m6_l70b_reasoning_two_pass_one__all_action__all_strategies,balanced_copa
+effect,500,0.9,m6_l70b_reasoning_two_pass_one__all_action__all_strategies,balanced_copa

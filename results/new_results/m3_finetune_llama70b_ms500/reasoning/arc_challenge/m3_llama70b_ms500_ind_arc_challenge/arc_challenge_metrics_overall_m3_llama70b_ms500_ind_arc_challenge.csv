@@ -1,0 +1,2 @@
+model,benchmark,split,source_file,n,accuracy
+m3_llama70b_ms500_ind_arc_challenge,arc_challenge,test,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,1172,0.878839590443686

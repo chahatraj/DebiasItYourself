@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.26515151515151514,learnable_random__base__individuating,winobias
+type1,pro,396,0.851010101010101,learnable_random__base__individuating,winobias
+type2,anti,396,0.8181818181818182,learnable_random__base__individuating,winobias
+type2,pro,396,0.9823232323232324,learnable_random__base__individuating,winobias

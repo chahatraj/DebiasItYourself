@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type
+llama_70b_biasedit_crowspairs_all,87,43.68,50.68,7.14,4,4.6,73,14,43.68,,,age
+llama_70b_biasedit_crowspairs_all,60,60.0,59.65,66.67,1,1.67,57,3,60.0,,,disability
+llama_70b_biasedit_crowspairs_all,262,48.47,49.69,46.6,8,3.05,159,103,48.47,,,gender
+llama_70b_biasedit_crowspairs_all,159,46.54,47.3,36.36,6,3.77,148,11,46.54,,,nationality
+llama_70b_biasedit_crowspairs_all,63,44.44,48.08,27.27,3,4.76,52,11,44.44,,,physical-appearance
+llama_70b_biasedit_crowspairs_all,516,50.58,52.64,27.91,17,3.29,473,43,50.58,,,race-color
+llama_70b_biasedit_crowspairs_all,105,41.9,41.41,50.0,1,0.95,99,6,41.9,,,religion
+llama_70b_biasedit_crowspairs_all,84,54.76,52.78,66.67,1,1.19,72,12,54.76,,,sexual-orientation
+llama_70b_biasedit_crowspairs_all,172,44.77,45.86,33.33,9,5.23,157,15,44.77,,,socioeconomic

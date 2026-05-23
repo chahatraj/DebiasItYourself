@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_qwen35_27b_two_pass_one__sr__stereotype_replacement_self_debias_two_pass_stereotype_replacement,winobias,1584,0.6420454545454546,0.6742424242424242,0.6098484848484849,0.06439393939393934,0.06439393939393934

@@ -1,0 +1,3 @@
+gender,n,accuracy,model,benchmark
+female,224,0.6964285714285714,lftf_addl_baseline_remaining_20260309_154403,bias_in_bios
+male,276,0.6702898550724637,lftf_addl_baseline_remaining_20260309_154403,bias_in_bios

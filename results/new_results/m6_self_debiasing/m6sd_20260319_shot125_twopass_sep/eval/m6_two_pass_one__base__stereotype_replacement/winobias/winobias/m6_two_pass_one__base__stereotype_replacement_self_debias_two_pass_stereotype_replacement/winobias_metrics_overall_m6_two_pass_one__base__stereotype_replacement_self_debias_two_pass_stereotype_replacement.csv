@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m6_two_pass_one__base__stereotype_replacement_self_debias_two_pass_stereotype_replacement,winobias,1584,0.5700757575757576,0.6641414141414141,0.476010101010101,0.18813131313131315,0.18813131313131315

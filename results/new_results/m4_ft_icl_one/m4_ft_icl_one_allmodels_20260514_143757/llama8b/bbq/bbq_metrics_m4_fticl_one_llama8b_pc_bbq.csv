@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_fticl_one_llama8b_pc_bbq:m4_fticl_one_llama8b_pc_bbq_instr_positive_contact_ALL,0.385,0.29,0.481,1.447,3.335,58476,29238,29238,bbq_preds_m4_fticl_one_llama8b_pc_bbq_instr_positive_contact_ALL.csv

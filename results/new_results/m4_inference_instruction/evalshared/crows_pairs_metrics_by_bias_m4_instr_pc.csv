@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy
+m4_instr_pc,87,75.86,79.45,57.14,0,0.0,73,14,75.86,,,age,strategy,positive_contact
+m4_instr_pc,60,76.67,77.19,66.67,0,0.0,57,3,76.67,,,disability,strategy,positive_contact
+m4_instr_pc,262,61.45,67.92,51.46,2,0.76,159,103,61.45,,,gender,strategy,positive_contact
+m4_instr_pc,159,62.26,62.16,63.64,0,0.0,148,11,62.26,,,nationality,strategy,positive_contact
+m4_instr_pc,63,63.49,67.31,45.45,1,1.59,52,11,63.49,,,physical-appearance,strategy,positive_contact
+m4_instr_pc,516,66.47,68.92,39.53,8,1.55,473,43,66.47,,,race-color,strategy,positive_contact
+m4_instr_pc,105,73.33,74.75,50.0,0,0.0,99,6,73.33,,,religion,strategy,positive_contact
+m4_instr_pc,84,80.95,83.33,66.67,0,0.0,72,12,80.95,,,sexual-orientation,strategy,positive_contact
+m4_instr_pc,172,68.6,70.06,53.33,2,1.16,157,15,68.6,,,socioeconomic,strategy,positive_contact

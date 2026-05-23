@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+gendim_it500_llama70b_ci_winobias,winobias,1584,0.8882575757575758,0.9545454545454546,0.821969696969697,0.13257575757575757,0.13257575757575757

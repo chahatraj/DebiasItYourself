@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.42676767676767674,cal_addl_baseline_remaining_20260309_154403,winobias
+type1,pro,396,0.6994949494949495,cal_addl_baseline_remaining_20260309_154403,winobias
+type2,anti,396,0.5782828282828283,cal_addl_baseline_remaining_20260309_154403,winobias
+type2,pro,396,0.8156565656565656,cal_addl_baseline_remaining_20260309_154403,winobias

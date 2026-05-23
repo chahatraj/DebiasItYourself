@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+ittrial_l8b_control_full_lr2e4_r256_e3_winobias,winobias,200,0.765,0.92,0.61,0.31000000000000005,0.31000000000000005

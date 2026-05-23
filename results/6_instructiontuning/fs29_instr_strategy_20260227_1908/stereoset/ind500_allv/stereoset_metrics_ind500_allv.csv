@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy
+ind500_allv,intrasentence,gender,765.0,85.84546476068216,64.22954211649864,61.41463163423164,strategy,individuating
+ind500_allv,intrasentence,profession,2430.0,86.8220909822489,58.57271235373032,71.93607474344444,strategy,individuating
+ind500_allv,intrasentence,race,2886.0,87.14264165853257,62.14549371329113,65.97483353006677,strategy,individuating
+ind500_allv,intrasentence,religion,237.0,84.64367816091954,58.02298850574713,71.0617730215352,strategy,individuating
+ind500_allv,intrasentence,overall,2106.0,86.76181659828129,60.89599406294452,67.8546918273782,strategy,individuating
+ind500_allv,intersentence,gender,726.0,61.03561695953,65.89597600467167,41.6312029071496,strategy,individuating
+ind500_allv,intersentence,profession,2481.0,55.62008781054016,57.48672657284079,47.291840022641985,strategy,individuating
+ind500_allv,intersentence,race,2928.0,59.64632851521834,55.847119650126075,52.67114412483417,strategy,individuating
+ind500_allv,intersentence,religion,234.0,58.161877394636015,61.411877394636015,44.88715311724725,strategy,individuating
+ind500_allv,intersentence,overall,2123.0,58.23686408409206,57.95308223823276,48.9736126969407,strategy,individuating
+ind500_allv,overall,overall,4229.0,72.46399040190546,59.414819661136676,58.81928237069989,strategy,individuating

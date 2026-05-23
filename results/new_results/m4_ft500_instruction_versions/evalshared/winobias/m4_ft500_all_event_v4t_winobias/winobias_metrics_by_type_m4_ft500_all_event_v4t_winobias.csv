@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.34595959595959597,m4_ft500_all_event_v4t_winobias,winobias
+type1,pro,396,0.8459595959595959,m4_ft500_all_event_v4t_winobias,winobias
+type2,anti,396,0.9393939393939394,m4_ft500_all_event_v4t_winobias,winobias
+type2,pro,396,0.9772727272727273,m4_ft500_all_event_v4t_winobias,winobias

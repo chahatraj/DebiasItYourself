@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,strategy
+fixed__finetuned_ms-500-stereotype-replacement-opinion-action-event-allversions__stereotype_replacement,1508,63.66,64.57,58.26,18,1.19,1290,218,63.66,,,stereotype_replacement

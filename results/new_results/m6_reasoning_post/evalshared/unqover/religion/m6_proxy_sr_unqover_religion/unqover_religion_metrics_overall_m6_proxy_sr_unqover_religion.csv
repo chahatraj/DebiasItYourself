@@ -1,0 +1,2 @@
+model,benchmark,dimension,n_raw_rows,n_paired_rows,pairing_coverage,delta_positional_error,epsilon_attributive_error,mu_bias_intensity,eta_bias_intensity
+m6_proxy_sr_unqover_religion,unqover,religion,10000,465,0.04876769795490299,0.18584655002614392,0.4737065744609432,0.4186066710036415,0.8386837390744954

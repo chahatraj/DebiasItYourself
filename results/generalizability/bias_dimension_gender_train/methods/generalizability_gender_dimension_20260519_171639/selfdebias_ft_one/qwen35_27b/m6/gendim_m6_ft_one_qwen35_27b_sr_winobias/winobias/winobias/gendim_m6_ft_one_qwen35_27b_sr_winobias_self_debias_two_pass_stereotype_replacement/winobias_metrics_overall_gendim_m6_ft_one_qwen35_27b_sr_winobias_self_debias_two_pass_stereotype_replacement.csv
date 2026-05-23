@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+gendim_m6_ft_one_qwen35_27b_sr_winobias_self_debias_two_pass_stereotype_replacement,winobias,1584,0.6029040404040404,0.6186868686868687,0.5871212121212122,0.031565656565656575,0.031565656565656575

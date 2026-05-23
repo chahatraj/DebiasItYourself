@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m3_finetune_allstrat_opinion_winobias,winobias,1584,0.7840909090909091,0.9154040404040404,0.6527777777777778,0.26262626262626265,0.26262626262626265

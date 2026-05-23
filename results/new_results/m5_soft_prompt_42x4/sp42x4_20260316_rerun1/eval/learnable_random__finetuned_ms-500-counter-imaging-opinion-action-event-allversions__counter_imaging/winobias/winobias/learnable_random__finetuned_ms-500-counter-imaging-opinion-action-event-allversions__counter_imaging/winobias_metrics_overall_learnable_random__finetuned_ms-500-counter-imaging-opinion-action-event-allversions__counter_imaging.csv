@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,winobias,1584,0.672979797979798,0.8813131313131313,0.46464646464646464,0.41666666666666663,0.41666666666666663

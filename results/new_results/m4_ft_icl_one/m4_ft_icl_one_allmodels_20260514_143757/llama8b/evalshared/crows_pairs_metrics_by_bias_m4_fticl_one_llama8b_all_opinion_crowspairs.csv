@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m4_fticl_one_llama8b_all_opinion_crowspairs,87,67.82,71.23,50.0,8,9.2,73,14,67.82,,,age,strategy,all_strategies,v2,one
+m4_fticl_one_llama8b_all_opinion_crowspairs,60,66.67,68.42,33.33,7,11.67,57,3,66.67,,,disability,strategy,all_strategies,v2,one
+m4_fticl_one_llama8b_all_opinion_crowspairs,262,53.44,57.23,47.57,43,16.41,159,103,53.44,,,gender,strategy,all_strategies,v2,one
+m4_fticl_one_llama8b_all_opinion_crowspairs,159,50.31,50.0,54.55,25,15.72,148,11,50.31,,,nationality,strategy,all_strategies,v2,one
+m4_fticl_one_llama8b_all_opinion_crowspairs,63,69.84,75.0,45.45,3,4.76,52,11,69.84,,,physical-appearance,strategy,all_strategies,v2,one
+m4_fticl_one_llama8b_all_opinion_crowspairs,516,52.33,52.43,51.16,80,15.5,473,43,52.33,,,race-color,strategy,all_strategies,v2,one
+m4_fticl_one_llama8b_all_opinion_crowspairs,105,65.71,66.67,50.0,10,9.52,99,6,65.71,,,religion,strategy,all_strategies,v2,one
+m4_fticl_one_llama8b_all_opinion_crowspairs,84,82.14,84.72,66.67,3,3.57,72,12,82.14,,,sexual-orientation,strategy,all_strategies,v2,one
+m4_fticl_one_llama8b_all_opinion_crowspairs,172,60.47,61.15,53.33,25,14.53,157,15,60.47,,,socioeconomic,strategy,all_strategies,v2,one

@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intrasentence,gender,765.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intrasentence,profession,2430.0,0.17708333333333334,0.13888888888888887,0.0004918981481481481,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intrasentence,race,2886.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intrasentence,religion,237.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intrasentence,overall,2106.0,0.06724683544303797,0.05274261603375527,7.093548042514553e-05,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intersentence,gender,726.0,0.23809523809523808,0.47619047619047616,0.0022675736961451243,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intersentence,profession,2481.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intersentence,race,2928.0,0.114247311827957,0.0,0.0,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intersentence,religion,234.0,0.0,0.0,0.0,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,intersentence,overall,2123.0,0.08220070388302321,0.06027727546714889,9.909668943101049e-05,off,,v2,zero
+m6_two_pass_two__finetuned_ms-500-individuating-opinion-action-event-allversions__individuating_self_debias_two_pass_individuating,overall,overall,4229.0,0.07498303384379333,0.054481383595307645,8.170358859967279e-05,off,,v2,zero

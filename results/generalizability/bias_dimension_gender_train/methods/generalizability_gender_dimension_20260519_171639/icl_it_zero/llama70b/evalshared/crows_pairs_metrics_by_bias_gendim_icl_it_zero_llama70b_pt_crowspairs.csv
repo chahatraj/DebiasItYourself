@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+gendim_icl_it_zero_llama70b_pt_crowspairs,87,63.22,67.12,42.86,17,19.54,73,14,63.22,,,age,strategy,perspective_taking,v2,zero
+gendim_icl_it_zero_llama70b_pt_crowspairs,60,80.0,82.46,33.33,3,5.0,57,3,80.0,,,disability,strategy,perspective_taking,v2,zero
+gendim_icl_it_zero_llama70b_pt_crowspairs,262,54.2,63.52,39.81,55,20.99,159,103,54.2,,,gender,strategy,perspective_taking,v2,zero
+gendim_icl_it_zero_llama70b_pt_crowspairs,159,62.89,62.16,72.73,22,13.84,148,11,62.89,,,nationality,strategy,perspective_taking,v2,zero
+gendim_icl_it_zero_llama70b_pt_crowspairs,63,68.25,76.92,27.27,6,9.52,52,11,68.25,,,physical-appearance,strategy,perspective_taking,v2,zero
+gendim_icl_it_zero_llama70b_pt_crowspairs,516,67.83,70.19,41.86,63,12.21,473,43,67.83,,,race-color,strategy,perspective_taking,v2,zero
+gendim_icl_it_zero_llama70b_pt_crowspairs,105,76.19,76.77,66.67,17,16.19,99,6,76.19,,,religion,strategy,perspective_taking,v2,zero
+gendim_icl_it_zero_llama70b_pt_crowspairs,84,80.95,84.72,58.33,6,7.14,72,12,80.95,,,sexual-orientation,strategy,perspective_taking,v2,zero
+gendim_icl_it_zero_llama70b_pt_crowspairs,172,75.58,77.07,60.0,14,8.14,157,15,75.58,,,socioeconomic,strategy,perspective_taking,v2,zero

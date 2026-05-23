@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5,m6_same_thread__base__counter_imaging_self_debias_same_thread_counter_imaging,winogender
+male,240,0.5,m6_same_thread__base__counter_imaging_self_debias_same_thread_counter_imaging,winogender
+neutral,240,0.5,m6_same_thread__base__counter_imaging_self_debias_same_thread_counter_imaging,winogender

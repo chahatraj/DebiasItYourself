@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m3_llama70b_ms500_ind_crowspairs,87,70.11,75.34,42.86,1,1.15,73,14,70.11,,,age,off,,v1,zero
+m3_llama70b_ms500_ind_crowspairs,60,76.67,78.95,33.33,0,0.0,57,3,76.67,,,disability,off,,v1,zero
+m3_llama70b_ms500_ind_crowspairs,262,59.92,66.04,50.49,1,0.38,159,103,59.92,,,gender,off,,v1,zero
+m3_llama70b_ms500_ind_crowspairs,159,64.15,65.54,45.45,0,0.0,148,11,64.15,,,nationality,off,,v1,zero
+m3_llama70b_ms500_ind_crowspairs,63,71.43,75.0,54.55,2,3.17,52,11,71.43,,,physical-appearance,off,,v1,zero
+m3_llama70b_ms500_ind_crowspairs,516,61.63,63.42,41.86,1,0.19,473,43,61.63,,,race-color,off,,v1,zero
+m3_llama70b_ms500_ind_crowspairs,105,78.1,79.8,50.0,0,0.0,99,6,78.1,,,religion,off,,v1,zero
+m3_llama70b_ms500_ind_crowspairs,84,71.43,72.22,66.67,1,1.19,72,12,71.43,,,sexual-orientation,off,,v1,zero
+m3_llama70b_ms500_ind_crowspairs,172,73.84,75.8,53.33,0,0.0,157,15,73.84,,,socioeconomic,off,,v1,zero

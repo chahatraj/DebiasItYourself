@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+fixed__finetuned_ms-500-allstrategies-event__all,intrasentence,gender,765.0,90.9015329276199,66.6431362518319,60.64380096732466,all
+fixed__finetuned_ms-500-allstrategies-event__all,intrasentence,profession,2430.0,89.66846608304026,60.07722700981294,71.59627631623009,all
+fixed__finetuned_ms-500-allstrategies-event__all,intrasentence,race,2886.0,90.36643526175911,62.31089443979571,68.11660235359612,all
+fixed__finetuned_ms-500-allstrategies-event__all,intrasentence,religion,237.0,87.3103448275862,63.54022988505747,63.66630202140309,all
+fixed__finetuned_ms-500-allstrategies-event__all,intrasentence,overall,2106.0,90.05306348953789,62.05773496582942,68.33634404118074,all
+fixed__finetuned_ms-500-allstrategies-event__all,intersentence,gender,726.0,51.910922209835256,62.94075489727663,38.47559179365381,all
+fixed__finetuned_ms-500-allstrategies-event__all,intersentence,profession,2481.0,46.29029585816757,60.17888325643239,36.8666255092475,all
+fixed__finetuned_ms-500-allstrategies-event__all,intersentence,race,2928.0,54.54317488804882,58.02954173259142,45.78404090821641,all
+fixed__finetuned_ms-500-allstrategies-event__all,intersentence,religion,234.0,52.593869731800766,69.09961685823755,32.50341451241173,all
+fixed__finetuned_ms-500-allstrategies-event__all,intersentence,overall,2123.0,51.00194940517138,59.88780252675621,40.91600532121246,all
+fixed__finetuned_ms-500-allstrategies-event__all,overall,overall,4229.0,70.45305972420616,60.9133962174953,55.07541661410372,all

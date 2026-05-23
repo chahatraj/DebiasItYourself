@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5666666666666667,m6_noncog_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__simple_debias_self_debias_two_pass_simple_debias,winogender
+male,240,0.5875,m6_noncog_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__simple_debias_self_debias_two_pass_simple_debias,winogender
+neutral,240,0.5875,m6_noncog_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__simple_debias_self_debias_two_pass_simple_debias,winogender

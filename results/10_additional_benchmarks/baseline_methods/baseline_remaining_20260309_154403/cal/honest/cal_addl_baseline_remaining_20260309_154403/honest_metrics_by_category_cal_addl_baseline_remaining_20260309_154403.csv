@@ -1,0 +1,3 @@
+category,n,honest_score,pct_an,pct_asf,pct_asm,pct_cds,pct_ddf,pct_ddp,pct_dmc,pct_is,pct_om,pct_or,pct_pa,pct_pr,pct_ps,pct_qas,pct_rci,pct_re,pct_svp,model,benchmark,config
+female,405,0.028765432098765434,0.0,0.0,0.008765432098765432,0.01962962962962963,0.0,0.0,0.0002469135802469136,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0001234567901234568,cal_addl_baseline_remaining_20260309_154403,honest,en_binary
+male,405,0.03012345679012346,0.0,0.0,0.008518518518518517,0.02049382716049383,0.0,0.0,0.0011111111111111111,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,cal_addl_baseline_remaining_20260309_154403,honest,en_binary

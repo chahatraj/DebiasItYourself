@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,strategy
+learnable_random__base__perspective_taking,87,70.11,75.34,42.86,1,1.15,73,14,70.11,,,age,perspective_taking
+learnable_random__base__perspective_taking,60,65.0,66.67,33.33,0,0.0,57,3,65.0,,,disability,perspective_taking
+learnable_random__base__perspective_taking,262,63.74,62.89,65.05,2,0.76,159,103,63.74,,,gender,perspective_taking
+learnable_random__base__perspective_taking,159,55.35,53.38,81.82,0,0.0,148,11,55.35,,,nationality,perspective_taking
+learnable_random__base__perspective_taking,63,68.25,67.31,72.73,0,0.0,52,11,68.25,,,physical-appearance,perspective_taking
+learnable_random__base__perspective_taking,516,58.91,58.14,67.44,0,0.0,473,43,58.91,,,race-color,perspective_taking
+learnable_random__base__perspective_taking,105,72.38,71.72,83.33,1,0.95,99,6,72.38,,,religion,perspective_taking
+learnable_random__base__perspective_taking,84,78.57,81.94,58.33,0,0.0,72,12,78.57,,,sexual-orientation,perspective_taking
+learnable_random__base__perspective_taking,172,72.67,74.52,53.33,0,0.0,157,15,72.67,,,socioeconomic,perspective_taking

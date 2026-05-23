@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.25757575757575757,fixed__base__positive_contact,winobias
+type1,pro,396,0.8838383838383839,fixed__base__positive_contact,winobias
+type2,anti,396,0.8282828282828283,fixed__base__positive_contact,winobias
+type2,pro,396,0.9646464646464646,fixed__base__positive_contact,winobias

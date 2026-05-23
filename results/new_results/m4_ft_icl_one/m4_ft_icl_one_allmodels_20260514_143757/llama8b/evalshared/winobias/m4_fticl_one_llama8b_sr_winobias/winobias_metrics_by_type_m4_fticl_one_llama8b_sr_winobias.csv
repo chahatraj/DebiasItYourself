@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.3611111111111111,m4_fticl_one_llama8b_sr_winobias,winobias
+type1,pro,396,0.8358585858585859,m4_fticl_one_llama8b_sr_winobias,winobias
+type2,anti,396,0.9141414141414141,m4_fticl_one_llama8b_sr_winobias,winobias
+type2,pro,396,0.9696969696969697,m4_fticl_one_llama8b_sr_winobias,winobias

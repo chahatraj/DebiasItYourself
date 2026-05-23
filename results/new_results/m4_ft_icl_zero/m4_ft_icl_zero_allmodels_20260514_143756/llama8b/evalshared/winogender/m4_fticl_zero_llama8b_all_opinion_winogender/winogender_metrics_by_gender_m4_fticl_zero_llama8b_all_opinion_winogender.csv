@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6541666666666667,m4_fticl_zero_llama8b_all_opinion_winogender,winogender
+male,240,0.6583333333333333,m4_fticl_zero_llama8b_all_opinion_winogender,winogender
+neutral,240,0.6541666666666667,m4_fticl_zero_llama8b_all_opinion_winogender,winogender

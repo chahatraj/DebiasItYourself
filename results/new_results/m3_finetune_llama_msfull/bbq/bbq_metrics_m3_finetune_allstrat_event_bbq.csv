@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m3_finetune_allstrat_event_bbq:m3_finetune_allstrat_event_bbq_instr_off_ALL,0.4,0.327,0.472,0.791,3.273,58540,29270,29270,bbq_preds_m3_finetune_allstrat_event_bbq_instr_off_ALL.csv

@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.675,fixed__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,winogender
+male,240,0.6875,fixed__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,winogender
+neutral,240,0.6375,fixed__finetuned_ms-500-perspective-taking-opinion-action-event-allversions__perspective_taking,winogender

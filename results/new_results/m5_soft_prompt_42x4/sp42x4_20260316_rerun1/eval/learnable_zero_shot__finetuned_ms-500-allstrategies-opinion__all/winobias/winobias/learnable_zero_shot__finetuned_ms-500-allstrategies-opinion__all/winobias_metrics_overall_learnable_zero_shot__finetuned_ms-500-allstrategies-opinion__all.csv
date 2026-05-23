@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+learnable_zero_shot__finetuned_ms-500-allstrategies-opinion__all,winobias,1584,0.6994949494949495,0.9078282828282829,0.4911616161616162,0.4166666666666667,0.4166666666666667

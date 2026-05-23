@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.6792929292929293,gendim_icl_noft_one_llama70b_ci_winobias,winobias
+type1,pro,396,0.9292929292929293,gendim_icl_noft_one_llama70b_ci_winobias,winobias
+type2,anti,396,0.9570707070707071,gendim_icl_noft_one_llama70b_ci_winobias,winobias
+type2,pro,396,0.9949494949494949,gendim_icl_noft_one_llama70b_ci_winobias,winobias

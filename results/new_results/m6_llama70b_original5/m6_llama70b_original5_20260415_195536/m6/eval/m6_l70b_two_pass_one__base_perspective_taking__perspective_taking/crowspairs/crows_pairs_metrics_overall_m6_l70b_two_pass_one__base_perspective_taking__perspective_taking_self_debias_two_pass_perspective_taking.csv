@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_l70b_two_pass_one__base_perspective_taking__perspective_taking_self_debias_two_pass_perspective_taking,1508,49.87,49.69,50.92,8,0.53,1290,218,49.87,,,off,,v2,zero

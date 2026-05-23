@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.41919191919191917,m3_finetune_allstrat_action_winobias,winobias
+type1,pro,396,0.7803030303030303,m3_finetune_allstrat_action_winobias,winobias
+type2,anti,396,0.8838383838383839,m3_finetune_allstrat_action_winobias,winobias
+type2,pro,396,0.9595959595959596,m3_finetune_allstrat_action_winobias,winobias

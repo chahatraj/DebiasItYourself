@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m3_qwen35_27b_ms500_ci_winobias,winobias,1584,0.9166666666666666,0.9583333333333334,0.875,0.08333333333333337,0.08333333333333337

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+m4_fticl_one_llama70b_all_opinion_winobias,winobias,1584,0.8914141414141414,0.9558080808080808,0.827020202020202,0.12878787878787878,0.12878787878787878

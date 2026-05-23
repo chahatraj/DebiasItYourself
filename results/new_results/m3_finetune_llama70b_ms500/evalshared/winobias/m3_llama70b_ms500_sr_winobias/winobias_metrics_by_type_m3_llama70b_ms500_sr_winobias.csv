@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.6919191919191919,m3_llama70b_ms500_sr_winobias,winobias
+type1,pro,396,0.9191919191919192,m3_llama70b_ms500_sr_winobias,winobias
+type2,anti,396,0.9545454545454546,m3_llama70b_ms500_sr_winobias,winobias
+type2,pro,396,0.9949494949494949,m3_llama70b_ms500_sr_winobias,winobias

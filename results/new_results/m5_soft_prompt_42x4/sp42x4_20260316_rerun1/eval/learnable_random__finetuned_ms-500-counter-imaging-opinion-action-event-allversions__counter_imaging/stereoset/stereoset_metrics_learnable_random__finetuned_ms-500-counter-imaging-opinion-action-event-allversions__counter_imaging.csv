@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,gender,765.0,90.14304270608618,64.31379120074772,64.33726887618614,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,profession,2430.0,90.03758268428051,58.34902125107245,75.00306885975549,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,race,2886.0,91.3228500100951,59.84728490825442,73.33720755643127,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,religion,237.0,88.55172413793105,65.24137931034483,61.55871581450655,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intrasentence,overall,2106.0,90.58019848565183,60.04854359706131,72.37621701538104,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,gender,726.0,51.98128461715419,63.21455114933376,38.24309772952498,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,profession,2481.0,47.513648962786895,59.141817788907154,38.82642653670899,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,race,2928.0,50.06887115622902,54.34421954129035,45.71866778648425,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,religion,234.0,51.95498084291187,61.54022988505747,39.963532390892674,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,intersentence,overall,2123.0,49.41223568617886,57.56218529496427,41.938946044232246,counter_imaging
+learnable_random__finetuned_ms-500-counter-imaging-opinion-action-event-allversions__counter_imaging,overall,overall,4229.0,69.93200279383,58.75788102643612,57.682879585654774,counter_imaging

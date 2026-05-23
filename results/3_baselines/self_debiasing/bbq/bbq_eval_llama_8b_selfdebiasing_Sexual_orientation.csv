@@ -1,0 +1,4 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Method,Category
+Sexual_orientation,0.586,0.586,,,3.472,432,432,0,baseline,Sexual_orientation
+Sexual_orientation,0.965,0.965,,,1.62,432,432,0,explanation,Sexual_orientation
+Sexual_orientation,0.657,0.657,,,-3.241,432,432,0,reprompting,Sexual_orientation

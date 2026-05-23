@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,Category
+Race_ethnicity,0.339,0.355,0.323,0.0,0.0,6880,3440,3440,Race_ethnicity

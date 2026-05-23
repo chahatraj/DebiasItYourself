@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intrasentence,gender,765.0,93.69250435554784,67.1560540908367,61.544630902953195,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intrasentence,profession,2430.0,91.08776583446365,60.69156022585094,71.61035914931612,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intrasentence,race,2886.0,92.71649812191772,62.55489639617737,69.4355775591767,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intrasentence,religion,237.0,89.79310344827586,64.50574712643679,63.74278240190249,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intrasentence,overall,2106.0,92.11052229523106,62.50380834589357,69.07587594683655,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intersentence,gender,726.0,50.8426456796022,64.91397692484648,35.677324790327546,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intersentence,profession,2481.0,44.66612313310496,60.05374661181113,35.68488545086111,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intersentence,race,2928.0,51.58373786575646,57.02194330100336,44.33937621481322,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intersentence,religion,234.0,50.51053639846743,59.05747126436781,41.360581758928966,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,intersentence,overall,2123.0,48.82223193863045,59.249551142177516,39.79055731479816,all
+learnable_random__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,overall,overall,4229.0,70.40657395042979,60.84079316758424,55.14131183373311,all

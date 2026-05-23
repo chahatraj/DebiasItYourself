@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.2196969696969697,learnable_zero_shot__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,winobias
+type1,pro,396,0.8535353535353535,learnable_zero_shot__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,winobias
+type2,anti,396,0.51010101010101,learnable_zero_shot__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,winobias
+type2,pro,396,0.9368686868686869,learnable_zero_shot__finetuned_ms-500-allstrategies-opinion-action-event-allversions__all,winobias

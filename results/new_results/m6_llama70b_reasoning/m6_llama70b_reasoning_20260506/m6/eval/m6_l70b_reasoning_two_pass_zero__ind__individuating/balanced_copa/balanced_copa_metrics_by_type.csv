@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.9,m6_l70b_reasoning_two_pass_zero__ind__individuating,balanced_copa
+effect,500,0.9,m6_l70b_reasoning_two_pass_zero__ind__individuating,balanced_copa

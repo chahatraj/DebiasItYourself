@@ -1,0 +1,3 @@
+asks_for,n,accuracy,model,benchmark
+cause,500,0.726,m6_two_pass__finetuned_ms-500-allstrategies-action__all_strategies__balanced_copa,balanced_copa
+effect,500,0.75,m6_two_pass__finetuned_ms-500-allstrategies-action__all_strategies__balanced_copa,balanced_copa

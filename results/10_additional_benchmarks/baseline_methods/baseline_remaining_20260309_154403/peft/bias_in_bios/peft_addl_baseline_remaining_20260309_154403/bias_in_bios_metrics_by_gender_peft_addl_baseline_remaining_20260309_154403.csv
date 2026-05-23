@@ -1,0 +1,3 @@
+gender,n,accuracy,model,benchmark
+female,224,0.7008928571428571,peft_addl_baseline_remaining_20260309_154403,bias_in_bios
+male,276,0.6594202898550725,peft_addl_baseline_remaining_20260309_154403,bias_in_bios

@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_fticl_one_qwen35_27b_pt_bbq:m4_fticl_one_qwen35_27b_pt_bbq_instr_perspective_taking_ALL,0.38,0.198,0.563,1.095,11.495,58476,29238,29238,bbq_preds_m4_fticl_one_qwen35_27b_pt_bbq_instr_perspective_taking_ALL.csv

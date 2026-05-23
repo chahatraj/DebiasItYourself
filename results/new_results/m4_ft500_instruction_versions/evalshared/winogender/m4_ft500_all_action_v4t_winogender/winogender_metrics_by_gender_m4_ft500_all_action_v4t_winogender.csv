@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.625,m4_ft500_all_action_v4t_winogender,winogender
+male,240,0.6625,m4_ft500_all_action_v4t_winogender,winogender
+neutral,240,0.6583333333333333,m4_ft500_all_action_v4t_winogender,winogender

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_gotcha,male_female_pair_disagreement_rate,mean_abs_occupation_gender_bias_score
+llama_8b_reduce_social_bias_hp_system2_cot_debias,winogender,720,0.6,0.5708333333333333,0.1625,14.583333333333334

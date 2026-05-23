@@ -1,0 +1,2 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+gendim_m6_ft_zero_qwen35_27b_ci_crowspairs_self_debias_two_pass_counter_imaging,1508,44.76,44.19,48.17,13,0.86,1290,218,44.76,,,off,,v2,zero

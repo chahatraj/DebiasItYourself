@@ -1,0 +1,12 @@
+model,split,domain,Count,LM Score,SS Score,ICAT Score,strategy
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,gender,765.0,87.76407722712072,65.63484196962459,60.3205276660015,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,profession,2430.0,88.7624842718826,60.92788867220058,69.36275334406083,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,race,2886.0,90.94020573650046,60.46423976856678,71.9078033879098,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,religion,237.0,86.64367816091954,68.6896551724138,54.25686880697582,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intrasentence,overall,2106.0,89.54802204334759,61.60717312718871,68.76003414225866,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,gender,726.0,44.3781962803702,62.882845817628436,32.943847073480974,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,profession,2481.0,36.91177951396714,57.46532775097845,31.400608875094804,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,race,2928.0,46.161196583780324,55.685120880415035,40.91255693251247,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,religion,234.0,46.22030651340996,57.66858237547893,39.13142195505057,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,intersentence,overall,2123.0,42.425308161759965,57.34757455097489,36.19084587042767,positive_contact
+learnable_random__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact,overall,overall,4229.0,65.92546875149459,59.4124305149461,53.51509087572072,positive_contact

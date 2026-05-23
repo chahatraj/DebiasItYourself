@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6375,lftf_addl_baseline_remaining_20260309_154403,winogender
+male,240,0.6291666666666667,lftf_addl_baseline_remaining_20260309_154403,winogender
+neutral,240,0.6541666666666667,lftf_addl_baseline_remaining_20260309_154403,winogender

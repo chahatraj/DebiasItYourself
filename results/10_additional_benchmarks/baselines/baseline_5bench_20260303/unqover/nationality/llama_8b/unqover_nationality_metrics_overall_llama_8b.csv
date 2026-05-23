@@ -1,0 +1,2 @@
+model,benchmark,dimension,n,ans0_rate_q0,ans0_rate_q1,swap_rate_q0q1,position_bias,avg_confidence
+llama_8b,unqover,nationality,2500,0.734,0.6544,0.4308,0.3884000000000001,0.7003455045840684

@@ -1,0 +1,2 @@
+model,benchmark,split,n,accuracy,accuracy_male,accuracy_female,gender_accuracy_gap_abs,avg_confidence,mean_abs_tpr_gap,mean_tpr_gap,pearson_corr_gap_vs_pi_female,n_professions_with_both_genders,compounding_imbalance_rate
+mbias_addl_baseline_remaining_20260309_154403,bias_in_bios,test,500,0.65,0.6485507246376812,0.6517857142857143,0.0032349896480331486,0.8020102324160803,0.2322679703695069,-0.032789009810213925,0.48910975964797887,19,0.47368421052631576

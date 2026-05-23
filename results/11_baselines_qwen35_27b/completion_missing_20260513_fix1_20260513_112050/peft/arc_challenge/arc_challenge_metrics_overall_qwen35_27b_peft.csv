@@ -1,0 +1,2 @@
+model,benchmark,source_file,n,accuracy,split
+qwen35_27b_peft_bbq_ensemble,arc_challenge,/scratch/craj/diy/data/ai2_arc/arc_challenge/test.jsonl,1172,0.8003412969283277,test

@@ -1,0 +1,10 @@
+model,n_pairs,metric_score,stereotype_score,anti_stereotype_score,num_neutral,neutral_pct,total_stereo,total_antistereo,stereotype_preference_pct,mean_stereo_prob_norm,mean_anti_prob_norm,bias_type,inference_instruction_mode,inference_instruction_strategy,inference_instruction_version,inference_instruction_shot
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,87,44.83,47.95,28.57,1,1.15,73,14,44.83,,,age,off,,v2,zero
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,60,55.0,56.14,33.33,1,1.67,57,3,55.0,,,disability,off,,v2,zero
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,262,41.22,36.48,48.54,0,0.0,159,103,41.22,,,gender,off,,v2,zero
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,159,49.69,50.68,36.36,0,0.0,148,11,49.69,,,nationality,off,,v2,zero
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,63,44.44,46.15,36.36,2,3.17,52,11,44.44,,,physical-appearance,off,,v2,zero
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,516,46.71,46.72,46.51,2,0.39,473,43,46.71,,,race-color,off,,v2,zero
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,105,49.52,49.49,50.0,0,0.0,99,6,49.52,,,religion,off,,v2,zero
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,84,48.81,48.61,50.0,0,0.0,72,12,48.81,,,sexual-orientation,off,,v2,zero
+m6_two_pass__finetuned_ms-500-positive-contact-opinion-action-event-allversions__positive_contact_self_debias_two_pass_positive_contact,172,60.47,61.15,53.33,0,0.0,157,15,60.47,,,socioeconomic,off,,v2,zero

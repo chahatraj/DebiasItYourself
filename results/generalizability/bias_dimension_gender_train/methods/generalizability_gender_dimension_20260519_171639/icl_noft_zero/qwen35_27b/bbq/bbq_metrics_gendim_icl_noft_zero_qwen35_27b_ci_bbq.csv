@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+gendim_icl_noft_zero_qwen35_27b_ci_bbq:gendim_icl_noft_zero_qwen35_27b_ci_bbq_instr_counter_imaging_ALL,0.383,0.204,0.563,0.989,12.412,58476,29238,29238,bbq_preds_gendim_icl_noft_zero_qwen35_27b_ci_bbq_instr_counter_imaging_ALL.csv

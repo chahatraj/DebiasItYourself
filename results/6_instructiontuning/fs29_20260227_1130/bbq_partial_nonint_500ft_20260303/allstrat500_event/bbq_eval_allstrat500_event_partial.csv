@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+allstrat500_event_partial:allstrat500_event_Religion,0.632,0.517,0.748,11.198,19.0,1200,600,600,bbq_preds_allstrat500_event_Religion.csv

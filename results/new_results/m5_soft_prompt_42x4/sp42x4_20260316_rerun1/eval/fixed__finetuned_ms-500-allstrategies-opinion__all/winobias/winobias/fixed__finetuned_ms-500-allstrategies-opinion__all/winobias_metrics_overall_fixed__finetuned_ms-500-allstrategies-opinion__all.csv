@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+fixed__finetuned_ms-500-allstrategies-opinion__all,winobias,1584,0.7083333333333334,0.8914141414141414,0.5252525252525253,0.36616161616161613,0.36616161616161613

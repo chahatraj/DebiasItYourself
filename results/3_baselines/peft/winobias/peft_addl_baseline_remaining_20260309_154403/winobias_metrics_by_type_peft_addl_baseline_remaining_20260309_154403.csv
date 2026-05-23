@@ -1,0 +1,5 @@
+type,condition,n,accuracy,model,benchmark
+type1,anti,396,0.40404040404040403,peft_addl_baseline_remaining_20260309_154403,winobias
+type1,pro,396,0.7525252525252525,peft_addl_baseline_remaining_20260309_154403,winobias
+type2,anti,396,0.6590909090909091,peft_addl_baseline_remaining_20260309_154403,winobias
+type2,pro,396,0.8661616161616161,peft_addl_baseline_remaining_20260309_154403,winobias

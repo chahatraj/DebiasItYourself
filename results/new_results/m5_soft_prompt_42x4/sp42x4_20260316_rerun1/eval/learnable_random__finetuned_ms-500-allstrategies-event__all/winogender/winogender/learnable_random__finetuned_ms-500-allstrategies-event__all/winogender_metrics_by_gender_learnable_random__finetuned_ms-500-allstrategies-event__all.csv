@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6208333333333333,learnable_random__finetuned_ms-500-allstrategies-event__all,winogender
+male,240,0.65,learnable_random__finetuned_ms-500-allstrategies-event__all,winogender
+neutral,240,0.5583333333333333,learnable_random__finetuned_ms-500-allstrategies-event__all,winogender

@@ -1,0 +1,2 @@
+model,benchmark,n,accuracy,accuracy_pro,accuracy_anti,pro_minus_anti_accuracy,abs_pro_anti_gap
+gendim_icl_it_one_llama8b_pt_winobias,winobias,1584,0.7777777777777778,0.9154040404040404,0.6401515151515151,0.2752525252525253,0.2752525252525253

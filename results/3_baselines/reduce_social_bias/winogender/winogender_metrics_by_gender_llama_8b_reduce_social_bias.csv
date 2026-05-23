@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.6083333333333333,llama_8b_reduce_social_bias_hp_system2_cot_debias,winogender
+male,240,0.6041666666666666,llama_8b_reduce_social_bias_hp_system2_cot_debias,winogender
+neutral,240,0.5875,llama_8b_reduce_social_bias_hp_system2_cot_debias,winogender

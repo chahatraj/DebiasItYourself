@@ -1,0 +1,4 @@
+gender,n,accuracy,model,benchmark
+female,240,0.5958333333333333,learnable_zero_shot__base__stereotype_replacement,winogender
+male,240,0.5583333333333333,learnable_zero_shot__base__stereotype_replacement,winogender
+neutral,240,0.5958333333333333,learnable_zero_shot__base__stereotype_replacement,winogender

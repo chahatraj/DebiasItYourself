@@ -1,0 +1,2 @@
+Model,Accuracy,Accuracy_ambig,Accuracy_disambig,Bias_score_disambig,Bias_score_ambig,N_total,N_ambig,N_disambig,input_file
+m4_ft500_ind_allv_v5f_bbq:m4_ft500_ind_allv_v5f_bbq_instr_individuating_ALL,0.402,0.31,0.493,1.39,2.781,58540,29270,29270,bbq_preds_m4_ft500_ind_allv_v5f_bbq_instr_individuating_ALL.csv
