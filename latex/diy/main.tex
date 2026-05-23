@@ -16,6 +16,8 @@
 \usepackage{enumitem}
 
 \newcommand{\diy}{\textsc{DebiasItYourself}}
+\newcommand{\llama}{\textsc{Llama}}
+\newcommand{\qwen}{\textsc{Qwen}}
 
 % DIY-specific palette (mirrors edits.tex).
 \definecolor{diyShowBg}{HTML}{BFE1F4}
@@ -100,7 +102,7 @@ We evaluate \diy{} against debiasing baselines on multiple bias benchmarks, on r
 \subsection{Cognitive Debiasing Strategies}
 \label{sec:strategies}
 
-Our debiasing approach is grounded in a set of five cognitively motivated intervention strategies derived from established findings in social and cognitive psychology. Each strategy targets a distinct mechanism through which stereotypes and social biases arise in reasoning, and is operationalized as a structured, step-wise reasoning process. Importantly, these strategies are designed to be applied independently or composed, and are agnostic to model architecture, task, or domain.
+Our debiasing approach is grounded in a set of five cognitively motivated intervention strategies derived from established findings in social and cognitive psychology. Each strategy targets a distinct mechanism through which stereotypes and social biases arise in reasoning, and is operationalized as a structured, step-wise reasoning process. Importantly, these strategies are designed to be applied independently or composed, and are agnostic to model architecture, task, or domain. We adopt the five practices from the prejudice habit-breaking framework of \citet{devine2012longterm} because they form an empirically validated intervention with sustained effects on implicit bias, and because they are specified as explicit step-wise procedures, which makes them suitable for direct operationalization as model-facing supervision.
 
 \paragraph{Stereotype Replacement.}
 Stereotype replacement aims to disrupt biased reasoning by explicitly identifying a stereotype and substituting it with a fairer, individualized interpretation. This strategy proceeds in three steps: (i) recognizing whether a stereotype or bias is being invoked, (ii) reflecting on why the stereotype may be inaccurate, overgeneralized, or harmful, and (iii) replacing the biased assumption with a neutral or evidence-based alternative. The goal is not to suppress reasoning, but to redirect it away from group-based generalizations.
@@ -122,7 +124,7 @@ Together, these five strategies form a modular cognitive intervention toolkit. E
 \subsection{Data}
 \label{sec:data}
 
-We construct a synthetic debiasing dataset using a self-instruct-style generation pipeline grounded in a five-step cognitive intervention framework. The dataset consists of paired biased inputs and debiased outputs, where each debiased output follows a specific cognitive debiasing strategy. The resulting data is used both for supervised instruction tuning and for inference-time in-context debiasing.
+We construct a synthetic debiasing dataset using a self-instruct-style generation pipeline grounded in the five-step cognitive intervention framework. The dataset consists of paired biased inputs and debiased outputs, where each biased input is realized in three textual forms, an \emph{opinion} (a direct biased statement, e.g., \emph{``All [identity] are dishonest''}), a biased \emph{action} (a sentence in which the opinion drives a discriminatory behavior), and a biased \emph{event} (a sentence describing an event that leads to forming the opinion), and each debiased output follows a specific cognitive debiasing strategy. The resulting data is used both for supervised instruction tuning and for inference-time in-context debiasing.
 
 \paragraph{Seed Identity Generation.}
 We first generate a diverse set of demographic identity descriptors that serve as the subjects of potential bias. These include both single-identity configurations (e.g., \emph{``a Black man''}) and paired-identity configurations (e.g., \emph{``a Black man and a White man''}), enabling the construction of bias scenarios involving individual and comparative judgments. Identities are sampled across multiple demographic dimensions and are intentionally generated independently of any specific task or outcome.
@@ -142,18 +144,21 @@ For each biased instance, we generate a corresponding debiased output using a sp
 \diy{} delivers the cognitive strategies of Section~\ref{sec:strategies} to a language model through three composable techniques.
 
 \paragraph{\textsc{Show}.}
-The strategy and a small number of biased--debiased example pairs (worked through the strategy's three steps) are placed in the prompt as in-context demonstrations. The model conditions on the demonstrations and produces a debiased response under the same step structure, without parameter updates.
+The strategy and a small number of biased--debiased example pairs (worked through the strategy's three steps) are placed in the prompt as in-context demonstrations. The model conditions on the demonstrations and produces a debiased response under the same step structure, without parameter updates. We evaluate \textsc{Show} \emph{per strategy}: each of the five cognitive strategies is run as a separate condition, and we additionally report an aggregated \textsc{All-strategies} setting that mixes the five.
 
 \paragraph{\textsc{Teach}.}
 The intervention-labeled biased--debiased pairs are converted into instruction-tuning targets and used to fine-tune the model with parameter-efficient adaptation. After training, the model can apply the strategy without explicit demonstrations or strategy text in the prompt.
 
 \paragraph{\textsc{Revise}.}
-The model first produces an unconstrained response to the input, after which it is prompted to apply a selected strategy to its own response by following the same three steps. The revised response replaces the first.
+The model first produces an unconstrained response to the input, after which it is prompted to apply a selected strategy to its own response by following the same three steps. The revised response replaces the first. As with \textsc{Show}, \textsc{Revise} is evaluated per strategy and in the \textsc{All-strategies} aggregation. When \textsc{Revise} is composed with \textsc{Teach} (\textsc{DIY-Teach-Revise}), the revision pass is run both on the fine-tuned model and on the base model, allowing us to disentangle the contribution of training from that of intervention-guided revision. When \textsc{Show} is composed with \textsc{Teach} (\textsc{DIY-Teach-Show}), the in-context demonstrations are drawn from the same strategy that the fine-tune was trained on.
 
 The three techniques are independent in delivery and compatible in supervision: all three are driven by the same intervention-labeled data of Section~\ref{sec:data}, so any composition of \textsc{Show}, \textsc{Teach}, and \textsc{Revise} continues to operate over the same five strategies.
 
 \paragraph{Evaluated configurations.}
 We evaluate \diy{} across the cells of the $\textsc{Show}\times\textsc{Teach}\times\textsc{Revise}$ space, naming each configuration by the techniques it activates. The single-mechanism configurations are \textbf{\textsc{DIY-Teach}} (instruction tuning alone), \textbf{\textsc{DIY-Show}} (in-context demonstrations alone), and \textbf{\textsc{DIY-Revise}} (intervention-guided second pass alone); the two-mechanism configurations are \textbf{\textsc{DIY-Teach-Show}} (training combined with demonstrations) and \textbf{\textsc{DIY-Teach-Revise}} (training combined with revision); and the unmodified baseline is denoted \textbf{\textsc{Base}}. For every configuration that involves a prompt component, we additionally run a 0-shot and a 1-shot variant, where the shot count is the number of in-context demonstrations of the selected cognitive strategy.
+
+\paragraph{Training and supervision scale.}
+For \textsc{Teach}, we train one fine-tuned checkpoint per (strategy, instance-type) cell of the data, plus an \textsc{All-strategies} checkpoint that combines all five. Each checkpoint is trained on a 500-example subset (sampled with a fixed seed) for parity across cells, using LoRA adaptation on \llama{}-3.1-8B-Instruct (rank $256$, $\alpha=256$, learning rate $2{\times}10^{-4}$, three epochs).
 
 \clearpage
 \bibliographystyle{acl_natbib}
