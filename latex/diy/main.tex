@@ -97,25 +97,44 @@ We evaluate \diy{} against debiasing baselines on multiple bias benchmarks, on r
 \section{Data and Methods}
 \label{sec:data-methods}
 
-\subsection{Five Bias-Reducing Interventions}
+\subsection{Cognitive Debiasing Strategies}
 \label{sec:strategies}
 
-\diy{} operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm} as a uniform three-step procedure. Each intervention specifies its own three steps, tailored to the cognitive practice it operationalizes, but every intervention shares the same surface form: a \emph{recognition} step that identifies the biased pattern in the input, a \emph{reorientation} step that engages the intervention-specific cognitive operation, and a \emph{realization} step that produces the task-consistent output. This three-step decomposition is the unit of supervision used throughout \diy{}; each labeled training instance instantiates the steps for one intervention.
+Our debiasing approach is grounded in a set of five cognitively motivated intervention strategies derived from established findings in social and cognitive psychology. Each strategy targets a distinct mechanism through which stereotypes and social biases arise in reasoning, and is operationalized as a structured, step-wise reasoning process. Importantly, these strategies are designed to be applied independently or composed, and are agnostic to model architecture, task, or domain.
 
-\paragraph{\textsc{Stereotype Replacement} (SR).}
-\emph{Recognize} whether a stereotype or bias is invoked, explicitly or implicitly. \emph{Reflect} on why the stereotype is inaccurate, overgeneralized, or harmful. \emph{Replace} it with a fairer, individualized, or bias-free phrasing or interpretation.
+\paragraph{Stereotype Replacement.}
+Stereotype replacement aims to disrupt biased reasoning by explicitly identifying a stereotype and substituting it with a fairer, individualized interpretation. This strategy proceeds in three steps: (i) recognizing whether a stereotype or bias is being invoked, (ii) reflecting on why the stereotype may be inaccurate, overgeneralized, or harmful, and (iii) replacing the biased assumption with a neutral or evidence-based alternative. The goal is not to suppress reasoning, but to redirect it away from group-based generalizations.
 
-\paragraph{\textsc{Counter-stereotypic Imaging} (CI).}
-\emph{Recognize} the stereotype invoked by the input. \emph{Imagine} a specific person who contradicts it. \emph{Reinforce} the new association by elaborating concrete details about this counter-stereotypic individual.
+\paragraph{Counter-Stereotype Imaging.}
+Counter-stereotype imaging reduces bias by strengthening associations that contradict prevailing stereotypes. After identifying the stereotype being invoked, the model is prompted to imagine a real or hypothetical individual who defies the stereotype and to elaborate concrete details about this counter-stereotypic example. By reinforcing alternative associations, this strategy weakens the automatic activation of stereotypical beliefs during reasoning.
 
-\paragraph{\textsc{Individuation} (IND).}
-\emph{Attend} to the individual rather than the social group, shifting focus away from category-level priors. \emph{Gather} specific, individuating information from the input, such as traits, context, or behavior. \emph{Adjust} the initial impression using these individual details.
+\paragraph{Individuating.}
+Individuating shifts attention from social categories to individual-specific information. This strategy instructs the model to consciously decenter group membership, gather relevant individuating details such as personal traits, behaviors, or context, and revise the initial judgment based on this information. Individuating mitigates bias by replacing category-based inference with case-specific reasoning.
 
-\paragraph{\textsc{Perspective-taking} (PT).}
-\emph{Adopt} the perspective of the person being stereotyped. \emph{Simulate} what they might feel, think, or experience in the situation. \emph{Integrate} this perspective to reframe the response.
+\paragraph{Perspective Taking.}
+Perspective taking encourages the model to adopt the viewpoint of the person being stereotyped. The strategy involves simulating the thoughts, feelings, or experiences of the targeted individual and integrating this perspective into the final response. By foregrounding lived experience, perspective taking reframes biased assumptions and promotes more empathetic and context-aware reasoning.
 
-\paragraph{\textsc{Positive Contact} (PC).}
-\emph{Recall} a meaningful, positive interaction with a person from the targeted group. \emph{Engage} with the interaction by describing what was learned, shared, or felt during it. \emph{Extend} the resulting feeling to challenge the stereotype and reframe the response.
+\paragraph{Positive Contact.}
+Positive contact draws on contact theory, which suggests that meaningful positive interactions reduce prejudice. This strategy prompts the model to imagine or recall a constructive interaction with a member of the stereotyped group, describe the interaction in detail, and generalize its implications to challenge the original stereotype. The emphasis is on affective engagement rather than factual correction alone.
+
+Together, these five strategies form a modular cognitive intervention toolkit. Each strategy can be deployed independently, enabling fine-grained analysis of their individual effects, or combined to create stronger debiasing interventions. Crucially, all strategies operate at the level of reasoning and interpretation, rather than relying on task-specific labels or outcome supervision.
+
+\subsection{Data}
+\label{sec:data}
+
+We construct a synthetic debiasing dataset using a self-instruct-style generation pipeline grounded in a five-step cognitive intervention framework. The dataset consists of paired biased inputs and debiased outputs, where each debiased output follows a specific cognitive debiasing strategy. The resulting data is used both for supervised instruction tuning and for inference-time in-context debiasing.
+
+\paragraph{Seed Identity Generation.}
+We first generate a diverse set of demographic identity descriptors that serve as the subjects of potential bias. These include both single-identity configurations (e.g., \emph{``a Black man''}) and paired-identity configurations (e.g., \emph{``a Black man and a White man''}), enabling the construction of bias scenarios involving individual and comparative judgments. Identities are sampled across multiple demographic dimensions and are intentionally generated independently of any specific task or outcome.
+
+\paragraph{Bias Concept Generation.}
+Given a set of identity descriptors, we next generate bias concepts that reflect commonly observed stereotypical traits, assumptions, or associations (e.g., perceived competence, socioeconomic status, athletic ability). These concepts are generated without attaching ground-truth labels or correctness constraints, and are intended solely to elicit biased reasoning when combined with identity information. Bias concepts may target a single individual or implicitly contrast multiple identities.
+
+\paragraph{Biased Instance Generation.}
+Biased instances are created by combining identity descriptors and bias concepts within open-ended scenarios, such as professional, social, or everyday contexts. A language model is prompted to synthesize these components into coherent natural language inputs designed to plausibly trigger stereotypical reasoning. This step yields bias-prone prompts without explicitly instructing the model to behave unfairly, mirroring how bias arises in unconstrained language use.
+
+\paragraph{Debiased Instance Generation.}
+For each biased instance, we generate a corresponding debiased output using a specified cognitive intervention strategy. The model is prompted to apply the selected strategy by explicitly following its step-wise reasoning structure (e.g., recognizing the stereotype, reflecting on its limitations, and revising the interpretation). This results in aligned biased--debiased pairs that can be formatted as instruction--response examples for supervised fine-tuning or as demonstrations for in-context debiasing at inference time.
 
 \clearpage
 \bibliographystyle{acl_natbib}
