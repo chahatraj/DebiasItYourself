@@ -152,30 +152,26 @@ The model first produces an unconstrained response to the input, after which it 
 
 The three techniques are independent in delivery and compatible in supervision: all three are driven by the same intervention-labeled data of Section~\ref{sec:data}, so any composition of \textsc{Show}, \textsc{Teach}, and \textsc{Revise} continues to operate over the same five strategies. Table~\ref{tab:diy-variants} lists the configurations evaluated in our experiments.
 
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \footnotesize
-\setlength{\tabcolsep}{6pt}
+\setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}lcccl@{}}
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-Method & \textsc{Show} & \textsc{Teach} & \textsc{Revise} & Shot \\
+Method & S & T & R & Shots \\
 \midrule
 \textsc{Base}             &            &            &            & --      \\
 \textsc{DIY-Teach}        &            & \checkmark &            & --      \\
-\textsc{DIY-Show}         & \checkmark &            &            & 0       \\
-\textsc{DIY-Show}         & \checkmark &            &            & 1       \\
-\textsc{DIY-Revise}       &            &            & \checkmark & 0       \\
-\textsc{DIY-Revise}       &            &            & \checkmark & 1       \\
-\textsc{DIY-Teach-Show}   & \checkmark & \checkmark &            & 0       \\
-\textsc{DIY-Teach-Show}   & \checkmark & \checkmark &            & 1       \\
-\textsc{DIY-Teach-Revise} & \checkmark & \checkmark & \checkmark & 0       \\
-\textsc{DIY-Teach-Revise} & \checkmark & \checkmark & \checkmark & 1       \\
+\textsc{DIY-Show}         & \checkmark &            &            & 0, 1    \\
+\textsc{DIY-Revise}       &            &            & \checkmark & 0, 1    \\
+\textsc{DIY-Teach-Show}   & \checkmark & \checkmark &            & 0, 1    \\
+\textsc{DIY-Teach-Revise} & \checkmark & \checkmark & \checkmark & 0, 1    \\
 \bottomrule
 \end{tabular}
-\caption{Configurations of \diy{} evaluated in our experiments. \textsc{Show}, \textsc{Teach}, and \textsc{Revise} indicate which delivery techniques are active. Shot is the number of in-context demonstrations of the cognitive strategy in the prompt; ``--'' indicates the technique does not use a prompt component. \textsc{Base} is an unmodified baseline.}
+\caption{Configurations of \diy{}. S, T, R indicate the active delivery techniques (\textsc{Show}, \textsc{Teach}, \textsc{Revise}); Shots is the number of in-context demonstrations. \textsc{Base} is an unmodified baseline.}
 \label{tab:diy-variants}
-\end{table*}
+\end{table}
 
 \clearpage
 \bibliographystyle{acl_natbib}
