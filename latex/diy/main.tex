@@ -77,7 +77,7 @@ We propose \diy{} (DIY), a bias mitigation framework that targets the procedure 
 We evaluate \diy{} against debiasing baselines on multiple bias benchmarks, on reasoning benchmarks intended to detect competence loss, and across model families and scales. \diy{} consistently reduces bias relative to baselines, with the largest reductions when \textsc{Teach} is composed with \textsc{Revise}, and reasoning performance is preserved. These results provide initial evidence that teaching a procedure for handling bias-sensitive input, rather than correcting its individual outputs, is a viable direction for bias mitigation.
 
 \noindent\textbf{Contributions.}
-\begin{enumerate}[leftmargin=1.4em,itemsep=2pt,topsep=3pt]
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt,parsep=3pt,topsep=3pt,partopsep=0pt]
     \item \textbf{Task.} A reformulation of bias mitigation in language models, in which the supervision target is the procedure by which the model handles bias-sensitive input rather than the correction of individual biased outputs.
     \item \textbf{Method.} \diy{}, a unified intervention protocol that operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm} and is delivered through three composable techniques, \textsc{Show}, \textsc{Teach}, and \textsc{Revise}.
     \item \textbf{Key finding.} \diy{} yields consistent reductions in bias across multiple bias benchmarks and social dimensions, outperforms a range of debiasing baselines, and preserves reasoning competence, with the effect holding across model families and scales.
