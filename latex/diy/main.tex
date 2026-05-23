@@ -94,6 +94,29 @@ We evaluate \diy{} against debiasing baselines on multiple bias benchmarks, on r
 
 \paragraph{Position of this work.} \diy{} addresses the limitations above. It supervises across benchmarks rather than per-benchmark; targets the procedure by which the model handles bias-sensitive input rather than the output; and grounds supervision in the five operationally specified practices of \citet{devine2012longterm} rather than psychology-inspired vocabulary, while making no claim about model cognition.
 
+\section{Data and Methods}
+\label{sec:data-methods}
+
+\subsection{Five Bias-Reducing Interventions}
+\label{sec:strategies}
+
+\diy{} operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm} as a uniform three-step procedure. Each intervention specifies its own three steps, tailored to the cognitive practice it operationalizes, but every intervention shares the same surface form: a \emph{recognition} step that identifies the biased pattern in the input, a \emph{reorientation} step that engages the intervention-specific cognitive operation, and a \emph{realization} step that produces the task-consistent output. This three-step decomposition is the unit of supervision used throughout \diy{}; each labeled training instance instantiates the steps for one intervention.
+
+\paragraph{\textsc{Stereotype Replacement} (SR).}
+\emph{Recognize} whether a stereotype or bias is invoked, explicitly or implicitly. \emph{Reflect} on why the stereotype is inaccurate, overgeneralized, or harmful. \emph{Replace} it with a fairer, individualized, or bias-free phrasing or interpretation.
+
+\paragraph{\textsc{Counter-stereotypic Imaging} (CI).}
+\emph{Recognize} the stereotype invoked by the input. \emph{Imagine} a specific person who contradicts it. \emph{Reinforce} the new association by elaborating concrete details about this counter-stereotypic individual.
+
+\paragraph{\textsc{Individuation} (IND).}
+\emph{Attend} to the individual rather than the social group, shifting focus away from category-level priors. \emph{Gather} specific, individuating information from the input, such as traits, context, or behavior. \emph{Adjust} the initial impression using these individual details.
+
+\paragraph{\textsc{Perspective-taking} (PT).}
+\emph{Adopt} the perspective of the person being stereotyped. \emph{Simulate} what they might feel, think, or experience in the situation. \emph{Integrate} this perspective to reframe the response.
+
+\paragraph{\textsc{Positive Contact} (PC).}
+\emph{Recall} a meaningful, positive interaction with a person from the targeted group. \emph{Engage} with the interaction by describing what was learned, shared, or felt during it. \emph{Extend} the resulting feeling to challenge the stereotype and reframe the response.
+
 \clearpage
 \bibliographystyle{acl_natbib}
 \bibliography{anthology,custom}
