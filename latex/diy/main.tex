@@ -150,28 +150,10 @@ The intervention-labeled biased--debiased pairs are converted into instruction-t
 \paragraph{\textsc{Revise}.}
 The model first produces an unconstrained response to the input, after which it is prompted to apply a selected strategy to its own response by following the same three steps. The revised response replaces the first.
 
-The three techniques are independent in delivery and compatible in supervision: all three are driven by the same intervention-labeled data of Section~\ref{sec:data}, so any composition of \textsc{Show}, \textsc{Teach}, and \textsc{Revise} continues to operate over the same five strategies. Table~\ref{tab:diy-variants} lists the configurations evaluated in our experiments.
+The three techniques are independent in delivery and compatible in supervision: all three are driven by the same intervention-labeled data of Section~\ref{sec:data}, so any composition of \textsc{Show}, \textsc{Teach}, and \textsc{Revise} continues to operate over the same five strategies.
 
-\begin{table}[t]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Method & S & T & R & Shots \\
-\midrule
-\textsc{Base}             &            &            &            & --      \\
-\textsc{DIY-Teach}        &            & \checkmark &            & --      \\
-\textsc{DIY-Show}         & \checkmark &            &            & 0, 1    \\
-\textsc{DIY-Revise}       &            &            & \checkmark & 0, 1    \\
-\textsc{DIY-Teach-Show}   & \checkmark & \checkmark &            & 0, 1    \\
-\textsc{DIY-Teach-Revise} & \checkmark & \checkmark & \checkmark & 0, 1    \\
-\bottomrule
-\end{tabular}
-\caption{Configurations of \diy{}. S, T, R indicate the active delivery techniques (\textsc{Show}, \textsc{Teach}, \textsc{Revise}); Shots is the number of in-context demonstrations. \textsc{Base} is an unmodified baseline.}
-\label{tab:diy-variants}
-\end{table}
+\paragraph{Evaluated configurations.}
+We evaluate \diy{} across the cells of the $\textsc{Show}\times\textsc{Teach}\times\textsc{Revise}$ space, naming each configuration by the techniques it activates. The single-mechanism configurations are \textbf{\textsc{DIY-Teach}} (instruction tuning alone), \textbf{\textsc{DIY-Show}} (in-context demonstrations alone), and \textbf{\textsc{DIY-Revise}} (intervention-guided second pass alone); the two-mechanism configurations are \textbf{\textsc{DIY-Teach-Show}} (training combined with demonstrations) and \textbf{\textsc{DIY-Teach-Revise}} (training combined with revision); and the unmodified baseline is denoted \textbf{\textsc{Base}}. For every configuration that involves a prompt component, we additionally run a 0-shot and a 1-shot variant, where the shot count is the number of in-context demonstrations of the selected cognitive strategy.
 
 \clearpage
 \bibliographystyle{acl_natbib}
