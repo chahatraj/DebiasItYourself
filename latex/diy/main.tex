@@ -78,10 +78,10 @@ We evaluate \diy{} against debiasing baselines on multiple bias benchmarks, on r
 
 \noindent\textbf{Contributions.}
 \begin{enumerate}[leftmargin=1.4em,itemsep=2pt,topsep=3pt]
-    \item \textbf{Framing.} We reframe bias mitigation as teaching a model a general procedure for treating bias-sensitive input, in place of correcting individual biases.
-    \item \textbf{Method.} We introduce \diy{}, a first concrete instantiation of this framing, grounded in five validated cognitive interventions from social psychology and delivered through three composable techniques: \textsc{Show}, \textsc{Teach}, \textsc{Revise}.
-    \item \textbf{Pipeline.} We construct an intervention-labeled data pipeline that drives all three techniques from one supervision signal across social categories and benchmark formats.
-    \item \textbf{Evaluation.} We show that \diy{} reduces bias and outperforms baselines without degrading reasoning, across benchmarks, baselines, model families, and scales.
+    \item \textbf{Task.} A reformulation of bias mitigation in language models, in which the supervision target is the procedure by which the model handles bias-sensitive input rather than the correction of individual biased outputs.
+    \item \textbf{Method.} \diy{}, a unified intervention protocol that operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm} and is delivered through three composable techniques, \textsc{Show}, \textsc{Teach}, and \textsc{Revise}.
+    \item \textbf{Key finding.} \diy{} yields consistent reductions in bias across multiple bias benchmarks and social dimensions, outperforms a range of debiasing baselines, and preserves reasoning competence, with the effect holding across model families and scales.
+    \item \textbf{Data.} A dataset of bias-sensitive instances paired with intervention-labeled debiased targets, spanning multiple social categories and benchmark formats, providing a single supervision signal for all three techniques in \diy{}.
 \end{enumerate}
 
 \clearpage
