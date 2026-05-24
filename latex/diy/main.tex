@@ -217,7 +217,7 @@ For \trainlabel{}, we train one fine-tuned checkpoint per (strategy, instance-ty
 \section{Experimental Results}
 \label{sec:experimental-results}
 
-We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \qwen{}-2.5-32B-Instruct, using five bias benchmarks: CrowS-Pairs \citep{nangia-etal-2020-crows}, StereoSet \citep{nadeem-etal-2021-stereoset}, BBQ \citep{parrish-etal-2022-bbq}, WinoBias \citep{zhao-etal-2018-gender}, and WinoGender \citep{rudinger-etal-2018-gender}; and three reasoning benchmarks: Balanced COPA \citep{kavumba-etal-2019-choosing}, ARC-Challenge, and ARC-Easy \citep{clark2018arc}. We summarize bias results with a normalized \emph{bias error} (lower is better). We compare against ten prior debiasing methods spanning three families. \emph{Prompt-based} methods elicit fairer responses through prompt engineering: SelfDebias \citep{gallegos2024selfdebiasing} and RSB \citep{kamruzzaman2025rsb}. \emph{Training-based} methods modify model parameters: DebiasNLG \citep{wang-demberg-2024-parameter}, DebiasLLMs \citep{dong2024disclosure}, PEFT \citep{zhao-etal-2025-debiasing}, DPO \citep{dai2025mitigating}, LFTF \citep{qin2025lftf}, and BiasEdit \citep{xu-etal-2025-biasedit}. \emph{Inference-based} methods steer or correct outputs at decoding time: FairSteer \citep{li2025fairsteer}, CAL \citep{sun-etal-2024-causal}, and BBA \citep{lin2026bba}. Implementation details for \diy{} are provided in the appendix.
+We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \qwen{}-2.5-32B-Instruct, using five bias benchmarks: CrowS-Pairs \citep{nangia-etal-2020-crows}, StereoSet \citep{nadeem-etal-2021-stereoset}, BBQ \citep{parrish-etal-2022-bbq}, WinoBias \citep{zhao-etal-2018-gender}, and WinoGender \citep{rudinger-etal-2018-gender}; and three reasoning benchmarks: Balanced COPA \citep{kavumba-etal-2019-choosing}, ARC-Challenge, and ARC-Easy \citep{clark2018arc}. We summarize bias results with a normalized \emph{bias score} that aligns benchmarks under a common ``lower is better'' direction: $\mathrm{score} = |\mathrm{score}_{\text{benchmark}} - \mathrm{score}_{\text{unbiased}}|$, where $\mathrm{score}_{\text{unbiased}}$ is the value an unbiased model would produce ($50$ for CrowS-Pairs and StereoSet, $0$ for BBQ, WinoBias, and WinoGender). We compare against ten prior debiasing methods spanning three families. \emph{Prompt-based} methods elicit fairer responses through prompt engineering: SelfDebias \citep{gallegos2024selfdebiasing} and RSB \citep{kamruzzaman2025rsb}. \emph{Training-based} methods modify model parameters: DebiasNLG \citep{wang-demberg-2024-parameter}, DebiasLLMs \citep{dong2024disclosure}, PEFT \citep{zhao-etal-2025-debiasing}, DPO \citep{dai2025mitigating}, LFTF \citep{qin2025lftf}, and BiasEdit \citep{xu-etal-2025-biasedit}. \emph{Inference-based} methods steer or correct outputs at decoding time: FairSteer \citep{li2025fairsteer}, CAL \citep{sun-etal-2024-causal}, and BBA \citep{lin2026bba}. Implementation details for \diy{} are provided in the appendix.
 
 \begin{figure*}[t]
 \centering
@@ -254,21 +254,21 @@ We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/llama8b/pdf/baseline_comparison_lollipop.pdf}
-\caption{Model-wise baseline comparison for \llama{}-3.1-8B-Instruct. Lower bias error indicates better debiasing performance. The plot compares the five \diylabel{} configurations against the retained baseline methods across the six bias evaluation panels.}
+\caption{Model-wise baseline comparison for \llama{}-3.1-8B-Instruct. Lower bias score indicates better debiasing performance. The plot compares the five \diylabel{} configurations against the retained baseline methods across the six bias evaluation panels.}
 \label{fig:app-baseline-lollipop-llama8b}
 \end{figure*}
 
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/llama70b/pdf/baseline_comparison_lollipop.pdf}
-\caption{Model-wise baseline comparison for \llama{}-3.1-70B-Instruct. Lower bias error indicates better debiasing performance. The plot compares the five \diylabel{} configurations against the retained baseline methods across the six bias evaluation panels.}
+\caption{Model-wise baseline comparison for \llama{}-3.1-70B-Instruct. Lower bias score indicates better debiasing performance. The plot compares the five \diylabel{} configurations against the retained baseline methods across the six bias evaluation panels.}
 \label{fig:app-baseline-lollipop-llama70b}
 \end{figure*}
 
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/qwen/pdf/baseline_comparison_lollipop.pdf}
-\caption{Model-wise baseline comparison for Qwen 27B. Lower bias error indicates better debiasing performance. The plot compares the five \diylabel{} configurations against the retained baseline methods across the six bias evaluation panels.}
+\caption{Model-wise baseline comparison for Qwen 27B. Lower bias score indicates better debiasing performance. The plot compares the five \diylabel{} configurations against the retained baseline methods across the six bias evaluation panels.}
 \label{fig:app-baseline-lollipop-qwen}
 \end{figure*}
 
