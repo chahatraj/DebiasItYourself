@@ -15,6 +15,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{tikz}
 \usepackage{enumitem}
+\usepackage{bbding}
 \usetikzlibrary{shapes, backgrounds}
 
 \newcommand{\diy}{\textsc{DebiasItYourself}}
@@ -72,14 +73,18 @@
   colback=diyInsightBg,
   colframe=diyInsightFrame,
   boxrule=0.8pt,
-  arc=0pt,
+  arc=4pt,
   left=8pt,
   right=8pt,
   top=6pt,
   bottom=6pt,
   fontupper=\small,
   before skip=8pt,
-  after skip=8pt
+  after skip=8pt,
+  interior code app={
+    \draw [color=diyInsightFrame!30, line width=0.3pt, step=4pt]
+      (interior.south west) grid (interior.north east);
+  }
 }
 
 \newtcolorbox{resultbox}{
@@ -239,7 +244,7 @@ We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \
 \paragraph{Cross-benchmark performance.}
 
 \begin{insightbox}
-\textbf{Takeaway.} \diytrainreviselabel{} and \diyreviselabel{} achieve the lowest average rank across all three model families, outperforming the strongest baseline by a margin of $2$+ ranks on \llama{}-3.1-8B and \qwen{}-2.5-32B.
+\textcolor{red}{\PencilRightDown}~\textbf{Takeaway.} \diytrainreviselabel{} and \diyreviselabel{} achieve the lowest average rank across all three model families, outperforming the strongest baseline by a margin of $2$+ ranks on \llama{}-3.1-8B and \qwen{}-2.5-32B.
 \end{insightbox}
 
 \paragraph{Method Comparison.}
