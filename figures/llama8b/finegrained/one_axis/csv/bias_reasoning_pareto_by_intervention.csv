@@ -1,16 +1,16 @@
 figure_slug,strategy_label,ft_checkpoint,method,method_family,shot,mean_bias_error,mean_reduction_vs_base,mean_reasoning_accuracy,n_bias_panels,n_reasoning_benchmarks
-individuation_all_versions,Individuation,matched all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,1.757496833333333,3.973455166666667,76.61259733333333,6,3
-perspective_taking_all_versions,Perspective-taking,matched all-version,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,1.8260819999999998,3.9048700000000003,73.34464766666666,6,3
-perspective_taking_all_versions,Perspective-taking,matched all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,1.8454838333333334,3.885468166666666,74.55065666666667,6,3
+counter_stereotypic_imaging_all_versions,Counter-stereotypic imaging,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,2.280654666666667,3.4502973333333333,74.09266366666667,6,3
+individuation_all_versions,Individuation,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,2.2671335,3.4638185,74.85533133333333,6,3
+perspective_taking_all_versions,Perspective-taking,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,1.8260819999999998,3.9048700000000003,73.34464766666666,6,3
+positive_contact_all_versions,Positive contact,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,1.8996549999999999,3.8312969999999997,76.37811466666666,6,3
+stereotype_replacement_all_versions,Stereotype replacement,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,2.9179716666666664,2.8129803333333334,76.298705,6,3
 counter_stereotypic_imaging_all_versions,Counter-stereotypic imaging,matched all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,1.8690533333333335,3.861898666666667,67.03935333333334,6,3
-positive_contact_all_versions,Positive contact,matched all-version,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,1.8996549999999999,3.8312969999999997,76.37811466666666,6,3
+individuation_all_versions,Individuation,matched all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,1.757496833333333,3.973455166666667,76.61259733333333,6,3
+perspective_taking_all_versions,Perspective-taking,matched all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,1.8454838333333334,3.885468166666666,74.55065666666667,6,3
 positive_contact_all_versions,Positive contact,matched all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,1.8997009333333335,3.831251066666667,71.20870133333334,6,3
-individuation_all_versions,Individuation,matched all-version,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,2.2671335,3.4638185,74.85533133333333,6,3
-counter_stereotypic_imaging_all_versions,Counter-stereotypic imaging,matched all-version,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,2.280654666666667,3.4502973333333333,74.09266366666667,6,3
 stereotype_replacement_all_versions,Stereotype replacement,matched all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,2.8373546666666662,2.8935973333333336,74.55142533333333,6,3
-stereotype_replacement_all_versions,Stereotype replacement,matched all-version,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,2.9179716666666664,2.8129803333333334,76.298705,6,3
 counter_stereotypic_imaging_all_versions,Counter-stereotypic imaging,matched all-version,DIY IT,DIY IT,,4.46309,1.267862,70.86657,6,3
-positive_contact_all_versions,Positive contact,matched all-version,DIY IT,DIY IT,,4.482671000000001,1.2482809999999998,69.83823366666667,6,3
-perspective_taking_all_versions,Perspective-taking,matched all-version,DIY IT,DIY IT,,4.5596898333333336,1.1712621666666665,69.868759,6,3
 individuation_all_versions,Individuation,matched all-version,DIY IT,DIY IT,,4.611716500000001,1.1192354999999998,70.57954766666667,6,3
+perspective_taking_all_versions,Perspective-taking,matched all-version,DIY IT,DIY IT,,4.5596898333333336,1.1712621666666665,69.868759,6,3
+positive_contact_all_versions,Positive contact,matched all-version,DIY IT,DIY IT,,4.482671000000001,1.2482809999999998,69.83823366666667,6,3
 stereotype_replacement_all_versions,Stereotype replacement,matched all-version,DIY IT,DIY IT,,4.661366500000001,1.0695855,71.28882633333333,6,3

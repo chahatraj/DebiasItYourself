@@ -1,8 +1,8 @@
 figure_slug,strategy_label,ft_checkpoint,method,method_family,shot,mean_bias_error,mean_reduction_vs_base,mean_reasoning_accuracy,n_bias_panels,n_reasoning_benchmarks
-all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,1.62002225,4.11092975,71.24495766666666,6,3
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 1-shot",Two Pass (No IT),1,2.066896666666666,3.6640553333333337,74.77076866666665,6,3
 all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 1-shot",Two Pass (IT),1,1.8024728499999998,3.92847915,70.43783333333333,6,3
-all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (No IT), 2-shot",Two Pass (No IT),2,1.9431780833333334,3.787773916666666,75.536652,6,3
-all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,2.048067,3.6828850000000006,74.83072333333332,6,3
-all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (No IT), 1-shot",Two Pass (No IT),1,2.066896666666666,3.6640553333333337,74.77076866666665,6,3
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 2-shot",Two Pass (No IT),2,1.9431780833333334,3.787773916666666,75.536652,6,3
 all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 2-shot",Two Pass (IT),2,2.2033556666666665,3.5275963333333338,72.16890466666666,6,3
+all_strategies_all_versions,All interventions,,"DIY Two Pass (No IT), 0-shot",Two Pass (No IT),0,2.048067,3.6828850000000006,74.83072333333332,6,3
+all_strategies_all_versions,All interventions,all-version,"DIY Two Pass (IT), 0-shot",Two Pass (IT),0,1.62002225,4.11092975,71.24495766666666,6,3
 all_strategies_all_versions,All interventions,all-version,DIY IT,DIY IT,,4.473940666666667,1.2570113333333335,70.81121233333333,6,3

@@ -4,12 +4,12 @@ diy_tune_twopass,DIY Two Pass (IT),diy_combo,1.62002225,6
 diy_twopass,DIY Two Pass (No IT),diy_twopass,2.048067,6
 debias_llms,DebiasLLMs,baseline,2.4716378333333338,6
 biasedit,BiasEdit,baseline,2.9134403333333334,6
-self_debiasing_reprompting,SelfDebias: Reprompt,baseline,4.077168666666666,6
+self_debiasing_reprompting,SelfDebias,baseline,4.077168666666666,6
 diy_instruction_tune,DIY IT,diy_tune,4.473940666666667,6
 peft,PEFT,baseline,4.519623,6
 base,Base Model,base,5.730952000000001,6
 cal,CAL,baseline,5.740172949999999,6
-reduce_social_bias,Reduce Social Bias,baseline,6.6198255,6
+reduce_social_bias,RSB,baseline,6.6198255,6
 fairsteer,FairSteer,baseline,9.064893666666666,6
 bba,BBA,baseline,9.068538166666666,6
 lftf,LFTF,baseline,9.076747833333334,6
