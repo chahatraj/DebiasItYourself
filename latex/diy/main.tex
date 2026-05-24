@@ -26,6 +26,21 @@
       (2.4,0) -- (3.0,0.5) -- (2.4,1) -- cycle;
   \end{tikzpicture}%
 }
+
+\newcommand{\nbcheck}{%
+  \begin{tikzpicture}[baseline=-0.4ex, scale=0.18]
+    \draw[line width=0.9pt, color=green!50!black, line cap=round]
+      (0,0.5) -- (0.5,0) -- (1.4,1.2);
+  \end{tikzpicture}%
+}
+\newcommand{\nbcross}{%
+  \begin{tikzpicture}[baseline=-0.4ex, scale=0.18]
+    \draw[line width=0.9pt, color=red!70!black, line cap=round]
+      (0,0) -- (1.2,1.2);
+    \draw[line width=0.9pt, color=red!70!black, line cap=round]
+      (0,1.2) -- (1.2,0);
+  \end{tikzpicture}%
+}
 \usetikzlibrary{shapes, backgrounds}
 
 \newcommand{\diy}{\textsc{DebiasItYourself}}
@@ -123,7 +138,7 @@
 \maketitle
 
 \begin{abstract}
-Social bias in large language models is a well-documented harm, and many mitigations have been proposed, but each typically targets a single dataset, task, or bias dimension, teaching the model to \emph{suppress} a symptom rather than to \emph{reduce} bias as a behavior. LLMs are trained on human text and inherit human bias, yet decades of social-psychology research already show \emph{how} prejudice can be reduced in people through validated cognitive interventions. We bring that literature into model training and inference, teaching models the same bias-reduction strategies so that debiasing becomes a transferable skill rather than a benchmark-specific patch. We introduce \diy{} (DIY), which operationalizes five established prejudice-reducing interventions, \textsc{Stereotype Replacement}, \textsc{Counter-stereotypic Imaging}, \textsc{Individuation}, \textsc{Perspective-taking}, and \textsc{Positive Contact}, through three complementary techniques: \textsc{Show} (in-context demonstrations), \textsc{Train} (instruction tuning), and \textsc{Revise} (intervention-guided self-revision). Evaluated against a broad set of debiasing baselines on bias and reasoning benchmarks, DIY consistently lowers bias and outperforms prior methods, with gains that generalize across tasks, models, scales, and bias dimensions, showing that grounding mitigation in transferable cognitive behavior beats dataset-specific suppression. Our code and data are available here\footnote{\url{https://github.com/chahatraj/DebiasItYourself}}.
+Social bias in large language models is a well-documented harm, and many mitigations have been proposed, but each typically targets a single dataset, task, or bias dimension, teaching the model to \emph{suppress} a symptom rather than to \emph{reduce} bias as a behavior. LLMs are trained on human text and inherit human bias, yet decades of social-psychology research already show \emph{how} prejudice can be reduced in people through validated cognitive interventions. We bring that literature into model training and inference, teaching models the same bias-reduction strategies so that debiasing becomes a transferable skill rather than a benchmark-specific patch. We introduce \diy{} (DIY), which operationalizes five established prejudice-reducing interventions, \textsc{Stereotype Replacement}, \textsc{Counter-stereotypic Imaging}, \textsc{Individuation}, \textsc{Perspective-taking}, and \textsc{Positive Contact}, through three complementary techniques: \textsc{Show} (in-context demonstrations), \textsc{Train} (instruction tuning), and \textsc{Revise} (intervention-guided self-revision). Evaluated against a broad set of debiasing baselines on bias and reasoning benchmarks, DIY consistently lowers bias and outperforms prior methods, with gains that generalize across tasks, models, scales, and bias dimensions, showing that grounding mitigation in transferable cognitive behavior beats dataset-specific suppression. Our code and data are available here\footnote{\url{https://anonymous.4open.science/r/DebiasItYourself}}.
 \end{abstract}
 
 \section{Introduction}
@@ -228,6 +243,26 @@ We evaluate \diylabel{} across the cells of the $\textsc{Show}\times\textsc{Trai
 
 \paragraph{Training and supervision scale.}
 For \trainlabel{}, we train one fine-tuned checkpoint per (strategy, instance-type) cell of the data, plus an \textsc{All-strategies} checkpoint that combines all five. Each checkpoint is trained on a 500-example subset (sampled with a fixed seed) for parity across cells, using LoRA adaptation on \llama{}-3.1-8B-Instruct (rank $256$, $\alpha=256$, learning rate $2{\times}10^{-4}$, three epochs).
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Method & IT & ICL & Revise \\
+\midrule
+\diyshowlabel{}        & \nbcross & \nbcheck & \nbcross \\
+\diytrainlabel{}       & \nbcheck & \nbcross & \nbcross \\
+\diyreviselabel{}      & \nbcross & \nbcross & \nbcheck \\
+\diytrainshowlabel{}   & \nbcheck & \nbcheck & \nbcross \\
+\diytrainreviselabel{} & \nbcheck & \nbcross & \nbcheck \\
+\bottomrule
+\end{tabular}
+\caption{The five \diylabel{} configurations and the delivery mechanisms they activate. IT = instruction tuning, ICL = in-context learning, Revise = intervention-guided second pass.}
+\label{tab:diy-configs}
+\end{table}
 
 \section{Experimental Results}
 \label{sec:experimental-results}
