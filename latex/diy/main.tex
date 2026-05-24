@@ -110,22 +110,9 @@
   after skip=8pt
 }
 
-\newtcolorbox{strategybox}[1][]{
-  enhanced,
-  breakable,
-  colback=diyInsightBg,
-  colframe=diyInsightFrame,
-  boxrule=0.8pt,
-  arc=4pt,
-  left=8pt, right=8pt, top=6pt, bottom=6pt,
-  fontupper=\small,
-  before skip=8pt, after skip=8pt,
-  title=#1,
-  fonttitle=\bfseries,
-  coltitle=black,
-  attach boxed title to top left={xshift=8pt, yshift=-3pt},
-  boxed title style={colback=diyInsightBg, colframe=diyInsightFrame, boxrule=0.6pt, arc=2pt}
-}
+\newenvironment{strategybox}[1]
+  {\begin{tcolorbox}[breakable, colback=diyInsightBg, colframe=diyInsightFrame, title=#1]}
+  {\end{tcolorbox}}
 
 \newtcolorbox{resultbox}{
   enhanced,
