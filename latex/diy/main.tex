@@ -288,10 +288,13 @@ We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \
 \subsection{Bias Mitigation}
 \label{sec:rq1}
 
+Because the five bias benchmarks differ in their native scoring conventions, we report two normalized quantities that are commensurable across them. The first is the per-benchmark bias score introduced in Section~\ref{sec:setup}. The second is the \emph{average rank} of each method, computed by ranking all methods on each benchmark by bias score (rank $1$ = lowest) and averaging across benchmarks: $\mathrm{avg\,rank}(m) = \tfrac{1}{|\mathcal{B}|} \sum_{b \in \mathcal{B}} \mathrm{rank}_b(m)$, where $\mathcal{B}$ is the set of bias benchmarks. Both quantities are lower-is-better.
+
 \paragraph{Cross-benchmark performance.}
+Figure~\ref{fig:baseline-rank} reports the average rank of each method across the five bias benchmarks for \llama{}-3.1-8B-Instruct, \qwen{}-2.5-32B-Instruct, and \llama{}-3.1-70B-Instruct. \diylabel{} configurations occupy the top two ranks on every model: \diytrainreviselabel{} and \diyreviselabel{} on \llama{}-3.1-8B, and \diyreviselabel{} and \diytrainreviselabel{} on both \qwen{}-2.5-32B and \llama{}-3.1-70B. The strongest non-\diylabel{} baselines (DebiasLLMs, PEFT, BiasEdit, SelfDebias, depending on the model) trail the leading \diylabel{} configuration by an average rank of $1.5$ to $2.3$ on the smaller models, and by $1.0$ on \llama{}-3.1-70B. The lead is consistent across model families and scales: at every tested model, the lowest average rank is achieved by a \diylabel{} configuration, and intervention-guided revision (\diyreviselabel{}, \diytrainreviselabel{}) is in the top two on every model.
 
 \begin{insightbox}
-\notebookpencil~\textbf{Takeaway.} \diytrainreviselabel{} and \diyreviselabel{} achieve the lowest average rank across all three model families, outperforming the strongest baseline by a margin of $2$+ ranks on \llama{}-3.1-8B and \qwen{}-2.5-32B.
+\notebookpencil~\textbf{Takeaway.} \diylabel{} configurations achieve the best (lowest) average rank across all three model families, with intervention-guided revision (\diyreviselabel{}, \diytrainreviselabel{}) leading on every model.
 \end{insightbox}
 
 \paragraph{Method Comparison.}
