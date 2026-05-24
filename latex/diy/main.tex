@@ -105,7 +105,6 @@
   right=8pt,
   top=6pt,
   bottom=6pt,
-  fontupper=\small,
   before skip=8pt,
   after skip=8pt,
   interior code app={
@@ -294,7 +293,7 @@ Because the five bias benchmarks differ in their native scoring conventions, we 
 On every tested model, the lowest average rank across the five bias benchmarks is achieved by a \diylabel{} configuration (Figure~\ref{fig:baseline-rank}). \diytrainreviselabel{} ($3.83$) leads on \llama{}-3.1-8B, and \diyreviselabel{} leads on both \qwen{}-2.5-32B ($3.50$) and \llama{}-3.1-70B ($4.83$). The lead is consistent across model families and scales: intervention-guided revision (\diyreviselabel{}, \diytrainreviselabel{}) occupies both top-two slots on every model. The strongest non-\diylabel{} baselines (DebiasLLMs, PEFT, BiasEdit, SelfDebias) trail the leading \diylabel{} configuration by an average rank of $1.5$ to $2.3$ on the smaller models, narrowing to $1.0$ on \llama{}-3.1-70B.
 
 \begin{insightbox}
-\notebookpencil~\textbf{Takeaway 1.} On every tested model, the best average rank across bias benchmarks is achieved by a \diylabel{} configuration, with intervention-guided revision in the top two on every model.
+\smash{\notebookpencil}~\textbf{Takeaway 1.} On every tested model, the best average rank across bias benchmarks is achieved by a \diylabel{} configuration, with intervention-guided revision in the top two on every model.
 \end{insightbox}
 
 \begin{figure*}[t]
@@ -308,7 +307,7 @@ On every tested model, the lowest average rank across the five bias benchmarks i
 Among the five \diylabel{} configurations, intervention-guided revision is the dominant lever, and combining it with instruction tuning gives the strongest overall configuration (Figure~\ref{fig:debiasing-shot-llama8b}; \llama{}-3.1-70B and \qwen{}-2.5-32B in Appendix Figures~\ref{fig:app-debiasing-shot-llama70b}--\ref{fig:app-debiasing-shot-qwen}). \diyreviselabel{} reduces bias substantially across all three models, with \llama{}-3.1-8B CrowS-Pairs dropping from $15.2$ at \baselabel{} to $2.45$, and composing it with \diytrainlabel{} as \diytrainreviselabel{} sharpens this further (CrowS-Pairs: $0.860$). \diytrainlabel{} on its own offers limited improvement, suggesting parameter-level supervision is most useful when paired with an inference-time procedure rather than as a standalone fix. \diyshowlabel{} behaves differently: $0$-shot demonstrations are competitive with the leading configurations, while adding more demonstrations does not consistently help. Shot effects are technique-dependent more broadly: revision benefits modestly from additional demonstrations, while training-based configurations are largely insensitive to shot count. The picture across configurations is consistent with the central claim: an effective \diylabel{} setup combines an intervention-guided procedure at inference with parameter-level supervision that supports it.
 
 \begin{insightbox}
-\notebookpencil~\textbf{Takeaway 2.} Intervention-guided revision is the strongest single technique, and pairing it with instruction tuning yields the most reliable configuration. Instruction tuning alone offers limited improvement; in-context demonstrations are most effective at zero-shot.
+\smash{\notebookpencil}~\textbf{Takeaway 2.} Intervention-guided revision is the strongest single technique, and pairing it with instruction tuning yields the most reliable configuration. Instruction tuning alone offers limited improvement; in-context demonstrations are most effective at zero-shot.
 \end{insightbox}
 
 \paragraph{Intervention Effectiveness.}
@@ -322,7 +321,7 @@ Among the five \diylabel{} configurations, intervention-guided revision is the d
 A central concern for any debiasing method is that bias reductions should not come at the cost of general task competence. \diylabel{} configurations sit on the favorable corner of the bias--reasoning frontier across all three models, achieving low mean bias without the reasoning collapse seen in several baselines (Figure~\ref{fig:bias-reasoning-pareto}). On \llama{}-3.1-8B, \diyreviselabel{} and \diytrainreviselabel{} reach the lowest mean bias of any method while preserving reasoning accuracy near $70\%$, in contrast to DebiasLLMs, which reaches a similar bias level only by dropping reasoning below $50\%$. The same pattern holds on \qwen{}-2.5-32B, where \diytrainreviselabel{} achieves both the highest reasoning accuracy ($\sim 93\%$) and a mean bias comparable to the strongest debiasing baselines, while BiasEdit and DebiasLLMs reach low bias only at substantially lower reasoning. On \llama{}-3.1-70B, \diyreviselabel{} and \diytrainreviselabel{} again sit in the top-left region, while baselines that match their bias level (DebiasLLMs, BiasEdit) collapse to reasoning accuracy below $40\%$. The gap is structural: methods that suppress bias by inducing vague or refusal-style outputs lose the ability to answer task questions correctly, whereas \diylabel{} preserves it because the supervision target is intervention-guided behavior on bias-sensitive input rather than output suppression.
 
 \begin{insightbox}
-\notebookpencil~\textbf{Takeaway 3.} \diylabel{} sits on the favorable corner of the bias--reasoning frontier on every tested model: it matches the lowest-bias baselines without their reasoning collapse, supporting the claim that reducing bias as a behavior is compatible with preserving general task competence.
+\smash{\notebookpencil}~\textbf{Takeaway 3.} \diylabel{} sits on the favorable corner of the bias--reasoning frontier on every tested model: it matches the lowest-bias baselines without their reasoning collapse, supporting the claim that reducing bias as a behavior is compatible with preserving general task competence.
 \end{insightbox}
 
 \paragraph{Reasoning across \diylabel{} methods and shots.}
