@@ -3,7 +3,7 @@
 
 Methods are ranked independently within each bias panel, then averaged across
 panels. DIY configurations use the paper terminology:
-Show = ICL demonstrations, Teach = instruction-tuned supervision, and
+Show = ICL demonstrations, Train = instruction-tuned supervision, and
 Revise = second-pass intervention-guided revision.
 """
 
@@ -46,10 +46,10 @@ GROUP_LABELS = {
     "base": "Base",
     "baseline": "Baselines",
     "diy_show": "DIY-Show",
-    "diy_teach": "DIY-Teach",
-    "diy_teach_show": "DIY-Teach-Show",
+    "diy_teach": "DIY-Train",
+    "diy_teach_show": "DIY-Train-Show",
     "diy_revise": "DIY-Revise",
-    "diy_teach_revise": "DIY-Teach-Revise",
+    "diy_teach_revise": "DIY-Train-Revise",
     "pending": "Pending",
 }
 
@@ -66,10 +66,10 @@ GROUP_HATCHES = {
 
 EXPECTED_METHODS = [
     ("diy_show", "DIY-Show", "diy_show"),
-    ("diy_teach", "DIY-Teach", "diy_teach"),
-    ("diy_teach_show", "DIY-Teach-Show", "diy_teach_show"),
+    ("diy_teach", "DIY-Train", "diy_teach"),
+    ("diy_teach_show", "DIY-Train-Show", "diy_teach_show"),
     ("diy_revise", "DIY-Revise", "diy_revise"),
-    ("diy_teach_revise", "DIY-Teach-Revise", "diy_teach_revise"),
+    ("diy_teach_revise", "DIY-Train-Revise", "diy_teach_revise"),
     ("bba", "BBA", "baseline"),
     ("cal", "CAL", "baseline"),
     ("fairsteer", "FairSteer", "baseline"),
@@ -383,7 +383,7 @@ def llama8b_m4_path(setting: str, shot: int, panel_key: str) -> Path:
 
 def llama8b_extra_show_rows() -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
-    for setting, label in [("diy_show", "DIY-Show"), ("diy_teach_show", "DIY-Teach-Show")]:
+    for setting, label in [("diy_show", "DIY-Show"), ("diy_teach_show", "DIY-Train-Show")]:
         for shot in [1] if setting == "diy_show" else [0, 1]:
             for panel_key, panel_label, metric, ideal in PANEL_SPECS:
                 path = llama8b_m4_path(setting, shot, panel_key)
@@ -640,15 +640,15 @@ def plot_combined_average_rank() -> None:
     xmax = max(finite) if finite else 1.0
     placeholder_value = xmax + 0.75
 
-    # Faded baseline + bright pastel DIY families. Patterns mark our methods.
+    # Muted palette — all distinct hues, subdued and printable.
     PALETTE = {
         "base":             "#C9CDD3",
         "baseline":         "#DCE7F0",   # pale sky
-        "diy_show":         "#A6E3C0",
-        "diy_teach":        "#FFE49A",
-        "diy_teach_show":   "#FFC09A",
-        "diy_revise":       "#F4B8D0",
-        "diy_teach_revise": "#F4A39E",
+        "diy_show":         "#B8A9D4",   # muted lavender
+        "diy_teach":        "#D4A76A",   # muted tan/amber
+        "diy_teach_show":   "#7fb5a8",   # muted teal
+        "diy_revise":       "#2f6f9f",   # navy
+        "diy_teach_revise": "#d86565",   # muted rose
         "pending":          "#ECEEF2",
     }
     DIY_HATCH = {
@@ -659,14 +659,14 @@ def plot_combined_average_rank() -> None:
         "diy_teach_revise": "++",
     }
 
-    PANEL_BG = "#E6F3EB"
-    ZEBRA_BG = "#F2FAF5"
+    PANEL_BG = "#f5f2e8"
+    ZEBRA_BG = "#f5f2e8"
     SPINE_COLOR = "#000000"
     AXIS_TEXT = "#000000"
     VALUE_TEXT = "#000000"
 
     n_rows = len(universe)
-    fig_h = max(6.4, 0.42 * n_rows + 1.95)
+    fig_h = max(6.2, 0.28 * n_rows + 2.4)
     fig, axes = plt.subplots(1, 3, figsize=(25.0, fig_h), sharex=True, sharey=False)
     fig.patch.set_facecolor("white")
 
@@ -693,10 +693,7 @@ def plot_combined_average_rank() -> None:
             for row in rows_sorted
         ]
 
-        # Zebra stripes for legibility.
-        for yi in y:
-            if yi % 2 == 0:
-                ax.axhspan(yi - 0.5, yi + 0.5, color=ZEBRA_BG, zorder=0)
+        # No zebra stripes — flat background like colm_style.
 
         for yi, value, row in zip(y, values, rows_sorted):
             grp = str(row["group"])
@@ -714,13 +711,13 @@ def plot_combined_average_rank() -> None:
 
         ax.set_yticks(y, y_labels_panel)
         ax.invert_yaxis()
-        ax.set_ylim(len(rows_sorted) - 0.40, -1.10)
+        ax.set_ylim(len(rows_sorted) - 0.40, -0.60)
         ax.set_title("")
         ax.text(
-            0.5, 1.06, model_label,
+            0.5, 1.02, model_label,
             transform=ax.transAxes,
             ha="center", va="bottom",
-            fontsize=18.5, fontweight="normal", color="#000000",
+            fontsize=20.5, fontweight="normal", color="#000000",
             bbox=dict(
                 boxstyle="round,pad=0.30",
                 facecolor=PANEL_BG,
@@ -732,22 +729,37 @@ def plot_combined_average_rank() -> None:
             clip_on=False,
         )
 
-        for s in ("top", "right", "left", "bottom"):
+        for s in ("top", "right"):
+            ax.spines[s].set_visible(False)
+        for s in ("left", "bottom"):
             ax.spines[s].set_visible(True)
-            ax.spines[s].set_color(SPINE_COLOR)
-            ax.spines[s].set_linewidth(2.1)
-        ax.grid(False)
-        ax.tick_params(axis="x", colors=AXIS_TEXT, labelsize=17, length=2.6, width=1.0)
-        ax.tick_params(axis="y", colors=AXIS_TEXT, labelsize=17.5, length=0, pad=4)
+            ax.spines[s].set_color("#b3bac1")
+            ax.spines[s].set_linewidth(0.8)
+        ax.set_axisbelow(True)
+        ax.grid(axis="both", linestyle="-", linewidth=1.2, color="#d7d9d4", alpha=0.82)
+        ax.tick_params(axis="x", colors=AXIS_TEXT, labelsize=19, length=2.6, width=1.0)
+        ax.tick_params(axis="y", colors=AXIS_TEXT, labelsize=19.5, length=0, pad=4)
 
-        for ytick in ax.get_yticklabels():
-            ytick.set_fontweight("normal")
-            ytick.set_color("#000000")
+        for ytick, key in zip(ax.get_yticklabels(), keys_sorted):
+            grp = str(KEY_TO_META[key]["group"])
+            if grp.startswith("diy"):
+                bar_color = PALETTE.get(grp, "#ECEEF2")
+                ytick.set_fontweight("bold")
+                ytick.set_color("#000000")
+                ytick.set_bbox(dict(
+                    boxstyle="round,pad=0.15,rounding_size=0.3",
+                    facecolor=bar_color,
+                    edgecolor=bar_color,
+                    alpha=0.30,
+                ))
+            else:
+                ytick.set_fontweight("normal")
+                ytick.set_color("#000000")
         for xtick in ax.get_xticklabels():
             xtick.set_fontweight("normal")
             xtick.set_color("#000000")
 
-        ax.xaxis.set_major_locator(MultipleLocator(2))
+        ax.xaxis.set_major_locator(MultipleLocator(1))
         ax.set_xlim(0, placeholder_value + 1.30)
 
         for yi, value, row in zip(y, values, rows_sorted):
@@ -760,7 +772,7 @@ def plot_combined_average_rank() -> None:
                 text_x = value + 0.18
                 color = VALUE_TEXT
             ax.text(text_x, yi, text, va="center", ha="left",
-                    fontsize=16.5, color=color, fontweight="normal")
+                    fontsize=18.5, color=color, fontweight="normal")
 
     # Legend below.
     diy_groups_ordered = [
@@ -778,13 +790,13 @@ def plot_combined_average_rank() -> None:
     leg = fig.legend(
         handles=legend_handles,
         loc="lower center",
-        bbox_to_anchor=(0.5, -0.015),
+        bbox_to_anchor=(0.5, -0.12),
         ncol=len(legend_handles),
         frameon=True,
         fancybox=True,
         framealpha=1.0,
         edgecolor="#000000",
-        fontsize=17.5,
+        fontsize=19.5,
         handlelength=1.9,
         handleheight=1.2,
         handletextpad=0.55,
@@ -796,14 +808,14 @@ def plot_combined_average_rank() -> None:
         text.set_fontweight("normal")
     leg.get_frame().set_linewidth(2.1)
     leg.get_frame().set_edgecolor("#000000")
+    leg.get_frame().set_facecolor(PANEL_BG)
 
-    fig.subplots_adjust(left=0.085, right=0.985, bottom=0.115, top=0.890, wspace=0.45)
+    fig.subplots_adjust(left=0.085, right=0.985, bottom=0.08, top=0.95, wspace=0.45)
     outdir = FIGURES / "combined"
     (outdir / "pdf").mkdir(parents=True, exist_ok=True)
     (outdir / "csv").mkdir(parents=True, exist_ok=True)
     fig.savefig(outdir / "pdf/baseline_comparison_average_rank_combined.pdf",
-                bbox_inches="tight", pad_inches=0.10, dpi=600,
-                facecolor="white")
+                bbox_inches="tight", pad_inches=0.3, dpi=600, facecolor="white")
     plt.close(fig)
 
 
@@ -816,16 +828,16 @@ def plot_combined_average_rank_colm_style() -> None:
     """
     import seaborn as sns
 
-    # Exact set_style() from generate_artifacts.py lines 45-56.
+    # Theme from generate_artifacts.py set_style(), adapted with Cantarell.
     sns.set_theme(style="whitegrid")
-    sns.set_context("paper", rc={"font.size": 12, "axes.titlesize": 12, "axes.labelsize": 12})
-    plt.rcParams["font.family"] = "serif"
-    plt.rcParams["font.serif"] = ["Times New Roman", "Times", "Nimbus Roman No9 L", "DejaVu Serif"]
-    plt.rcParams["axes.labelsize"] = 12
-    plt.rcParams["axes.titlesize"] = 12
-    plt.rcParams["xtick.labelsize"] = 10
-    plt.rcParams["ytick.labelsize"] = 10
-    plt.rcParams["legend.fontsize"] = 10
+    sns.set_context("paper", rc={"font.size": 17, "axes.titlesize": 18, "axes.labelsize": 17})
+    plt.rcParams["font.family"] = "sans-serif"
+    plt.rcParams["font.sans-serif"] = ["Cantarell", "Nimbus Sans", "Liberation Sans", "DejaVu Sans"]
+    plt.rcParams["axes.labelsize"] = 17
+    plt.rcParams["axes.titlesize"] = 18
+    plt.rcParams["xtick.labelsize"] = 16
+    plt.rcParams["ytick.labelsize"] = 16
+    plt.rcParams["legend.fontsize"] = 16
     plt.rcParams["hatch.linewidth"] = 0.8
 
     model_rows: list[tuple[str, str, list[dict[str, str]]]] = []
@@ -861,28 +873,30 @@ def plot_combined_average_rank_colm_style() -> None:
     _INK = "#253142"
     _SPINE_COLOR = "#b3bac1"
 
-    # BLI LANG_COLORS-inspired vivid palette for DIY families + hatches.
+    # Muted academic palette — subdued, printable, no rainbow.
+    # Baselines in slate/grey, DIY in soft blue/teal + restrained orange/red.
     PALETTE = {
         "base":             "#cdcdcd",
-        "baseline":         "#cdcdcd",
-        "diy_show":         "#00897B",   # teal (BUL)
-        "diy_teach":        "#E67E22",   # orange (ZH)
-        "diy_teach_show":   "#8E24AA",   # violet (FAS)
-        "diy_revise":       "#00ACC1",   # cyan (FR)
-        "diy_teach_revise": "#E53935",   # red (IND)
-        "pending":          "#E5E7EB",
+        "baseline":         "#cdcdcd",       # muted slate
+        "diy_show":         "#9fc4e6",       # soft blue
+        "diy_teach":        "#e6954a",       # restrained orange
+        "diy_teach_show":   "#7fb5a8",       # muted teal
+        "diy_revise":       "#2f6f9f",       # navy (primary)
+        "diy_teach_revise": "#d86565",       # muted rose (highlighted contrast)
+        "pending":          "#e8e8e6",
     }
     BLI_HATCH = {
-        "diy_show":         "oo",
-        "diy_teach":        "///",
+        "diy_show":         "//",
+        "diy_teach":        "\\\\",
         "diy_teach_show":   "xx",
-        "diy_revise":       "\\\\\\",
+        "diy_revise":       "..",
         "diy_teach_revise": "++",
     }
 
     n_rows = len(universe)
-    fig_h = max(6.8, 0.44 * n_rows + 2.0)
+    fig_h = max(6.4, 0.42 * n_rows + 1.95)
     fig, axes = plt.subplots(1, 3, figsize=(25.0, fig_h))
+    fig.patch.set_facecolor("white")
 
     diy_groups_present: list[str] = []
 
@@ -923,7 +937,7 @@ def plot_combined_average_rank_colm_style() -> None:
             color = PALETTE["pending"] if row["status"] == "pending" else PALETTE.get(grp, PALETTE["baseline"])
             hatch = BLI_HATCH.get(grp, "")
             ax.barh(
-                yi, value, height=0.62,
+                yi, value, height=0.78,
                 color=color,
                 edgecolor="#222222",
                 linewidth=0.85,
@@ -937,23 +951,23 @@ def plot_combined_average_rank_colm_style() -> None:
         ax.set_yticks(y, y_labels_panel)
         ax.invert_yaxis()
         ax.set_ylim(len(rows_sorted) - 0.40, -0.95)
-        ax.set_title(model_label, fontsize=12, fontweight="bold", color=_INK, pad=10)
+        ax.set_title(model_label, fontsize=18, fontweight="bold", color=_INK, pad=10)
 
         ax.xaxis.set_major_locator(MultipleLocator(2))
-        ax.set_xlim(0, placeholder_value + 1.30)
-        ax.set_xlabel("Average rank (lower is better)", fontsize=12, color=_INK)
+        ax.set_xlim(0, placeholder_value + 1.10)
 
+        # Direct value labels.
         for yi, value, row in zip(y, values, rows_sorted):
             if row["status"] == "pending":
-                text = "pending"
+                text = "—"
                 text_x = placeholder_value + 0.10
-                color = "#6B7280"
+                color = "#687386"
             else:
                 text = f"{safe_float(row['average_rank']):.2f}"
-                text_x = value + 0.15
+                text_x = value + 0.18
                 color = _INK
             ax.text(text_x, yi, text, va="center", ha="left",
-                    fontsize=9, color=color, fontweight="normal")
+                    fontsize=15, color=color, fontweight="normal")
 
     diy_groups_ordered = [
         g for g in ("diy_show", "diy_teach", "diy_teach_show", "diy_revise", "diy_teach_revise")
@@ -967,28 +981,29 @@ def plot_combined_average_rank_colm_style() -> None:
     legend_handles.append(
         Patch(facecolor=PALETTE["baseline"], edgecolor="#222222", linewidth=0.85, label="Baselines")
     )
-    fig.legend(
+    leg = fig.legend(
         handles=legend_handles,
         loc="lower center",
-        bbox_to_anchor=(0.5, -0.01),
+        bbox_to_anchor=(0.5, -0.015),
         ncol=len(legend_handles),
         frameon=True,
         fancybox=False,
         framealpha=0.96,
         edgecolor="#8a8a8a",
-        fontsize=10,
+        fontsize=16,
         handlelength=1.8,
-        handleheight=1.0,
-        handletextpad=0.45,
+        handleheight=1.1,
+        handletextpad=0.5,
         columnspacing=1.2,
-        borderpad=0.45,
+        borderpad=0.5,
     )
 
-    fig.subplots_adjust(left=0.085, right=0.985, bottom=0.110, top=0.930, wspace=0.45)
+    fig.subplots_adjust(left=0.085, right=0.985, bottom=0.115, top=0.930, wspace=0.45)
     outdir = FIGURES / "combined"
     (outdir / "pdf").mkdir(parents=True, exist_ok=True)
     fig.savefig(outdir / "pdf/baseline_comparison_average_rank_combined_colm_style.pdf",
-                bbox_inches="tight", pad_inches=0.04, dpi=450)
+                bbox_inches="tight", pad_inches=0.10, dpi=600,
+                facecolor="white")
     plt.close(fig)
 
 

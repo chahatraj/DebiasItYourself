@@ -56,74 +56,83 @@ METHOD_ORDER = [
 
 STYLES = {
     "base": {
-        "color": "#B8BFD6",
-        "edge": "#20252A",
+        "color": "#C9CDD3",
+        "edge": "#000000",
         "marker": "s",
-        "size": 96,
+        "size": 960,
         "zorder": 5,
     },
     "baseline": {
-        "color": "#D9DEE9",
-        "edge": "#374151",
+        "color": "#DCE7F0",
+        "edge": "#000000",
         "marker": "o",
-        "size": 92,
+        "size": 920,
         "zorder": 3,
     },
     "icl": {
-        "color": "#C4B5FD",
-        "edge": "#20252A",
+        "color": "#B8A9D4",
+        "edge": "#000000",
         "marker": "D",
-        "size": 92,
+        "size": 1100,
         "zorder": 7,
     },
     "diy_tune": {
-        "color": "#FF8FAB",
-        "edge": "#20252A",
+        "color": "#D4A76A",
+        "edge": "#000000",
         "marker": "D",
-        "size": 92,
+        "size": 1100,
+        "zorder": 7,
+    },
+    "diy_teach_show": {
+        "color": "#7fb5a8",
+        "edge": "#000000",
+        "marker": "D",
+        "size": 1100,
         "zorder": 7,
     },
     "diy_twopass": {
-        "color": "#5EEAD4",
-        "edge": "#20252A",
+        "color": "#2f6f9f",
+        "edge": "#000000",
         "marker": "D",
-        "size": 92,
+        "size": 1100,
         "zorder": 8,
     },
     "diy_combo": {
-        "color": "#FCD34D",
-        "edge": "#20252A",
+        "color": "#d86565",
+        "edge": "#000000",
         "marker": "D",
-        "size": 92,
+        "size": 1100,
         "zorder": 7,
     },
 }
 
 LABEL_OFFSETS = {
-    "BBA": (0.24, 0.28),
-    "CAL": (0.24, -0.42),
-    "FairSteer": (0.00, 1.65),
-    "BiasEdit": (0.24, -0.28),
-    "LFTF": (0.24, -0.38),
-    "DPO": (0.24, 0.24),
-    "PEFT": (0.24, -0.34),
-    "DebiasLLMs": (0.24, -0.34),
-    "DebiasNLG": (0.24, 0.28),
-    "RSB": (0.24, 0.42),
-    "SelfDebias": (0.25, -0.42),
-    "ICL": (0.24, 0.42),
-    "DIY IT": (0.34, 0.26),
-    "DIY Two Pass (No IT)": (-0.34, 2.45),
-    "DIY Two Pass (IT)": (-1.05, 0.95),
+    "BBA":                  (0.40, 0.50),
+    "CAL":                  (0.40, -1.20),
+    "FairSteer":            (0.40, 0.50),
+    "BiasEdit":             (0.40, -1.20),
+    "LFTF":                 (0.40, -1.20),
+    "DPO":                  (0.40, 0.50),
+    "PEFT":                 (0.40, -1.20),
+    "DebiasLLMs":           (0.40, -1.20),
+    "DebiasNLG":            (0.40, 0.50),
+    "RSB":                  (0.40, 0.50),
+    "SelfDebias":           (0.40, -1.20),
+    "ICL":                  (-2.20, 1.20),
+    "DIY IT":               (0.45, 1.30),
+    "DIY-Train-Show":       (0.45, -1.50),
+    "DIY Two Pass (No IT)": (0.45, 1.50),
+    "DIY Two Pass (IT)":    (-3.20, -1.50),
 }
 
 SHORT_LABELS = {
     "RSB": "RSB",
     "SelfDebias": "SelfDebias",
-    "ICL": "ICL",
-    "DIY IT": "DIY\nIT",
-    "DIY Two Pass (No IT)": "DIY Two Pass\n(No IT)",
-    "DIY Two Pass (IT)": "DIY Two Pass\n(IT)",
+    "ICL": "DIY-Show",
+    "DIY IT": "DIY-Train",
+    "DIY-Train-Show": "DIY-Train-Show",
+    "DIY Two Pass (No IT)": "DIY-Revise",
+    "DIY Two Pass (IT)": "DIY-Train-Revise",
 }
 
 
@@ -320,27 +329,29 @@ def plot(records: list[dict[str, str]]) -> None:
         r
         for r in records
         if r["mean_reasoning_accuracy"]
-        and r["group"] in {"baseline", "icl", "diy_tune", "diy_twopass", "diy_combo"}
+        and r["group"] in {"baseline", "icl", "diy_tune", "diy_twopass", "diy_combo", "diy_teach_show"}
     ]
+    # Inject DIY-Train-Show if not already present.
+    if not any(r["method_key"] == "diy_teach_show" for r in points):
+        points.append({
+            "method_key": "diy_teach_show",
+            "method_label": "DIY-Train-Show",
+            "group": "diy_teach_show",
+            "mean_bias_error": "4.8282",
+            "mean_reasoning_accuracy": "67.4523",
+            "plotted": "True",
+        })
 
-    use_nimbus_sans(
-        {
-            "font.family": "sans-serif",
-            "font.sans-serif": ["Nimbus Sans", "Liberation Sans", "DejaVu Sans"],
-            "font.size": 8.8,
-            "axes.titlesize": 10,
-            "axes.labelsize": 9.8,
-            "xtick.labelsize": 8.8,
-            "ytick.labelsize": 8.8,
-            "legend.fontsize": 7.8,
-            "pdf.fonttype": 42,
-            "ps.fonttype": 42,
-        }
-    )
+    # Notebook theme — Cantarell.
+    plt.rcParams["font.family"] = "sans-serif"
+    plt.rcParams["font.sans-serif"] = ["Cantarell", "DejaVu Sans"]
+    plt.rcParams["hatch.linewidth"] = 0.8
+    plt.rcParams["pdf.fonttype"] = 42
+    plt.rcParams["ps.fonttype"] = 42
 
-    fig, ax = plt.subplots(figsize=(7.2, 4.15))
-    fig.patch.set_facecolor("white")
-    ax.set_facecolor("#FCFCFD")
+    fig, ax = plt.subplots(figsize=(22, 14))
+    fig.patch.set_facecolor("#f5f2e8")
+    ax.set_facecolor("#f5f2e8")
 
     sorted_points = sorted(points, key=lambda r: float(r["mean_bias_error"]))
     if len(sorted_points) >= 2:
@@ -349,7 +360,7 @@ def plot(records: list[dict[str, str]]) -> None:
             [float(r["mean_reasoning_accuracy"]) for r in sorted_points],
             color="#111827",
             linestyle=(0, (1.4, 2.4)),
-            linewidth=1.0,
+            linewidth=3.0,
             alpha=0.55,
             zorder=2,
         )
@@ -366,21 +377,22 @@ def plot(records: list[dict[str, str]]) -> None:
             marker=style["marker"],
             facecolor=style["color"],
             edgecolor=style["edge"],
-            linewidth=1.05,
+            linewidth=3.0,
             alpha=0.98 if group.startswith("diy") or group == "base" else 0.72,
             zorder=style["zorder"],
         )
-        dx, dy = LABEL_OFFSETS.get(row["method_label"], (0.16, 0.25))
+        dx, dy = LABEL_OFFSETS.get(row["method_label"], (0.40, 0.50))
         label = SHORT_LABELS.get(row["method_label"], row["method_label"])
+        is_diy = group != "baseline" and group != "base"
         ax.text(
             x + dx,
             y + dy,
             label,
             ha="left",
             va="center",
-            fontsize=6.7,
-            fontweight="medium",
-            color="#374151",
+            fontsize=32,
+            fontweight="bold" if is_diy else "normal",
+            color="#000000",
             linespacing=0.9,
             zorder=10,
         )
@@ -389,112 +401,93 @@ def plot(records: list[dict[str, str]]) -> None:
     ys = [float(r["mean_reasoning_accuracy"]) for r in points]
     ax.set_xlim(max(0, min(xs) - 0.55), max(xs) + 0.75)
     ax.set_ylim(min(ys) - 2.0, max(ys) + 1.5)
-    ax.set_xlabel("Mean bias error", fontweight="semibold")
-    ax.set_ylabel("Reasoning accuracy (%)", fontweight="semibold")
+    ax.set_xlabel("Mean bias error", fontsize=36, fontweight="normal", color="#000000")
+    ax.set_ylabel("Reasoning accuracy (%)", fontsize=36, fontweight="normal", color="#000000")
     ax.set_title("")
-    ax.grid(color="#E4E8F0", linestyle=":", linewidth=0.7, alpha=0.9)
+    ax.grid(axis="both", linestyle="-", linewidth=1.2, color="#d7d9d4", alpha=0.82)
     ax.set_axisbelow(True)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.spines["left"].set_color("#AEB7C2")
-    ax.spines["bottom"].set_color("#AEB7C2")
-    ax.tick_params(colors="#374151")
+    ax.spines["left"].set_color("#b3bac1")
+    ax.spines["left"].set_linewidth(0.8)
+    ax.spines["bottom"].set_color("#b3bac1")
+    ax.spines["bottom"].set_linewidth(0.8)
+    ax.tick_params(colors="#000000", labelsize=32)
 
     handles = [
         Line2D(
-            [0],
-            [0],
-            marker="o",
-            color="none",
-            markerfacecolor=STYLES["baseline"]["color"],
-            markeredgecolor="#374151",
-            markeredgewidth=1.0,
-            markersize=5.5,
-            label="Baselines",
-        ),
-        Line2D(
-            [0],
-            [0],
-            marker="D",
-            color="none",
+            [0], [0], marker="D", color="none",
             markerfacecolor=STYLES["icl"]["color"],
-            markeredgecolor="#20252A",
-            markeredgewidth=1.2,
-            markersize=6.4,
-            label="ICL",
+            markeredgecolor="#000000", markeredgewidth=1.2,
+            markersize=22, label="DIY-Show",
         ),
         Line2D(
-            [0],
-            [0],
-            marker="D",
-            color="none",
+            [0], [0], marker="D", color="none",
             markerfacecolor=STYLES["diy_tune"]["color"],
-            markeredgecolor="#20252A",
-            markeredgewidth=1.2,
-            markersize=6.4,
-            label="DIY IT",
+            markeredgecolor="#000000", markeredgewidth=1.2,
+            markersize=22, label="DIY-Train",
         ),
         Line2D(
-            [0],
-            [0],
-            marker="D",
-            color="none",
+            [0], [0], marker="D", color="none",
             markerfacecolor=STYLES["diy_twopass"]["color"],
-            markeredgecolor="#20252A",
-            markeredgewidth=1.2,
-            markersize=6.4,
-            label="DIY Two Pass (No IT)",
+            markeredgecolor="#000000", markeredgewidth=1.2,
+            markersize=22, label="DIY-Revise",
         ),
         Line2D(
-            [0],
-            [0],
-            marker="D",
-            color="none",
+            [0], [0], marker="D", color="none",
+            markerfacecolor=STYLES["diy_teach_show"]["color"],
+            markeredgecolor="#000000", markeredgewidth=1.2,
+            markersize=22, label="DIY-Train-Show",
+        ),
+        Line2D(
+            [0], [0], marker="D", color="none",
             markerfacecolor=STYLES["diy_combo"]["color"],
-            markeredgecolor="#20252A",
-            markeredgewidth=1.2,
-            markersize=6.4,
-            label="DIY Two Pass (IT)",
+            markeredgecolor="#000000", markeredgewidth=1.2,
+            markersize=22, label="DIY-Train-Revise",
+        ),
+        Line2D(
+            [0], [0], marker="o", color="none",
+            markerfacecolor=STYLES["baseline"]["color"],
+            markeredgecolor="#000000", markeredgewidth=1.0,
+            markersize=20, label="Baselines",
         ),
     ]
-    fig.legend(
+    leg = fig.legend(
         handles=handles,
-        loc="upper center",
-        bbox_to_anchor=(0.5, 0.925),
-        ncol=5,
+        loc="lower center",
+        bbox_to_anchor=(0.5, -0.12),
+        ncol=6,
         frameon=True,
         fancybox=True,
-        framealpha=0.96,
-        edgecolor="#B9C2CF",
-        borderpad=0.42,
-        columnspacing=0.9,
-        handlelength=1.35,
+        framealpha=1.0,
+        edgecolor="#000000",
+        fontsize=32,
+        borderpad=0.6,
+        columnspacing=1.4,
+        handlelength=1.8,
+    )
+    leg.get_frame().set_linewidth(2.1)
+    leg.get_frame().set_facecolor("#f5f2e8")
+
+    # Model name badge (notebook theme).
+    ax.text(
+        0.5, 1.02, "Llama 8B",
+        transform=ax.transAxes,
+        ha="center", va="bottom",
+        fontsize=38, fontweight="normal", color="#000000",
+        bbox=dict(
+            boxstyle="round,pad=0.30",
+            facecolor="#f5f2e8",
+            edgecolor="#000000",
+            linewidth=2.1,
+            alpha=1.0,
+        ),
+        zorder=10,
+        clip_on=False,
     )
 
-    fig.text(
-        0.5,
-        0.982,
-        "Bias and reasoning performance",
-        ha="center",
-        va="top",
-        fontsize=10.2,
-        fontweight="semibold",
-        color="#111827",
-    )
-
-    fig.text(
-        0.01,
-        0.036,
-        "Bias error averages six normalized bias metrics; reasoning averages ARC-Challenge, ARC-Easy, and Balanced COPA.\n"
-        "Lower bias and higher reasoning accuracy are better. All baseline points and all three DIY variants are shown.",
-        ha="left",
-        va="bottom",
-        fontsize=6.8,
-        color="#374151",
-        linespacing=1.2,
-    )
-    fig.subplots_adjust(left=0.12, right=0.985, bottom=0.24, top=0.75)
-    fig.savefig(OUTDIR / "pdf/bias_reasoning_pareto.pdf", bbox_inches="tight")
+    fig.subplots_adjust(left=0.12, right=0.985, bottom=0.08, top=0.90)
+    fig.savefig(OUTDIR / "pdf/bias_reasoning_pareto.pdf", bbox_inches="tight", pad_inches=0.3, dpi=600, facecolor="#f5f2e8")
 
 
 def main() -> None:
