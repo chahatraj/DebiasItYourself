@@ -148,10 +148,10 @@ Our work makes the following key contributions:
 
 \paragraph{Position of this work.} \diylabel{} addresses the limitations above. It supervises across benchmarks rather than per-benchmark; targets the procedure by which the model handles bias-sensitive input rather than the output; and grounds supervision in the five operationally specified practices of \citet{devine2012longterm} rather than psychology-inspired vocabulary, while making no claim about model cognition.
 
-\section{Data and Methods}
+\section{Data}
 \label{sec:data-methods}
 
-\subsection{Cognitive Debiasing Strategies}
+\subsection{Intervention Strategies}
 \label{sec:strategies}
 
 Our debiasing approach is grounded in a set of five cognitively motivated intervention strategies derived from established findings in social and cognitive psychology. Each strategy targets a distinct mechanism through which stereotypes and social biases arise in reasoning, and is operationalized as a structured, step-wise reasoning process. Importantly, these strategies are designed to be applied independently or composed, and are agnostic to model architecture, task, or domain. We adopt the five practices from the prejudice habit-breaking framework of \citet{devine2012longterm} because they form an empirically validated intervention with sustained effects on implicit bias, and because they are specified as explicit step-wise procedures, which makes them suitable for direct operationalization as model-facing supervision.
@@ -173,7 +173,7 @@ This practice draws on contact theory, which suggests that meaningful positive i
 
 Together, these five strategies form a modular cognitive intervention toolkit. Each strategy can be deployed independently, enabling fine-grained analysis of their individual effects, or combined to create stronger debiasing interventions. Crucially, all strategies operate at the level of reasoning and interpretation, rather than relying on task-specific labels or outcome supervision.
 
-\subsection{Data}
+\subsection{Data Creation}
 \label{sec:data}
 
 We construct a synthetic debiasing dataset using a self-instruct-style generation pipeline grounded in the five-step cognitive intervention framework. The dataset consists of paired biased inputs and debiased outputs, where each biased input is realized in three textual forms, an \emph{opinion} (a direct biased statement, e.g., \emph{``All [identity] are dishonest''}), a biased \emph{action} (a sentence in which the opinion drives a discriminatory behavior), and a biased \emph{event} (a sentence describing an event that leads to forming the opinion), and each debiased output follows a specific cognitive debiasing strategy. The resulting data is used both for supervised instruction tuning and for inference-time in-context debiasing.
@@ -190,7 +190,7 @@ Biased instances are created by combining identity descriptors and bias concepts
 \paragraph{Debiased Instance Generation.}
 For each biased instance, we generate a corresponding debiased output using a specified cognitive intervention strategy. The model is prompted to apply the selected strategy by explicitly following its step-wise reasoning structure (e.g., recognizing the stereotype, reflecting on its limitations, and revising the interpretation). This results in aligned biased--debiased pairs that can be formatted as instruction--response examples for supervised fine-tuning or as demonstrations for in-context debiasing at inference time.
 
-\subsection{Implementing Interventions: \textsc{Show}, \textsc{Teach}, \textsc{Revise}}
+\section{Methods}
 \label{sec:implementations}
 
 \diylabel{} delivers the cognitive strategies of Section~\ref{sec:strategies} to a language model through three composable techniques: \showlabel{}, \teachlabel{}, and \reviselabel{}.
