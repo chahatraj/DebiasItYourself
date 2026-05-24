@@ -23,7 +23,7 @@
 
 % DIY-specific palette (mirrors edits.tex).
 \definecolor{diyShowBg}{HTML}{BFE1F4}
-\definecolor{diyTeachBg}{HTML}{F4BFD3}
+\definecolor{diyTrainBg}{HTML}{F4BFD3}
 \definecolor{diyReviseBg}{HTML}{BFE7CE}
 \definecolor{diyStrategyBg}{HTML}{E6D8F5}
 \definecolor{diyBaseBg}{HTML}{E8EAEE}
@@ -47,15 +47,15 @@
 }
 
 \newcommand{\showlabel}{\highlightRounded{diyShowBg}{\textsc{Show}}}
-\newcommand{\teachlabel}{\highlightRounded{diyTeachBg}{\textsc{Teach}}}
+\newcommand{\trainlabel}{\highlightRounded{diyTrainBg}{\textsc{Train}}}
 \newcommand{\reviselabel}{\highlightRounded{diyReviseBg}{\textsc{Revise}}}
 % \newcommand{\diylabel}{\highlightRounded{diyResultBg}{\textsc{DIY}}}
 \newcommand{\diylabel}{\textsc{DIY}}
 \newcommand{\diyshowlabel}{\highlightRounded{diyShowBg}{\textsc{DIY-Show}}}
-\newcommand{\diyteachlabel}{\highlightRounded{diyTeachBg}{\textsc{DIY-Teach}}}
+\newcommand{\diytrainlabel}{\highlightRounded{diyTrainBg}{\textsc{DIY-Train}}}
 \newcommand{\diyreviselabel}{\highlightRounded{diyReviseBg}{\textsc{DIY-Revise}}}
-\newcommand{\diyteachshowlabel}{\highlightRounded{diyResultBg}{\textsc{DIY-Teach-Show}}}
-\newcommand{\diyteachreviselabel}{\highlightRounded{diyResultBg}{\textsc{DIY-Teach-Revise}}}
+\newcommand{\diytrainshowlabel}{\highlightRounded{diyResultBg}{\textsc{DIY-Train-Show}}}
+\newcommand{\diytrainreviselabel}{\highlightRounded{diyResultBg}{\textsc{DIY-Train-Revise}}}
 \newcommand{\baselabel}{\highlightRounded{diyBaseBg}{\textsc{Base}}}
 \newcommand{\strategylabel}[1]{\highlightRounded{diyStrategyBg}{\textsc{#1}}}
 \newcommand{\srlabel}{\strategylabel{Stereotype Replacement}}
@@ -106,7 +106,7 @@
 \maketitle
 
 \begin{abstract}
-Social bias in large language models is a well-documented harm, and many mitigations have been proposed, but each typically targets a single dataset, task, or bias dimension, teaching the model to \emph{suppress} a symptom rather than to \emph{reduce} bias as a behavior. LLMs are trained on human text and inherit human bias, yet decades of social-psychology research already show \emph{how} prejudice can be reduced in people through validated cognitive interventions. We bring that literature into model training and inference, teaching models the same bias-reduction strategies so that debiasing becomes a transferable skill rather than a benchmark-specific patch. We introduce \diy{} (DIY), which operationalizes five established prejudice-reducing interventions, \textsc{Stereotype Replacement}, \textsc{Counter-stereotypic Imaging}, \textsc{Individuation}, \textsc{Perspective-taking}, and \textsc{Positive Contact}, through three complementary techniques: \textsc{Show} (in-context demonstrations), \textsc{Teach} (instruction tuning), and \textsc{Revise} (intervention-guided self-revision). Evaluated against a broad set of debiasing baselines on bias and reasoning benchmarks, DIY consistently lowers bias and outperforms prior methods, with gains that generalize across tasks, models, scales, and bias dimensions, showing that grounding mitigation in transferable cognitive behavior beats dataset-specific suppression. Our code and data are available here\footnote{\url{https://github.com/chahatraj/DebiasItYourself}}.
+Social bias in large language models is a well-documented harm, and many mitigations have been proposed, but each typically targets a single dataset, task, or bias dimension, teaching the model to \emph{suppress} a symptom rather than to \emph{reduce} bias as a behavior. LLMs are trained on human text and inherit human bias, yet decades of social-psychology research already show \emph{how} prejudice can be reduced in people through validated cognitive interventions. We bring that literature into model training and inference, teaching models the same bias-reduction strategies so that debiasing becomes a transferable skill rather than a benchmark-specific patch. We introduce \diy{} (DIY), which operationalizes five established prejudice-reducing interventions, \textsc{Stereotype Replacement}, \textsc{Counter-stereotypic Imaging}, \textsc{Individuation}, \textsc{Perspective-taking}, and \textsc{Positive Contact}, through three complementary techniques: \textsc{Show} (in-context demonstrations), \textsc{Train} (instruction tuning), and \textsc{Revise} (intervention-guided self-revision). Evaluated against a broad set of debiasing baselines on bias and reasoning benchmarks, DIY consistently lowers bias and outperforms prior methods, with gains that generalize across tasks, models, scales, and bias dimensions, showing that grounding mitigation in transferable cognitive behavior beats dataset-specific suppression. Our code and data are available here\footnote{\url{https://github.com/chahatraj/DebiasItYourself}}.
 \end{abstract}
 
 \section{Introduction}
@@ -118,9 +118,9 @@ Most existing work on bias mitigation in language models falls into a small set 
 
 Three limitations recur across these strategies. \textbf{1.} Supervision is calibrated to a particular dataset, task, or social dimension, and the resulting mitigation does not transfer to others. \textbf{2.} Lower bias scores are often obtained through vague or refusal-style outputs, leaving the model's handling of bias-sensitive input unchanged \citep{schick2021self, ganguli2023capacity}. \textbf{3.} Existing supervision specifies what the model should not produce on a benchmark, but not how bias-sensitive input should be processed when it is encountered.
 
-We propose \diy{} (\diylabel{}), a bias mitigation framework that targets the procedure by which a language model handles bias-sensitive input. \diylabel{} draws on social psychology, where bias reduction has been studied empirically for decades, and is consistently achieved through trained cognitive practices that change how social information is processed when it is encountered. \diylabel{} operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm}, \srlabel{}, \cilabel{}, \indlabel{}, \ptlabel{}, and \pclabel{}, into a single intervention protocol. \diylabel{} derives three composable techniques: \showlabel{}, in-context demonstrations of the interventions; \teachlabel{}, instruction-tuning targets derived from the same protocol; and \reviselabel{}, a guided second pass over the model's first response.
+We propose \diy{} (\diylabel{}), a bias mitigation framework that targets the procedure by which a language model handles bias-sensitive input. \diylabel{} draws on social psychology, where bias reduction has been studied empirically for decades, and is consistently achieved through trained cognitive practices that change how social information is processed when it is encountered. \diylabel{} operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm}, \srlabel{}, \cilabel{}, \indlabel{}, \ptlabel{}, and \pclabel{}, into a single intervention protocol. \diylabel{} derives three composable techniques: \showlabel{}, in-context demonstrations of the interventions; \trainlabel{}, instruction-tuning targets derived from the same protocol; and \reviselabel{}, a guided second pass over the model's first response.
 
-We evaluate \diylabel{} against debiasing baselines on multiple bias benchmarks, on reasoning benchmarks, and across model families and scales. \diylabel{} consistently reduces bias relative to baselines, with the largest reductions when \teachlabel{} is composed with \reviselabel{}. These results provide evidence that teaching a procedure for handling bias-sensitive input, rather than correcting its individual outputs, is a viable direction for bias mitigation.
+We evaluate \diylabel{} against debiasing baselines on multiple bias benchmarks, on reasoning benchmarks, and across model families and scales. \diylabel{} consistently reduces bias relative to baselines, with the largest reductions when \trainlabel{} is composed with \reviselabel{}. These results provide evidence that teaching a procedure for handling bias-sensitive input, rather than correcting its individual outputs, is a viable direction for bias mitigation.
 
 We organize the paper around three research questions:
 \begin{enumerate}[label=\textbf{RQ\arabic*.},leftmargin=2.8em,labelwidth=2.4em,labelsep=0.4em,align=left,itemsep=0pt,parsep=3pt,topsep=3pt,partopsep=0pt]
@@ -132,7 +132,7 @@ We organize the paper around three research questions:
 Our work makes the following key contributions:
 \begin{enumerate}[leftmargin=1.4em,itemsep=0pt,parsep=3pt,topsep=3pt,partopsep=0pt]
     \item \textbf{Task.} A reformulation of bias mitigation in language models, in which the supervision target is the procedure by which the model handles bias-sensitive input rather than the correction of individual biased outputs.
-    \item \textbf{Method.} \diylabel{}, a unified intervention protocol that operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm} and is delivered through three composable techniques, \showlabel{}, \teachlabel{}, and \reviselabel{}.
+    \item \textbf{Method.} \diylabel{}, a unified intervention protocol that operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm} and is delivered through three composable techniques, \showlabel{}, \trainlabel{}, and \reviselabel{}.
     \item \textbf{Key finding.} \diylabel{} yields consistent reductions in bias across multiple bias benchmarks and social dimensions, outperforms a range of debiasing baselines, and preserves reasoning competence, with the effect holding across model families and scales.
     \item \textbf{Data.} A dataset of bias-sensitive instances paired with intervention-labeled debiased targets, spanning multiple social categories and benchmark formats, providing a single supervision signal for all three techniques in \diylabel{}.
 \end{enumerate}
@@ -193,24 +193,24 @@ For each biased instance, we generate a corresponding debiased output using a sp
 \section{Methods}
 \label{sec:implementations}
 
-\diylabel{} delivers the cognitive strategies of Section~\ref{sec:strategies} to a language model through three composable techniques: \showlabel{}, \teachlabel{}, and \reviselabel{}.
+\diylabel{} delivers the cognitive strategies of Section~\ref{sec:strategies} to a language model through three composable techniques: \showlabel{}, \trainlabel{}, and \reviselabel{}.
 
 \paragraph{\showlabel{}.}
 This inference interface places the strategy and a small number of biased--debiased example pairs (worked through the strategy's three steps) in the prompt as in-context demonstrations. The model conditions on the demonstrations and produces a debiased response under the same step structure, without parameter updates. We evaluate it \emph{per strategy}: each of the five cognitive strategies is run as a separate condition, and we additionally report an aggregated \textsc{All-strategies} setting that mixes the five.
 
-\paragraph{\teachlabel{}.}
+\paragraph{\trainlabel{}.}
 This training interface converts the intervention-labeled biased--debiased pairs into instruction-tuning targets and uses them to fine-tune the model with parameter-efficient adaptation. After training, the model can apply the strategy without explicit demonstrations or strategy text in the prompt.
 
 \paragraph{\reviselabel{}.}
-This second-pass interface first lets the model produce an unconstrained response to the input, after which the model is prompted to apply a selected strategy to its own response by following the same three steps. The revised response replaces the first. As with \showlabel{}, this interface is evaluated per strategy and in the \textsc{All-strategies} aggregation. When it is composed with \teachlabel{} (\diyteachreviselabel{}), the revision pass is run both on the fine-tuned model and on the base model, allowing us to disentangle the contribution of training from that of intervention-guided revision. When \showlabel{} is composed with \teachlabel{} (\diyteachshowlabel{}), the in-context demonstrations are drawn from the same strategy that the fine-tune was trained on.
+This second-pass interface first lets the model produce an unconstrained response to the input, after which the model is prompted to apply a selected strategy to its own response by following the same three steps. The revised response replaces the first. As with \showlabel{}, this interface is evaluated per strategy and in the \textsc{All-strategies} aggregation. When it is composed with \trainlabel{} (\diytrainreviselabel{}), the revision pass is run both on the fine-tuned model and on the base model, allowing us to disentangle the contribution of training from that of intervention-guided revision. When \showlabel{} is composed with \trainlabel{} (\diytrainshowlabel{}), the in-context demonstrations are drawn from the same strategy that the fine-tune was trained on.
 
-The three techniques are independent in delivery and compatible in supervision: all three are driven by the same intervention-labeled data of Section~\ref{sec:data}, so any composition of \showlabel{}, \teachlabel{}, and \reviselabel{} continues to operate over the same five strategies.
+The three techniques are independent in delivery and compatible in supervision: all three are driven by the same intervention-labeled data of Section~\ref{sec:data}, so any composition of \showlabel{}, \trainlabel{}, and \reviselabel{} continues to operate over the same five strategies.
 
 \paragraph{Evaluated configurations.}
-We evaluate \diylabel{} across the cells of the $\textsc{Show}\times\textsc{Teach}\times\textsc{Revise}$ space, naming each configuration by the techniques it activates. The single-mechanism configurations are \diyteachlabel{} (instruction tuning alone), \diyshowlabel{} (in-context demonstrations alone), and \diyreviselabel{} (intervention-guided second pass alone); the two-mechanism configurations are \diyteachshowlabel{} (training combined with demonstrations) and \diyteachreviselabel{} (training combined with revision); and the unmodified baseline is denoted \baselabel{}. For every configuration that involves a prompt component, we additionally run a 0-shot and a 1-shot variant, where the shot count is the number of in-context demonstrations of the selected cognitive strategy.
+We evaluate \diylabel{} across the cells of the $\textsc{Show}\times\textsc{Train}\times\textsc{Revise}$ space, naming each configuration by the techniques it activates. The single-mechanism configurations are \diytrainlabel{} (instruction tuning alone), \diyshowlabel{} (in-context demonstrations alone), and \diyreviselabel{} (intervention-guided second pass alone); the two-mechanism configurations are \diytrainshowlabel{} (training combined with demonstrations) and \diytrainreviselabel{} (training combined with revision); and the unmodified baseline is denoted \baselabel{}. For every configuration that involves a prompt component, we additionally run a 0-shot and a 1-shot variant, where the shot count is the number of in-context demonstrations of the selected cognitive strategy.
 
 \paragraph{Training and supervision scale.}
-For \teachlabel{}, we train one fine-tuned checkpoint per (strategy, instance-type) cell of the data, plus an \textsc{All-strategies} checkpoint that combines all five. Each checkpoint is trained on a 500-example subset (sampled with a fixed seed) for parity across cells, using LoRA adaptation on \llama{}-3.1-8B-Instruct (rank $256$, $\alpha=256$, learning rate $2{\times}10^{-4}$, three epochs).
+For \trainlabel{}, we train one fine-tuned checkpoint per (strategy, instance-type) cell of the data, plus an \textsc{All-strategies} checkpoint that combines all five. Each checkpoint is trained on a 500-example subset (sampled with a fixed seed) for parity across cells, using LoRA adaptation on \llama{}-3.1-8B-Instruct (rank $256$, $\alpha=256$, learning rate $2{\times}10^{-4}$, three epochs).
 
 \section{Experimental Results}
 \label{sec:experimental-results}
