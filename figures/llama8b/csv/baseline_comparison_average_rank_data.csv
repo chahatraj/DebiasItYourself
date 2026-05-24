@@ -1,16 +1,17 @@
 method_key,method_label,group,average_rank,median_rank,best_rank,worst_rank,n_panels,n_total_panels,panel_ranks,status
-diy_twopass_it,DIY Two Pass (IT),diy_combo,3.8333333333333335,4.5,2.0,5.0,6,6,BBQ Ambig.=4.00 | BBQ Disambig.=5.00 | CrowS-Pairs=2.00 | StereoSet=5.00 | WinoBias=2.00 | WinoGender=5.00,complete
-diy_twopass_no_it,DIY Two Pass (No IT),diy_twopass,4.666666666666667,4.5,3.0,7.0,6,6,BBQ Ambig.=7.00 | BBQ Disambig.=3.00 | CrowS-Pairs=5.00 | StereoSet=4.00 | WinoBias=3.00 | WinoGender=6.00,complete
-debias_llms,DebiasLLMs,baseline,6.0,4.0,1.0,15.0,6,6,BBQ Ambig.=1.00 | BBQ Disambig.=1.00 | CrowS-Pairs=6.00 | StereoSet=2.00 | WinoBias=15.00 | WinoGender=11.00,complete
-icl,ICL,icl,6.0,7.0,1.0,11.0,6,6,BBQ Ambig.=8.00 | BBQ Disambig.=6.00 | CrowS-Pairs=1.00 | StereoSet=1.00 | WinoBias=11.00 | WinoGender=9.00,complete
-peft,PEFT,baseline,7.25,7.25,2.0,13.0,6,6,BBQ Ambig.=3.00 | BBQ Disambig.=13.00 | CrowS-Pairs=7.00 | StereoSet=7.50 | WinoBias=11.00 | WinoGender=2.00,complete
-debias_nlg,DebiasNLG,baseline,7.5,6.5,1.0,15.0,6,6,BBQ Ambig.=11.00 | BBQ Disambig.=2.00 | CrowS-Pairs=15.00 | StereoSet=15.00 | WinoBias=1.00 | WinoGender=1.00,complete
-selfdebias_reprompting,SelfDebias: Reprompt,baseline,7.5,6.5,3.0,13.0,6,6,BBQ Ambig.=12.00 | BBQ Disambig.=8.00 | CrowS-Pairs=4.00 | StereoSet=3.00 | WinoBias=5.00 | WinoGender=13.00,complete
-biasedit,BiasEdit,baseline,7.75,8.25,3.0,11.0,6,6,BBQ Ambig.=5.00 | BBQ Disambig.=11.00 | CrowS-Pairs=3.00 | StereoSet=7.50 | WinoBias=9.00 | WinoGender=11.00,complete
-cal,CAL,baseline,8.5,8.0,3.0,14.0,6,6,BBQ Ambig.=6.00 | BBQ Disambig.=14.00 | CrowS-Pairs=12.00 | StereoSet=9.00 | WinoBias=7.00 | WinoGender=3.00,complete
-diy_it,DIY IT,diy_tune,8.583333333333334,8.5,4.0,14.5,6,6,BBQ Ambig.=9.00 | BBQ Disambig.=4.00 | CrowS-Pairs=10.00 | StereoSet=6.00 | WinoBias=8.00 | WinoGender=14.50,complete
-reduce_social_bias,Reduce Social Bias,baseline,9.166666666666666,9.5,4.0,13.0,6,6,BBQ Ambig.=10.00 | BBQ Disambig.=9.00 | CrowS-Pairs=13.00 | StereoSet=12.00 | WinoBias=4.00 | WinoGender=7.00,complete
-fairsteer,FairSteer,baseline,10.166666666666666,10.5,6.0,14.0,6,6,BBQ Ambig.=14.00 | BBQ Disambig.=12.00 | CrowS-Pairs=11.00 | StereoSet=10.00 | WinoBias=6.00 | WinoGender=8.00,complete
-dpo,DPO,baseline,10.75,12.5,2.0,15.0,6,6,BBQ Ambig.=2.00 | BBQ Disambig.=15.00 | CrowS-Pairs=8.00 | StereoSet=14.00 | WinoBias=11.00 | WinoGender=14.50,complete
-bba,BBA,baseline,10.833333333333334,13.0,4.0,14.0,6,6,BBQ Ambig.=13.00 | BBQ Disambig.=7.00 | CrowS-Pairs=14.00 | StereoSet=13.00 | WinoBias=14.00 | WinoGender=4.00,complete
-lftf,LFTF,baseline,11.5,11.0,9.0,15.0,6,6,BBQ Ambig.=15.00 | BBQ Disambig.=10.00 | CrowS-Pairs=9.00 | StereoSet=11.00 | WinoBias=13.00 | WinoGender=11.00,complete
+diy_teach_revise,DIY-Teach-Revise,diy_teach_revise,3.8333333333333335,4.5,1.0,6.0,6,6,BBQ Ambig.=6.00 | BBQ Disambig.=5.00 | CrowS-Pairs=1.00 | StereoSet=4.00 | WinoBias=2.00 | WinoGender=5.00,complete
+diy_revise,DIY-Revise,diy_revise,4.333333333333333,4.0,2.0,7.0,6,6,BBQ Ambig.=7.00 | BBQ Disambig.=4.00 | CrowS-Pairs=4.00 | StereoSet=2.00 | WinoBias=3.00 | WinoGender=6.00,complete
+debias_llms,DebiasLLMs,baseline,5.833333333333333,3.0,1.0,16.0,6,6,BBQ Ambig.=1.00 | BBQ Disambig.=1.00 | CrowS-Pairs=5.00 | StereoSet=1.00 | WinoBias=16.00 | WinoGender=11.00,complete
+peft,PEFT,baseline,7.5,6.75,2.0,14.0,6,6,BBQ Ambig.=3.00 | BBQ Disambig.=14.00 | CrowS-Pairs=7.00 | StereoSet=6.50 | WinoBias=12.50 | WinoGender=2.00,complete
+biasedit,BiasEdit,baseline,7.583333333333333,8.25,2.0,12.0,6,6,BBQ Ambig.=4.00 | BBQ Disambig.=12.00 | CrowS-Pairs=2.00 | StereoSet=6.50 | WinoBias=10.00 | WinoGender=11.00,complete
+selfdebias_reprompting,SelfDebias Reprompting,baseline,7.666666666666667,7.0,3.0,13.0,6,6,BBQ Ambig.=13.00 | BBQ Disambig.=9.00 | CrowS-Pairs=3.00 | StereoSet=3.00 | WinoBias=5.00 | WinoGender=13.00,complete
+debias_nlg,DebiasNLG,baseline,8.0,7.0,1.0,16.0,6,6,BBQ Ambig.=12.00 | BBQ Disambig.=2.00 | CrowS-Pairs=16.00 | StereoSet=16.00 | WinoBias=1.00 | WinoGender=1.00,complete
+cal,CAL,baseline,8.5,8.0,3.0,15.0,6,6,BBQ Ambig.=5.00 | BBQ Disambig.=15.00 | CrowS-Pairs=12.00 | StereoSet=9.00 | WinoBias=7.00 | WinoGender=3.00,complete
+diy_teach,DIY-Teach,diy_teach,8.666666666666666,9.5,3.0,15.0,6,6,BBQ Ambig.=10.00 | BBQ Disambig.=3.00 | CrowS-Pairs=10.00 | StereoSet=5.00 | WinoBias=9.00 | WinoGender=15.00,complete
+diy_teach_show,DIY-Teach-Show,diy_teach_show,8.666666666666666,8.0,6.0,15.0,6,6,BBQ Ambig.=8.00 | BBQ Disambig.=7.00 | CrowS-Pairs=6.00 | StereoSet=8.00 | WinoBias=8.00 | WinoGender=15.00,complete
+reduce_social_bias,Reduce Social Bias,baseline,9.5,10.5,4.0,13.0,6,6,BBQ Ambig.=11.00 | BBQ Disambig.=10.00 | CrowS-Pairs=13.00 | StereoSet=12.00 | WinoBias=4.00 | WinoGender=7.00,complete
+fairsteer,FairSteer,baseline,10.5,10.5,6.0,15.0,6,6,BBQ Ambig.=15.00 | BBQ Disambig.=13.00 | CrowS-Pairs=11.00 | StereoSet=10.00 | WinoBias=6.00 | WinoGender=8.00,complete
+diy_show,DIY-Show,diy_show,10.666666666666666,10.0,6.0,15.0,6,6,BBQ Ambig.=9.00 | BBQ Disambig.=6.00 | CrowS-Pairs=15.00 | StereoSet=14.00 | WinoBias=11.00 | WinoGender=9.00,complete
+bba,BBA,baseline,11.333333333333334,13.5,4.0,15.0,6,6,BBQ Ambig.=14.00 | BBQ Disambig.=8.00 | CrowS-Pairs=14.00 | StereoSet=13.00 | WinoBias=15.00 | WinoGender=4.00,complete
+dpo,DPO,baseline,11.416666666666666,13.75,2.0,16.0,6,6,BBQ Ambig.=2.00 | BBQ Disambig.=16.00 | CrowS-Pairs=8.00 | StereoSet=15.00 | WinoBias=12.50 | WinoGender=15.00,complete
+lftf,LFTF,baseline,12.0,11.0,9.0,16.0,6,6,BBQ Ambig.=16.00 | BBQ Disambig.=11.00 | CrowS-Pairs=9.00 | StereoSet=11.00 | WinoBias=14.00 | WinoGender=11.00,complete
