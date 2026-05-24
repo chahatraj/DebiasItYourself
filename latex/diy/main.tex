@@ -30,8 +30,8 @@
 \definecolor{diyStrategyBg}{HTML}{E6D8F5}
 \definecolor{diyBaseBg}{HTML}{C9CDD3}
 \definecolor{diyBadgeBorder}{HTML}{000000}
-\definecolor{diyInsightBg}{HTML}{DDF4EE}
-\definecolor{diyInsightFrame}{HTML}{1F8A7A}
+\definecolor{diyInsightBg}{HTML}{F5F2E8}
+\definecolor{diyInsightFrame}{HTML}{B3BAC1}
 \definecolor{diyResultBg}{HTML}{FFF0C8}
 \definecolor{diyResultFrame}{HTML}{C48318}
 
@@ -71,15 +71,15 @@
   breakable,
   colback=diyInsightBg,
   colframe=diyInsightFrame,
-  boxrule=0.65pt,
-  arc=2pt,
-  left=6pt,
-  right=6pt,
-  top=4pt,
-  bottom=4pt,
+  boxrule=0.8pt,
+  arc=0pt,
+  left=8pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
   fontupper=\small,
-  before skip=5pt,
-  after skip=5pt
+  before skip=8pt,
+  after skip=8pt
 }
 
 \newtcolorbox{resultbox}{
@@ -237,6 +237,10 @@ We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \
 \label{sec:rq1}
 
 \paragraph{Cross-benchmark performance.}
+
+\begin{insightbox}
+\textbf{Takeaway.} \diytrainreviselabel{} and \diyreviselabel{} achieve the lowest average rank across all three model families, outperforming the strongest baseline by a margin of $2$+ ranks on \llama{}-3.1-8B and \qwen{}-2.5-32B.
+\end{insightbox}
 
 \paragraph{Method Comparison.}
 
