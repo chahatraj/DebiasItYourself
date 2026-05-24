@@ -15,6 +15,8 @@
 \usepackage[most]{tcolorbox}
 \usepackage{tikz}
 \usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
 
 \newcommand{\notebookpencil}{%
   \begin{tikzpicture}[baseline=-0.45ex, scale=0.18, rotate=-30]
@@ -247,9 +249,9 @@ For \trainlabel{}, we train one fine-tuned checkpoint per (strategy, instance-ty
 \begin{table}[t]
 \centering
 \small
-\setlength{\tabcolsep}{6pt}
+\setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabular}{@{}lccc@{}}
+\begin{tabularx}{\columnwidth}{@{}X ccc@{}}
 \toprule
 Method & IT & ICL & Revise \\
 \midrule
@@ -259,7 +261,7 @@ Method & IT & ICL & Revise \\
 \diytrainshowlabel{}   & \nbcheck & \nbcheck & \nbcross \\
 \diytrainreviselabel{} & \nbcheck & \nbcross & \nbcheck \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{The five \diylabel{} configurations and the delivery mechanisms they activate. IT = instruction tuning, ICL = in-context learning, Revise = intervention-guided second pass.}
 \label{tab:diy-configs}
 \end{table}
