@@ -316,6 +316,19 @@ Among the five \diylabel{} configurations, intervention-guided revision is the d
 \subsection{Reasoning Ability}
 \label{sec:rq2}
 
+\paragraph{Cross-benchmark reasoning.}
+
+\paragraph{Bias--reasoning tradeoff.}
+A central concern for any debiasing method is that bias reductions should not come at the cost of general task competence. \diylabel{} configurations sit on the favorable corner of the bias--reasoning frontier across all three models, achieving low mean bias without the reasoning collapse seen in several baselines (Figure~\ref{fig:bias-reasoning-pareto}). On \llama{}-3.1-8B, \diyreviselabel{} and \diytrainreviselabel{} reach the lowest mean bias of any method while preserving reasoning accuracy near $70\%$, in contrast to DebiasLLMs, which reaches a similar bias level only by dropping reasoning below $50\%$. The same pattern holds on \qwen{}-2.5-32B, where \diytrainreviselabel{} achieves both the highest reasoning accuracy ($\sim 93\%$) and a mean bias comparable to the strongest debiasing baselines, while BiasEdit and DebiasLLMs reach low bias only at substantially lower reasoning. On \llama{}-3.1-70B, \diyreviselabel{} and \diytrainreviselabel{} again sit in the top-left region, while baselines that match their bias level (DebiasLLMs, BiasEdit) collapse to reasoning accuracy below $40\%$. The gap is structural: methods that suppress bias by inducing vague or refusal-style outputs lose the ability to answer task questions correctly, whereas \diylabel{} preserves it because the supervision target is intervention-guided behavior on bias-sensitive input rather than output suppression.
+
+\begin{insightbox}
+\notebookpencil~\textbf{Takeaway 3.} \diylabel{} sits on the favorable corner of the bias--reasoning frontier on every tested model: it matches the lowest-bias baselines without their reasoning collapse, supporting the claim that reducing bias as a behavior is compatible with preserving general task competence.
+\end{insightbox}
+
+\paragraph{Reasoning across \diylabel{} methods and shots.}
+
+\paragraph{Reasoning across strategies.}
+
 \subsection{Generalization}
 \label{sec:rq3}
 
