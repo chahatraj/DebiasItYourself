@@ -297,6 +297,13 @@ Figure~\ref{fig:baseline-rank} reports the average rank of each method across th
 \notebookpencil~\textbf{Takeaway.} \diylabel{} configurations achieve the best (lowest) average rank across all three model families, with intervention-guided revision (\diyreviselabel{}, \diytrainreviselabel{}) leading on every model.
 \end{insightbox}
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/llama8b/pdf/debiasing_method_bars_by_shot_all_strategies_all_versions.pdf}
+\caption{Normalized bias scores for \llama{}-3.1-8B-Instruct across datasets and \diylabel{} configurations. Lower scores indicate smaller distance from the benchmark-specific unbiased point. For CrowS-Pairs and StereoSet, this score is the absolute distance from $50$; for BBQ, WinoBias, and WinoGender, it is distance from $0$.}
+\label{fig:debiasing-shot-llama8b}
+\end{figure*}
+
 \paragraph{Method Comparison.}
 
 \paragraph{Intervention Effectiveness.}
@@ -335,6 +342,23 @@ Figure~\ref{fig:baseline-rank} reports the average rank of each method across th
 \includegraphics[width=\textwidth]{figures/qwen/pdf/baseline_comparison_lollipop.pdf}
 \caption{Model-wise baseline comparison for Qwen 27B. Lower bias score indicates better debiasing performance. The plot compares the five \diylabel{} configurations against the retained baseline methods across the six bias evaluation panels.}
 \label{fig:app-baseline-lollipop-qwen}
+\end{figure*}
+
+\section{Model-wise DIY Configuration Comparison}
+\label{app:model-wise-diy-configuration-comparison}
+
+\begin{figure*}[p]
+\centering
+\includegraphics[width=\textwidth]{figures/llama70b/pdf/debiasing_method_bars_by_shot_all_strategies_all_versions.pdf}
+\caption{Normalized bias scores for \llama{}-3.1-70B-Instruct across datasets and \diylabel{} configurations. Lower scores indicate smaller distance from the benchmark-specific unbiased point.}
+\label{fig:app-debiasing-shot-llama70b}
+\end{figure*}
+
+\begin{figure*}[p]
+\centering
+\includegraphics[width=\textwidth]{figures/qwen/pdf/debiasing_method_bars_by_shot_all_strategies_all_versions.pdf}
+\caption{Normalized bias scores for Qwen 27B across datasets and \diylabel{} configurations. Lower scores indicate smaller distance from the benchmark-specific unbiased point.}
+\label{fig:app-debiasing-shot-qwen}
 \end{figure*}
 
 \section{Strategy Examples}
