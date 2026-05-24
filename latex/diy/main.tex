@@ -123,10 +123,10 @@ We propose \diy{} (\diylabel{}), a bias mitigation framework that targets the pr
 We evaluate \diylabel{} against debiasing baselines on multiple bias benchmarks, on reasoning benchmarks, and across model families and scales. \diylabel{} consistently reduces bias relative to baselines, with the largest reductions when \teachlabel{} is composed with \reviselabel{}. These results provide evidence that teaching a procedure for handling bias-sensitive input, rather than correcting its individual outputs, is a viable direction for bias mitigation.
 
 We organize the paper around three research questions:
-\begin{enumerate}[leftmargin=1.4em,itemsep=0pt,parsep=3pt,topsep=3pt,partopsep=0pt]
-    \item[\textbf{RQ1.}] Can a language model internalize a bias-reducing procedure as a transferable behavior, rather than as benchmark-specific corrections?
-    \item[\textbf{RQ2.}] Does the resulting model retain its performance on standard reasoning and instruction-following benchmarks?
-    \item[\textbf{RQ3.}] Does the learned procedure generalize across held-out bias dimensions, task formats, and model families?
+\begin{enumerate}[label=\textbf{RQ\arabic*.},leftmargin=2.8em,labelwidth=2.4em,labelsep=0.4em,align=left,itemsep=0pt,parsep=3pt,topsep=3pt,partopsep=0pt]
+    \item Can a language model internalize a bias-reducing procedure as a transferable behavior, rather than as benchmark-specific corrections?
+    \item Does the resulting model retain its performance on standard reasoning and instruction-following benchmarks?
+    \item Does the learned procedure generalize across held-out bias dimensions, task formats, and model families?
 \end{enumerate}
 
 Our work makes the following key contributions:
