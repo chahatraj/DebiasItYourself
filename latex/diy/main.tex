@@ -107,11 +107,24 @@
   bottom=6pt,
   fontupper=\small,
   before skip=8pt,
-  after skip=8pt,
-  interior code app={
-    \draw [color=diyInsightFrame!55, line width=0.4pt, step=4pt]
-      (interior.south west) grid (interior.north east);
-  }
+  after skip=8pt
+}
+
+\newtcolorbox{strategybox}[1][]{
+  enhanced,
+  breakable,
+  colback=diyInsightBg,
+  colframe=diyInsightFrame,
+  boxrule=0.8pt,
+  arc=4pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fontupper=\small,
+  before skip=8pt, after skip=8pt,
+  title=#1,
+  fonttitle=\bfseries,
+  coltitle=black,
+  attach boxed title to top left={xshift=8pt, yshift=-3pt},
+  boxed title style={colback=diyInsightBg, colframe=diyInsightFrame, boxrule=0.6pt, arc=2pt}
 }
 
 \newtcolorbox{resultbox}{
@@ -382,7 +395,7 @@ A central concern for any debiasing method is that bias reductions should not co
 \section{Strategy Examples}
 \label{sec:strategy-examples}
 
-\begin{tcolorbox}[breakable, colback=diyStrategyBg!35, colframe=diyBadgeBorder, title=Stereotype Replacement]
+\begin{strategybox}[Stereotype Replacement]
 \textbf{\textit{Biased Statement:}} \textit{Women are too emotional to be good leaders.}
 
 \textbf{Recognize:} This statement relies on a gender stereotype that equates emotional expression with poor leadership ability.
@@ -390,9 +403,9 @@ A central concern for any debiasing method is that bias reductions should not co
 \textbf{Reflect:} This generalization is inaccurate and overlooks evidence that emotional intelligence can enhance leadership effectiveness.
 
 \textbf{Replace:} Leadership ability depends on skills, experience, and judgment, not gender.
-\end{tcolorbox}
+\end{strategybox}
 
-\begin{tcolorbox}[breakable, colback=diyStrategyBg!35, colframe=diyBadgeBorder, title=Counter-Stereotype Imaging]
+\begin{strategybox}[Counter-Stereotype Imaging]
 \textbf{\textit{Biased Statement:}} \textit{Women are too emotional to be good leaders.}
 
 \textbf{Recognize:} This statement invokes a stereotype that questions women's suitability for leadership.
@@ -400,9 +413,9 @@ A central concern for any debiasing method is that bias reductions should not co
 \textbf{Imagine:} Consider Jacinda Ardern, former Prime Minister of New Zealand.
 
 \textbf{Reinforce:} She demonstrated calm, decisive leadership during major crises while also leading with empathy, contradicting the stereotype.
-\end{tcolorbox}
+\end{strategybox}
 
-\begin{tcolorbox}[breakable, colback=diyStrategyBg!35, colframe=diyBadgeBorder, title=Individuating]
+\begin{strategybox}[Individuating]
 \textbf{\textit{Biased Statement:}} \textit{Women are too emotional to be good leaders.}
 
 \textbf{Attend:} This statement applies a broad group-based judgment rather than evaluating an individual.
@@ -410,9 +423,9 @@ A central concern for any debiasing method is that bias reductions should not co
 \textbf{Gather:} Angela Merkel served as Chancellor of Germany for 16 years and was widely recognized for her pragmatic and steady leadership.
 
 \textbf{Adjust:} Evaluating leadership based on individual evidence contradicts the stereotype and supports fairer judgment.
-\end{tcolorbox}
+\end{strategybox}
 
-\begin{tcolorbox}[breakable, colback=diyStrategyBg!35, colframe=diyBadgeBorder, title=Perspective Taking]
+\begin{strategybox}[Perspective Taking]
 \textbf{\textit{Biased Statement:}} \textit{Women are too emotional to be good leaders.}
 
 \textbf{Adopt:} Take the perspective of a woman in a leadership role facing recurring skepticism.
@@ -420,9 +433,9 @@ A central concern for any debiasing method is that bias reductions should not co
 \textbf{Simulate:} She may find that assertiveness is labeled as emotional, while similar behavior in male peers is praised, creating unequal expectations.
 
 \textbf{Integrate:} From this perspective, the stereotype reflects bias rather than leadership ability.
-\end{tcolorbox}
+\end{strategybox}
 
-\begin{tcolorbox}[breakable, colback=diyStrategyBg!35, colframe=diyBadgeBorder, title=Positive Contact]
+\begin{strategybox}[Positive Contact]
 \textbf{\textit{Biased Statement:}} \textit{Women are too emotional to be good leaders.}
 
 \textbf{Imagine:} Recall a positive professional interaction with a woman leading a high-pressure team.
@@ -430,6 +443,6 @@ A central concern for any debiasing method is that bias reductions should not co
 \textbf{Engage:} She acknowledged team concerns while clearly guiding decisions, improving focus and morale.
 
 \textbf{Extend:} This experience shows that emotional awareness can be a leadership strength, challenging the stereotype.
-\end{tcolorbox}
+\end{strategybox}
 
 \end{document}
