@@ -305,6 +305,11 @@ On every tested model, the lowest average rank across the five bias benchmarks i
 \end{figure*}
 
 \paragraph{Method Comparison.}
+Among the five \diylabel{} configurations, intervention-guided revision is the dominant lever, and combining it with instruction tuning gives the strongest overall configuration (Figure~\ref{fig:debiasing-shot-llama8b}; \llama{}-3.1-70B and \qwen{}-2.5-32B in Appendix Figures~\ref{fig:app-debiasing-shot-llama70b}--\ref{fig:app-debiasing-shot-qwen}). \diyreviselabel{} reduces bias substantially across all three models, with \llama{}-3.1-8B CrowS-Pairs dropping from $15.2$ at \baselabel{} to $2.45$, and composing it with \diytrainlabel{} as \diytrainreviselabel{} sharpens this further (CrowS-Pairs: $0.860$). \diytrainlabel{} on its own offers limited improvement, suggesting parameter-level supervision is most useful when paired with an inference-time procedure rather than as a standalone fix. \diyshowlabel{} behaves differently: $0$-shot demonstrations are competitive with the leading configurations, while adding more demonstrations does not consistently help. Shot effects are technique-dependent more broadly: revision benefits modestly from additional demonstrations, while training-based configurations are largely insensitive to shot count. The picture across configurations is consistent with the central claim: an effective \diylabel{} setup combines an intervention-guided procedure at inference with parameter-level supervision that supports it.
+
+\begin{insightbox}
+\notebookpencil~\textbf{Takeaway 2.} Intervention-guided revision is the strongest single technique, and pairing it with instruction tuning yields the most reliable configuration. Instruction tuning alone offers limited improvement; in-context demonstrations are most effective at zero-shot.
+\end{insightbox}
 
 \paragraph{Intervention Effectiveness.}
 
