@@ -110,9 +110,7 @@
   after skip=8pt
 }
 
-\newenvironment{strategybox}[1]
-  {\begin{tcolorbox}[breakable, colback=purple!5, colframe=purple!60, title=#1]}
-  {\end{tcolorbox}}
+\newtcolorbox{strategybox}[1][]{breakable, colback=purple!5, colframe=purple!60, title=#1}
 
 \newtcolorbox{resultbox}{
   enhanced,
