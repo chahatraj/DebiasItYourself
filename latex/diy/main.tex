@@ -21,13 +21,15 @@
 \newcommand{\llama}{\textsc{Llama}}
 \newcommand{\qwen}{\textsc{Qwen}}
 
-% DIY-specific palette (mirrors edits.tex).
-\definecolor{diyShowBg}{HTML}{BFE1F4}
-\definecolor{diyTrainBg}{HTML}{F4BFD3}
-\definecolor{diyReviseBg}{HTML}{BFE7CE}
+% DIY-specific palette (matches figure theme in diy-notebook-theme).
+\definecolor{diyShowBg}{HTML}{B8A9D4}
+\definecolor{diyTrainBg}{HTML}{D4A76A}
+\definecolor{diyTrainShowBg}{HTML}{7FB5A8}
+\definecolor{diyReviseBg}{HTML}{2F6F9F}
+\definecolor{diyTrainReviseBg}{HTML}{D86565}
 \definecolor{diyStrategyBg}{HTML}{E6D8F5}
-\definecolor{diyBaseBg}{HTML}{E8EAEE}
-\definecolor{diyBadgeBorder}{HTML}{3E4654}
+\definecolor{diyBaseBg}{HTML}{C9CDD3}
+\definecolor{diyBadgeBorder}{HTML}{000000}
 \definecolor{diyInsightBg}{HTML}{DDF4EE}
 \definecolor{diyInsightFrame}{HTML}{1F8A7A}
 \definecolor{diyResultBg}{HTML}{FFF0C8}
@@ -48,14 +50,14 @@
 
 \newcommand{\showlabel}{\highlightRounded{diyShowBg}{\textsc{Show}}}
 \newcommand{\trainlabel}{\highlightRounded{diyTrainBg}{\textsc{Train}}}
-\newcommand{\reviselabel}{\highlightRounded{diyReviseBg}{\textsc{Revise}}}
+\newcommand{\reviselabel}{\highlightRounded{diyReviseBg}{\textcolor{white}{\textsc{Revise}}}}
 % \newcommand{\diylabel}{\highlightRounded{diyResultBg}{\textsc{DIY}}}
 \newcommand{\diylabel}{\textsc{DIY}}
 \newcommand{\diyshowlabel}{\highlightRounded{diyShowBg}{\textsc{DIY-Show}}}
 \newcommand{\diytrainlabel}{\highlightRounded{diyTrainBg}{\textsc{DIY-Train}}}
-\newcommand{\diyreviselabel}{\highlightRounded{diyReviseBg}{\textsc{DIY-Revise}}}
-\newcommand{\diytrainshowlabel}{\highlightRounded{diyResultBg}{\textsc{DIY-Train-Show}}}
-\newcommand{\diytrainreviselabel}{\highlightRounded{diyResultBg}{\textsc{DIY-Train-Revise}}}
+\newcommand{\diyreviselabel}{\highlightRounded{diyReviseBg}{\textcolor{white}{\textsc{DIY-Revise}}}}
+\newcommand{\diytrainshowlabel}{\highlightRounded{diyTrainShowBg}{\textsc{DIY-Train-Show}}}
+\newcommand{\diytrainreviselabel}{\highlightRounded{diyTrainReviseBg}{\textsc{DIY-Train-Revise}}}
 \newcommand{\baselabel}{\highlightRounded{diyBaseBg}{\textsc{Base}}}
 \newcommand{\strategylabel}[1]{\highlightRounded{diyStrategyBg}{\textsc{#1}}}
 \newcommand{\srlabel}{\strategylabel{Stereotype Replacement}}
