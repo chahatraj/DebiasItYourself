@@ -620,34 +620,16 @@ def plot_combined_average_rank() -> None:
     row_lookup_by_model: dict[str, dict[str, dict[str, str]]] = {
         model_key: {row["method_key"]: row for row in rows} for model_key, _, rows in model_rows
     }
-    method_order: list[str] = []
+
+    # Universe of method keys that have at least one finite value across models.
+    universe: list[str] = []
     for key, _, _ in EXPECTED_METHODS:
         vals = [
             safe_float(row_lookup_by_model[model_key].get(key, {}).get("average_rank", ""))
             for model_key, _, _ in model_rows
         ]
-        finite_vals = [v for v in vals if np.isfinite(v)]
-        if finite_vals:
-            method_order.append(key)
-    method_order.sort(
-        key=lambda key: (
-            float(
-                np.mean(
-                    [
-                        safe_float(row_lookup_by_model[model_key].get(key, {}).get("average_rank", ""))
-                        for model_key, _, _ in model_rows
-                        if np.isfinite(safe_float(row_lookup_by_model[model_key].get(key, {}).get("average_rank", "")))
-                    ]
-                )
-            ),
-            KEY_TO_META[key]["method_label"],
-        )
-    )
-    y_labels = [KEY_TO_META[key]["method_label"] for key in method_order]
-
-    fig_h = max(5.65, 0.34 * len(method_order) + 1.35)
-    fig, axes = plt.subplots(1, 3, figsize=(13.4, fig_h), sharex=True, sharey=True)
-    fig.patch.set_facecolor("white")
+        if any(np.isfinite(v) for v in vals):
+            universe.append(key)
 
     finite = [
         safe_float(row["average_rank"])
@@ -658,71 +640,355 @@ def plot_combined_average_rank() -> None:
     xmax = max(finite) if finite else 1.0
     placeholder_value = xmax + 0.75
 
+    # Faded baseline + bright pastel DIY families. Patterns mark our methods.
+    PALETTE = {
+        "base":             "#C9CDD3",
+        "baseline":         "#DCE7F0",   # pale sky
+        "diy_show":         "#A6E3C0",
+        "diy_teach":        "#FFE49A",
+        "diy_teach_show":   "#FFC09A",
+        "diy_revise":       "#F4B8D0",
+        "diy_teach_revise": "#F4A39E",
+        "pending":          "#ECEEF2",
+    }
+    DIY_HATCH = {
+        "diy_show":         "//",
+        "diy_teach":        "\\\\",
+        "diy_teach_show":   "xx",
+        "diy_revise":       "..",
+        "diy_teach_revise": "++",
+    }
+
+    PANEL_BG = "#E6F3EB"
+    ZEBRA_BG = "#F2FAF5"
+    SPINE_COLOR = "#000000"
+    AXIS_TEXT = "#000000"
+    VALUE_TEXT = "#000000"
+
+    n_rows = len(universe)
+    fig_h = max(6.4, 0.42 * n_rows + 1.95)
+    fig, axes = plt.subplots(1, 3, figsize=(25.0, fig_h), sharex=True, sharey=False)
+    fig.patch.set_facecolor("white")
+
+    diy_groups_present: list[str] = []
+
     for panel_idx, (ax, (model_key, model_label, _)) in enumerate(zip(axes, model_rows)):
-        rows = [row_lookup_by_model[model_key].get(key, {**KEY_TO_META[key], "average_rank": "", "status": "pending"}) for key in method_order]
-        ax.set_facecolor("white")
-        y = np.arange(len(rows))
+        per_panel = []
+        for key in universe:
+            row = row_lookup_by_model[model_key].get(
+                key, {**KEY_TO_META[key], "average_rank": "", "status": "pending"}
+            )
+            v = safe_float(row.get("average_rank", ""))
+            per_panel.append((key, row, v if np.isfinite(v) else float("inf")))
+        per_panel.sort(key=lambda t: (t[2], KEY_TO_META[t[0]]["method_label"]))
+
+        keys_sorted = [t[0] for t in per_panel]
+        rows_sorted = [t[1] for t in per_panel]
+        y_labels_panel = [KEY_TO_META[k]["method_label"] for k in keys_sorted]
+
+        ax.set_facecolor(PANEL_BG)
+        y = np.arange(len(rows_sorted))
         values = [
             safe_float(row["average_rank"]) if np.isfinite(safe_float(row["average_rank"])) else placeholder_value
-            for row in rows
+            for row in rows_sorted
         ]
-        colors = [
-            GROUP_COLORS["pending"] if row["status"] == "pending" else GROUP_COLORS.get(str(row["group"]), "#D9DEE9")
-            for row in rows
-        ]
-        bars = ax.barh(y, values, height=0.52, color=colors, edgecolor="black", linewidth=0.9, zorder=3)
-        for bar, row in zip(bars, rows):
-            group = str(row["group"])
-            status = str(row["status"])
-            bar.set_hatch(GROUP_HATCHES["pending"] if status == "pending" else GROUP_HATCHES.get(group, ""))
-            if status == "pending":
-                bar.set_alpha(0.52)
-            else:
-                bar.set_alpha(0.97)
 
-        ax.set_yticks(y, y_labels)
+        # Zebra stripes for legibility.
+        for yi in y:
+            if yi % 2 == 0:
+                ax.axhspan(yi - 0.5, yi + 0.5, color=ZEBRA_BG, zorder=0)
+
+        for yi, value, row in zip(y, values, rows_sorted):
+            grp = str(row["group"])
+            color = PALETTE["pending"] if row["status"] == "pending" else PALETTE.get(grp, PALETTE["baseline"])
+            ax.barh(
+                yi, value, height=0.78,
+                color=color,
+                edgecolor="#000000",
+                linewidth=2.0,
+                hatch=DIY_HATCH.get(grp, ""),
+                zorder=3,
+            )
+            if grp.startswith("diy") and grp not in diy_groups_present:
+                diy_groups_present.append(grp)
+
+        ax.set_yticks(y, y_labels_panel)
         ax.invert_yaxis()
-        ax.set_ylim(len(rows) - 0.35, -1.05)
+        ax.set_ylim(len(rows_sorted) - 0.40, -1.10)
         ax.set_title("")
-        add_panel_header(ax, model_label)
-        style_rank_axis(ax, show_ylabels=(panel_idx == 0))
-        ax.xaxis.set_major_locator(MultipleLocator(2))
-        ax.set_xlim(0, placeholder_value + 1.05)
+        ax.text(
+            0.5, 1.06, model_label,
+            transform=ax.transAxes,
+            ha="center", va="bottom",
+            fontsize=18.5, fontweight="normal", color="#000000",
+            bbox=dict(
+                boxstyle="round,pad=0.30",
+                facecolor=PANEL_BG,
+                edgecolor="#000000",
+                linewidth=2.1,
+                alpha=1.0,
+            ),
+            zorder=10,
+            clip_on=False,
+        )
 
-        for yi, value, row in zip(y, values, rows):
+        for s in ("top", "right", "left", "bottom"):
+            ax.spines[s].set_visible(True)
+            ax.spines[s].set_color(SPINE_COLOR)
+            ax.spines[s].set_linewidth(2.1)
+        ax.grid(False)
+        ax.tick_params(axis="x", colors=AXIS_TEXT, labelsize=17, length=2.6, width=1.0)
+        ax.tick_params(axis="y", colors=AXIS_TEXT, labelsize=17.5, length=0, pad=4)
+
+        for ytick in ax.get_yticklabels():
+            ytick.set_fontweight("normal")
+            ytick.set_color("#000000")
+        for xtick in ax.get_xticklabels():
+            xtick.set_fontweight("normal")
+            xtick.set_color("#000000")
+
+        ax.xaxis.set_major_locator(MultipleLocator(2))
+        ax.set_xlim(0, placeholder_value + 1.30)
+
+        for yi, value, row in zip(y, values, rows_sorted):
             if row["status"] == "pending":
                 text = "pending"
                 text_x = placeholder_value + 0.10
-                weight = "medium"
-                color = "#6B7280"
+                color = "#000000"
             else:
                 text = f"{safe_float(row['average_rank']):.2f}"
-                text_x = value + 0.10
-                weight = "bold"
-                color = "black"
-            ax.text(text_x, yi, text, va="center", ha="left", fontsize=8.9, color=color, fontweight=weight)
+                text_x = value + 0.18
+                color = VALUE_TEXT
+            ax.text(text_x, yi, text, va="center", ha="left",
+                    fontsize=16.5, color=color, fontweight="normal")
 
-    handles = legend_handles_for_rows([row for _, _, rows in model_rows for row in rows])
-    fig.legend(
-        handles=handles,
-        loc="upper center",
-        bbox_to_anchor=(0.5, 0.985),
-        ncol=len(handles),
-        frameon=True,
-        fancybox=False,
-        framealpha=0.96,
-        edgecolor="black",
-        borderpad=0.36,
-        columnspacing=0.82,
-        handlelength=1.20,
-        handletextpad=0.38,
+    # Legend below.
+    diy_groups_ordered = [
+        g for g in ("diy_show", "diy_teach", "diy_teach_show", "diy_revise", "diy_teach_revise")
+        if g in diy_groups_present
+    ]
+    legend_handles = [
+        Patch(facecolor=PALETTE[g], edgecolor="#000000", linewidth=1.9,
+              hatch=DIY_HATCH[g], label=GROUP_LABELS[g])
+        for g in diy_groups_ordered
+    ]
+    legend_handles.append(
+        Patch(facecolor=PALETTE["baseline"], edgecolor="#000000", linewidth=1.9, label="Baselines")
     )
-    fig.supxlabel("Average rank (lower is better)", y=0.040, fontsize=12.0)
-    fig.subplots_adjust(left=0.195, right=0.985, bottom=0.120, top=0.825, wspace=0.10)
+    leg = fig.legend(
+        handles=legend_handles,
+        loc="lower center",
+        bbox_to_anchor=(0.5, -0.015),
+        ncol=len(legend_handles),
+        frameon=True,
+        fancybox=True,
+        framealpha=1.0,
+        edgecolor="#000000",
+        fontsize=17.5,
+        handlelength=1.9,
+        handleheight=1.2,
+        handletextpad=0.55,
+        columnspacing=1.2,
+        borderpad=0.55,
+    )
+    for text in leg.get_texts():
+        text.set_color("#000000")
+        text.set_fontweight("normal")
+    leg.get_frame().set_linewidth(2.1)
+    leg.get_frame().set_edgecolor("#000000")
+
+    fig.subplots_adjust(left=0.085, right=0.985, bottom=0.115, top=0.890, wspace=0.45)
     outdir = FIGURES / "combined"
     (outdir / "pdf").mkdir(parents=True, exist_ok=True)
     (outdir / "csv").mkdir(parents=True, exist_ok=True)
-    fig.savefig(outdir / "pdf/baseline_comparison_average_rank_combined.pdf", bbox_inches="tight", pad_inches=0.02, dpi=600)
+    fig.savefig(outdir / "pdf/baseline_comparison_average_rank_combined.pdf",
+                bbox_inches="tight", pad_inches=0.10, dpi=600,
+                facecolor="white")
+    plt.close(fig)
+
+
+def plot_combined_average_rank_colm_style() -> None:
+    """BLI-paper-styled variant using the EXACT theme from generate_artifacts.py.
+
+    Theme: set_style() + style_paper_axis() from
+    latex/references/generate_artifacts.py lines 45-137.
+    Output: figures/combined/pdf/baseline_comparison_average_rank_combined_colm_style.pdf
+    """
+    import seaborn as sns
+
+    # Exact set_style() from generate_artifacts.py lines 45-56.
+    sns.set_theme(style="whitegrid")
+    sns.set_context("paper", rc={"font.size": 12, "axes.titlesize": 12, "axes.labelsize": 12})
+    plt.rcParams["font.family"] = "serif"
+    plt.rcParams["font.serif"] = ["Times New Roman", "Times", "Nimbus Roman No9 L", "DejaVu Serif"]
+    plt.rcParams["axes.labelsize"] = 12
+    plt.rcParams["axes.titlesize"] = 12
+    plt.rcParams["xtick.labelsize"] = 10
+    plt.rcParams["ytick.labelsize"] = 10
+    plt.rcParams["legend.fontsize"] = 10
+    plt.rcParams["hatch.linewidth"] = 0.8
+
+    model_rows: list[tuple[str, str, list[dict[str, str]]]] = []
+    for model_key, model_label in MODELS:
+        rows = read_csv(FIGURES / model_key / "csv/baseline_comparison_average_rank_data.csv")
+        model_rows.append((model_key, model_label, rows))
+
+    row_lookup_by_model: dict[str, dict[str, dict[str, str]]] = {
+        model_key: {row["method_key"]: row for row in rows} for model_key, _, rows in model_rows
+    }
+
+    universe: list[str] = []
+    for key, _, _ in EXPECTED_METHODS:
+        vals = [
+            safe_float(row_lookup_by_model[model_key].get(key, {}).get("average_rank", ""))
+            for model_key, _, _ in model_rows
+        ]
+        if any(np.isfinite(v) for v in vals):
+            universe.append(key)
+
+    finite = [
+        safe_float(row["average_rank"])
+        for _, _, rows in model_rows
+        for row in rows
+        if np.isfinite(safe_float(row["average_rank"]))
+    ]
+    xmax = max(finite) if finite else 1.0
+    placeholder_value = xmax + 0.75
+
+    # Exact constants from generate_artifacts.py.
+    _PAPER_BG = "#faf9f4"
+    _GRID = "#d7d9d4"
+    _INK = "#253142"
+    _SPINE_COLOR = "#b3bac1"
+
+    # BLI LANG_COLORS-inspired vivid palette for DIY families + hatches.
+    PALETTE = {
+        "base":             "#cdcdcd",
+        "baseline":         "#cdcdcd",
+        "diy_show":         "#00897B",   # teal (BUL)
+        "diy_teach":        "#E67E22",   # orange (ZH)
+        "diy_teach_show":   "#8E24AA",   # violet (FAS)
+        "diy_revise":       "#00ACC1",   # cyan (FR)
+        "diy_teach_revise": "#E53935",   # red (IND)
+        "pending":          "#E5E7EB",
+    }
+    BLI_HATCH = {
+        "diy_show":         "oo",
+        "diy_teach":        "///",
+        "diy_teach_show":   "xx",
+        "diy_revise":       "\\\\\\",
+        "diy_teach_revise": "++",
+    }
+
+    n_rows = len(universe)
+    fig_h = max(6.8, 0.44 * n_rows + 2.0)
+    fig, axes = plt.subplots(1, 3, figsize=(25.0, fig_h))
+
+    diy_groups_present: list[str] = []
+
+    for panel_idx, (ax, (model_key, model_label, _)) in enumerate(zip(axes, model_rows)):
+        per_panel = []
+        for key in universe:
+            row = row_lookup_by_model[model_key].get(
+                key, {**KEY_TO_META[key], "average_rank": "", "status": "pending"}
+            )
+            v = safe_float(row.get("average_rank", ""))
+            per_panel.append((key, row, v if np.isfinite(v) else float("inf")))
+        per_panel.sort(key=lambda t: (t[2], KEY_TO_META[t[0]]["method_label"]))
+
+        keys_sorted = [t[0] for t in per_panel]
+        rows_sorted = [t[1] for t in per_panel]
+        y_labels_panel = [KEY_TO_META[k]["method_label"] for k in keys_sorted]
+
+        # style_paper_axis equivalent (grid_axis="x" for horizontal bars).
+        ax.set_facecolor(_PAPER_BG)
+        ax.set_axisbelow(True)
+        ax.grid(axis="x", linestyle="-", linewidth=0.55, color=_GRID, alpha=0.82)
+        ax.grid(axis="y", visible=False)
+        for side in ["top", "right"]:
+            ax.spines[side].set_visible(False)
+        for side in ["left", "bottom"]:
+            ax.spines[side].set_color(_SPINE_COLOR)
+            ax.spines[side].set_linewidth(0.8)
+        ax.tick_params(colors=_INK, labelcolor=_INK)
+
+        y = np.arange(len(rows_sorted))
+        values = [
+            safe_float(row["average_rank"]) if np.isfinite(safe_float(row["average_rank"])) else placeholder_value
+            for row in rows_sorted
+        ]
+
+        for yi, value, row in zip(y, values, rows_sorted):
+            grp = str(row["group"])
+            color = PALETTE["pending"] if row["status"] == "pending" else PALETTE.get(grp, PALETTE["baseline"])
+            hatch = BLI_HATCH.get(grp, "")
+            ax.barh(
+                yi, value, height=0.62,
+                color=color,
+                edgecolor="#222222",
+                linewidth=0.85,
+                hatch=hatch,
+                alpha=0.96,
+                zorder=2,
+            )
+            if grp.startswith("diy") and grp not in diy_groups_present:
+                diy_groups_present.append(grp)
+
+        ax.set_yticks(y, y_labels_panel)
+        ax.invert_yaxis()
+        ax.set_ylim(len(rows_sorted) - 0.40, -0.95)
+        ax.set_title(model_label, fontsize=12, fontweight="bold", color=_INK, pad=10)
+
+        ax.xaxis.set_major_locator(MultipleLocator(2))
+        ax.set_xlim(0, placeholder_value + 1.30)
+        ax.set_xlabel("Average rank (lower is better)", fontsize=12, color=_INK)
+
+        for yi, value, row in zip(y, values, rows_sorted):
+            if row["status"] == "pending":
+                text = "pending"
+                text_x = placeholder_value + 0.10
+                color = "#6B7280"
+            else:
+                text = f"{safe_float(row['average_rank']):.2f}"
+                text_x = value + 0.15
+                color = _INK
+            ax.text(text_x, yi, text, va="center", ha="left",
+                    fontsize=9, color=color, fontweight="normal")
+
+    diy_groups_ordered = [
+        g for g in ("diy_show", "diy_teach", "diy_teach_show", "diy_revise", "diy_teach_revise")
+        if g in diy_groups_present
+    ]
+    legend_handles = [
+        Patch(facecolor=PALETTE[g], edgecolor="#222222", linewidth=0.85,
+              hatch=BLI_HATCH[g], label=GROUP_LABELS[g])
+        for g in diy_groups_ordered
+    ]
+    legend_handles.append(
+        Patch(facecolor=PALETTE["baseline"], edgecolor="#222222", linewidth=0.85, label="Baselines")
+    )
+    fig.legend(
+        handles=legend_handles,
+        loc="lower center",
+        bbox_to_anchor=(0.5, -0.01),
+        ncol=len(legend_handles),
+        frameon=True,
+        fancybox=False,
+        framealpha=0.96,
+        edgecolor="#8a8a8a",
+        fontsize=10,
+        handlelength=1.8,
+        handleheight=1.0,
+        handletextpad=0.45,
+        columnspacing=1.2,
+        borderpad=0.45,
+    )
+
+    fig.subplots_adjust(left=0.085, right=0.985, bottom=0.110, top=0.930, wspace=0.45)
+    outdir = FIGURES / "combined"
+    (outdir / "pdf").mkdir(parents=True, exist_ok=True)
+    fig.savefig(outdir / "pdf/baseline_comparison_average_rank_combined_colm_style.pdf",
+                bbox_inches="tight", pad_inches=0.04, dpi=450)
     plt.close(fig)
 
 
