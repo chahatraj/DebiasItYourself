@@ -214,13 +214,10 @@ We evaluate \diylabel{} across the cells of the $\textsc{Show}\times\textsc{Trai
 \paragraph{Training and supervision scale.}
 For \trainlabel{}, we train one fine-tuned checkpoint per (strategy, instance-type) cell of the data, plus an \textsc{All-strategies} checkpoint that combines all five. Each checkpoint is trained on a 500-example subset (sampled with a fixed seed) for parity across cells, using LoRA adaptation on \llama{}-3.1-8B-Instruct (rank $256$, $\alpha=256$, learning rate $2{\times}10^{-4}$, three epochs).
 
-\section{Experimental Setup}
-\label{sec:setup}
-
-We evaluate \diy{} on \llama{}-3.1-8B-Instruct (primary), \llama{}-3.1-70B-Instruct, and \qwen{}-2.5-32B-Instruct \citep{TODO_llama3_cite, TODO_qwen_cite}, using five bias benchmarks: CrowS-Pairs \citep{nangia-etal-2020-crows}, StereoSet \citep{nadeem-etal-2021-stereoset}, BBQ \citep{parrish-etal-2022-bbq}, WinoBias \citep{zhao-etal-2018-gender}, and WinoGender \citep{rudinger-etal-2018-gender}; and three reasoning benchmarks: Balanced COPA \citep{TODO_balanced_copa_cite}, ARC-Challenge, and ARC-Easy \citep{TODO_arc_cite}. We summarize bias results with a normalized \emph{bias error} (lower is better). We compare against eleven prior debiasing methods: BiasEdit \citep{TODO_biasedit_cite}, FairSteer \citep{TODO_fairsteer_cite}, RSB \citep{TODO_rsb_cite}, DebiasNLG \citep{TODO_debiasnlg_cite}, DebiasLLMs \citep{TODO_debiasllms_cite}, SelfDebias \citep{schick2021self}, BBA \citep{TODO_bba_cite}, CAL \citep{TODO_cal_cite}, PEFT \citep{TODO_peft_cite}, DPO \citep{TODO_dpo_cite}, and LFTF \citep{TODO_lftf_cite}. Implementation details for \diy{} are given in Section~\ref{sec:implementations}; full configurations are in the appendix.
-
 \section{Experimental Results}
 \label{sec:experimental-results}
+
+We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \qwen{}-2.5-32B-Instruct, using five bias benchmarks: CrowS-Pairs \citep{nangia-etal-2020-crows}, StereoSet \citep{nadeem-etal-2021-stereoset}, BBQ \citep{parrish-etal-2022-bbq}, WinoBias \citep{zhao-etal-2018-gender}, and WinoGender \citep{rudinger-etal-2018-gender}; and three reasoning benchmarks: Balanced COPA \citep{TODO_balanced_copa_cite}, ARC-Challenge, and ARC-Easy \citep{TODO_arc_cite}. We summarize bias results with a normalized \emph{bias error} (lower is better). We compare against eleven prior debiasing methods: BiasEdit \citep{TODO_biasedit_cite}, FairSteer \citep{TODO_fairsteer_cite}, RSB \citep{TODO_rsb_cite}, DebiasNLG \citep{TODO_debiasnlg_cite}, DebiasLLMs \citep{TODO_debiasllms_cite}, SelfDebias \citep{schick2021self}, BBA \citep{TODO_bba_cite}, CAL \citep{TODO_cal_cite}, PEFT \citep{TODO_peft_cite}, DPO \citep{TODO_dpo_cite}, and LFTF \citep{TODO_lftf_cite}. Implementation details for \diy{} are provided in the appendix.
 
 \begin{figure*}[t]
 \centering
