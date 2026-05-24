@@ -76,8 +76,16 @@ Three limitations recur across these strategies. \textbf{1.} Supervision is cali
 
 We propose \diy{} (DIY), a bias mitigation framework that targets the procedure by which a language model handles bias-sensitive input. \diy{} draws on social psychology, where bias reduction has been studied empirically for decades, and is consistently achieved through trained cognitive practices that change how social information is processed when it is encountered. \diy{} operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm}, \textsc{Stereotype Replacement}, \textsc{Counter-stereotypic Imaging}, \textsc{Individuation}, \textsc{Perspective-taking}, and \textsc{Positive Contact}, into a single intervention protocol. \diy{} derives three composable techniques: \textbf{\textsc{Show}}, in-context demonstrations of the interventions; \textbf{\textsc{Teach}}, instruction-tuning targets derived from the same protocol; and \textbf{\textsc{Revise}}, a guided second pass over the model's first response.
 
-We evaluate \diy{} against debiasing baselines on multiple bias benchmarks, on reasoning benchmarks, and across model families and scales. \diy{} consistently reduces bias relative to baselines, with the largest reductions when \textsc{Teach} is composed with \textsc{Revise}. These results provide evidence that teaching a procedure for handling bias-sensitive input, rather than correcting its individual outputs, is a viable direction for bias mitigation. Our work makes the following key contributions:
+We evaluate \diy{} against debiasing baselines on multiple bias benchmarks, on reasoning benchmarks, and across model families and scales. \diy{} consistently reduces bias relative to baselines, with the largest reductions when \textsc{Teach} is composed with \textsc{Revise}. These results provide evidence that teaching a procedure for handling bias-sensitive input, rather than correcting its individual outputs, is a viable direction for bias mitigation.
 
+We organize the paper around three research questions:
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt,parsep=3pt,topsep=3pt,partopsep=0pt]
+    \item[\textbf{RQ1.}] Can a language model internalize a bias-reducing procedure as a transferable behavior, rather than as benchmark-specific corrections?
+    \item[\textbf{RQ2.}] Does the resulting model retain its performance on standard reasoning and instruction-following benchmarks?
+    \item[\textbf{RQ3.}] Does the learned procedure generalize across held-out bias dimensions, task formats, and model families?
+\end{enumerate}
+
+Our work makes the following key contributions:
 \begin{enumerate}[leftmargin=1.4em,itemsep=0pt,parsep=3pt,topsep=3pt,partopsep=0pt]
     \item \textbf{Task.} A reformulation of bias mitigation in language models, in which the supervision target is the procedure by which the model handles bias-sensitive input rather than the correction of individual biased outputs.
     \item \textbf{Method.} \diy{}, a unified intervention protocol that operationalizes the five practices of the prejudice habit-breaking framework of \citet{devine2012longterm} and is delivered through three composable techniques, \textsc{Show}, \textsc{Teach}, and \textsc{Revise}.
