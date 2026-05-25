@@ -171,7 +171,7 @@ Across the settings and models we evaluate, the bias-reducing interventions lowe
 
 \paragraph{Position of this work.} \diylabel{} extends this line of work in three ways. It draws on five distinct interventions rather than a single one, evaluates them across benchmarks rather than within a single dataset, and grounds the input given to the model in the step-wise procedures of \citet{devine2012longterm} rather than in general psychology-inspired vocabulary, while making no claim about model cognition.
 
-\section{Cognitive Bias-Reduction Interventions and Dataset}
+\section{Study Design}
 \label{sec:data-methods}
 
 \subsection{Bias-Reducing Interventions}
@@ -207,11 +207,29 @@ We first generate a diverse set of demographic identity descriptors that serve a
 \paragraph{Bias Concept Generation.}
 Given a set of identity descriptors, we next generate bias concepts that reflect commonly observed stereotypical traits, assumptions, or associations (e.g., perceived competence, socioeconomic status, athletic ability). These concepts are generated without attaching ground-truth labels or correctness constraints, and are intended solely to elicit biased reasoning when combined with identity information. Bias concepts may target a single individual or implicitly contrast multiple identities.
 
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/llama8b/pdf/strategy_comparison_bias_reasoning_generalizability.pdf}
+\caption{Strategy-level comparison for \llama{}-3.1-8B-Instruct. Panels summarize bias mitigation on the main bias benchmarks, reasoning accuracy on Balanced COPA/ARC, and bias mitigation on held-out dimensions in the gender-source generalization run. Shaded bands show the retained baseline envelope; for held-out dimensions, the band is a contextual reference from existing per-dimension baseline artifacts rather than strict gender-source baseline-transfer runs.}
+\label{fig:strategy-comparison-llama8b}
+\end{figure*}
+
 \paragraph{Biased Instance Generation.}
 Biased instances are created by combining identity descriptors and bias concepts within open-ended scenarios, such as professional, social, or everyday contexts. A language model is prompted to synthesize these components into coherent natural language inputs designed to plausibly trigger stereotypical reasoning. This step yields bias-prone prompts without explicitly instructing the model to behave unfairly, mirroring how bias arises in unconstrained language use.
 
 \paragraph{Debiased Instance Generation.}
 For each biased instance, we generate a corresponding debiased output using a specified cognitive intervention strategy. The model is prompted to apply the selected strategy by explicitly following its step-wise reasoning structure (e.g., recognizing the stereotype, reflecting on its limitations, and revising the interpretation). This results in aligned biased--debiased pairs that can be formatted as instruction--response examples for supervised fine-tuning or as demonstrations for in-context debiasing at inference time.
+
+\section{Implementation}
+\label{sec:implementations}
+
+\diylabel{} brings the cognitive interventions of Section~\ref{sec:strategies} to a language model in three complementary ways, \showlabel{}, \trainlabel{}, and \reviselabel{}, which we describe below.
+
+\paragraph{\showlabel{}.}
+At inference, the chosen intervention and a small number of biased--debiased example pairs (worked through the intervention's three steps) are placed in the prompt as in-context demonstrations. The model conditions on the demonstrations and produces a debiased response under the same step structure, without parameter updates. We evaluate \showlabel{} per intervention, running each of the five interventions as a separate condition, and additionally report an aggregated \textsc{All-strategies} setting that mixes the five.
+
+\paragraph{\trainlabel{}.}
+The intervention-labeled biased--debiased pairs are converted into instruction-tuning targets and used to fine-tune the model with parameter-efficient adaptation. After training, the model can apply the intervention without explicit demonstrations or intervention text in the prompt.
 
 \begin{table}[t]
 \centering
@@ -233,21 +251,11 @@ Method & IT & ICL & Revise \\
 \label{tab:diy-configs}
 \end{table}
 
-\section{Implementation}
-\label{sec:implementations}
-
-\diylabel{} brings the cognitive interventions of Section~\ref{sec:strategies} to a language model in three complementary ways, \showlabel{}, \trainlabel{}, and \reviselabel{}, which we describe below.
-
-\paragraph{\showlabel{}.}
-At inference, the chosen intervention and a small number of biased--debiased example pairs (worked through the intervention's three steps) are placed in the prompt as in-context demonstrations. The model conditions on the demonstrations and produces a debiased response under the same step structure, without parameter updates. We evaluate \showlabel{} per intervention, running each of the five interventions as a separate condition, and additionally report an aggregated \textsc{All-strategies} setting that mixes the five.
-
-\paragraph{\trainlabel{}.}
-The intervention-labeled biased--debiased pairs are converted into instruction-tuning targets and used to fine-tune the model with parameter-efficient adaptation. After training, the model can apply the intervention without explicit demonstrations or intervention text in the prompt.
-\begin{figure*}[htbp]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/llama8b/pdf/strategy_comparison_bias_reasoning_generalizability.pdf}
-\caption{Strategy-level comparison for \llama{}-3.1-8B-Instruct. Panels summarize bias mitigation on the main bias benchmarks, reasoning accuracy on Balanced COPA/ARC, and bias mitigation on held-out dimensions in the gender-source generalization run. Shaded bands show the retained baseline envelope; for held-out dimensions, the band is a contextual reference from existing per-dimension baseline artifacts rather than strict gender-source baseline-transfer runs.}
-\label{fig:strategy-comparison-llama8b}
+\includegraphics[width=\textwidth]{figures/combined/pdf/baseline_comparison_average_rank_combined.pdf}
+\caption{Average rank across bias benchmarks (lower is better). Each method is ranked per benchmark, then averaged. \diytrainreviselabel{} and \diyreviselabel{} consistently achieve the lowest (best) average ranks across all three model families.}
+\label{fig:baseline-rank}
 \end{figure*}
 
 \paragraph{\reviselabel{}.}
@@ -261,17 +269,17 @@ We evaluate \diylabel{} across the cells of the $\textsc{Show}\times\textsc{Trai
 \paragraph{Training scale.}
 For \trainlabel{}, we train one fine-tuned checkpoint per (intervention, instance-type) cell of the data, plus an \textsc{All-strategies} checkpoint that combines all five. Each checkpoint is trained on a 500-example subset (sampled with a fixed seed) for parity across cells, using LoRA adaptation on \llama{}-3.1-8B-Instruct (rank $256$, $\alpha=256$, learning rate $2{\times}10^{-4}$, three epochs).
 
+\section{Evaluation}
+\label{sec:evaluation}
+
+We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \qwen{}-2.5-32B-Instruct, using five bias benchmarks: CrowS-Pairs \citep{nangia-etal-2020-crows}, StereoSet \citep{nadeem-etal-2021-stereoset}, BBQ \citep{parrish-etal-2022-bbq}, WinoBias \citep{zhao-etal-2018-gender}, and WinoGender \citep{rudinger-etal-2018-gender}; and three reasoning benchmarks: Balanced COPA \citep{kavumba-etal-2019-choosing}, ARC-Challenge, and ARC-Easy \citep{clark2018arc}. We compare against ten prior debiasing methods spanning three families. \emph{Prompt-based} methods elicit fairer responses through prompt engineering: SelfDebias \citep{gallegos2024selfdebiasing} and RSB \citep{kamruzzaman2025rsb}. \emph{Training-based} methods modify model parameters: DebiasNLG \citep{wang-demberg-2024-parameter}, DebiasLLMs \citep{dong2024disclosure}, PEFT \citep{zhao-etal-2025-debiasing}, DPO \citep{dai2025mitigating}, LFTF \citep{qin2025lftf}, and BiasEdit \citep{xu-etal-2025-biasedit}. \emph{Inference-based} methods steer or correct outputs at decoding time: FairSteer \citep{li2025fairsteer}, CAL \citep{sun-etal-2024-causal}, and BBA \citep{lin2026bba}. Implementation details for \diy{} are provided in the appendix.
+
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/llama8b/pdf/debiasing_method_bars_by_shot_all_strategies_all_versions.pdf}
 \caption{Normalized bias scores for \llama{}-3.1-8B-Instruct across datasets and \diylabel{} configurations. Lower scores indicate smaller distance from the benchmark-specific unbiased point. For CrowS-Pairs and StereoSet, this score is the absolute distance from $50$; for BBQ, WinoBias, and WinoGender, it is distance from $0$.}
 \label{fig:debiasing-shot-llama8b}
 \end{figure*}
-
-\section{Evaluation}
-\label{sec:evaluation}
-
-We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \qwen{}-2.5-32B-Instruct, using five bias benchmarks: CrowS-Pairs \citep{nangia-etal-2020-crows}, StereoSet \citep{nadeem-etal-2021-stereoset}, BBQ \citep{parrish-etal-2022-bbq}, WinoBias \citep{zhao-etal-2018-gender}, and WinoGender \citep{rudinger-etal-2018-gender}; and three reasoning benchmarks: Balanced COPA \citep{kavumba-etal-2019-choosing}, ARC-Challenge, and ARC-Easy \citep{clark2018arc}. We compare against ten prior debiasing methods spanning three families. \emph{Prompt-based} methods elicit fairer responses through prompt engineering: SelfDebias \citep{gallegos2024selfdebiasing} and RSB \citep{kamruzzaman2025rsb}. \emph{Training-based} methods modify model parameters: DebiasNLG \citep{wang-demberg-2024-parameter}, DebiasLLMs \citep{dong2024disclosure}, PEFT \citep{zhao-etal-2025-debiasing}, DPO \citep{dai2025mitigating}, LFTF \citep{qin2025lftf}, and BiasEdit \citep{xu-etal-2025-biasedit}. \emph{Inference-based} methods steer or correct outputs at decoding time: FairSteer \citep{li2025fairsteer}, CAL \citep{sun-etal-2024-causal}, and BBA \citep{lin2026bba}. Implementation details for \diy{} are provided in the appendix.
 
 \section{Results}
 \label{sec:results}
@@ -291,16 +299,16 @@ On every tested model, the lowest average rank across the five bias benchmarks i
 \paragraph{Method Comparison.}
 Across the five \diylabel{} configurations, intervention-guided revision contributes the largest share of the bias reduction, and combining it with instruction tuning yields the strongest overall configuration (Figure~\ref{fig:debiasing-shot-llama8b}; \llama{}-3.1-70B and \qwen{}-2.5-32B in Appendix Figures~\ref{fig:app-debiasing-shot-llama70b}--\ref{fig:app-debiasing-shot-qwen}). \diyreviselabel{} reduces bias substantially across all three models. For example, on \llama{}-3.1-8B CrowS-Pairs the bias score drops from $15.2$ at \baselabel{} to $2.45$, and composing \diyreviselabel{} with \diytrainlabel{} sharpens it further to $0.860$. \diytrainlabel{} alone produces a smaller and less consistent reduction, suggesting that parameter-level supervision is most useful when paired with an inference-time procedure rather than applied in isolation. \diyshowlabel{} shows a different pattern. Zero-shot demonstrations are competitive with the leading configurations, while adding more demonstrations does not consistently help. Shot effects are technique-dependent more broadly. Revision benefits modestly from additional demonstrations, while training-based configurations are largely insensitive to shot count.
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/combined/pdf/baseline_comparison_average_rank_combined.pdf}
-\caption{Average rank across bias benchmarks (lower is better). Each method is ranked per benchmark, then averaged. \diytrainreviselabel{} and \diyreviselabel{} consistently achieve the lowest (best) average ranks across all three model families.}
-\label{fig:baseline-rank}
-\end{figure*}
-
 \begin{insightbox}
 \smash{\notebookpencil}~\textbf{Takeaway 2.} Intervention-guided revision is the strongest single technique, and pairing it with instruction tuning yields the most reliable configuration. Instruction tuning alone offers limited improvement; in-context demonstrations are most effective at zero-shot.
 \end{insightbox}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/qwen/pdf/reasoning_preservation_envelope.pdf}
+\caption{Reasoning preservation for \qwen{}-2.5-32B-Instruct across Balanced COPA, ARC-Challenge, and ARC-Easy. The shaded envelope summarizes the retained debiasing baselines: the outer band marks the baseline min--max range and the inner band marks the interquartile range. Markers show the five \diylabel{} configurations; higher accuracy indicates better preservation of general reasoning ability.}
+\label{fig:reasoning-preservation-qwen}
+\end{figure*}
 
 \paragraph{Intervention Effectiveness.} 
 
@@ -310,6 +318,13 @@ Across the five \diylabel{} configurations, intervention-guided revision contrib
 \paragraph{Reasoning across DIY methods and baselines.}
 Across all five \diylabel{} configurations and both shot settings, reasoning accuracy on Balanced COPA, ARC-Challenge, and ARC-Easy stays at or above the unmodified \baselabel{} on \qwen{}-2.5-32B (Figure~\ref{fig:reasoning-preservation-qwen}; \llama{}-3.1-8B and \llama{}-3.1-70B in Appendix Figures~\ref{fig:app-reasoning-preservation-llama8b}--\ref{fig:app-reasoning-preservation-llama70b}). Several configurations exceed \baselabel{}; \diytrainshowlabel{} reaches $97.8\%$ on ARC-Easy against $88.5\%$ for \baselabel{}, and \diytrainlabel{} adds about seven points on ARC-Challenge. Revision-based, training-based, and demonstration-based configurations all stay within the same accuracy band, with no systematic degradation from any added supervision component. The only consistent dip across models is \diyshowlabel{} at $1$-shot on Balanced COPA, which falls a few points below \baselabel{} on \qwen{}-2.5-32B and a larger margin on \llama{}-3.1-8B; this aligns with the \diyshowlabel{} $1$-shot bias-reduction instability noted earlier and is consistent with demonstration content driving the dip rather than the technique itself. Supervising the model on intervention-guided behavior therefore does not erode general reasoning, and on the larger model can incidentally improve it.
 
+\begin{figure}[htp]
+\centering
+\includegraphics[width=\columnwidth]{figures/combined/pdf/bias_reasoning_pareto_combined.pdf}
+\caption{Bias--reasoning tradeoff across model families. Each panel plots mean bias against reasoning accuracy for one model family; lower mean bias and higher reasoning accuracy indicate a better tradeoff. \diylabel{} configurations are shown with diamonds and baselines with circles.}
+\label{fig:bias-reasoning-pareto}
+\end{figure}
+
 \begin{insightbox}
 \smash{\notebookpencil}~\textbf{Takeaway 3.} \diylabel{} preserves reasoning accuracy across all configurations and shot settings, with several configurations on \qwen{}-2.5-32B exceeding the unmodified \baselabel{} on ARC-Easy and ARC-Challenge.
 \end{insightbox}
@@ -317,23 +332,9 @@ Across all five \diylabel{} configurations and both shot settings, reasoning acc
 \paragraph{Bias--reasoning tradeoff.}
 A central concern for any debiasing method is that bias reductions should not come at the cost of general task competence. \diylabel{} configurations sit on the favorable corner of the bias--reasoning frontier across all three models, achieving low mean bias without the reasoning collapse seen in several baselines (Figure~\ref{fig:bias-reasoning-pareto}). On \llama{}-3.1-8B, \diyreviselabel{} and \diytrainreviselabel{} reach the lowest mean bias of any method while preserving reasoning accuracy near $70\%$. DebiasLLMs reaches a similar bias level only by dropping reasoning below $50\%$. The same pattern holds on \qwen{}-2.5-32B, where \diytrainreviselabel{} achieves both the highest reasoning accuracy ($\sim 93\%$) and a mean bias comparable to the strongest debiasing baselines, while BiasEdit and DebiasLLMs reach low bias only at substantially lower reasoning. On \llama{}-3.1-70B, \diyreviselabel{} and \diytrainreviselabel{} again sit in the top-left region, while baselines that match their bias level (DebiasLLMs, BiasEdit) drop to reasoning accuracy below $40\%$. One explanation is that methods that lower bias by inducing vague or refusal-style outputs lose the ability to answer task questions correctly, whereas \diylabel{} preserves it because the supervision target is intervention-guided behavior on bias-sensitive input rather than output suppression.
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\linewidth]{figures/qwen/pdf/reasoning_preservation_envelope.pdf}
-\caption{Reasoning preservation for \qwen{}-2.5-32B-Instruct across Balanced COPA, ARC-Challenge, and ARC-Easy. The shaded envelope summarizes the retained debiasing baselines: the outer band marks the baseline min--max range and the inner band marks the interquartile range. Markers show the five \diylabel{} configurations; higher accuracy indicates better preservation of general reasoning ability.}
-\label{fig:reasoning-preservation-qwen}
-\end{figure*}
-
 \begin{insightbox}
 \smash{\notebookpencil}~\textbf{Takeaway 4.} \diylabel{} sits on the favorable corner of the bias--reasoning frontier on every tested model: it matches the lowest-bias baselines without their reasoning collapse, supporting the claim that reducing bias as a behavior is compatible with preserving general task competence.
 \end{insightbox}
-
-\begin{figure}[htp]
-\centering
-\includegraphics[width=\columnwidth]{figures/combined/pdf/bias_reasoning_pareto_combined.pdf}
-\caption{Bias--reasoning tradeoff across model families. Each panel plots mean bias against reasoning accuracy for one model family; lower mean bias and higher reasoning accuracy indicate a better tradeoff. \diylabel{} configurations are shown with diamonds and baselines with circles.}
-\label{fig:bias-reasoning-pareto}
-\end{figure}
 
 \paragraph{Reasoning across strategies.}
 Figure~\ref{fig:strategy-comparison-llama8b} isolates the five intervention strategies and the mixed all-strategies setting on \llama{}-3.1-8B. The same pattern appears across the three evaluation axes: each strategy improves bias mitigation relative to the unmodified model, preserves reasoning within the baseline envelope, and transfers to held-out bias dimensions in the gender-source generalization setting. Positive Contact and Counter-stereotypic Imaging are strongest on held-out dimensions, while the all-strategies mixture remains competitive across all panels.
@@ -354,6 +355,7 @@ We first test whether \diylabel{} transfers beyond the bias dimension used as th
 \section{Conclusion}
 Bias mitigation in language models can be approached as a problem already studied for decades in another field. The empirical study in this paper supports that view. Cognitive interventions developed and validated for human bias reduction transfer to LLM behavior, with guided self-revision producing the most consistent gains and general reasoning ability preserved across configurations. The intervention-labeled dataset we construct alongside the study is a starting point for further work grounded in social-psychology theory rather than benchmark-specific signals, and we expect more of the literature on prejudice reduction to translate into model-facing input than is examined here.
 
+\clearpage %remove clearpage before submission
 \section*{Limitations}
 \label{sec:limitations}
 
