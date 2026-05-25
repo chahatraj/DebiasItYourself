@@ -330,6 +330,15 @@ A central concern for any debiasing method is that bias reductions should not co
 \subsection{Generalization}
 \label{sec:rq3}
 
+\section*{Limitations}
+\label{sec:limitations}
+
+\paragraph{Synthetic intervention data.} Validated examples of cognitive bias-reduction strategies in social psychology are few in number and applied to narrow case studies, which is insufficient for instruction-tuning a language model. We address this by generating synthetic intervention-labeled biased--debiased pairs that scale the supervision to a usable size. While we filter and validate the resulting data, generation-time artifacts in the prompting model may propagate into the supervision signal, and the synthetic distribution may not capture the full breadth of social-psychology intervention examples a larger human-curated dataset could provide.
+
+\paragraph{Output behavior versus underlying processing.} The central claim of \diylabel{} is that the supervision target is a transferable bias-reducing \emph{behavior}, but the evidence we can observe is downstream output: bias scores on benchmarks. We cannot directly verify whether the model's underlying processing of social cues has changed or whether the model has become better at producing benchmark-shaped output that scores well under the bias-score formulation. Reasoning preservation provides indirect evidence against pure output suppression, but a more direct test of internal processing is outside the scope of this work.
+
+\paragraph{Coverage of long-form generation and multi-hop reasoning.} Our bias evaluation uses likelihood-, multiple-choice-, and pair-ranking-style benchmarks, and our reasoning evaluation uses commonsense and grade-school science multiple-choice tasks. We do not directly evaluate \diylabel{} on long-form generation, dialogue, or multi-hop reasoning benchmarks, so claims about preserved task competence and bias reduction are bounded by these task formats.
+
 \clearpage
 \bibliographystyle{acl_natbib}
 \bibliography{anthology,custom}
