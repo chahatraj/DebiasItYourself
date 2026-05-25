@@ -76,6 +76,14 @@
   \end{tikzpicture}%
 }
 
+\newcommand{\ensuretext}[1]{#1}
+\newcommand{\nertcomment}[4]{\ensuretext{\textcolor{#3}{[\ensuretext{\textcolor{#3}{\ensuremath{^{\textsc{#1}}_{\textsc{#2}}}}} #4]}}}
+\newcommand{\an}[1]{\nertcomment{A}{A}{magenta}{#1}}
+\newcommand{\zz}[1]{\nertcomment{Z}{Z}{blue}{#1}}
+\newcommand{\ac}[1]{\nertcomment{A}{C}{orange}{#1}}
+\newcommand{\ch}[1]{\nertcomment{C}{H}{magenta}{#1}}
+\newcommand{\am}[1]{\nertcomment{A}{M}{cyan}{#1}}
+
 \newcommand{\showlabel}{\highlightRounded{diyShowBg}{\textsc{Show}}}
 \newcommand{\trainlabel}{\highlightRounded{diyTrainBg}{\textsc{Train}}}
 \newcommand{\reviselabel}{\highlightRounded{diyReviseBg}{\textsc{Revise}}}
@@ -131,33 +139,38 @@
 \title{Debias It Yourself: Teaching LLMs Cognitive Bias-Mitigation Interventions}
 
 \author{
-  Anonymous EMNLP submission
+  Chahat Raj\textsuperscript{1} \
+  Sina Mansouri\textsuperscript{1} \
+  \textbf{Aylin Caliskan}\textsuperscript{\textbf{2}} \ 
+  \textbf{Antonios Anastasopoulos}\textsuperscript{\textbf{1}} \
+  \textbf{Ziwei Zhu}\textsuperscript{\textbf{1}} \\
+  \textsuperscript{1}George Mason University, \textsuperscript{2}University of Washington \\
+  \texttt{\{craj,bwei2,antonis,zzhu20\}@gmu.edu} \quad \texttt{aylin@uw.edu}
 }
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Social and cognitive psychology have studied bias reduction in humans for decades and developed a family of interventions that reduce stereotypical thinking when humans encounter bias-sensitive situations. We ask whether the same interventions can reduce social bias in large language models, and what is the most effective way to apply them. We introduce \diy{} (DIY), an empirical study that examines five validated bias-reducing interventions from social psychology and compares three ways of bringing them to a model: in context (\textsc{Show}), through instruction tuning (\textsc{Train}), and through guided self-revision (\textsc{Revise}). To support the study, we construct an intervention-labeled dataset of biased--debiased pairs that supplies a single source of supervision usable by all three approaches. Across three model families, five bias benchmarks, ten debiasing baselines, and three reasoning benchmarks, the cognitive interventions consistently reduce bias relative to the unmodified model, with guided self-revision yielding the largest gains; the resulting models also outperform prior baselines on aggregate while preserving reasoning ability. Code and data: \footnote{\url{https://anonymous.4open.science/r/DebiasItYourself}}.
-\end{abstract}
+Bias has long been studied in social psychology and cognitive science, where decades of research have produced a body of validated interventions that reduce stereotypical thinking and prejudiced response in humans. We investigate whether such interventions can reduce social bias in large language models, and what form they should take to do so most effectively. We introduce \diy{} (DIY), a comprehensive study that examines five validated bias-reducing interventions from this literature and instantiates them as three approaches in language models, \textsc{Show} (in-context demonstrations), \textsc{Train} (instruction tuning), and \textsc{Revise} (guided self-revision). Across three model families, five bias benchmarks, twelve debiasing baselines, and three reasoning benchmarks, training combined with self-revision and self-revision alone attain the top two average ranks, lead the bias--reasoning tradeoff (mean bias as low as $2\%$ at $90\%$ reasoning accuracy), and transfer to unseen bias dimensions (up to $21.2\%$ reduction). Our code and data are publicly available.\footnote{\url{https://anonymous.4open.science/r/DebiasItYourself}}
+\end{abstract} 
 
 \section{Introduction}
 \label{sec:introduction}
 
-\emph{``Prejudice is a habit that can be broken''} \citep{devine2012longterm}. Bias reduction has been studied for decades in social and cognitive psychology, where researchers have developed and empirically validated a family of interventions that reduce stereotypical thinking and prejudiced response in humans \citep{allport1954nature, devine2012longterm, galinsky2000perspective}. These interventions take the form of step-wise procedures: each specifies what to attend to in a situation that invites a stereotyped response, what assumption to override, and what alternative to produce. They are taught to people, practiced over time, and assessed for sustained change in behavior.
+\emph{``Prejudice is a habit that can be broken''} \citep{devine2012longterm}. Bias is not eliminated by awareness or restraint, but by deliberate cognitive practices that change how social information is processed when it is encountered. Decades of research in social psychology and cognitive science have empirically validated such practices in humans, showing that they specify what to attend to in a situation that invites a stereotyped response, what assumption to override, and what alternative to produce \citep{allport1954nature, devine2012longterm, galinsky2000perspective}. They are taught to people, practiced over time, and assessed for sustained change in behavior.
 
-A natural question is whether the same interventions can reduce social bias in large language models. Bias in LLMs is well documented \citep{bolukbasi2016man, caliskan2017semantics, blodgett2020language, sheng2019woman, parrish-etal-2022-bbq}, and an active line of work approaches the problem through debiased embeddings \citep{bolukbasi2016man, zhao-etal-2018-gender}, counterfactual augmentation \citep{zmigrod2019counterfactual, lu2020gender}, prompt-based steering \citep{schick2021self, ganguli2023capacity}, fairness-aware training \citep{liang2020towards, ouyang2022training}, and decoding-time constraints \citep{schick2021self}. Whether the bias-reducing interventions from psychology can also reduce bias in LLMs, and if so the most effective way to apply them, is to our knowledge an open empirical question.
+Bias in large language models is a well-documented harm \citep{bolukbasi2016man, caliskan2017semantics, blodgett2020language, sheng2019woman, parrish-etal-2022-bbq}, and a growing body of work has sought to mitigate it through debiased embeddings \citep{bolukbasi2016man, zhao-etal-2018-gender}, counterfactual augmentation \citep{zmigrod2019counterfactual, lu2020gender}, prompt-based steering \citep{schick2021self, ganguli2023capacity}, fairness-aware training \citep{liang2020towards, ouyang2022training}, and decoding-time constraints \citep{schick2021self}. These efforts have made measurable progress, but they have largely developed in isolation from the decades of psychological research on how bias is reduced in humans. Translating empirically validated cognitive interventions into language-model behavior is not just a question of whether they work, but a chance to ground bias mitigation in established theory of bias reduction, surface which forms of cognitive practices are most effective in language models, and open a research direction in which methods of debiasing can be systematically derived rather than ad hoc designed.
 
-\textbf{This paper presents an empirical study of that question.} We introduce \diy{}, a study that examines five validated bias-reducing interventions from social psychology and asks how their effect on LLM behavior changes when they are introduced to the model in different ways. \diy{} compares three ways of bringing the interventions to a model, in context (\showlabel{}), through training (\trainlabel{}), and through guided self-revision (\reviselabel{}), individually and in combination, and evaluates the resulting models across multiple bias benchmarks, debiasing baselines, reasoning benchmarks, and model families. To make the study possible, we construct an intervention-labeled dataset that pairs biased instances with debiased targets under each of the five interventions, providing a single source of bias-reducing interventions usable for all three ways of applying them.
+We present \diy{} (\diylabel{}), a study that investigates whether language models can learn how to reduce bias using cognitive strategies. Drawing on five bias-mitigation practices grounded in social-psychology, \diylabel{} treats debiasing as a procedure the model itself can learn and apply, rather than a benchmark-specific fix. We realize each practice through three established paradigms in language models, in-context learning (\textsc{Show}), instruction tuning (\textsc{Train}), and self-revision (\textsc{Revise}), and characterize how each shapes the model's behavior of bias-sensitive input. Through this work, \diylabel{} addresses a central question: \textit{how can language models learn to reduce bias using cognitive interventions, generalize the behavior to unseen bias forms, while still preserving general ability?}
 
-Across the settings and models we evaluate, the bias-reducing interventions lower bias substantially relative to the unmodified model, with guided self-revision (alone or combined with training) yielding the largest and most consistent improvements. The same models also outperform a broad set of debiasing baselines on aggregate, and reasoning ability is preserved throughout. We summarize the contributions of the study below.
+To address this question, \diylabel{} applied cognitive bias-reduction strategies to large language models, evaluating them across model families and scales, a range of bias dimensions, and standard bias and reasoning benchmarks, against a broad set of existing debiasing methods spanning prompt-based, training-based, and inference-based families. Among all methods evaluated, the top two average ranks across bias benchmarks are achieved by two cognitive-strategy configurations, instruction tuning combined with self-revision and self-revision alone. Both also lead the bias--reasoning tradeoff, achieving mean bias as low as $2\%$ at $90\%$ reasoning accuracy, and the bias reduction transfers to unseen bias dimensions across benchmarks and model families, reaching up to $21.2\%$ reduction. We, thus, make the following contributions:
 
-\noindent\textbf{Contributions.}
+%\noindent\textbf{Contributions.}
 \begin{enumerate}[leftmargin=1.4em,itemsep=0pt,parsep=3pt,topsep=3pt,partopsep=0pt]
-    \item \textbf{Research question.} We pose, as an empirical question, whether validated bias-reducing interventions from psychology can reduce social bias in LLMs, and the most effective way to apply them.
-    \item \textbf{Study design.} We design and run a controlled study that examines five bias-reducing interventions and three ways of applying them to a model (\textsc{Show}, \textsc{Train}, \textsc{Revise}), evaluated across multiple bias benchmarks, baselines, reasoning benchmarks, and model families.
-    \item \textbf{Intervention-labeled dataset.} We construct and release a dataset of biased instances paired with debiased targets under each of the five interventions, reusable for future work on bias-reducing interventions in LLMs.
-    \item \textbf{Empirical findings.} The study shows that bias-reducing interventions lower bias in LLMs, that guided self-revision is the most effective way to apply them, that gains hold across model families and scales, and that reasoning ability is preserved.
+\item We pose a central question and study whether cognitive bias-reduction strategies can reduce bias in large language models.
+\item We design a controlled study of five cognitive bias-reduction strategies under three established learning paradigms (\textsc{Show}, \textsc{Train}, \textsc{Revise}), evaluated against twelve existing debiasing baselines across model families, scales, bias dimensions, and reasoning benchmarks. Alongside, we release a reusable intervention dataset to support future work in this direction.
+\item Cognitive interventions match or surpass existing debiasing methods, generalize to unseen bias dimensions, and preserve general reasoning ability across model families and scales.
 \end{enumerate}
 
 \section{Related Work}
@@ -310,7 +323,7 @@ Across the five \diylabel{} configurations, intervention-guided revision contrib
 \label{fig:reasoning-preservation-qwen}
 \end{figure*}
 
-\paragraph{Intervention Effectiveness.} 
+% \paragraph{Intervention Effectiveness.} 
 
 \subsection{Reasoning Ability}
 \label{sec:rq2}
