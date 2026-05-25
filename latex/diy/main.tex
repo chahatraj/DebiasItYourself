@@ -342,6 +342,10 @@ A central concern for any debiasing method is that bias reductions should not co
 
 \paragraph{Coverage of long-form generation and multi-hop reasoning.} Our bias evaluation uses likelihood-, multiple-choice-, and pair-ranking-style benchmarks, and our reasoning evaluation uses commonsense and grade-school science multiple-choice tasks. We do not directly evaluate \diylabel{} on long-form generation, dialogue, or multi-hop reasoning benchmarks, so claims about preserved task competence and bias reduction are bounded by these task formats.
 
+\section*{Ethical Considerations}
+\label{sec:ethics}
+
+\paragraph{Use of bias-reduction interventions.} \diylabel{} operationalizes social-psychology interventions developed for human prejudice reduction as model-facing supervision. We do not claim that the model engages in bias reduction in the same cognitive sense as a human; we claim only that the procedural form of the interventions is suitable as a supervision target. Treating model behavior as analogous to human cognition risks overclaiming and is explicitly disclaimed.
 
 \bibliographystyle{acl_natbib}
 \bibliography{anthology,custom}
