@@ -171,10 +171,10 @@ Across the settings and models we evaluate, the bias-reducing interventions lowe
 
 \paragraph{Position of this work.} \diylabel{} addresses the limitations above. It supervises across benchmarks rather than per-benchmark; targets the procedure by which the model handles bias-sensitive input rather than the output; and grounds supervision in the five operationally specified practices of \citet{devine2012longterm} rather than psychology-inspired vocabulary, while making no claim about model cognition.
 
-\section{Data}
+\section{Study Design}
 \label{sec:data-methods}
 
-\subsection{Intervention Strategies}
+\subsection{Bias-Reducing Interventions}
 \label{sec:strategies}
 
 Our debiasing approach is grounded in a set of five cognitively motivated intervention strategies derived from established findings in social and cognitive psychology. Each strategy targets a distinct mechanism through which stereotypes and social biases arise in reasoning, and is operationalized as a structured, step-wise reasoning process. Importantly, these strategies are designed to be applied independently or composed, and are agnostic to model architecture, task, or domain. We adopt the five practices from the prejudice habit-breaking framework of \citet{devine2012longterm} because they form an empirically validated intervention with sustained effects on implicit bias, and because they are specified as explicit step-wise procedures, which makes them suitable for direct operationalization as model-facing supervision.
@@ -196,7 +196,7 @@ This practice draws on contact theory, which suggests that meaningful positive i
 
 Together, these five strategies form a modular cognitive intervention toolkit. Each strategy can be deployed independently, enabling fine-grained analysis of their individual effects, or combined to create stronger debiasing interventions. Crucially, all strategies operate at the level of reasoning and interpretation, rather than relying on task-specific labels or outcome supervision.
 
-\subsection{Data Creation}
+\subsection{DIY Dataset Creation}
 \label{sec:data}
 
 We construct a synthetic debiasing dataset using a self-instruct-style generation pipeline grounded in the five-step cognitive intervention framework. The dataset consists of paired biased inputs and debiased outputs, where each biased input is realized in three textual forms, an \emph{opinion} (a direct biased statement, e.g., \emph{``All [identity] are dishonest''}), a biased \emph{action} (a sentence in which the opinion drives a discriminatory behavior), and a biased \emph{event} (a sentence describing an event that leads to forming the opinion), and each debiased output follows a specific cognitive debiasing strategy. The resulting data is used both for supervised instruction tuning and for inference-time in-context debiasing.
@@ -233,7 +233,7 @@ Method & IT & ICL & Revise \\
 \label{tab:diy-configs}
 \end{table}
 
-\section{Methods}
+\section{Implementation}
 \label{sec:implementations}
 
 \diylabel{} delivers the cognitive strategies of Section~\ref{sec:strategies} to a language model through three composable techniques: \showlabel{}, \trainlabel{}, and \reviselabel{}.
@@ -268,10 +268,13 @@ For \trainlabel{}, we train one fine-tuned checkpoint per (strategy, instance-ty
 \label{fig:debiasing-shot-llama8b}
 \end{figure*}
 
-\section{Experimental Results}
-\label{sec:experimental-results}
+\section{Evaluation}
+\label{sec:evaluation}
 
 We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \qwen{}-2.5-32B-Instruct, using five bias benchmarks: CrowS-Pairs \citep{nangia-etal-2020-crows}, StereoSet \citep{nadeem-etal-2021-stereoset}, BBQ \citep{parrish-etal-2022-bbq}, WinoBias \citep{zhao-etal-2018-gender}, and WinoGender \citep{rudinger-etal-2018-gender}; and three reasoning benchmarks: Balanced COPA \citep{kavumba-etal-2019-choosing}, ARC-Challenge, and ARC-Easy \citep{clark2018arc}. We compare against ten prior debiasing methods spanning three families. \emph{Prompt-based} methods elicit fairer responses through prompt engineering: SelfDebias \citep{gallegos2024selfdebiasing} and RSB \citep{kamruzzaman2025rsb}. \emph{Training-based} methods modify model parameters: DebiasNLG \citep{wang-demberg-2024-parameter}, DebiasLLMs \citep{dong2024disclosure}, PEFT \citep{zhao-etal-2025-debiasing}, DPO \citep{dai2025mitigating}, LFTF \citep{qin2025lftf}, and BiasEdit \citep{xu-etal-2025-biasedit}. \emph{Inference-based} methods steer or correct outputs at decoding time: FairSteer \citep{li2025fairsteer}, CAL \citep{sun-etal-2024-causal}, and BBA \citep{lin2026bba}. Implementation details for \diy{} are provided in the appendix.
+
+\section{Results}
+\label{sec:results}
 
 \subsection{Bias Mitigation}
 \label{sec:rq1}
