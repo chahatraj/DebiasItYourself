@@ -412,6 +412,36 @@ The full pipeline yields a corpus of intervention-labeled biased--debiased pairs
 \paragraph{Safety and intended use.}
 The dataset contains synthetic biased text by construction; it cannot be used as a corpus of human stereotypes about real groups, nor should it be used to characterize any actual group. Each biased instance is paired with a debiased counterpart under one of the five cognitive practices, and only the debiased outputs are training targets. Released artifacts include the data, the generation prompts, and the filtering scripts so that the pipeline can be inspected, audited, and extended. The data is released for research on bias mitigation in language models and not for use as a stereotype reference, a content classifier, or a generative source for biased text.
 
+\section{Use of Existing Artifacts}
+\label{app:artifact-use}
+
+Our use of existing artifacts is consistent with their intended research use. The HolisticBias \citep{smith-etal-2022-im} descriptor inventory is used as a seed list of identity terms for synthetic data generation; this is within the dataset's stated purpose of supporting bias measurement and mitigation research in NLP. The bias and reasoning benchmarks (CrowS-Pairs, StereoSet, BBQ, WinoBias, WinoGender, Balanced COPA, ARC-Challenge, ARC-Easy) are used for evaluation, the use case for which each was published. The pretrained model checkpoints (\llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, \qwen{}-2.5-32B-Instruct) are used under their open-weight research licenses and adapted via parameter-efficient fine-tuning, which is within the licensed scope. The synthetic dataset, prompts, code, and adapter checkpoints we release are intended for research on bias mitigation in language models, are inherited from research-only inputs, and should not be used outside of research contexts.
+
+\section{Documentation of Artifacts}
+\label{app:artifact-docs}
+
+The released artifacts are documented as follows. (i) \emph{The intervention-labeled dataset}: identity descriptors covering ten bias dimensions (race/ethnicity, gender identity, sexual orientation, religion, nationality, age, disability, body type, socioeconomic status, political ideology), three biased-instance forms (opinion, action, event), and five cognitive-practice labels per debiased target (Section~\ref{sec:data}, Appendix~\ref{app:data}). (ii) \emph{Generation pipeline}: the four-stage script set (identity, concept, biased-instance, debiased-instance generation) along with the prompt templates used at each stage. (iii) \emph{Adapter checkpoints}: LoRA adapters for each (intervention, instance-form) cell trained on \llama{}-3.1-8B-Instruct, plus an \textsc{All-strategies} adapter. (iv) \emph{Evaluation harness}: scripts for CrowS-Pairs, StereoSet, BBQ, WinoBias, WinoGender, Balanced COPA, ARC-Challenge, and ARC-Easy. The dataset covers English text only, with demographic groups drawn from the HolisticBias inventory (US/Western-centric coverage); we discuss this scope in the Limitations.
+
+\section{Dataset Statistics}
+\label{app:dataset-statistics}
+
+The full intervention-labeled corpus contains biased--debiased pairs spanning ten bias dimensions, three biased-instance forms (opinion, action, event), and five cognitive-practice labels (\srlabel{}, \cilabel{}, \indlabel{}, \ptlabel{}, \pclabel{}). For \trainlabel{}, we sample $500$ instances per (intervention, instance-form) cell using a fixed random seed; this is the supervision budget per cell, chosen to keep training cost matched across cells and to test whether cognitive practices can be acquired with modest supervision. Across all five practices and three forms, this yields fifteen single-cell adapters plus one \textsc{All-strategies} adapter trained on the union. Evaluation does not reuse training instances. Bias evaluation uses the held-out test splits of CrowS-Pairs, StereoSet, BBQ, WinoBias, and WinoGender. Reasoning evaluation uses Balanced COPA, ARC-Challenge, and ARC-Easy. Generalization experiments use a leave-one-dimension protocol where supervision is restricted to one bias dimension and evaluation is on the others.
+
+\section{Computational Setup and Hyperparameters}
+\label{app:compute}
+
+\paragraph{Models.}
+\diylabel{} is evaluated on three open-weight instruction-tuned models: \llama{}-3.1-8B-Instruct (8B parameters), \llama{}-3.1-70B-Instruct (70B parameters), and \qwen{}-2.5-32B-Instruct (32B parameters). \llama{}-3.1-8B-Instruct is the primary model used for fine-tuning; the larger models are used to test whether the pattern of findings transfers to higher-capacity backbones.
+
+\paragraph{Fine-tuning.}
+\trainlabel{} adapters are trained with LoRA on \llama{}-3.1-8B-Instruct using the following configuration: rank $r=256$, $\alpha=256$, learning rate $2{\times}10^{-4}$, three epochs, mixed-precision optimization. We did not run a hyperparameter search; values were fixed in advance and held constant across all (intervention, instance-form) cells to keep cells comparable.
+
+\paragraph{Inference.}
+For \showlabel{} and \reviselabel{} we use greedy decoding with the model's default generation settings. For \trainlabel{}, we evaluate the LoRA-adapted checkpoint with the same decoding settings as the base model.
+
+\paragraph{Compute infrastructure.}
+Fine-tuning and inference run on a single-node multi-GPU configuration with NVIDIA A100 (80GB) GPUs. Total compute for the experiments reported in this paper, including fine-tuning runs, inference passes across all three models and all evaluation benchmarks, and synthetic data generation, is on the order of a few hundred GPU-hours. We did not perform any large-scale hyperparameter sweep.
+
 \section{Model-wise Baseline Comparison}
 \label{app:model-wise-baseline-comparison}
 
