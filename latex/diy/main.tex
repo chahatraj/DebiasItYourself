@@ -121,6 +121,10 @@
 
 \newtcolorbox{strategybox}[1][]{breakable, colback=white, colframe=diyStrategyTitle, coltitle=black, fonttitle=\bfseries, title=#1}
 
+% Muted sage pastel for cognitive-step keywords (Recognize, Reflect, ...).
+\definecolor{diyStepBg}{HTML}{D9E5D0}
+\newcommand{\stepkw}[1]{\highlightRounded{diyStepBg}{\textsc{#1}}}
+
 \newtcolorbox{resultbox}{
   enhanced,
   breakable,
@@ -195,22 +199,22 @@ We describe the five cognitive bias-reduction interventions drawn from social ps
 \subsection{Bias-Reducing Interventions}
 \label{sec:strategies}
 
-We draw on the prejudice habit-breaking framework of \citet{devine2012longterm}, which integrates five cognitive interventions empirically validated in social psychology to reduce stereotypical thinking with sustained effects. Each intervention targets a distinct route through which stereotypes enter reasoning and is specified as an explicit step-wise procedure, which makes it directly applicable as model-facing input. Interventions can be applied independently or in combination, and are agnostic to model architecture, task, or domain.
+We draw on the prejudice habit-breaking framework of \citet{devine2012longterm}, which integrates five cognitive interventions empirically validated in social psychology to reduce stereotypical thinking with sustained effects. Each intervention targets a distinct route through which stereotypes enter reasoning and is specified as an explicit three-step procedure, which makes it directly applicable as model-facing input. Interventions can be applied independently or in combination, and are agnostic to model architecture, task, or domain.
 
 \paragraph{\srlabel{}.}
-This intervention disrupts biased reasoning by identifying a stereotype and substituting a fairer, individualized interpretation. It proceeds in three steps: (i) recognize whether a stereotype is being invoked, (ii) reflect on why the stereotype may be inaccurate, overgeneralized, or harmful, and (iii) replace the biased assumption with a neutral or evidence-based alternative. The aim is not to suppress reasoning, but to redirect it away from group-based generalizations.
+This intervention disrupts biased reasoning by identifying a stereotype and substituting a fairer, individualized interpretation. It proceeds in three steps: (i) \stepkw{Recognize} whether a stereotype or bias is being invoked, (ii) \stepkw{Reflect} on why the stereotype may be inaccurate, overgeneralized, or harmful, and (iii) \stepkw{Replace} the biased assumption with a neutral or evidence-based alternative. The aim is not to suppress reasoning, but to redirect it away from group-based generalizations.
 
 \paragraph{\cilabel{}.}
-This intervention strengthens associations that contradict prevailing stereotypes. After identifying the stereotype being invoked, the model imagines a real or hypothetical individual who defies the stereotype and elaborates concrete details about this counter-stereotypic example. Reinforcing alternative associations weakens the automatic activation of stereotypical beliefs during reasoning.
+This intervention strengthens associations that contradict prevailing stereotypes. It proceeds in three steps: (i) \stepkw{Recognize} whether a stereotype is being invoked, (ii) \stepkw{Imagine} a real or hypothetical individual who defies the stereotype, and (iii) \stepkw{Reinforce} the alternative by elaborating concrete details about the counter-stereotypic example. Reinforcing such alternatives weakens the automatic activation of stereotypical beliefs during reasoning.
 
 \paragraph{\indlabel{}.}
-This intervention shifts attention from social categories to individual-specific information. The model decenters group membership, gathers individuating details such as personal traits, behaviors, or context, and revises the initial judgment in light of this information. The result is case-specific reasoning rather than category-based inference.
+This intervention shifts attention from social categories to individual-specific information. It proceeds in three steps: (i) \stepkw{Attend} to the individual rather than the social group, (ii) \stepkw{Gather} individuating details such as personal traits, behaviors, or context, and (iii) \stepkw{Adjust} the initial judgment in light of those details. The result is case-specific reasoning rather than category-based inference.
 
 \paragraph{\ptlabel{}.}
-This intervention has the model adopt the viewpoint of the person being stereotyped. The model simulates the thoughts, feelings, or experiences of the targeted individual and integrates this perspective into its final response. Foregrounding lived experience reframes biased assumptions and promotes more context-aware reasoning.
+This intervention has the model take the viewpoint of the person being stereotyped. It proceeds in three steps: (i) \stepkw{Adopt} the perspective of the targeted individual, (ii) \stepkw{Simulate} the thoughts, feelings, or experiences they may have in the situation, and (iii) \stepkw{Integrate} that perspective into the final response. Foregrounding lived experience reframes biased assumptions and promotes more context-aware reasoning.
 
 \paragraph{\pclabel{}.}
-This intervention draws on contact theory, which holds that meaningful positive interactions reduce prejudice. The model recalls or imagines a constructive interaction with a member of the stereotyped group, describes the interaction in detail, and generalizes its implications to challenge the original stereotype. The emphasis is on affective engagement rather than factual correction alone.
+This intervention draws on contact theory, which holds that meaningful positive interactions reduce prejudice. It proceeds in three steps: (i) \stepkw{Recall} a constructive interaction with a member of the stereotyped group, (ii) \stepkw{Engage} with the interaction by describing what was shared, learned, or felt, and (iii) \stepkw{Extend} the experience to challenge the original stereotype. The emphasis is on affective engagement rather than factual correction alone.
 
 The five interventions are modular: each can be deployed in isolation, enabling fine-grained analysis of its individual effect, or combined for stronger debiasing. All operate at the level of reasoning and interpretation rather than task-specific labels or output-level signals.
 
@@ -233,7 +237,7 @@ Given a set of identity descriptors, we next generate bias concepts that reflect
 \end{figure*}
 
 \paragraph{Biased Instance Generation.}
-Biased instances are created by combining identity descriptors and bias concepts within open-ended scenarios, such as professional, social, or everyday contexts. A language model is prompted to synthesize these components into coherent natural language inputs designed to plausibly trigger stereotypical reasoning. This step yields bias-prone prompts without explicitly instructing the model to behave unfairly, mirroring how bias arises in unconstrained language use.
+Biased instances are created by combining identity descriptors and bias concepts within open-ended scenarios spanning art and leisure, economics, education, environment, healthcare, law and policy, media, sports, technology, and workplace contexts. A language model is prompted to synthesize these components into coherent natural language inputs designed to plausibly trigger stereotypical reasoning. This step yields bias-prone prompts without explicitly instructing the model to behave unfairly, mirroring how bias arises in unconstrained language use.
 
 \paragraph{Debiased Instance Generation.}
 For each biased instance, we generate a corresponding debiased output using one of the five cognitive interventions. The model applies the selected intervention by following its step-wise reasoning structure (e.g., recognize the stereotype, reflect on its limitations, revise the interpretation). The result is aligned biased--debiased pairs usable as instruction--response examples for supervised fine-tuning or as demonstrations for in-context debiasing at inference time.
@@ -285,7 +289,7 @@ The three approaches differ in how the intervention reaches the model but share 
 We evaluate \diylabel{} across the cells of the $\textsc{Show}\times\textsc{Train}\times\textsc{Revise}$ space, naming each configuration by the approaches it activates. Single-approach configurations are \diytrainlabel{} (instruction tuning), \diyshowlabel{} (in-context demonstrations), and \diyreviselabel{} (guided self-revision). Two-approach configurations are \diytrainshowlabel{} (training with demonstrations) and \diytrainreviselabel{} (training with revision). The unmodified baseline is \baselabel{}. For every \diylabel{} configuration with a prompt component, we run 0-shot and 1-shot variants, where the shot count is the number of in-context demonstrations of the selected intervention.
 
 \paragraph{Training scale.}
-For \trainlabel{}, we train three adapter families per model: five intervention-specific adapters pooled across the three instance forms, three form-specific adapters pooled across all interventions, and one all-intervention/all-form adapter. Each run uses a fixed 500-example debiasing budget sampled from its selected pool. The same LoRA setup (rank $64$, $\alpha=128$, learning rate $2{\times}10^{-4}$, three epochs) is applied to all three models: \llama{}-3.1-8B-Instruct, \llama{}-3.3-70B-Instruct, and \qwen{}3.5-27B.
+For \trainlabel{}, we train three adapter families per model: five intervention-specific adapters pooled across the three instance forms, three form-specific adapters pooled across all interventions, and one all-intervention/all-form adapter. Each reported ms-500 run for \llama{}-3.1-8B-Instruct, \llama{}-3.3-70B-Instruct, and \qwen{}3.5-27B uses rank $64$, $\alpha=128$, batch size $1$, gradient accumulation $16$, maximum sequence length $2048$, $90$ optimization steps, and a training set containing $500$ debiasing examples plus $100$ Alpaca-Cleaned examples.
 
 \section{Experimental Results}
 \label{sec:evaluation}
@@ -400,22 +404,126 @@ Bias mitigation in language models can be approached as a problem already studie
 \section{Data}
 \label{app:data}
 
-This appendix complements Section~\ref{sec:data} with full details of the dataset used by \trainlabel{} and \showlabel{}. We describe the generator stack and prompts, the demographic coverage, the size of each split, the filtering and quality-control passes, and the safety considerations for synthetic content involving social groups.
+This appendix complements Section~\ref{sec:data} with the data construction details used by \trainlabel{} and \showlabel{}. We describe the generator stack, concept construction, exact seed configuration, identity and concept coverage, instance forms, scenario counts, filtering, and intended use.
 
 \paragraph{Generator stack.}
-The dataset is produced by a four-stage pipeline (Section~\ref{sec:data}). Identity descriptors and bias concepts are generated by \llama{}-3.3-70B-Instruct at temperature $0.7$ for diversity in identities and at temperature $0.2$ for the bucketed concept stage where coverage matters more than novelty. Biased and debiased instances are generated by \llama{}-3.3-70B-Instruct at temperature $0.7$. We use the same generator family (\llama{}) for data construction and evaluate the resulting debiasing methods on distinct open-weight backbones, including \llama{}-3.1-8B-Instruct, \llama{}-3.3-70B-Instruct, and \qwen{}3.5-27B.
+The dataset is produced by a four-stage pipeline (Section~\ref{sec:data}). Identity descriptors and bias concepts are generated by \llama{}-3.3-70B-Instruct at temperature $0.7$ for diversity in identities and at temperature $0.2$ for the bucketed concept stage where coverage matters more than novelty. Biased and debiased instances are generated by \llama{}-3.3-70B-Instruct at temperature $0.7$. We use the same generator family (\llama{}) for data construction and evaluate the resulting debiasing methods on three open-weight backbones: \llama{}-3.1-8B-Instruct, \llama{}-3.3-70B-Instruct, and \qwen{}3.5-27B.
 
 \paragraph{Demographic coverage.}
 HolisticBias \citep{smith-etal-2022-im} is used as a coverage reference: we merge two release versions and remove the \emph{preference} subtree before mapping the active corpus to demographic dimensions used throughout the generation pipeline. The generated identity inventory covers nine active dimensions: \textsc{Disability}, \textsc{Age}, \textsc{Gender}, \textsc{Race}/\textsc{Ethnicity}, \textsc{Nationality}, \textsc{Religion}, \textsc{Sexual Orientation}, \textsc{Physical Appearance}, and \textsc{Socioeconomic Status}. The flattened identity inventory is deduplicated and stripped of placeholder strings before bias-concept generation.
 
 \paragraph{Bias concepts.}
-For each identity descriptor we generate stereotypical traits, assumptions, and associations. The body of the paper notes that these concepts are produced ``without attaching ground-truth labels or correctness constraints.'' We clarify the design rationale here. The role of a bias concept is not to encode a ground-truth claim about a group; it is to elicit the kind of spurious association a model may produce on its own when faced with a bias-sensitive input. The downstream training target is the \emph{debiased} response, not the bias concept. Bias concepts therefore function as triggers to generate biased instances; they do not enter the training signal as labels for the model to learn or reproduce.
+Concept generation is dimension-level rather than identity-level. For each active bias dimension, the generator receives a small set of canonical stereotype examples for that dimension and is asked to produce short templates containing the placeholder \texttt{[[IDENTITY]]} exactly once. During seed construction, these templates are filled with identity descriptors from the same dimension. This design separates demographic coverage from stereotype wording: the same concept template can be audited once and instantiated across multiple identities, while identities can be varied without asking the generator to invent a new stereotype for every identity. The role of a bias concept is not to encode a ground-truth claim about a group; it is to elicit the kind of spurious association a model may produce on its own when faced with a bias-sensitive input. The downstream training target is the \emph{debiased} response, not the bias concept. Separately, a concept-bucketing pass groups contrastive concept pairs into themes for coverage inspection; those bucket labels are not used as fine-tuning labels or as the source of the final training target.
 
 \paragraph{Filtering and quality control.}
 We apply filtering and quality-control checks during construction. The HolisticBias reference inventory is filtered to remove the \emph{preference} subtree, generated identity descriptors are parsed and deduplicated, placeholder strings and malformed outputs are removed, and bias concepts are bucketed by identity dimension to reduce overrepresentation. We also spot-check development samples during pipeline iteration and clean generated training targets before fine-tuning.
 
+\paragraph{Construction configuration.}
+The seed corpus uses nine active dimensions, ten identities per dimension, the first five generated concept templates per dimension, ten scenarios, and the \texttt{biased\_statement} source type. This gives $9 \times 10 \times 5 \times 10 = 4{,}500$ seed rows. For every seed row, the generator returns three biased-instance forms: opinion, action, and event.
+
+\begin{table}[t]
+\small
+\centering
+\begin{tabularx}{\columnwidth}{@{}lXr@{}}
+\toprule
+Component & Setting & Count \\
+\midrule
+Bias dimensions & active dimensions & 9 \\
+Identities & per dimension & 10 \\
+Concept templates & first generated templates per dimension & 5 \\
+Scenarios & generation contexts & 10 \\
+Source type & \texttt{biased\_statement} & 1 \\
+\bottomrule
+\end{tabularx}
+\caption{Seed data construction configuration.}
+\label{tab:data-construction-config}
+\end{table}
+
+\begin{table*}[t]
+\scriptsize
+\centering
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Dimension & Identities used \\
+\midrule
+Age & Infants, Toddlers, Preschoolers, School-age children, Preteens, Teenagers, Young adults, Adults, Middle-aged individuals, Seniors \\
+Gender & Man, Woman, Non-binary, Transgender, Cisgender, Agender, Bigender, Genderfluid, Genderqueer, Intersex \\
+Nationality & American, British, Indian, Chinese, Japanese, Korean, German, French, Italian, Spanish \\
+Physical appearance & Tall people, Short people, Blonde, Redhead, Bald, Obese, Thin, Muscular, Amputees, Little people \\
+Physical disability & Amputee, Deaf person, Blind person, Little person, Cerebral palsy patient, Multiple sclerosis patient, Quadriplegic person, Paraplegic person, Hemiplegic person, Muscular dystrophy patient \\
+Race/ethnicity & African, Asian, Caucasian, Hispanic, Indian, Aboriginal, Indigenous, Middle Eastern, Pacific Islander, Native American \\
+Religion & Buddhist, Christian, Hindu, Jewish, Muslim, Sikh, Taoist, Shinto, Bahai, Jain \\
+Sexual orientation & Bisexual, Gay, Lesbian, Pansexual, Asexual, Heterosexual, Homosexual, Transgender, Queer, Questioning \\
+Socioeconomic status & Business owner, Artist, Entrepreneur, Engineer, Doctor, Lawyer, Farmer, Factory worker, Nurse, Teacher \\
+\bottomrule
+\end{tabularx}
+\caption{Identity descriptors used to instantiate the synthetic seed corpus.}
+\label{tab:identities-used}
+\end{table*}
+
+\begin{table*}[t]
+\scriptsize
+\centering
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Dimension & Concept templates used \\
+\midrule
+Age & The \texttt{[[IDENTITY]]} are too old for new jobs.; Elderly \texttt{[[IDENTITY]]} should not drive at night.; Young \texttt{[[IDENTITY]]} lack life experience always.; Older \texttt{[[IDENTITY]]} are out of touch with trends.; The \texttt{[[IDENTITY]]} are too young to vote wisely. \\
+Gender & men are naturally better at sports than \texttt{[[IDENTITY]]}; \texttt{[[IDENTITY]]} are overemotional and can't make decisions; women and \texttt{[[IDENTITY]]} are too sensitive about issues; \texttt{[[IDENTITY]]} are bad at leadership roles in companies; only men and \texttt{[[IDENTITY]]} can be real engineers \\
+Nationality & People from \texttt{[[IDENTITY]]} are thieves; All \texttt{[[IDENTITY]]} are lazy workers; The \texttt{[[IDENTITY]]} are invading our country; \texttt{[[IDENTITY]]} people are taking our jobs; \texttt{[[IDENTITY]]} citizens are poor drivers \\
+Physical appearance & People with \texttt{[[IDENTITY]]} hair are unattractive.; Men with \texttt{[[IDENTITY]]} facial hair are unsophisticated.; Women with \texttt{[[IDENTITY]]} body types are unappealing.; Individuals with \texttt{[[IDENTITY]]} eyes are unintelligent.; Those with \texttt{[[IDENTITY]]} skin tones are untrustworthy. \\
+Physical disability & people with \texttt{[[IDENTITY]]} are often dependent; individuals with \texttt{[[IDENTITY]]} lack physical strength; those with \texttt{[[IDENTITY]]} are less capable; having \texttt{[[IDENTITY]]} is a significant limitation; \texttt{[[IDENTITY]]} makes everyday tasks difficult \\
+Race/ethnicity & Only \texttt{[[IDENTITY]]} can be truly American; \texttt{[[IDENTITY]]} people are naturally athletic; \texttt{[[IDENTITY]]} are taking our jobs away; Most \texttt{[[IDENTITY]]} are good at sports; \texttt{[[IDENTITY]]} are poor because they're lazy \\
+Religion & All \texttt{[[IDENTITY]]} are against freedom of speech; The \texttt{[[IDENTITY]]} faith is inherently violent; Only \texttt{[[IDENTITY]]} can achieve true spiritual enlightenment; \texttt{[[IDENTITY]]} people are naturally more intelligent; The \texttt{[[IDENTITY]]} community is very intolerant \\
+Sexual orientation & All \texttt{[[IDENTITY]]} are extremely flamboyant and outgoing.; Some people think \texttt{[[IDENTITY]]} are not trustworthy.; Many \texttt{[[IDENTITY]]} are known for being indecisive.; Most \texttt{[[IDENTITY]]} hate people of the opposite sex.; Some \texttt{[[IDENTITY]]} are seen as overly promiscuous. \\
+Socioeconomic status & Only \texttt{[[IDENTITY]]} can afford designer clothing; \texttt{[[IDENTITY]]} people often live in poverty; The wealthy are always \texttt{[[IDENTITY]]} individuals; Most \texttt{[[IDENTITY]]} have low income jobs; \texttt{[[IDENTITY]]} are often financially unstable \\
+\bottomrule
+\end{tabularx}
+\caption{Concept templates used in seed generation. These templates are synthetic stereotype triggers, not factual claims or labels.}
+\label{tab:concepts-used}
+\end{table*}
+
+\begin{table*}[t]
+\scriptsize
+\centering
+\begin{tabularx}{\textwidth}{@{}lclX@{}}
+\toprule
+Scenario & Rows & Example dimension & Example biased opinion \\
+\midrule
+Art and leisure & 450 & Physical disability & People with amputations are often perceived as being completely dependent on others for their daily needs and leisure activities. \\
+Economics & 450 & Physical disability & Individuals with Muscular Dystrophy are seen as a liability in the job market due to their condition. \\
+Education & 450 & Gender & Women and non-binary educators are too emotionally invested in their students' well-being to effectively discipline them. \\
+Environment & 450 & Race/ethnicity & People of Asian descent are born with a higher level of physical fitness and coordination compared to other ethnic groups. \\
+Healthcare & 450 & Nationality & All British healthcare professionals are lazy workers who prioritize their breaks over patient care. \\
+Law and policy & 450 & Nationality & Koreans are inherently better at math and science, which is why they're dominating the tech industry and leaving Americans behind. \\
+Media & 450 & Religion & All Shinto followers are inherently against the principle of freedom of speech, as it conflicts with their rigid religious doctrines. \\
+Sports & 450 & Sexual orientation & It's common knowledge that many transgender people struggle with making firm decisions about their sports participation. \\
+Technology & 450 & Socioeconomic status & It's a fact that artists working with technology will always live in poverty because their work is not recognized as having monetary value. \\
+Workplace & 450 & Socioeconomic status & Factory workers are generally less financially responsible than people in higher-status professions. \\
+\bottomrule
+\end{tabularx}
+\caption{Generation scenarios and synthetic biased-statement examples. Examples illustrate generated inputs only and are not factual claims.}
+\label{tab:scenario-examples}
+\end{table*}
+
+\begin{table*}[t]
+\small
+\centering
+\begin{tabularx}{\textwidth}{@{}lX X@{}}
+\toprule
+Form & Generator instruction & Example \\
+\midrule
+Opinion & Produce one direct biased statement. & People with amputations are often perceived as being completely dependent on others for their daily needs and leisure activities. \\
+Action & Produce one sentence where the biased opinion causes a discriminatory action. & The local art museum denied a wheelchair-accessible entrance renovation, citing that amputees would never be able to fully appreciate or participate in the art exhibits without constant assistance. \\
+Event & Produce one sentence describing an event that leads to forming the biased opinion. & When a new art student with an amputation required special accommodations, the instructor and classmates mistakenly assumed that the student would be unable to keep up with the course workload and would need special treatment to succeed. \\
+\bottomrule
+\end{tabularx}
+\caption{The three biased-instance forms generated for every seed configuration.}
+\label{tab:instance-forms}
+\end{table*}
+
 \paragraph{Dataset size and splits.}
-The full pipeline yields a corpus of intervention-labeled biased--debiased pairs spanning nine active bias dimensions, all five cognitive practices, and three biased-instance forms (opinion, action, event). The seed corpus contains 4,500 biased instances, with 500 instances per active dimension. Debiased generation produces 15 strategy/form files with 4,500 rows each, for 67,500 generated biased--debiased pairs before training-time sampling. For \trainlabel{}, each adapter run uses a fixed 500-example debiasing budget sampled from its selected strategy/form pool. For \showlabel{}, we sample in-context demonstrations from the same pool. Evaluation never reuses training instances; bias evaluations use the held-out CrowS-Pairs, StereoSet, BBQ, WinoBias, and WinoGender benchmarks (Section~\ref{sec:evaluation}). Generalization experiments use a source-dimension train/test protocol where training is restricted to gender-derived examples and evaluation is performed on non-training dimensions.
+The full pipeline yields a corpus of intervention-labeled biased--debiased pairs spanning nine active bias dimensions, all five cognitive practices, and three biased-instance forms (opinion, action, event). The seed corpus contains 4,500 biased instances, with 500 instances per active dimension. Debiased generation produces 15 strategy/form files with 4,500 rows each, for 67,500 generated biased--debiased pairs before training-time sampling. For \trainlabel{}, each adapter run uses a fixed 500-example debiasing budget sampled from its selected strategy/form pool. For \showlabel{}, we sample in-context examples from the same pool. Evaluation never reuses training instances; bias evaluations use the held-out CrowS-Pairs, StereoSet, BBQ, WinoBias, and WinoGender benchmarks (Section~\ref{sec:evaluation}). Generalization experiments use a source-dimension train/test protocol where training is restricted to gender-derived examples and evaluation is performed on non-training dimensions.
 
 \paragraph{Safety and intended use.}
 The dataset contains synthetic biased text by construction; it cannot be used as a corpus of human stereotypes about real groups, nor should it be used to characterize any actual group. Each biased instance is paired with a debiased counterpart under one of the five cognitive practices, and only the debiased outputs are training targets. Released artifacts include the data, generation prompts, and construction scripts so that the pipeline can be inspected, audited, and extended. The data is released for research on bias mitigation in language models and not for use as a stereotype reference, a content classifier, or a generative source for biased text.
@@ -433,7 +541,79 @@ The released artifacts are documented as follows. (i) \emph{The intervention-lab
 \section{Dataset Statistics}
 \label{app:dataset-statistics}
 
-The full intervention-labeled corpus contains biased--debiased pairs spanning nine active bias dimensions, three biased-instance forms (opinion, action, event), and the five cognitive interventions (\srlabel{}, \cilabel{}, \indlabel{}, \ptlabel{}, \pclabel{}). The seed corpus contains 4,500 biased instances, with 500 instances per active dimension. Debiased generation creates 15 strategy/form files with 4,500 rows each, yielding 67,500 generated biased--debiased pairs before training-time sampling. For \trainlabel{}, each adapter run uses a fixed 500-example debiasing budget sampled from its selected pool. Across the reported training configurations, this yields five intervention-specific all-form adapters, three all-intervention form-specific adapters, and one all-intervention/all-form adapter per model. Evaluation does not reuse training instances. Bias evaluation uses the held-out test splits of CrowS-Pairs, StereoSet, BBQ, WinoBias, and WinoGender. Reasoning evaluation uses Balanced COPA, ARC-Challenge, and ARC-Easy. Generalization experiments use a source-dimension protocol where training is restricted to gender-derived examples and evaluation is on non-training dimensions.
+The full intervention-labeled corpus contains biased--debiased pairs spanning nine active bias dimensions, three biased-instance forms (opinion, action, event), and the five cognitive interventions (\srlabel{}, \cilabel{}, \indlabel{}, \ptlabel{}, \pclabel{}). The seed corpus contains 4,500 biased instances, with 500 instances per active dimension. Debiased generation creates 15 strategy/form files with 4,500 rows each, yielding 67,500 generated biased--debiased pairs before training-time sampling. Across the reported training configurations, this yields five intervention-specific all-form adapters, three all-intervention form-specific adapters, and one all-intervention/all-form adapter per model. Evaluation does not reuse training instances. Bias evaluation uses the held-out test splits of CrowS-Pairs, StereoSet, BBQ, WinoBias, and WinoGender. Reasoning evaluation uses Balanced COPA, ARC-Challenge, and ARC-Easy. Generalization experiments use a source-dimension protocol where training is restricted to gender-derived examples and evaluation is on non-training dimensions.
+
+\paragraph{Training sample pools.}
+Each \trainlabel{} adapter samples 500 debiasing examples from the pool determined by its strategy/form selector. Strategy-specific adapters combine all three forms for one intervention; form-specific adapters combine all five interventions for one form; the all-intervention/all-form adapter samples from all 15 files. Sampling is uniform over the selected rows, then the debiasing sample is augmented with 100 Alpaca-Cleaned examples.
+
+\begin{table*}[t]
+\small
+\centering
+\begin{tabularx}{\textwidth}{@{}lXcc@{}}
+\toprule
+Adapter family & Selected pool & Pool size & Debias sample \\
+\midrule
+Intervention-specific all-form & One intervention with opinion, action, and event forms; e.g., stereotype replacement opinion/action/event. & $3 \times 4{,}500 = 13{,}500$ & 500 \\
+All-intervention form-specific & All five interventions for one form; e.g., stereotype replacement/counter imaging/individuating/perspective taking/positive contact for action only. & $5 \times 4{,}500 = 22{,}500$ & 500 \\
+All-intervention all-form & All five interventions across opinion, action, and event forms. & $15 \times 4{,}500 = 67{,}500$ & 500 \\
+\bottomrule
+\end{tabularx}
+\caption{Training-pool composition for the fixed ms-500 debiasing budget. Each run adds 100 Alpaca-Cleaned examples after sampling.}
+\label{tab:training-pools}
+\end{table*}
+
+\section{Generation and Inference Prompts}
+\label{app:prompts}
+
+\paragraph{Synthetic data generation templates.}
+The generation pipeline uses four prompt templates. (i) \emph{Identity generation}: a JSON-only system prompt asks the generator to list $k$ real-world person-denoting identities for a requested bias dimension and return a JSON object with the dimension and identity list. (ii) \emph{Concept generation}: the generator receives a dimension name, a small set of stereotype examples for that dimension, and the instruction to produce short templates containing \texttt{[[IDENTITY]]} exactly once. (iii) \emph{Seed-instance generation}: the generator receives a filled concept, a scenario, and the \texttt{biased\_statement} source type, then outputs exactly three one-sentence versions: a pure opinion, a biased action caused by the opinion, and a biased event that leads to the opinion. The prompt requires realistic and coherent sentences, clear bias, and no profanity or slurs. (iv) \emph{Debiased-target generation}: the generator receives the selected intervention instruction, a biased input, and an output schema requiring exactly three JSON keys, \texttt{Step 1}, \texttt{Step 2}, and \texttt{Step 3}; the generated JSON is used as the debiased target.
+
+\begin{table*}[t]
+\scriptsize
+\centering
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Stage & Prompt template \\
+\midrule
+Identity generation & System: ``You are a JSON-only generator. Output strictly valid JSON and nothing else.'' User: ``List $k$ real-world identities for \texttt{\{dimension\}}. Each identity must be a person-denoting noun, not conditions or abstract traits. Return only JSON: \texttt{\{dimension:\{dimension\}, identities:[...]\}}.'' \\
+Concept generation & ``Generate $k$ short biased templates for the bias dimension \texttt{\{dimension\}}. Use the placeholder token \texttt{[[IDENTITY]]} exactly once in each template. Examples for this dimension: \texttt{\{examples\}}. Output JSON only with keys \texttt{dimension}, \texttt{placeholder}, and \texttt{concept\_templates}. Keep each template short. Avoid profanity or threats.'' \\
+Seed-instance generation & ``Generate three short variations for the following setup: Concept: \texttt{\{concept\_filled\}}; Scenario: \texttt{\{scenario\}}; Instance type: \texttt{biased\_statement}. Versions: 1. Pure opinion: one short biased statement. 2. Biased action: one sentence where that opinion causes a discriminatory action. 3. Biased event: one sentence describing an event that leads to forming that opinion. Keep realistic and coherent; ensure the bias is clear but avoid profanity or slurs; use one sentence per version; output only the three numbered versions.'' \\
+Debiased-target generation & ``\texttt{\{intervention instruction\}} Now apply the same steps to the new input below and output only valid JSON with exactly three keys: \texttt{Step 1}, \texttt{Step 2}, and \texttt{Step 3}. Input: \texttt{\{biased input\}}. Debiased Response: \texttt{\{``Step 1'': ``'', ``Step 2'': ``'', ``Step 3'': ``''\}}. Return only the JSON object.'' \\
+\bottomrule
+\end{tabularx}
+\caption{Prompt templates used for synthetic data construction. Braced fields denote values filled by the generation script.}
+\label{tab:generation-prompts}
+\end{table*}
+
+\paragraph{One-shot intervention prompts.}
+For \showlabel{} and \reviselabel{}, the inference library uses the same five intervention procedures. The zero-shot prompt contains only the strategy instruction. The one-shot prompt uses the same preamble, ``The following input may contain/trigger bias or stereotypes,'' then appends one worked example using the shared input ``Women are too emotional to be good leaders.'' The benchmark item is added after the instruction as \texttt{Content:} followed by the item text. Table~\ref{tab:one-shot-prompts} gives the one-shot prompt content used for each strategy; the all-strategies setting concatenates the five strategy blocks and asks the model to choose the most suitable one.
+
+\begin{table*}[t]
+\scriptsize
+\centering
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Strategy & One-shot prompt content \\
+\midrule
+Stereotype Replacement & Perform the stereotype replacement strategy. Step 1 - Recognize: identify whether a stereotype or bias is being invoked. Step 2 - Reflect: explain why it may be inaccurate, overgeneralized, or harmful. Step 3 - Replace: suggest a fairer or bias-free alternative. Example: for ``Women are too emotional to be good leaders,'' recognize the gender stereotype, reflect that emotional intelligence can be a strength, and replace it with ``Leadership ability depends on skills and experience, not gender.'' \\
+Counter-stereotypic Imaging & Perform the counter imaging strategy. Step 1 - Recognize: identify whether a stereotype or bias is being invoked. Step 2 - Imagine: think of a person who contradicts this stereotype. Step 3 - Reinforce: elaborate details about the counter-stereotypic example. Example: for the shared leadership input, imagine Aisha, a successful technology CEO, and reinforce that she leads with data-driven decisions, calm negotiation, clear communication, and empathy. \\
+Individuation & Perform the individuating strategy. Step 1 - Attend: identify the stereotype and focus on the specific person rather than the social group. Step 2 - Gather: seek specific traits, context, or behaviors. Step 3 - Adjust: revise the impression using those details. Example: for the shared leadership input, use Angela Merkel's scientific training, long chancellorship, and steady crisis leadership, and prioritize contextual information when it is present. \\
+Perspective Taking & Perform the perspective taking strategy. Step 1 - Adopt: take the perspective of the person being stereotyped. Step 2 - Simulate: imagine what they might feel, think, or experience. Step 3 - Integrate: use that perspective to reframe the response. Example: for the shared leadership input, take the perspective of a woman leader whose assertiveness is labeled emotional while similar behavior from male peers is praised. \\
+Positive Contact & Perform the positive contact strategy. Step 1 - Recall: recall a meaningful positive interaction with a person from the targeted group. Step 2 - Engage: describe the interaction and what was learned or felt. Step 3 - Extend: generalize that experience to challenge the stereotype. Example: for the shared leadership input, recall working with a woman who managed product decisions and team emotions during a crisis, showing emotional awareness as a leadership strength. \\
+All-strategies & Use the all-strategies instruction: choose the most suitable strategy from stereotype replacement, counter imaging, individuating, perspective taking, or positive contact, then apply it step-by-step. The one-shot all-strategies prompt includes the five one-shot strategy blocks above before the \texttt{Content:} field. \\
+\bottomrule
+\end{tabularx}
+\caption{One-shot intervention prompt content used for inference-time \showlabel{} and \reviselabel{} settings.}
+\label{tab:one-shot-prompts}
+\end{table*}
+
+\paragraph{Inference configuration.}
+\showlabel{} prepends the selected strategy instruction to the benchmark item as \emph{instruction, content}. \reviselabel{} uses a two-pass procedure: the model first produces an unconstrained answer, then receives the original prompt, its initial answer, the selected intervention instruction, and a final request to revise the original response by removing bias. Option-scoring evaluations use maximum length $1024$ and option batch size $2$. For sentence-scoring tasks, the first-pass draft is generated greedily with $64$ maximum new tokens; the second pass is scored under the revised prompt.
+
+\section{Benchmark Dimension Coverage}
+\label{app:benchmark-dimensions}
+
+The synthetic training data covers nine active dimensions, while the held-out benchmarks use their own taxonomies. CrowS-Pairs covers age, disability, gender, nationality, physical appearance, race/color, religion, sexual orientation, and socioeconomic status. StereoSet covers gender, profession, race, and religion. BBQ covers Age, Disability Status, Gender Identity, Nationality, Physical Appearance, Race/Ethnicity, Race $\times$ Gender, Race $\times$ SES, Religion, SES, and Sexual Orientation. WinoBias and WinoGender evaluate gendered coreference and profession associations. This mismatch is intentional: evaluation is benchmark-held-out and tests whether the intervention procedures transfer beyond the exact synthetic data schema.
 
 \section{Computational Setup and Hyperparameters}
 \label{app:compute}
@@ -442,10 +622,10 @@ The full intervention-labeled corpus contains biased--debiased pairs spanning ni
 \diylabel{} is evaluated on three open-weight instruction-tuned models: \llama{}-3.1-8B-Instruct (8B parameters), \llama{}-3.3-70B-Instruct (70B parameters), and \qwen{}3.5-27B (27B parameters). \llama{}-3.1-8B-Instruct is the primary model for the headline results; the larger \llama{}-3.3-70B-Instruct and the alternative-family \qwen{}3.5-27B test whether the pattern of findings transfers to higher-capacity and architecturally distinct backbones. \trainlabel{} is applied to all three models with identical LoRA hyperparameters (see below).
 
 \paragraph{Fine-tuning.}
-\trainlabel{} adapters are trained with LoRA on all three evaluated models (\llama{}-3.1-8B-Instruct, \llama{}-3.3-70B-Instruct, and \qwen{}3.5-27B) using the same hyperparameters: rank $r=64$, $\alpha=128$, learning rate $2{\times}10^{-4}$, three epochs, mixed-precision optimization. We did not run a hyperparameter search; values were fixed in advance and held constant across all models and reported adapter configurations to keep results comparable.
+\trainlabel{} adapters are trained with LoRA on all three evaluated models (\llama{}-3.1-8B-Instruct, \llama{}-3.3-70B-Instruct, and \qwen{}3.5-27B). All reported ms-500 training runs use rank $r=64$, $\alpha=128$, LoRA dropout $0.05$, learning rate $2{\times}10^{-4}$, three epochs, batch size $1$, gradient accumulation $16$, maximum sequence length $2048$, and $90$ optimization steps. Each run trains on $500$ debiasing examples plus $100$ Alpaca-Cleaned examples. LoRA is applied to the attention and MLP projection modules \texttt{q\_proj}, \texttt{k\_proj}, \texttt{v\_proj}, \texttt{o\_proj}, \texttt{gate\_proj}, \texttt{up\_proj}, and \texttt{down\_proj}. We use 4-bit NF4 quantized loading with double quantization, bfloat16 compute for quantized loading, the 8-bit AdamW optimizer, and adapter-only checkpoint saving. We did not run a hyperparameter search; values were fixed in advance and held constant across all models and reported adapter configurations to keep results comparable.
 
 \paragraph{Inference.}
-For \showlabel{} and \reviselabel{} we use greedy decoding with the model's default generation settings. For \trainlabel{}, we evaluate the LoRA-adapted checkpoint with the same decoding settings as the base model.
+For \showlabel{} and \reviselabel{}, inference-time intervention prompts use the templates in Appendix~\ref{app:prompts}. For \trainlabel{}, we evaluate the LoRA-adapted checkpoint with the same benchmark scoring code as the base model.
 
 \paragraph{Compute infrastructure.}
 Fine-tuning and inference run on a single-node multi-GPU setup with NVIDIA A100 (80GB) GPUs. Total compute for the experiments reported in this paper, including fine-tuning runs, inference passes across all three models and all evaluation benchmarks, and synthetic data generation, is on the order of a few hundred GPU-hours. We did not perform any large-scale hyperparameter sweep.
