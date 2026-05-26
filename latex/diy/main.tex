@@ -371,6 +371,10 @@ We first test whether \diylabel{} transfers beyond the bias dimension used as th
 \paragraph{Generalizability across interventions.}
 Figure~\ref{fig:strategy-comparison-llama8b} (right panel) reports per-strategy bias mitigation on held-out bias dimensions in the gender-source generalization setting. All five strategies and the all-strategies aggregate yield positive transfer, sitting at the upper end of the baseline envelope on the held-out dimensions. Positive Contact shows the strongest carry-over, followed by Counter-stereotypic Imaging, while Stereotype Replacement is the weakest of the five but still positive. The pattern indicates that cognitive interventions trained on one bias dimension reduce bias on dimensions never seen during training, with no strategy collapsing to negative transfer.
 
+\begin{insightbox}
+\smash{\notebookpencil}~\textbf{Takeaway 5.} \diylabel{} transfers across bias dimensions: training on one source dimension reduces bias on dimensions never seen during training, with every cognitive strategy producing positive transfer.
+\end{insightbox}
+
 \section{Conclusion}
 Bias mitigation in language models can be approached as a problem already studied for decades in another field. The empirical study in this paper supports that view. Cognitive interventions developed and validated for human bias reduction transfer to LLM behavior, with guided self-revision producing the most consistent gains and general reasoning ability preserved across configurations. The intervention-labeled dataset we construct alongside the study is a starting point for further work grounded in social-psychology theory rather than benchmark-specific signals, and we expect more of the literature on prejudice reduction to translate into model-facing input than is examined here.
 
