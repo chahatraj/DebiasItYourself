@@ -227,7 +227,7 @@ Given a set of identity descriptors, we next generate bias concepts that reflect
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/llama8b/pdf/strategy_comparison_bias_reasoning_generalizability.pdf}
-\caption{Strategy-level comparison for \llama{}-3.1-8B-Instruct. Each panel reports per-strategy results from \diylabel{}: bias mitigation on the main bias benchmarks (left), reasoning accuracy on Balanced COPA and ARC (middle), and bias mitigation on held-out dimensions in the gender-source generalization run (right). Shaded bands mark the retained baseline envelope; for held-out dimensions, the band is a contextual reference from existing per-dimension baseline artifacts rather than strict gender-source baseline-transfer runs. \textbf{\textit{Takeaway:}} all five cognitive strategies are competitive across the three axes, reducing bias, preserving reasoning, and transferring to held-out dimensions.}
+\caption{Per-strategy comparison on \llama{}-3.1-8B: bias mitigation, reasoning accuracy, and held-out-dimension generalization. Shaded bands show the baseline envelope. \textbf{\textit{Takeaway:}} all five strategies are competitive across all three axes.}
 \label{fig:strategy-comparison-llama8b}
 \end{figure*}
 
@@ -264,14 +264,14 @@ Method & IT & ICL & Revise \\
 \diytrainreviselabel{} & \nbcheck & \nbcross & \nbcheck \\
 \bottomrule
 \end{tabularx}
-\caption{The five \diylabel{} configurations and the components they activate. IT = instruction tuning, ICL = in-context learning, Revise = intervention-guided second pass. A check mark indicates the component is active in that configuration. \textbf{\textit{Takeaway:}} \diylabel{} systematically covers single-component configurations and their two-component compositions, isolating the contribution of each.}
+\caption{The five \diylabel{} configurations. IT = instruction tuning, ICL = in-context learning, Revise = intervention-guided second pass. \textbf{\textit{Takeaway:}} configurations cover single components and their two-component compositions, isolating each contribution.}
 \label{tab:diy-configs}
 \end{table}
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/combined/pdf/baseline_comparison_average_rank_combined.pdf}
-\caption{Average rank across the five bias benchmarks for each model family. Each method is ranked per benchmark by bias score (rank 1 = lowest), and the ranks are averaged across benchmarks. Lower is better. \textbf{\textit{Takeaway:}} \diytrainreviselabel{} and \diyreviselabel{} attain the top two average ranks on every model, ahead of all baselines.}
+\caption{Average rank across the five bias benchmarks per model. Lower is better. \textbf{\textit{Takeaway:}} \diytrainreviselabel{} and \diyreviselabel{} attain the top two ranks on every model, ahead of all baselines.}
 \label{fig:baseline-rank}
 \end{figure*}
 
@@ -294,7 +294,7 @@ We evaluate \diy{} on \llama{}-3.1-8B-Instruct, \llama{}-3.1-70B-Instruct, and \
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/llama8b/pdf/debiasing_method_bars_by_shot_all_strategies_all_versions.pdf}
-\caption{Normalized bias scores on \llama{}-3.1-8B-Instruct across the five bias benchmarks (rows) and \diylabel{} configurations with shot variants (columns). Bias score is the absolute distance from the benchmark's unbiased point: $50$ for CrowS-Pairs and StereoSet, $0$ for BBQ, WinoBias, and WinoGender. Lower is better. \textbf{\textit{Takeaway:}} \diytrainreviselabel{} and \diyreviselabel{} consistently produce the lowest bias scores across benchmarks, while \diytrainlabel{} alone yields only modest reductions over \baselabel{}.}
+\caption{Normalized bias scores on \llama{}-3.1-8B across benchmarks (rows) and \diylabel{} configurations with shot variants (columns). Lower is better. \textbf{\textit{Takeaway:}} \diytrainreviselabel{} and \diyreviselabel{} produce the lowest bias scores; \diytrainlabel{} alone yields modest gains over \baselabel{}.}
 \label{fig:debiasing-shot-llama8b}
 \end{figure*}
 
@@ -320,7 +320,7 @@ Across the five \diylabel{} configurations, intervention-guided revision contrib
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/qwen/pdf/reasoning_preservation_envelope.pdf}
-\caption{Reasoning accuracy on \qwen{}-QwQ-32B for the three reasoning benchmarks (Balanced COPA, ARC-Challenge, ARC-Easy). The shaded envelope summarizes the debiasing baselines, with the outer band marking the min--max range and the inner band the interquartile range. Markers show the five \diylabel{} configurations. Higher is better. \textbf{\textit{Takeaway:}} every \diylabel{} configuration sits at the top of, or above, the baseline envelope, with several configurations matching or exceeding the unmodified \baselabel{} on ARC.}
+\caption{Reasoning accuracy on \qwen{}-QwQ-32B across Balanced COPA, ARC-Challenge, ARC-Easy. Shaded bands show the baseline min--max (outer) and IQR (inner). Higher is better. \textbf{\textit{Takeaway:}} every \diylabel{} configuration sits at or above the baseline envelope, with some matching or exceeding \baselabel{} on ARC.}
 \label{fig:reasoning-preservation-qwen}
 \end{figure*}
 
@@ -335,7 +335,7 @@ Across all five \diylabel{} configurations and both shot settings, reasoning acc
 \begin{figure}[htp]
 \centering
 \includegraphics[width=\columnwidth]{figures/combined/pdf/bias_reasoning_pareto_combined.pdf}
-\caption{Bias--reasoning tradeoff across the three model families. Each panel plots mean bias score (x-axis) against mean reasoning accuracy (y-axis) for one model. \diylabel{} configurations are shown as diamonds, baselines as circles. The favorable corner is the top-left (low bias, high reasoning). \textbf{\textit{Takeaway:}} \diylabel{} configurations occupy the top-left corner on every model, while baselines that match \diylabel{}'s bias level do so at substantially lower reasoning accuracy.}
+\caption{Bias--reasoning tradeoff per model: mean bias (x) vs.\ reasoning accuracy (y). Diamonds are \diylabel{}, circles are baselines; top-left is best. \textbf{\textit{Takeaway:}} \diylabel{} occupies the top-left corner on every model; baselines that match its bias level do so at substantially lower reasoning.}
 \label{fig:bias-reasoning-pareto}
 \end{figure}
 
@@ -362,7 +362,7 @@ We first test whether \diylabel{} transfers beyond the bias dimension used as th
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{figures/generalizability/pdf/generalizability_llama8b_bias_dimension_heatmap.pdf}
-\caption{Cross-dimension generalization on \llama{}-3.1-8B-Instruct in the gender-source setting. Rows are \diylabel{} configurations, columns are evaluation bias dimensions, and cells report the percentage reduction in bias score relative to the unmodified \baselabel{}. Positive values mean reduced bias on the held-out dimension. \textbf{\textit{Takeaway:}} bias reduction trained on gender carries over to other bias dimensions never seen during training.}
+\caption{Cross-dimension generalization on \llama{}-3.1-8B (gender-source). Cells report \% bias reduction over \baselabel{}; positive means reduced bias on a held-out dimension. \textbf{\textit{Takeaway:}} bias reduction trained on gender carries over to dimensions never seen during training.}
 \label{fig:generalization-bias-dim-llama8b}
 \end{figure}
 
@@ -450,21 +450,21 @@ Figures~\ref{fig:app-baseline-lollipop-llama8b}--\ref{fig:app-baseline-lollipop-
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/llama8b/pdf/baseline_comparison_lollipop.pdf}
-\caption{Per-benchmark baseline comparison on \llama{}-3.1-8B-Instruct. Each panel reports normalized bias score on one of the bias evaluation panels, with the five \diylabel{} configurations and the debiasing baselines on the y-axis. Lower is better. \textbf{\textit{Takeaway:}} on \llama{}-3.1-8B-Instruct, \diylabel{} configurations attain the lowest bias scores on most panels, with revision-based variants leading.}
+\caption{Per-benchmark baseline comparison on \llama{}-3.1-8B. Lower is better. \textbf{\textit{Takeaway:}} \diylabel{} configurations attain the lowest bias scores on most benchmarks, with revision-based variants leading.}
 \label{fig:app-baseline-lollipop-llama8b}
 \end{figure*}
 
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/llama70b/pdf/baseline_comparison_lollipop.pdf}
-\caption{Per-benchmark baseline comparison on \llama{}-3.1-70B-Instruct. Each panel reports normalized bias score on one of the bias evaluation panels, with the five \diylabel{} configurations and the debiasing baselines on the y-axis. Lower is better. \textbf{\textit{Takeaway:}} the pattern observed on \llama{}-3.1-8B holds at the larger scale, with \diylabel{} configurations remaining in the top tier of methods.}
+\caption{Per-benchmark baseline comparison on \llama{}-3.1-70B. Lower is better. \textbf{\textit{Takeaway:}} the \llama{}-3.1-8B pattern holds at the larger scale; \diylabel{} configurations remain in the top tier.}
 \label{fig:app-baseline-lollipop-llama70b}
 \end{figure*}
 
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/qwen/pdf/baseline_comparison_lollipop.pdf}
-\caption{Per-benchmark baseline comparison on \qwen{}-QwQ-32B. Each panel reports normalized bias score on one of the bias evaluation panels, with the five \diylabel{} configurations and the debiasing baselines on the y-axis. Lower is better. \textbf{\textit{Takeaway:}} the pattern observed on the \llama{} family transfers to a different architecture, with \diylabel{} configurations remaining among the strongest methods.}
+\caption{Per-benchmark baseline comparison on \qwen{}-QwQ-32B. Lower is better. \textbf{\textit{Takeaway:}} the \llama{} pattern transfers to a different architecture; \diylabel{} configurations remain among the strongest methods.}
 \label{fig:app-baseline-lollipop-qwen}
 \end{figure*}
 
@@ -476,14 +476,14 @@ Figures~\ref{fig:app-debiasing-shot-llama70b}--\ref{fig:app-debiasing-shot-qwen}
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/llama70b/pdf/debiasing_method_bars_by_shot_all_strategies_all_versions.pdf}
-\caption{Normalized bias scores on \llama{}-3.1-70B-Instruct across the five bias benchmarks (rows) and \diylabel{} configurations with shot variants (columns). Bias score is the absolute distance from the benchmark's unbiased point: $50$ for CrowS-Pairs and StereoSet, $0$ for BBQ, WinoBias, and WinoGender. Lower is better. \textbf{\textit{Takeaway:}} the pattern observed on \llama{}-3.1-8B holds at the larger scale, with revision-based configurations producing the lowest bias scores.}
+\caption{Normalized bias scores on \llama{}-3.1-70B across benchmarks (rows) and \diylabel{} configurations with shot variants (columns). Lower is better. \textbf{\textit{Takeaway:}} the \llama{}-3.1-8B pattern holds at the larger scale; revision-based configurations produce the lowest bias scores.}
 \label{fig:app-debiasing-shot-llama70b}
 \end{figure*}
 
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/qwen/pdf/debiasing_method_bars_by_shot_all_strategies_all_versions.pdf}
-\caption{Normalized bias scores on \qwen{}-QwQ-32B across the five bias benchmarks (rows) and \diylabel{} configurations with shot variants (columns). Bias score is the absolute distance from the benchmark's unbiased point: $50$ for CrowS-Pairs and StereoSet, $0$ for BBQ, WinoBias, and WinoGender. Lower is better. \textbf{\textit{Takeaway:}} the same revision-led ordering observed on the \llama{} family transfers to \qwen{}-QwQ-32B, indicating that the pattern is not architecture-specific.}
+\caption{Normalized bias scores on \qwen{}-QwQ-32B across benchmarks (rows) and \diylabel{} configurations with shot variants (columns). Lower is better. \textbf{\textit{Takeaway:}} the revision-led ordering on \llama{} transfers to \qwen{}-QwQ-32B; the pattern is not architecture-specific.}
 \label{fig:app-debiasing-shot-qwen}
 \end{figure*}
 
@@ -495,14 +495,14 @@ Figures~\ref{fig:app-reasoning-preservation-llama8b}--\ref{fig:app-reasoning-pre
 \begin{figure*}[p]
 \centering
 \includegraphics[width=0.78\textwidth]{figures/llama8b/pdf/reasoning_preservation_envelope.pdf}
-\caption{Reasoning accuracy on \llama{}-3.1-8B-Instruct for the three reasoning benchmarks (Balanced COPA, ARC-Challenge, ARC-Easy). The shaded envelope summarizes the debiasing baselines, with the outer band marking the min--max range and the inner band the interquartile range. Markers show the five \diylabel{} configurations. Higher is better. \textbf{\textit{Takeaway:}} \diylabel{} configurations remain at or above the unmodified \baselabel{} on every reasoning benchmark, with no systematic degradation from any added supervision component.}
+\caption{Reasoning accuracy on \llama{}-3.1-8B across Balanced COPA, ARC-Challenge, ARC-Easy. Shaded bands show the baseline min--max (outer) and IQR (inner). Higher is better. \textbf{\textit{Takeaway:}} every \diylabel{} configuration stays at or above \baselabel{}; no systematic reasoning degradation.}
 \label{fig:app-reasoning-preservation-llama8b}
 \end{figure*}
 
 \begin{figure*}[p]
 \centering
 \includegraphics[width=0.78\textwidth]{figures/llama70b/pdf/reasoning_preservation_envelope.pdf}
-\caption{Reasoning accuracy on \llama{}-3.1-70B-Instruct for the three reasoning benchmarks (Balanced COPA, ARC-Challenge, ARC-Easy). The shaded envelope summarizes the debiasing baselines, with the outer band marking the min--max range and the inner band the interquartile range. Markers show the five \diylabel{} configurations. Higher is better. \textbf{\textit{Takeaway:}} the reasoning preservation observed on the smaller \llama{} holds at the larger scale, with \diylabel{} configurations sitting near the top of the baseline envelope.}
+\caption{Reasoning accuracy on \llama{}-3.1-70B across Balanced COPA, ARC-Challenge, ARC-Easy. Shaded bands show the baseline min--max (outer) and IQR (inner). Higher is better. \textbf{\textit{Takeaway:}} reasoning preservation holds at the larger scale; \diylabel{} sits near the top of the baseline envelope.}
 \label{fig:app-reasoning-preservation-llama70b}
 \end{figure*}
 
