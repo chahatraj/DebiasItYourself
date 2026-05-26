@@ -325,7 +325,7 @@ Across the five \diylabel{} configurations, intervention-guided revision contrib
 \label{fig:reasoning-preservation-qwen}
 \end{figure*}
 
-\paragraph{Per-strategy bias mitigation.}
+\paragraph{Intervention Effectiveness.}
 Figure~\ref{fig:strategy-comparison-llama8b} (left panel) reports per-strategy bias mitigation on \llama{}-3.1-8B against the baseline envelope. All five cognitive strategies and the all-strategies aggregate sit at the high end of the baseline envelope, with bias mitigation values clustered tightly across strategies. Counter-stereotypic Imaging and Positive Contact are at the top of the cluster; Stereotype Replacement and the all-strategies aggregate are slightly behind but within the same band. The differences between strategies are small relative to the gap between any cognitive strategy and the unmodified \baselabel{}, indicating that mitigation comes from the cognitive framing as a whole rather than from one dominant strategy.
 
 \subsection{Reasoning Ability}
@@ -352,7 +352,7 @@ A central concern for any debiasing method is that bias reductions should not co
 \smash{\notebookpencil}~\textbf{Takeaway 4.} \diylabel{} sits on the favorable corner of the bias--reasoning frontier on every tested model: it matches the lowest-bias baselines without their reasoning collapse, supporting the claim that reducing bias as a behavior is compatible with preserving general task competence.
 \end{insightbox}
 
-\paragraph{Per-strategy reasoning.}
+\paragraph{Reasoning across interventions.}
 Figure~\ref{fig:strategy-comparison-llama8b} (middle panel) reports per-strategy reasoning accuracy on \llama{}-3.1-8B. Every strategy and the all-strategies aggregate land at or above the baseline median, with several strategies above the upper edge of the baseline IQR. Stereotype Replacement and Individuation reach the highest reasoning accuracy among the five, while Counter-stereotypic Imaging is the lowest of the strategies, though still inside the baseline envelope. No strategy degrades reasoning relative to the unmodified \baselabel{}, supporting the claim that bias mitigation through cognitive interventions does not come at the cost of general reasoning ability.
 
 \subsection{Generalization}
@@ -368,7 +368,7 @@ We first test whether \diylabel{} transfers beyond the bias dimension used as th
 \label{fig:generalization-bias-dim-llama8b}
 \end{figure}
 
-\paragraph{Per-strategy generalization.}
+\paragraph{Generalizability across interventions.}
 Figure~\ref{fig:strategy-comparison-llama8b} (right panel) reports per-strategy bias mitigation on held-out bias dimensions in the gender-source generalization setting. All five strategies and the all-strategies aggregate yield positive transfer, sitting at the upper end of the baseline envelope on the held-out dimensions. Positive Contact shows the strongest carry-over, followed by Counter-stereotypic Imaging, while Stereotype Replacement is the weakest of the five but still positive. The pattern indicates that cognitive interventions trained on one bias dimension reduce bias on dimensions never seen during training, with no strategy collapsing to negative transfer.
 
 \section{Conclusion}
