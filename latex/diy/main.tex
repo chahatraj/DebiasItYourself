@@ -445,6 +445,8 @@ Fine-tuning and inference run on a single-node multi-GPU configuration with NVID
 \section{Model-wise Baseline Comparison}
 \label{app:model-wise-baseline-comparison}
 
+Figures~\ref{fig:app-baseline-lollipop-llama8b}--\ref{fig:app-baseline-lollipop-qwen} extend the average-rank summary of Figure~\ref{fig:baseline-rank} into per-benchmark results for each of the three models. On \llama{}-3.1-8B-Instruct, \diytrainreviselabel{} and \diyreviselabel{} attain the lowest bias scores on most benchmarks, with \diytrainlabel{} alone yielding only modest reductions over \baselabel{}. On \llama{}-3.1-70B-Instruct, the same revision-led ordering holds, with \diylabel{} configurations remaining in the top tier of methods at the larger scale. On \qwen{}-QwQ-32B, the pattern transfers to a different architecture, with revision-based \diylabel{} configurations again among the strongest methods on most benchmarks. Some baselines (e.g., DebiasLLMs, BiasEdit) reach competitive bias scores on individual benchmarks, but their advantage is benchmark-specific rather than consistent across the suite.
+
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/llama8b/pdf/baseline_comparison_lollipop.pdf}
@@ -469,6 +471,8 @@ Fine-tuning and inference run on a single-node multi-GPU configuration with NVID
 \section{Model-wise DIY Configuration Comparison}
 \label{app:model-wise-diy-configuration-comparison}
 
+Figures~\ref{fig:app-debiasing-shot-llama70b}--\ref{fig:app-debiasing-shot-qwen} extend the per-configuration breakdown of Figure~\ref{fig:debiasing-shot-llama8b} to the larger and alternative-architecture models. On both \llama{}-3.1-70B-Instruct and \qwen{}-QwQ-32B, the revision-based \diylabel{} configurations (\diyreviselabel{} and \diytrainreviselabel{}) produce the lowest bias scores across most benchmarks, while \diytrainlabel{} alone yields smaller and less consistent reductions. \diyshowlabel{} remains competitive at zero-shot, with shot effects following the same technique-dependent pattern observed on the smaller \llama{}: revision benefits modestly from additional demonstrations, while training-based configurations are largely insensitive to shot count.
+
 \begin{figure*}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/llama70b/pdf/debiasing_method_bars_by_shot_all_strategies_all_versions.pdf}
@@ -485,6 +489,8 @@ Fine-tuning and inference run on a single-node multi-GPU configuration with NVID
 
 \section{Model-wise Reasoning Preservation}
 \label{app:model-wise-reasoning-preservation}
+
+Figures~\ref{fig:app-reasoning-preservation-llama8b}--\ref{fig:app-reasoning-preservation-llama70b} extend the reasoning-preservation analysis of Figure~\ref{fig:reasoning-preservation-qwen} to the two \llama{} models. On both, \diylabel{} configurations remain at or above the unmodified \baselabel{} on Balanced COPA, ARC-Challenge, and ARC-Easy, sitting near the top of the baseline envelope. The pattern is consistent with the \qwen{}-QwQ-32B result: supervising the model on intervention-guided behavior does not erode general reasoning, and on several configurations matches or exceeds the unmodified \baselabel{}. The only configuration that consistently dips below \baselabel{} is \diyshowlabel{} at $1$-shot on Balanced COPA, mirroring the demonstration-content failure mode noted in the main paper.
 
 \begin{figure*}[p]
 \centering
